@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='C:/Users/stern/AppData/Local/nvim/vimrc/plugins'
+let g:netrw_dirhist_1='C:/Users/stern/AppData/Local/nvim/vimrc'
+let g:netrw_dirhist_0='C:/Users/stern/AppData/Local/nvim/vimrc/plugins'
+let g:netrw_dirhist_9='C:/Users/stern/AppData/Local/nvim/vimrc'
+let g:netrw_dirhist_8='D:/www/xunlei/web_eco'
+let g:netrw_dirhist_7='C:/'
+let g:netrw_dirhist_6='C:/Users/stern/AppData/Local/nvim/vimrc'
+let g:netrw_dirhist_5='C:\Users\stern\AppData\Local\nvim\vimrc'
+let g:netrw_dirhist_4='D:/www/rust/guess_game'
+let g:netrw_dirhist_3='D:\www\rust\guess_game'
