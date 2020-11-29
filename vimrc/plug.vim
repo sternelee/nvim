@@ -50,7 +50,7 @@ call plug#begin('~/.vim/plugged')
 " let g:neosnippet#enable_completed_snippet = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
-Plug 'sbdchd/neoformat'
+" Plug 'sbdchd/neoformat'
 " Plug 'prettier/prettier'
 " Plug 'scrooloose/syntastic'
 " Plug 'rust-lang/rust.vim'
@@ -89,7 +89,7 @@ Plug 'terryma/vim-expand-region' "扩大缩小选择区域
 Plug 'easymotion/vim-easymotion' "基于字母的光标快速移动
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 Plug 'ryanoasis/vim-devicons' "显示文件图标
-Plug 'sheerun/vim-polyglot' "多语言的代码高亮集成包
+" Plug 'sheerun/vim-polyglot' "多语言的代码高亮集成包
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 " Plug 'nvim-treesitter/nvim-treesitter' "性能更好的语法高亮
@@ -117,7 +117,7 @@ Plug 'matze/vim-move' "代码块移动
 " Plug 'thaerkh/vim-workspace' "保留代码工作空间
 Plug 'alvan/vim-closetag' "自动闭合标签
 Plug 'luochen1990/rainbow' "彩虹符号匹配
-Plug 'ianva/vim-youdao-translater' "有道翻译
+" Plug 'ianva/vim-youdao-translater' "有道翻译
 "Plug 'vim-scripts/YankRing.vim' "yank工具
 Plug 'junegunn/vim-peekaboo' "查看历史的复制和删除的寄存器, @或\" 触发
 Plug 'tpope/vim-eunuch' "加强的文件编辑
@@ -146,9 +146,9 @@ let g:aerojump_keymaps = {
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'mzlogin/vim-markdown-toc'
-Plug 'hotoo/pangu.vim', {'for': 'markdown'}
-Plug 'junegunn/goyo.vim', {'for': 'markdown'} "专注模式
-Plug 'junegunn/limelight.vim', {'for': 'markdown'} "专注模式代码行块
+" Plug 'hotoo/pangu.vim', {'for': 'markdown'}
+" Plug 'junegunn/goyo.vim', {'for': 'markdown'} "专注模式
+" Plug 'junegunn/limelight.vim', {'for': 'markdown'} "专注模式代码行块
 " Plug 'gpanders/vim-medieval', {'for': 'markdown'}  "评估markdown代码块
 Plug 'jceb/vim-orgmode'
 let g:org_agenda_files = ['~/org/index.org']
@@ -163,16 +163,16 @@ Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
 Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
-Plug 'tommcdo/vim-exchange'
+" Plug 'tommcdo/vim-exchange'
 Plug 'brooth/far.vim' " 查找和替换
 " Plug 'andrewradev/linediff.vim' "行代码的对比
 " Plug 'valloric/matchtagalways'
 " Plug 'andymass/vim-matchup' " 高亮匹配语句
-Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代码点值和十六进制值
+" Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代码点值和十六进制值
 " Plug 'stefandtw/quickfix-reflector.vim'
 " Plug 'machakann/vim-swap' "交换参数, g>或g<
 Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 " Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Plug 'kana/vim-textobj-user'
 Plug 'voldikss/vim-floaterm'

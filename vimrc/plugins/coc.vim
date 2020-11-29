@@ -28,6 +28,7 @@ let g:coc_global_extensions = [
   \ 'coc-marketplace',
   \ 'coc-tsserver',
   \ 'coc-json',
+  \ 'coc-translator',
   \ 'coc-css',
   \ 'coc-emmet',
   \ 'coc-gitignore',
@@ -148,3 +149,7 @@ let g:rust_recommended_style = 0
 nnoremap <silent> <space>f  :<C-u>CocList files<cr>
 nnoremap <silent> <space>g  :<C-u>CocList grep<cr>
 nnoremap <silent> <space>b  :<C-u>CocList buffers<cr>
+
+" popup
+nmap <Leader>ct <Plug>(coc-translator-p)
+vmap <Leader>ct <Plug>(coc-translator-pv)
