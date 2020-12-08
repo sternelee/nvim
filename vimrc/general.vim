@@ -62,7 +62,7 @@ endf
 " 全屏开/关快捷键
 map <silent> <F11> :call ToggleFullscreen()<CR>
 "" 启动 vim 时自动全屏
-autocmd VimEnter * call ToggleFullscreen()
+" autocmd VimEnter * call ToggleFullscreen()
 set laststatus=2   " 总是显示状态栏
 set noshowcmd
 set ruler          " 显示光标当前位置

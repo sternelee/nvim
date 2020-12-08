@@ -56,15 +56,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'scrooloose/syntastic'
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
-Plug 'preservim/tagbar'
-nmap <F8> :TagbarToggle<CR>
+" Plug 'preservim/tagbar'
+" nmap <F8> :TagbarToggle<CR>
 
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 " Plug 'junegunn/fzf.vim' | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 Plug 'liuchengxu/vim-clap', { 'do': has('win32') ? 'cargo build --release' : 'make' }
-Plug 'wsdjeg/FlyGrep.vim'
+" Plug 'wsdjeg/FlyGrep.vim'
 Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
 " Plug 'yggdroot/leaderf' " 使用grep的rg时python内存占用过大且卡
 " 函数列表
@@ -73,7 +73,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
-Plug 'tpope/vim-fugitive', {'on': ['Gwrite', 'Gcommit', 'Gread', 'Gdiff', 'Gblame']}
+Plug 'tpope/vim-fugitive'
 \ | Plug 'rbong/vim-flog'
 \ | Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim' "状态栏显示
@@ -86,11 +86,13 @@ Plug 'rmolin88/pomodoro.vim', { 'on': 'PomodoroStart' } "番茄时钟
 " Plug 'kristijanhusak/defx-git'
 " Plug 'kristijanhusak/defx-icons'
 " 显示颜色 例如: #654456
-if has('nvim')
-    Plug 'norcalli/nvim-colorizer.lua'
-else
-    Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
-endif
+Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
+let g:Hexokinase_highlighters = ['foregroundfull']
+" if has('nvim')
+"     Plug 'norcalli/nvim-colorizer.lua'
+" else
+"     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
+" endif
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'konfekt/fastfold' "性能更好的语法折叠
 " 功能很强的折叠插件, zc zo
@@ -106,11 +108,12 @@ Plug 'easymotion/vim-easymotion', {'on':
    \ ]}     " 基于字母的光标快速移动
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 " 显示文件图标
-if has('nvim')
-    Plug 'kyazdani42/nvim-web-devicons'
-else
-    Plug 'ryanoasis/vim-devicons'
-endif
+Plug 'ryanoasis/vim-devicons'
+" if has('nvim')
+"     Plug 'kyazdani42/nvim-web-devicons'
+" else
+"     Plug 'ryanoasis/vim-devicons'
+" endif
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 " if has('nvim')
@@ -152,11 +155,11 @@ Plug 'alvan/vim-closetag' "自动闭合标签
 Plug 'luochen1990/rainbow' "彩虹符号匹配
 " Plug 'ianva/vim-youdao-translater' "有道翻译
 " 翻译插件
-Plug 'iamcco/dict.vim', {'on':
-    \ [
-    \ '<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch',
-    \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
-    \ ]}
+" Plug 'iamcco/dict.vim', {'on':
+"     \ [
+"     \ '<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch',
+"     \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
+"     \ ]}
 "Plug 'vim-scripts/YankRing.vim' "yank工具
 Plug 'junegunn/vim-peekaboo' "查看历史的复制和删除的寄存器, @或\" 触发
 Plug 'tpope/vim-eunuch', {'on': ['Mkdir', 'Rename', 'Unlink', 'Delete', 'Move', 'Chmod', 'Cfind', 'Clocate', 'Lfine', 'Llocate', 'SudoEdit', 'SudoWrite', 'Wall', 'W']} " 加强的目录和文件编辑
@@ -173,7 +176,7 @@ Plug 'editorconfig/editorconfig-vim'
 "Plug 'scrooloose/nerdcommenter' "快捷代码注释
 Plug 'tpope/vim-commentary' "快捷代码注释
 " 生成注释文档
-Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
+" Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
 Plug 'asins/vimcdoc' "中文文档计划
 " Plug 'jbgutierrez/vim-better-comments' "显示注释
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' } "快捷窗口选择-
@@ -203,7 +206,7 @@ let g:org_heading_shade_leading_stars = 1
 let g:org_todo_keywords = ['TODO', 'WIP', 'REVIEW', '|', 'DONE', 'CANCELLED']
 let g:org_indent = 1
 Plug 'uguu-org/vim-matrix-screensaver', {'on': 'Matrix'} "黑客帝国的屏保
-Plug 'metakirby5/codi.vim', {'on': 'Codi'} "代码执行预览
+" Plug 'metakirby5/codi.vim', {'on': 'Codi'} "代码执行预览
 Plug 'puremourning/vimspector' "可视化debug
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
@@ -214,7 +217,7 @@ Plug 'brooth/far.vim' " 全局替换插件
 " 关闭buffer而不关闭窗口
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " 平滑滚动
-Plug 'psliwka/vim-smoothie'
+" Plug 'psliwka/vim-smoothie'
 " 加强版的 go to file
 Plug 'tpope/vim-apathy'
 " 查看启动时间
@@ -242,16 +245,16 @@ Plug 'tpope/vim-sensible' "合适的默认配置
 Plug 'tpope/vim-unimpaired' "符号映射
 Plug 'tpope/vim-scriptease'
 " tmux相关插件
-if  executable("tmux") && strlen($TMUX)
-    " tmux与vim窗口间导航
-    Plug 'christoomey/vim-tmux-navigator'
-    " tmux.conf set -g focus-events on
-    Plug 'tmux-plugins/vim-tmux-focus-events'
-    " 在tmux和vim之间进行复制与粘贴
-    Plug 'roxma/vim-tmux-clipboard'
-    " tmux补全插件
-    Plug 'wellle/tmux-complete.vim'
-endif
+" if  executable("tmux") && strlen($TMUX)
+"     " tmux与vim窗口间导航
+"     Plug 'christoomey/vim-tmux-navigator'
+"     " tmux.conf set -g focus-events on
+"     Plug 'tmux-plugins/vim-tmux-focus-events'
+"     " 在tmux和vim之间进行复制与粘贴
+"     Plug 'roxma/vim-tmux-clipboard'
+"     " tmux补全插件
+"     Plug 'wellle/tmux-complete.vim'
+" endif
 
 " Initialize plugin system
 call plug#end()

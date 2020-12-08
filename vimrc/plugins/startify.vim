@@ -53,15 +53,15 @@ function! s:startify_mappings() abort
   nmap <silent><buffer> h :wincmd h<CR>
   nmap <silent><buffer> <Tab> :CocList project<CR>
 endfunction
-augroup startifyCustom
-  autocmd!
-  autocmd VimEnter *
-        \   if !argc()
-        \ |   call ExplorerStartify()
-        \ | endif
-  autocmd FileType startify call s:startify_mappings()
-  " on Enter
-  " autocmd User Startified nmap <silent><buffer> <CR> <plug>(startify-open-buffers):call ToggleCocExplorer()<CR>
-augroup END
+" augroup startifyCustom
+"   autocmd!
+"   autocmd VimEnter *
+"         \   if !argc()
+"         \ |   call ExplorerStartify()
+"         \ | endif
+"   autocmd FileType startify call s:startify_mappings()
+"   " on Enter
+"   " autocmd User Startified nmap <silent><buffer> <CR> <plug>(startify-open-buffers):call ToggleCocExplorer()<CR>
+" augroup END
 
 nnoremap <Leader>H :Startify<Cr>
