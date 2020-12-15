@@ -1,2 +1,2 @@
 " floaterm
-nnoremap <leader>ft :FloatermToggle<CR>
+" nnoremap <leader>ft :FloatermToggle<CR>

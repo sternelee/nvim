@@ -61,12 +61,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
-" Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
-" Plug 'junegunn/fzf.vim' | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
-Plug 'liuchengxu/vim-clap', { 'do': has('win32') ? 'cargo build --release' : 'make' }
-" Plug 'wsdjeg/FlyGrep.vim'
+Plug 'yggdroot/leaderf'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+Plug 'wsdjeg/FlyGrep.vim'
 Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
-" Plug 'yggdroot/leaderf' " 使用grep的rg时python内存占用过大且卡
 " 函数列表
 Plug 'liuchengxu/vista.vim'
 " Plug 'ludovicchabant/vim-gutentags'
@@ -86,13 +84,13 @@ Plug 'rmolin88/pomodoro.vim', { 'on': 'PomodoroStart' } "番茄时钟
 " Plug 'kristijanhusak/defx-git'
 " Plug 'kristijanhusak/defx-icons'
 " 显示颜色 例如: #654456
-Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
-let g:Hexokinase_highlighters = ['foregroundfull']
-" if has('nvim')
-"     Plug 'norcalli/nvim-colorizer.lua'
-" else
-"     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
-" endif
+" Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
+" let g:Hexokinase_highlighters = ['foregroundfull']
+if has('nvim')
+    Plug 'norcalli/nvim-colorizer.lua'
+else
+    Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
+endif
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'konfekt/fastfold' "性能更好的语法折叠
 " 功能很强的折叠插件, zc zo
@@ -232,7 +230,7 @@ Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
 " Plug 'vimwiki/vimwiki'
 " Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Plug 'kana/vim-textobj-user'
-Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']} " 悬浮终端
+" Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']} " 悬浮终端
 " Plug 'danilamihailov/beacon.nvim' "看到你的跳转
 " Plug 'lifepillar/vim-mucomplete' "链式的极简自动完成
 Plug 'chrisbra/NrrwRgn' "专注于选定区域，而使其余区域无法访问,选择区域后:NR

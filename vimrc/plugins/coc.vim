@@ -4,7 +4,7 @@ let g:coc_start_at_startup=0
 function! CocTimerStart(timer)
     exec "CocStart"
 endfunction
-call timer_start(500,'CocTimerStart',{'repeat':1})
+call timer_start(1000,'CocTimerStart',{'repeat':1})
 
 let g:trigger_size = 0.5 * 1048576
 
@@ -146,9 +146,9 @@ autocmd FileType markdown let b:coc_pairs_disabled = ['`']
 
 let g:rust_recommended_style = 0
 
-nnoremap <silent> <space>f  :<C-u>CocList files<cr>
-nnoremap <silent> <space>g  :<C-u>CocList grep<cr>
-nnoremap <silent> <space>b  :<C-u>CocList buffers<cr>
+" nnoremap <silent> <space>cf  :<C-u>CocList files<cr>
+" nnoremap <silent> <space>cg  :<C-u>CocList grep<cr>
+" nnoremap <silent> <space>cb  :<C-u>CocList buffers<cr>
 
 " popup
 nmap <Leader>ct <Plug>(coc-translator-p)

@@ -1,54 +1,54 @@
-"let g:Lf_WindowPosition = 'popup'
-"let g:Lf_PreviewInPopup = 1
-"let g:Lf_ShortcutF = '<A-z>`````ff'
-"let g:Lf_ShortcutB = '<A-z>`````ff'
-"let g:Lf_WindowHeight = 0.4
-"let g:Lf_ShowRelativePath = 0
-"let g:Lf_CursorBlink = 1
-"let g:Lf_CacheDirectory = expand('~/.cache/vim/leaderf')
-"let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-"let g:Lf_RootMarkers = ['.git', '.hg', '.svn', '.vscode']
-"let g:Lf_ShowHidden = 1
-"let g:Lf_ReverseOrder = 1
-"let g:Lf_PreviewInPopup = 1
-"let g:Lf_PreviewHorizontalPosition = 'center'
-"let g:Lf_PreviewResult = {
-"      \ 'File': 0,
-"      \ 'Buffer': 0,
-"      \ 'Mru': 0,
-"      \ 'Tag': 0,
-"      \ 'BufTag': 0,
-"      \ 'Function': 0,
-"      \ 'Line': 0,
-"      \ 'Colorscheme': 0,
-"      \ 'Rg': 0,
-"      \ 'Gtags': 0
-"      \}
-"let g:Lf_WildIgnore = {
-"      \ 'dir': ['.svn','.git','.hg', '.vscode'],
-"      \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
-"      \}
-"let g:Lf_RgConfig = [
-"      \ '--glob=!\.git/*',
-"      \ '--glob=!\.vscode/*',
-"      \ '--glob=!dist/*',
-"      \ '--glob=!\.svn/*',
-"      \ '--glob=!\.hg/*',
-"      \ '--case-sensitive',
-"      \ has('win32') ? '--crlf' : '--no-crlf',
-"      \ '--multiline',
-"      \ '--hidden'
-"      \ ]
-"map <leader>f :LeaderfFile<CR>
-"map <leader>lu :LeaderfFunction<CR>
-"map <leader>b :LeaderfBuffer<CR>
-"map <leader>g :Leaderf rg<CR>
-"map <leader>lc :LeaderfColorscheme<CR>
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_ShortcutF = '<A-z>`````ff'
+let g:Lf_ShortcutB = '<A-z>`````ff'
+let g:Lf_WindowHeight = 0.4
+let g:Lf_ShowRelativePath = 0
+let g:Lf_CursorBlink = 1
+let g:Lf_CacheDirectory = expand('~/.cache/vim/leaderf')
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+let g:Lf_RootMarkers = ['.git', '.hg', '.svn', '.vscode']
+let g:Lf_ShowHidden = 1
+let g:Lf_ReverseOrder = 1
+let g:Lf_PreviewInPopup = 1
+let g:Lf_PreviewHorizontalPosition = 'center'
+let g:Lf_PreviewResult = {
+      \ 'File': 0,
+      \ 'Buffer': 0,
+      \ 'Mru': 0,
+      \ 'Tag': 0,
+      \ 'BufTag': 0,
+      \ 'Function': 0,
+      \ 'Line': 0,
+      \ 'Colorscheme': 0,
+      \ 'Rg': 0,
+      \ 'Gtags': 0
+      \}
+let g:Lf_WildIgnore = {
+      \ 'dir': ['.svn','.git','.hg', '.vscode', 'node_modules'],
+      \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+      \}
+let g:Lf_RgConfig = [
+      \ '--glob=!\.git/*',
+      \ '--glob=!\.vscode/*',
+      \ '--glob=!dist/*',
+      \ '--glob=!\.svn/*',
+      \ '--glob=!\.hg/*',
+      \ '--case-sensitive',
+      \ has('win32') ? '--crlf' : '--no-crlf',
+      \ '--multiline',
+      \ '--hidden'
+      \ ]
+map <leader>f :LeaderfFile<CR>
+map <leader>lu :LeaderfFunction<CR>
+map <leader>b :LeaderfBuffer<CR>
+map <leader>g :Leaderf rg<CR>
+map <leader>lc :LeaderfColorscheme<CR>
 "" map <leader>gg :Leaderf gtags<CR>
 
 "" search word under cursor, the pattern is treated as regex, and enter normal mode directly
 ""noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
-"noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
 "" search wxnoremapnoremaord under cureat as regex,
 "" append the result to previous search results.
