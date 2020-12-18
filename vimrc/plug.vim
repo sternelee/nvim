@@ -61,9 +61,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 Plug 'yggdroot/leaderf'
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-Plug 'wsdjeg/FlyGrep.vim'
+" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+" Plug 'wsdjeg/FlyGrep.vim'
 Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
 " 函数列表
 Plug 'liuchengxu/vista.vim'
@@ -107,15 +109,18 @@ Plug 'easymotion/vim-easymotion', {'on':
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
+" Plug 'kyazdani42/nvim-web-devicons'
 " if has('nvim')
 "     Plug 'kyazdani42/nvim-web-devicons'
 " else
 "     Plug 'ryanoasis/vim-devicons'
 " endif
+Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 " if has('nvim')
-"     Plug 'nvim-treesitter/nvim-treesitter' " 性能更好的语法高亮
+"     Plug 'nvim-treesitter/nvim-treesitter' "
+"     性能更好的语法高亮,需要night版本
 "     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 "     Plug 'nvim-treesitter/nvim-treesitter-refactor'
 "     Plug 'nvim-treesitter/playground'
@@ -239,7 +244,7 @@ let g:nrrw_rgn_nomap_Nr = 1
 " Plug 'inkarkat/vim-SyntaxRange'
 " 数据库
 " Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
-Plug 'tpope/vim-sensible' "合适的默认配置
+" Plug 'tpope/vim-sensible' "合适的默认配置
 Plug 'tpope/vim-unimpaired' "符号映射
 Plug 'tpope/vim-scriptease'
 " tmux相关插件

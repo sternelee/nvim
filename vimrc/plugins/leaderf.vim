@@ -12,6 +12,8 @@ let g:Lf_ShowHidden = 1
 let g:Lf_ReverseOrder = 1
 let g:Lf_PreviewInPopup = 1
 let g:Lf_PreviewHorizontalPosition = 'center'
+" let g:Lf_StlColorscheme = 'gruvbox_material'
+" let g:Lf_PopupColorscheme = 'gruvbox_material'
 let g:Lf_PreviewResult = {
       \ 'File': 0,
       \ 'Buffer': 0,
@@ -32,6 +34,7 @@ let g:Lf_RgConfig = [
       \ '--glob=!\.git/*',
       \ '--glob=!\.vscode/*',
       \ '--glob=!dist/*',
+      \ '--glob=!node_modules/*',
       \ '--glob=!\.svn/*',
       \ '--glob=!\.hg/*',
       \ '--case-sensitive',
@@ -40,14 +43,13 @@ let g:Lf_RgConfig = [
       \ '--hidden'
       \ ]
 map <leader>f :LeaderfFile<CR>
-map <leader>lu :LeaderfFunction<CR>
+map <leader>fu :LeaderfFunction<CR>
 map <leader>b :LeaderfBuffer<CR>
 map <leader>g :Leaderf rg<CR>
 map <leader>lc :LeaderfColorscheme<CR>
-"" map <leader>gg :Leaderf gtags<CR>
+" map <leader>gg :Leaderf gtags<CR>
 
 "" search word under cursor, the pattern is treated as regex, and enter normal mode directly
-""noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
 "" search wxnoremapnoremaord under cureat as regex,
@@ -64,7 +66,7 @@ noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 ""xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
 
 "" recall last search. If the result window is closed, reopen it.
-"noremap <leader>fo :<C-U>Leaderf! rg --recall<CR>
+noremap <leader>fo :<C-U>Leaderf! rg --recall<CR>
 
 
 "" search word under cursor in *.h and *.cpp files.
