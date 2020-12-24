@@ -149,7 +149,7 @@ let g:rust_recommended_style = 0
 " nnoremap <silent> <space>cf  :<C-u>CocList files<cr>
 " nnoremap <silent> <space>cg  :<C-u>CocList grep<cr>
 " nnoremap <silent> <space>cb  :<C-u>CocList buffers<cr>
-
+command! -nargs=0 Format :CocCommand prettier.formatFile
 " popup
 nmap <Leader>ct <Plug>(coc-translator-p)
 vmap <Leader>ct <Plug>(coc-translator-pv)

@@ -176,8 +176,8 @@ Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
 " Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
 " Plug 'nicwest/vim-http', {'on': 'Http'} "配置http请求
-"Plug 'scrooloose/nerdcommenter' "快捷代码注释
-Plug 'tpope/vim-commentary' "快捷代码注释
+Plug 'scrooloose/nerdcommenter' "快捷代码注释
+" Plug 'tpope/vim-commentary' "快捷代码注释
 " 生成注释文档
 " Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
 Plug 'asins/vimcdoc' "中文文档计划
@@ -202,12 +202,12 @@ Plug 'hotoo/pangu.vim', {'for': 'markdown'}
 " Plug 'gpanders/vim-medieval', {'for': 'markdown'}  "评估markdown代码块
 " 语法检查
 Plug 'rhysd/vim-grammarous', {'for': ['markdown', 'vimwiki', 'md', 'tex']}
-Plug 'jceb/vim-orgmode'
-let g:org_agenda_files = ['~/org/index.org']
-let g:org_aggressive_conceal = 1
-let g:org_heading_shade_leading_stars = 1
-let g:org_todo_keywords = ['TODO', 'WIP', 'REVIEW', '|', 'DONE', 'CANCELLED']
-let g:org_indent = 1
+" Plug 'jceb/vim-orgmode'
+" let g:org_agenda_files = ['~/org/index.org']
+" let g:org_aggressive_conceal = 1
+" let g:org_heading_shade_leading_stars = 1
+" let g:org_todo_keywords = ['TODO', 'WIP', 'REVIEW', '|', 'DONE', 'CANCELLED']
+" let g:org_indent = 1
 Plug 'uguu-org/vim-matrix-screensaver', {'on': 'Matrix'} "黑客帝国的屏保
 " Plug 'metakirby5/codi.vim', {'on': 'Codi'} "代码执行预览
 Plug 'puremourning/vimspector' "可视化debug
@@ -231,7 +231,7 @@ Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 " Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代码点值和十六进制值
 " Plug 'stefandtw/quickfix-reflector.vim'
 " Plug 'machakann/vim-swap' "交换参数, g>或g<
-Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
+" Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
 " Plug 'vimwiki/vimwiki'
 " Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Plug 'kana/vim-textobj-user'

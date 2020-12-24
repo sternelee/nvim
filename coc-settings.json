@@ -134,7 +134,7 @@
   "highlight.colors.enable": false,
   "highlight.disableLanguages": [],
   // Eslint
-  "eslint.enable": true,
+  "eslint.enable": false,
   //emmet
   "emmet.includeLanguages": {
     "vue-html": "html",
