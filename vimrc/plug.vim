@@ -8,47 +8,6 @@
 
 call plug#begin('~/.vim/plugged')
 
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"   Plug 'shougo/vimproc.vim' "windows需要同时dll文件到插件目录下
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" let g:deoplete#enable_at_startup = 1
-" Plug 'Shougo/neco-syntax'
-" Plug 'quramy/tsuquyomi'
-" let g:tsuquyomi_completion_detail = 1
-" Plug 'mhartington/nvim-typescript' " windows 不支持
-" Plug 'runoshun/tscompletejob'
-" if has('win32') || has('win64')
-"   Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
-"   "tabnine 占用内存太大
-"   Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'powershell.exe .\install.ps1',
-"     \ }
-" else
-"   Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-"   Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-" endif
-
-" note that if you are using Plug mapping you should not use `noremap` mappings.
-" nmap <F5> <Plug>(lcn-menu)
-" " Or map each action separately
-" nmap <silent>K <Plug>(lcn-hover)
-" nmap <silent> gd <Plug>(lcn-definition)
-" nmap <silent> <F2> <Plug>(lcn-rename)
-" Plug 'Shougo/denite.nvim'
-" Plug 'sebastianmarkow/deoplete-rust'
-" Plug 'wokalski/autocomplete-flow'
-" " For func argument completion
-" Plug 'Shougo/neosnippet'| Plug 'Shougo/neosnippet-snippets'
-" let g:neosnippet#enable_completed_snippet = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
 " Plug 'sbdchd/neoformat'
@@ -64,7 +23,7 @@ Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim'
 Plug 'yggdroot/leaderf'
-" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " Plug 'wsdjeg/FlyGrep.vim'
 Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
 " 函数列表
