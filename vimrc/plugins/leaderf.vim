@@ -42,10 +42,10 @@ let g:Lf_RgConfig = [
       \ '--multiline',
       \ '--hidden'
       \ ]
-map <leader>f :LeaderfFile<CR>
+map <leader>lf :LeaderfFile<CR>
 map <leader>fu :LeaderfFunction<CR>
-map <leader>b :LeaderfBuffer<CR>
-map <leader>g :Leaderf rg<CR>
+map <leader>lb :LeaderfBuffer<CR>
+map <leader>lg :Leaderf rg<CR>
 map <leader>lc :LeaderfColorscheme<CR>
 " map <leader>gg :Leaderf gtags<CR>
 

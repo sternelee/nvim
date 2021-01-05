@@ -15,13 +15,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'scrooloose/syntastic'
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
-" Plug 'preservim/tagbar'
-" nmap <F8> :TagbarToggle<CR>
+Plug 'preservim/tagbar'
+nmap <F8> :TagbarToggle<CR>
 
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf.vim' " needed for previews
+" Plug 'antoinemadec/coc-fzf'
 Plug 'yggdroot/leaderf'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " Plug 'wsdjeg/FlyGrep.vim'
@@ -135,8 +136,8 @@ Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
 " Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
 " Plug 'nicwest/vim-http', {'on': 'Http'} "配置http请求
-Plug 'scrooloose/nerdcommenter' "快捷代码注释
-" Plug 'tpope/vim-commentary' "快捷代码注释
+" Plug 'scrooloose/nerdcommenter' "快捷代码注释
+Plug 'tpope/vim-commentary' "快捷代码注释
 " 生成注释文档
 " Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
 Plug 'asins/vimcdoc' "中文文档计划
@@ -220,6 +221,8 @@ Plug 'tpope/vim-scriptease'
 
 " Initialize plugin system
 call plug#end()
+
+" autocmd VimEnter * PlugClean! | PlugUpdate --sync
 
 filetype plugin indent on  " 根据侦测到的不同类型加载对应的插件
 set completeopt=longest,preview,menu " 代码补全
