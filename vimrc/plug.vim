@@ -23,7 +23,6 @@ Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim' " needed for previews
 " Plug 'antoinemadec/coc-fzf'
-Plug 'yggdroot/leaderf'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " Plug 'wsdjeg/FlyGrep.vim'
 Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
@@ -42,16 +41,14 @@ Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
 Plug 'albertomontesg/lightline-asyncrun'
 Plug 'rmolin88/pomodoro.vim', { 'on': 'PomodoroStart' } "番茄时钟
-" Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'kristijanhusak/defx-git'
-" Plug 'kristijanhusak/defx-icons'
-" 显示颜色 例如: #654456
-" Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
-" let g:Hexokinase_highlighters = ['foregroundfull']
-if has('nvim')
-    Plug 'norcalli/nvim-colorizer.lua'
-else
+if has('gui_running')
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
+    let g:Hexokinase_highlighters = ['foregroundfull']
+else
+    Plug 'norcalli/nvim-colorizer.lua'
+    " 依赖python,在gvim下有问题
+    Plug 'yggdroot/leaderf'
+    Plug 'puremourning/vimspector' "可视化debug
 endif
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'konfekt/fastfold' "性能更好的语法折叠
@@ -69,7 +66,6 @@ Plug 'easymotion/vim-easymotion', {'on':
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
-" Plug 'kyazdani42/nvim-web-devicons'
 " if has('nvim')
 "     Plug 'kyazdani42/nvim-web-devicons'
 " else
@@ -99,12 +95,11 @@ Plug 'heavenshell/vim-jsdoc', {
 Plug 'herringtondarkholme/yats.vim', { 'for': ['javascript','typescript', 'typescript-tsx'] } "typescript语法高亮
 Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript-jsx', 'typescript-tsx'] } "高亮jsx结构
 Plug 'chemzqm/vim-jsx-improve', { 'for': ['javascript-jsx', 'typescript-tsx'] } "jsx语法缩进
-" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'janko-m/vim-test' "测试工具
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " Plug 'terryma/vim-multiple-cursors'
-" Plug 'liuchengxu/space-vim-dark'
 " Plug 'ayu-theme/ayu-vim'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'jiangmiao/auto-pairs' "符号补全
@@ -113,21 +108,14 @@ Plug 'matze/vim-move', {'on': [
   \ '<Plug>MoveBlockUp',
   \ '<Plug>MoveBlockRight',
   \ '<Plug>MoveBlockLeft']}   " 代码块移动
-" Plug 'thaerkh/vim-workspace' "保留代码工作空间
 Plug 'alvan/vim-closetag' "自动闭合标签
 Plug 'luochen1990/rainbow' "彩虹符号匹配
 " Plug 'ianva/vim-youdao-translater' "有道翻译
-" 翻译插件
-" Plug 'iamcco/dict.vim', {'on':
-"     \ [
-"     \ '<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch',
-"     \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
-"     \ ]}
 "Plug 'vim-scripts/YankRing.vim' "yank工具
 Plug 'junegunn/vim-peekaboo' "查看历史的复制和删除的寄存器, @或\" 触发
-Plug 'tpope/vim-eunuch', {'on': ['Mkdir', 'Rename', 'Unlink', 'Delete', 'Move', 'Chmod', 'Cfind', 'Clocate', 'Lfine', 'Llocate', 'SudoEdit', 'SudoWrite', 'Wall', 'W']} " 加强的目录和文件编辑
+Plug 'tpope/vim-eunuch' " 加强的目录和文件编辑
 " 最大化窗口，ctrl w o
-Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
+Plug 'troydm/zoomwintab.vim'
 Plug 'tpope/vim-repeat' "重复命令操作
 Plug 'ntpeters/vim-better-whitespace' "显示多余空格
 Plug 'mhinz/vim-startify' "启动界面预览
@@ -170,7 +158,6 @@ Plug 'rhysd/vim-grammarous', {'for': ['markdown', 'vimwiki', 'md', 'tex']}
 " let g:org_indent = 1
 Plug 'uguu-org/vim-matrix-screensaver', {'on': 'Matrix'} "黑客帝国的屏保
 " Plug 'metakirby5/codi.vim', {'on': 'Codi'} "代码执行预览
-Plug 'puremourning/vimspector' "可视化debug
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
 Plug 'christoomey/vim-conflicted'

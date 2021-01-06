@@ -15,6 +15,9 @@ nmap tu :syntax sync fromstart<cr>
 " 2. 初始配置
 
 " let g:python3_host_prog=" 建议使用scoop install -g python
+" if has('gui_running')
+"   let g:python3_host_prog='C:/ProgramData/scoop/apps/python36/current'
+" endif
 
 " let g:python_host_prog='C:/Python27'
 " let g:python3_host_prog='C:/Users/stern/AppData/Local/Programs/Python/Python38-32'
@@ -155,8 +158,11 @@ endfor
 
 if has('nvim')
     set inccommand=split
+    set guifont=Iosevka:h16
+    let s:fontname='Iosevka'
   else
-    set guifont=Iosevka:h16:cANSI
+    set guifont=Iosevka_NF:h16:W300:cANSI:qDRAFT
+    let s:fontname='Iosevka_NF'
 endif
 
 if has('nvim') || has('termguicolors')
@@ -165,10 +171,8 @@ endif
 
 " gvim可使用 :set guifont=* 来选择字体 Operator Mono Lig 三号
 
-set guifont=Iosevka:h16
 " set guifont=Operator_Mono_Lig_Light:h18
 let s:fontsize = 14
-let s:fontname='Iosevka'
 " let s:fontname='Operator Mono Lig Light'
 " let g:Powerline_symbols='unicode'
 " 改变字体大小
