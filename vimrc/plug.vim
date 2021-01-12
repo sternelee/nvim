@@ -5,18 +5,17 @@
 " 参考: https://github.com/phaazon/config/tree/master/nvim
 " 参考：https://github.com/sainnhe/dotfiles
 " 参考：https://github.com/sternelee/vime
+" 插件推荐: https://blog.csdn.net/weixin_31468621/article/details/112422509
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'w0rp/ale' " 语法检测
+Plug 'w0rp/ale' " 语法检测
 " Plug 'sbdchd/neoformat'
 " Plug 'prettier/prettier'
 " Plug 'scrooloose/syntastic'
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
-Plug 'preservim/tagbar'
-nmap <F8> :TagbarToggle<CR>
 
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
@@ -27,6 +26,8 @@ Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " Plug 'wsdjeg/FlyGrep.vim'
 Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
 " 函数列表
+Plug 'preservim/tagbar'
+nmap <F8> :TagbarToggle<CR>
 Plug 'liuchengxu/vista.vim'
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
@@ -49,6 +50,7 @@ else
     " 依赖python,在gvim下有问题
     Plug 'yggdroot/leaderf'
     Plug 'puremourning/vimspector' "可视化debug
+    Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
 endif
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'konfekt/fastfold' "性能更好的语法折叠
@@ -92,8 +94,7 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
   \}
-Plug 'herringtondarkholme/yats.vim', { 'for': ['javascript','typescript', 'typescript-tsx'] } "typescript语法高亮
-Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript-jsx', 'typescript-tsx'] } "高亮jsx结构
+" Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript-jsx', 'typescript-tsx'] } "高亮jsx结构
 Plug 'chemzqm/vim-jsx-improve', { 'for': ['javascript-jsx', 'typescript-tsx'] } "jsx语法缩进
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'janko-m/vim-test' "测试工具
@@ -122,7 +123,7 @@ Plug 'mhinz/vim-startify' "启动界面预览
 Plug 'yggdroot/indentline' "配置显示缩进对齐线
 Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
+Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
 " Plug 'nicwest/vim-http', {'on': 'Http'} "配置http请求
 " Plug 'scrooloose/nerdcommenter' "快捷代码注释
 Plug 'tpope/vim-commentary' "快捷代码注释
@@ -164,10 +165,18 @@ Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'tommcdo/vim-exchange'
 Plug 'brooth/far.vim' " 全局替换插件
+Plug 'neomake/neomake'
+Plug 'tracyone/neomake-multiprocess'
+"autodetect the existence of commands and select the faster one(rg > ag > grep)
+let g:neomakemp_grep_command = "rg"
+"following is default value
+let g:neomakemp_exclude_files=['*.jpg', '*.png', '*.min.js', '*.swp', '*.pyc','*.out','*.o']
+let g:neomakemp_exclude_dirs=[ '.git', 'bin', 'log', 'build', 'node_modules', '.bundle', '.tmp','.svn' ]
+Plug 'ronakg/quickr-preview.vim'
 " 关闭buffer而不关闭窗口
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " 平滑滚动
-" Plug 'psliwka/vim-smoothie'
+Plug 'psliwka/vim-smoothie'
 " 加强版的 go to file
 Plug 'tpope/vim-apathy'
 " 查看启动时间
@@ -178,7 +187,6 @@ Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 " Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代码点值和十六进制值
 " Plug 'stefandtw/quickfix-reflector.vim'
 " Plug 'machakann/vim-swap' "交换参数, g>或g<
-" Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
 " Plug 'vimwiki/vimwiki'
 " Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Plug 'kana/vim-textobj-user'
@@ -195,18 +203,17 @@ let g:nrrw_rgn_nomap_Nr = 1
 Plug 'tpope/vim-unimpaired' "符号映射
 Plug 'tpope/vim-scriptease'
 " tmux相关插件
-" if  executable("tmux") && strlen($TMUX)
-"     " tmux与vim窗口间导航
-"     Plug 'christoomey/vim-tmux-navigator'
-"     " tmux.conf set -g focus-events on
-"     Plug 'tmux-plugins/vim-tmux-focus-events'
-"     " 在tmux和vim之间进行复制与粘贴
-"     Plug 'roxma/vim-tmux-clipboard'
-"     " tmux补全插件
-"     Plug 'wellle/tmux-complete.vim'
-" endif
+if executable("tmux") && strlen($TMUX)
+    " tmux与vim窗口间导航
+    Plug 'christoomey/vim-tmux-navigator'
+    " tmux.conf set -g focus-events on
+    Plug 'tmux-plugins/vim-tmux-focus-events'
+    " 在tmux和vim之间进行复制与粘贴
+    Plug 'roxma/vim-tmux-clipboard'
+    " tmux补全插件
+    Plug 'wellle/tmux-complete.vim'
+endif
 
-" Initialize plugin system
 call plug#end()
 
 " autocmd VimEnter * PlugClean! | PlugUpdate --sync

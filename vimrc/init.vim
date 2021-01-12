@@ -25,7 +25,7 @@ endfunction
 
 augroup MyAutoCmd
 	autocmd!
-	autocmd CursorHold *? syntax sync minlines=300
+	autocmd CursorHold *? syntax sync minlines=256
 augroup END
 
 syntax enable

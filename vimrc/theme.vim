@@ -9,6 +9,7 @@ if has('termguicolors')
 endif
 
 colorscheme challenger_deep
+" colorscheme cyberpunk-neon
 hi Comment cterm=italic
 
 highlight Comment cterm=italic gui=italic

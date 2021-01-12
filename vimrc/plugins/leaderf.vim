@@ -10,7 +10,6 @@ let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_RootMarkers = ['.git', '.hg', '.svn', '.vscode']
 let g:Lf_ShowHidden = 1
 let g:Lf_ReverseOrder = 1
-let g:Lf_PreviewInPopup = 1
 let g:Lf_PreviewHorizontalPosition = 'center'
 " let g:Lf_StlColorscheme = 'gruvbox_material'
 " let g:Lf_PopupColorscheme = 'gruvbox_material'
@@ -27,7 +26,7 @@ let g:Lf_PreviewResult = {
       \ 'Gtags': 0
       \}
 let g:Lf_WildIgnore = {
-      \ 'dir': ['.svn','.git','.hg', '.vscode', 'node_modules'],
+      \ 'dir': ['.svn','.git','.hg', '.vscode', 'node_modules', 'dist'],
       \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
       \}
 let g:Lf_RgConfig = [
@@ -42,10 +41,10 @@ let g:Lf_RgConfig = [
       \ '--multiline',
       \ '--hidden'
       \ ]
-map <leader>lf :LeaderfFile<CR>
-map <leader>fu :LeaderfFunction<CR>
-map <leader>lb :LeaderfBuffer<CR>
-map <leader>lg :Leaderf rg<CR>
+map <leader>f :LeaderfFile<CR>
+map <leader>u :LeaderfFunction<CR>
+map <leader>b :LeaderfBuffer<CR>
+map <leader>g :Leaderf rg<CR>
 map <leader>lc :LeaderfColorscheme<CR>
 " map <leader>gg :Leaderf gtags<CR>
 

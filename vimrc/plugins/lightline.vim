@@ -4,7 +4,7 @@ let g:lightline = {
       \   'left': [ ['homemode'], ['method'],
       \             ['gitbranch', 'gitgutter'],['cocerror'],['cocwarn']],
       \   'right':[ ['lineinfo'],
-      \             ['percent'], ['fileformat','fileencoding'] , ['asyncrun_status']],
+      \             ['percent'], ['fileformat','fileencoding'] , ['asyncrun_status'], ['neomake_status']],
       \ },
       \ 'inactive': {
       \   'left': [['homemode'], ['gitbranch'], ['gitgutter']],
@@ -22,6 +22,7 @@ let g:lightline = {
       \   'cocerror': 'LightLineCocError',
       \   'cocwarn' : 'LightLineCocWarn',
       \   'asyncrun_status': 'lightline#asyncrun#status',
+      \   'neomake_status': 'neomakemp#run_status()'
       \ },
       \ 'component_function': {
       \   'homemode': 'LightlineMode',
@@ -179,3 +180,4 @@ nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+

@@ -15,7 +15,7 @@
 "   \ 'marker':  ['fg', 'Keyword'],
 "   \ 'spinner': ['fg', 'Label'],
 "   \ 'header':  ['fg', 'Comment'] }
-
+" let g:fzf_preview_window = ['bat --style=numbers --color=always --line-range :500 {}']
 "let g:fzf_commits_log_options = '--graph --color=always
 "  \ --format="%C(yellow)%h%C(red)%d%C(reset)
 "  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'

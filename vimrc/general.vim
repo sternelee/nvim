@@ -2,13 +2,6 @@
 " https://github.com/neovim/neovim/wiki/Related-projects#gui
 " windows 推荐使用Nvy
 " 1. 初始化
-augroup MyAutoCmd
-	autocmd!
-	autocmd CursorHold *? syntax sync minlines=300
-augroup END
-
-syntax enable
-
 "map syntax sync fromstart
 nmap tu :syntax sync fromstart<cr>
 
@@ -19,11 +12,10 @@ nmap tu :syntax sync fromstart<cr>
 "   let g:python3_host_prog='C:/ProgramData/scoop/apps/python36/current'
 " endif
 
-" let g:python_host_prog='C:/Python27'
-" let g:python3_host_prog='C:/Users/stern/AppData/Local/Programs/Python/Python38-32'
-" let g:loaded_python_provider = 0
-" let g:loaded_python3_provider = 0
-" set pyx=3
+let g:python_host_skip_check=1
+" let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_skip_check=1
+let g:python3_host_prog = 'C:\ProgramData\scoop\shims\python3.EXE'
 
 "更新配置 :so $MYVIMRC
 "设置默认编码
@@ -84,7 +76,7 @@ set nowrap " 禁止折行
 syntax enable " 开启语法高亮功能
 set synmaxcol=256 " 高亮限制前x列
 syntax on     " 允许用指定语法高亮配色方案替换默认方案
-syntax sync minlines=256
+" syntax sync minlines=256
 autocmd BufEnter * :syn sync maxlines=500
 syntax sync fromstart
 set redrawtime=2000
@@ -158,7 +150,7 @@ endfor
 
 if has('nvim')
     set inccommand=split
-    set guifont=Iosevka:h16
+    set guifont=Iosevka:h18
     let s:fontname='Iosevka'
   else
     set guifont=Iosevka_NF:h16:W300:cANSI:qDRAFT
@@ -207,3 +199,4 @@ autocmd syntax *
 
 let g:neovide_fullscreen=v:true
 let g:neovide_cursor_vfx_mode = "sonicboom"
+let g:neovide_cursor_antialiasing=v:true
