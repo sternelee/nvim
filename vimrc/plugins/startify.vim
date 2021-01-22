@@ -9,12 +9,12 @@ let g:startify_fortune_use_unicode = 1 " beautiful symbols
 let g:startify_padding_left = 3 " the number of spaces used for left padding
 let g:startify_session_remove_lines = ['setlocal', 'winheight'] " lines matching any of the patterns in this list, will be removed from the session file
 let g:startify_session_sort = 1 " sort sessions by alphabet or modification time
-let g:startify_custom_indices = ['1', '2', '3', '4', '5', '1', '2', '3', '4', '5'] " MRU indices
+let g:startify_custom_indices = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'] " MRU indices
 " line 579 for more details
 if has('nvim')
   let g:startify_commands = [
-        \ {'1': 'CocList'},
-        \ {'2': 'terminal'},
+        \ {'c': 'CocList'},
+        \ {'t': 'terminal'},
         \ ]
 endif
 let g:startify_padding_left = 4
