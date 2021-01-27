@@ -18,8 +18,8 @@ nmap tu :syntax sync fromstart<cr>
 
 let g:python_host_skip_check=1
 " let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_skip_check=1
-let g:python3_host_prog = 'C:\ProgramData\scoop\shims\python3.EXE'
+" let g:python3_host_skip_check=1
+" let g:python3_host_prog = 'C:\ProgramData\scoop\shims\python3.EXE'
 
 "更新配置 :so $MYVIMRC
 "设置默认编码
@@ -343,7 +343,7 @@ noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " Write buffer (save)保存
-noremap <Leader>w :w<CR>
+" noremap <Leader>w :w<CR>
 imap <C-S> <esc>:w<CR>
 imap <C-Q> <esc>:wq<CR>
 
@@ -426,20 +426,6 @@ map <leader>sa ggVG"
 " 关闭terminal
 " exit or <CTRL-D>
 
-" Theme
-" Enable 256 color terminal
-set t_Co=256
-
-" Enable true color
-if has('termguicolors')
-	set termguicolors
-endif
-
-colorscheme challenger_deep
-" colorscheme cyberpunk-neon
-hi Comment cterm=italic
-
-highlight Comment cterm=italic gui=italic
 
 " 4. 插件安装
 
@@ -492,9 +478,9 @@ if has('gui_running')
 else
     Plug 'norcalli/nvim-colorizer.lua'
     " 依赖python,在gvim下有问题
-    Plug 'yggdroot/leaderf'
-    Plug 'puremourning/vimspector' "可视化debug
-    Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
+    " Plug 'yggdroot/leaderf'
+    " Plug 'puremourning/vimspector' "可视化debug
+    " Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
 endif
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'konfekt/fastfold' "性能更好的语法折叠
@@ -526,7 +512,7 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
-    Plug 'romgrk/nvim-treesitter-context'
+    " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
 " else
@@ -578,13 +564,13 @@ set helplang=cn
 " Plug 'jbgutierrez/vim-better-comments' "显示注释
 Plug 't9md/vim-choosewin' "快捷窗口选择-
 Plug 'pechorin/any-jump.vim' "跳转到函数定义
-Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' } "模糊匹配搜索器/跳跃器
-let g:aerojump_keymaps = {
-  \ "<C-t>": "AerojumpDown",
-  \ "<C-s>": "AerojumpUp",
-  \ "<Esc>": "AerojumpExit",
-  \ "<CR>": "AerojumpSelect",
-  \ }
+" Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' } "模糊匹配搜索器/跳跃器
+" let g:aerojump_keymaps = {
+"   \ "<C-t>": "AerojumpDown",
+"   \ "<C-s>": "AerojumpUp",
+"   \ "<Esc>": "AerojumpExit",
+"   \ "<CR>": "AerojumpSelect",
+"   \ }
 " Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
 " Plug 'mzlogin/vim-markdown-toc'
@@ -607,7 +593,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'tommcdo/vim-exchange'
-Plug 'brooth/far.vim' " 全局替换插件
+" Plug 'brooth/far.vim' " 全局替换插件
 Plug 'markonm/traces.vim'
 Plug 'neomake/neomake'
 Plug 'tracyone/neomake-multiprocess'
@@ -686,11 +672,11 @@ nmap - <Plug>(choosewin)
 
 " :call clap#installer#build_maple()
  nnoremap <Leader>c :Clap<Cr>
- nnoremap <Leader>cb :Clap buffers<Cr>
- nnoremap <Leader>cf :Clap files<Cr>
+ nnoremap <Leader>b :Clap buffers<Cr>
+ nnoremap <Leader>f :Clap files<Cr>
  nnoremap <Leader>ce :Clap filer<Cr>
- nnoremap <Leader>cg :Clap grep<Cr>
- nnoremap <Leader>cG :Clap grep2<Cr>
+ nnoremap <Leader>g :Clap grep<Cr>
+ nnoremap <Leader>G :Clap grep2<Cr>
  let g:clap_insert_mode_only = v:true
  let g:clap_current_selection_sign = { 'text': '->', 'texthl': 'ClapCurrentSelectionSign', 'linehl': 'ClapCurrentSelection' }
  let g:clap_selected_sign = { 'text': ' ·', 'texthl': 'ClapSelectedSign', 'linehl': 'ClapSelected' }
@@ -862,9 +848,9 @@ autocmd FileType markdown let b:coc_pairs_disabled = ['`']
 
 let g:rust_recommended_style = 0
 
-" nnoremap <silent> <space>cf  :<C-u>CocList files<cr>
-" nnoremap <silent> <space>cg  :<C-u>CocList grep<cr>
-" nnoremap <silent> <space>cb  :<C-u>CocList buffers<cr>
+nnoremap <silent> <space>cf  :<C-u>CocList files<cr>
+nnoremap <silent> <space>cg  :<C-u>CocList grep<cr>
+nnoremap <silent> <space>cb  :<C-u>CocList buffers<cr>
 command! -nargs=0 Format :CocCommand prettier.formatFile
 " popup
 nmap <Leader>ct <Plug>(coc-translator-p)
@@ -925,59 +911,58 @@ let g:indentline_char='|'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentline_filetypeexclude = ['startify']
 
+" let g:Lf_WindowPosition = 'popup'
+" let g:Lf_PreviewInPopup = 1
+" let g:Lf_ShortcutF = '<A-z>`````ff'
+" let g:Lf_ShortcutB = '<A-z>`````ff'
+" let g:Lf_WindowHeight = 0.4
+" let g:Lf_ShowRelativePath = 0
+" let g:Lf_CursorBlink = 1
+" let g:Lf_CacheDirectory = expand('~/.cache/vim/leaderf')
+" let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+" let g:Lf_RootMarkers = ['.git', '.hg', '.svn', '.vscode']
+" let g:Lf_ShowHidden = 1
+" let g:Lf_ReverseOrder = 1
+" let g:Lf_PreviewHorizontalPosition = 'center'
+" " let g:Lf_StlColorscheme = 'gruvbox_material'
+" " let g:Lf_PopupColorscheme = 'gruvbox_material'
+" let g:Lf_PreviewResult = {
+"       \ 'File': 0,
+"       \ 'Buffer': 0,
+"       \ 'Mru': 0,
+"       \ 'Tag': 0,
+"       \ 'BufTag': 0,
+"       \ 'Function': 0,
+"       \ 'Line': 0,
+"       \ 'Colorscheme': 0,
+"       \ 'Rg': 0,
+"       \ 'Gtags': 0
+"       \}
+" let g:Lf_WildIgnore = {
+"       \ 'dir': ['.svn','.git','.hg', '.vscode', 'node_modules', 'dist'],
+"       \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+"       \}
+" let g:Lf_RgConfig = [
+"       \ '--glob=!\.git/*',
+"       \ '--glob=!\.vscode/*',
+"       \ '--glob=!dist/*',
+"       \ '--glob=!node_modules/*',
+"       \ '--glob=!\.svn/*',
+"       \ '--glob=!\.hg/*',
+"       \ '--case-sensitive',
+"       \ has('win32') ? '--crlf' : '--no-crlf',
+"       \ '--multiline',
+"       \ '--hidden'
+"       \ ]
+" map <leader>f :LeaderfFile<CR>
+" map <leader>u :LeaderfFunction<CR>
+" map <leader>b :LeaderfBuffer<CR>
+" map <leader>g :Leaderf rg<CR>
+" map <leader>lc :LeaderfColorscheme<CR>
+" " map <leader>gg :Leaderf gtags<CR>
 
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_PreviewInPopup = 1
-let g:Lf_ShortcutF = '<A-z>`````ff'
-let g:Lf_ShortcutB = '<A-z>`````ff'
-let g:Lf_WindowHeight = 0.4
-let g:Lf_ShowRelativePath = 0
-let g:Lf_CursorBlink = 1
-let g:Lf_CacheDirectory = expand('~/.cache/vim/leaderf')
-let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-let g:Lf_RootMarkers = ['.git', '.hg', '.svn', '.vscode']
-let g:Lf_ShowHidden = 1
-let g:Lf_ReverseOrder = 1
-let g:Lf_PreviewHorizontalPosition = 'center'
-" let g:Lf_StlColorscheme = 'gruvbox_material'
-" let g:Lf_PopupColorscheme = 'gruvbox_material'
-let g:Lf_PreviewResult = {
-      \ 'File': 0,
-      \ 'Buffer': 0,
-      \ 'Mru': 0,
-      \ 'Tag': 0,
-      \ 'BufTag': 0,
-      \ 'Function': 0,
-      \ 'Line': 0,
-      \ 'Colorscheme': 0,
-      \ 'Rg': 0,
-      \ 'Gtags': 0
-      \}
-let g:Lf_WildIgnore = {
-      \ 'dir': ['.svn','.git','.hg', '.vscode', 'node_modules', 'dist'],
-      \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
-      \}
-let g:Lf_RgConfig = [
-      \ '--glob=!\.git/*',
-      \ '--glob=!\.vscode/*',
-      \ '--glob=!dist/*',
-      \ '--glob=!node_modules/*',
-      \ '--glob=!\.svn/*',
-      \ '--glob=!\.hg/*',
-      \ '--case-sensitive',
-      \ has('win32') ? '--crlf' : '--no-crlf',
-      \ '--multiline',
-      \ '--hidden'
-      \ ]
-map <leader>f :LeaderfFile<CR>
-map <leader>u :LeaderfFunction<CR>
-map <leader>b :LeaderfBuffer<CR>
-map <leader>g :Leaderf rg<CR>
-map <leader>lc :LeaderfColorscheme<CR>
-" map <leader>gg :Leaderf gtags<CR>
-
-"" search word under cursor, the pattern is treated as regex, and enter normal mode directly
-noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" "" search word under cursor, the pattern is treated as regex, and enter normal mode directly
+" noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
 "" search wxnoremapnoremaord under cureat as regex,
 "" append the result to previous search results.
@@ -990,10 +975,10 @@ noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 ""noremap <C-D> :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand("<cword>"))<CR>
 
 "" search visually selected text literally, don't quit LeaderF after accepting an entry
-""xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
+"xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
 
 "" recall last search. If the result window is closed, reopen it.
-noremap <leader>fo :<C-U>Leaderf! rg --recall<CR>
+" noremap <leader>fo :<C-U>Leaderf! rg --recall<CR>
 
 
 "" search word under cursor in *.h and *.cpp files.
@@ -1558,3 +1543,17 @@ function! s:WhitespaceErase(line1, line2)
 endfunction
 
 " vim: set ts=2 sw=2 tw=80 noet :
+" Theme
+" Enable 256 color terminal
+set t_Co=256
+
+" Enable true color
+if has('termguicolors')
+	set termguicolors
+endif
+
+colorscheme challenger_deep
+" colorscheme cyberpunk-neon
+hi Comment cterm=italic
+
+highlight Comment cterm=italic gui=italic
