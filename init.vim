@@ -1,7 +1,6 @@
 " execute 'source' '~/AppData/Local/nvim/vimrc/init.vim'
 " 参考: https://www.sainnhe.dev/post/status-line-config/
 " gvim需要把lua53.dll放在与gvim.exe同级下
-
 " https://yianwillis.github.io/vimcdoc/doc/quickref.html
 " https://github.com/neovim/neovim/wiki/Related-projects#gui
 " windows 推荐使用Nvy
@@ -12,13 +11,9 @@ nmap tu :syntax sync fromstart<cr>
 " 2. 初始配置
 
 " let g:python3_host_prog=" 建议使用scoop install -g python
-" if has('gui_running')
-"   let g:python3_host_prog='C:/ProgramData/scoop/apps/python36/current'
-" endif
-
 let g:python_host_skip_check=1
 " let g:python_host_prog = '/usr/local/bin/python'
-" let g:python3_host_skip_check=1
+let g:python3_host_skip_check=1
 " let g:python3_host_prog = 'C:\ProgramData\scoop\shims\python3.EXE'
 
 "更新配置 :so $MYVIMRC
@@ -148,9 +143,9 @@ set hidden
 set wildignore+=*\\node_modules\\*,*.swp,*.zip,*.exe  " Windows
 " 打开文件自动定位到最后编辑的位置
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
-for f in split(glob('$VIMPATH/vimrc/plugins/*.vim'), '\n')
-    exe 'source' f
-endfor
+" for f in split(glob('$VIMPATH/vimrc/plugins/*.vim'), '\n')
+"     exe 'source' f
+" endfor
 
 if has('nvim')
     set inccommand=split
@@ -187,11 +182,11 @@ inoremap <C-ScrollWheelDown> <Esc>:call AdjustFontSize(-1)<CR>a
 " set statusline=%f
 
 " 设置启动的工作路径
-let g:Work = "D:/www"
-let g:Xunlei = g:Work."/xunlei/"
-function! Cw(dir)
-    execute ":cd  ".a:dir
-endfunction
+" let g:Work = "D:/www"
+" let g:Xunlei = g:Work."/xunlei/"
+" function! Cw(dir)
+"     execute ":cd  ".a:dir
+" endfunction
 " call Cw(Xunlei)
 
 autocmd syntax *
@@ -287,14 +282,14 @@ augroup END
 nnoremap <leader>tt :terminal<cr>
 
 " 插入模式下的一些快捷键
-inoremap <M-o> <esc>o
-inoremap <M-O> <esc>O
-inoremap <M-h> <HOME>
-inoremap <M-l> <END>
-inoremap <c-h> <left>
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-inoremap <c-l> <right>
+" inoremap <M-o> <esc>o
+" inoremap <M-O> <esc>O
+" inoremap <M-h> <HOME>
+" inoremap <M-l> <END>
+" inoremap <c-h> <left>
+" inoremap <c-j> <down>
+" inoremap <c-k> <up>
+" inoremap <c-l> <right>
 
 function! s:writeCurrent() abort
     if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# ''
@@ -304,8 +299,8 @@ endfunction
 " noremap <silent> <space><space> <esc>:call common#functions#Wall()<cr>
 " noremap <silent> <space><space> <esc>:call <SID>writeCurrent()<cr>
 " xnoremap <silent> <space><space> <esc>:call <SID>writeCurrent()<cr>
-noremap <silent> <space><space> <esc>:silent! write<cr>
-xnoremap <silent> <space><space> <esc>:silent! write<cr>
+" noremap <silent> <space><space> <esc>:silent! write<cr>
+" xnoremap <silent> <space><space> <esc>:silent! write<cr>
 
 nnoremap j gj
 nnoremap k gk
@@ -318,10 +313,10 @@ nnoremap vv ^vg_
 
 nnoremap <silent> <leader>tn :tabnew<cr>
 nnoremap <silent> <leader>tc :tabclose<cr>
-nnoremap <silent> <M-L> :tabmove +1<cr>
-nnoremap <silent> <M-H> :tabmove -1<cr>
-tnoremap <silent> <M-L> <c-\><c-n>:tabmove +1<cr>
-tnoremap <silent> <M-H> <c-\><c-n>:tabmove -1<cr>
+" nnoremap <silent> <M-L> :tabmove +1<cr>
+" nnoremap <silent> <M-H> :tabmove -1<cr>
+" tnoremap <silent> <M-L> <c-\><c-n>:tabmove +1<cr>
+" tnoremap <silent> <M-H> <c-\><c-n>:tabmove -1<cr>
 
 " 使用系统应用打开当前buffer文件
 noremap <silent> <M-x> :call common#functions#OpenFileUsingSystemApp(expand('%:p'))<cr>
@@ -344,8 +339,8 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " Write buffer (save)保存
 " noremap <Leader>w :w<CR>
-imap <C-S> <esc>:w<CR>
-imap <C-Q> <esc>:wq<CR>
+" imap <C-S> <esc>:w<CR>
+" imap <C-Q> <esc>:wq<CR>
 
 "取消高亮
 "map <leader>n :nohl<CR>
@@ -425,7 +420,6 @@ map <leader>sa ggVG"
 " :vert ter
 " 关闭terminal
 " exit or <CTRL-D>
-
 
 " 4. 插件安装
 
@@ -520,17 +514,17 @@ if has('nvim')
 "     Plug 'octol/vim-cpp-enhanced-highlight'
 endif
 " Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
-" Plug 'heavenshell/vim-jsdoc', {
-"   \ 'for': ['javascript', 'javascript.jsx','typescript'],
-"   \ 'do': 'make install'
-"   \}
-" Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript-jsx', 'typescript-tsx'] } "高亮jsx结构
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+  \}
+Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript-jsx', 'typescript-tsx'] } "高亮jsx结构
 Plug 'chemzqm/vim-jsx-improve', { 'for': ['javascript-jsx', 'typescript-tsx'] } "jsx语法缩进
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'janko-m/vim-test' "测试工具
 " 多光标
-" Plug 'mg979/vim-visual-multi'
-" Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
+Plug 'terryma/vim-multiple-cursors'
 " Plug 'ayu-theme/ayu-vim'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'jiangmiao/auto-pairs' "符号补全
@@ -553,7 +547,7 @@ Plug 'mhinz/vim-startify' "启动界面预览
 Plug 'yggdroot/indentline' "配置显示缩进对齐线
 Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
+Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
 " Plug 'nicwest/vim-http', {'on': 'Http'} "配置http请求
 " Plug 'scrooloose/nerdcommenter' "快捷代码注释
 Plug 'tpope/vim-commentary' "快捷代码注释
@@ -571,7 +565,7 @@ Plug 'pechorin/any-jump.vim' "跳转到函数定义
 "   \ "<Esc>": "AerojumpExit",
 "   \ "<CR>": "AerojumpSelect",
 "   \ }
-" Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
 " Plug 'mzlogin/vim-markdown-toc'
 " 专注阅读
@@ -629,7 +623,7 @@ let g:nrrw_rgn_nomap_Nr = 1
 " Plug 'inkarkat/vim-SyntaxRange'
 " 数据库
 " Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
-" Plug 'tpope/vim-sensible' "合适的默认配置
+Plug 'tpope/vim-sensible' "合适的默认配置
 Plug 'tpope/vim-unimpaired' "符号映射
 Plug 'tpope/vim-scriptease'
 " tmux相关插件
@@ -672,10 +666,10 @@ nmap - <Plug>(choosewin)
 
 " :call clap#installer#build_maple()
  nnoremap <Leader>c :Clap<Cr>
- nnoremap <Leader>b :Clap buffers<Cr>
- nnoremap <Leader>f :Clap files<Cr>
+ nnoremap <Leader>cb :Clap buffers<Cr>
+ nnoremap <Leader>cf :Clap files<Cr>
  nnoremap <Leader>ce :Clap filer<Cr>
- nnoremap <Leader>g :Clap grep<Cr>
+ nnoremap <Leader>cg :Clap grep<Cr>
  nnoremap <Leader>G :Clap grep2<Cr>
  let g:clap_insert_mode_only = v:true
  let g:clap_current_selection_sign = { 'text': '->', 'texthl': 'ClapCurrentSelectionSign', 'linehl': 'ClapCurrentSelection' }
@@ -848,9 +842,9 @@ autocmd FileType markdown let b:coc_pairs_disabled = ['`']
 
 let g:rust_recommended_style = 0
 
-nnoremap <silent> <space>cf  :<C-u>CocList files<cr>
-nnoremap <silent> <space>cg  :<C-u>CocList grep<cr>
-nnoremap <silent> <space>cb  :<C-u>CocList buffers<cr>
+nnoremap <silent> <space>f  :<C-u>CocList files<cr>
+nnoremap <silent> <space>g  :<C-u>CocList grep<cr>
+nnoremap <silent> <space>b  :<C-u>CocList buffers<cr>
 command! -nargs=0 Format :CocCommand prettier.formatFile
 " popup
 nmap <Leader>ct <Plug>(coc-translator-p)
@@ -999,7 +993,7 @@ let g:indentline_filetypeexclude = ['startify']
 "noremap <leader>go :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 "noremap <leader>gn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 "noremap <leader>gp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
-scriptencoding utf-8
+" scriptencoding utf-8
 
 " 書き方は以下を参照
 " * https://github.com/Yggdroot/LeaderF/issues/144#issuecomment-540008950
@@ -1010,118 +1004,118 @@ scriptencoding utf-8
 " :Leaderf mrw
 " :Leaderf todo
 
-let g:Lf_Extensions = get(g:, 'Lf_Extensions', {})
+" let g:Lf_Extensions = get(g:, 'Lf_Extensions', {})
 
 " ============================================================================
 " packadd
-function! LfExt_packadd_source(args) abort
-    let l:result = []
-    for path in split(globpath(&packpath, '/pack/*/opt/*'))
-        if isdirectory(path)
-            call add(l:result, fnamemodify(path, ':t'))
-        endif
-    endfor
-    return l:result
-endfunction
+" function! LfExt_packadd_source(args) abort
+"     let l:result = []
+"     for path in split(globpath(&packpath, '/pack/*/opt/*'))
+"         if isdirectory(path)
+"             call add(l:result, fnamemodify(path, ':t'))
+"         endif
+"     endfor
+"     return l:result
+" endfunction
 
-function! LfExt_packadd_accept(line, args) abort
-    execute 'packadd '.a:line
-endfunction
+" function! LfExt_packadd_accept(line, args) abort
+"     execute 'packadd '.a:line
+" endfunction
 
-let g:Lf_Extensions.packadd = {
-\   'source': 'LfExt_packadd_source',
-\   'accept': 'LfExt_packadd_accept',
-\}
-command! Tpackadd Leaderf packadd
-" ============================================================================
+" let g:Lf_Extensions.packadd = {
+" \   'source': 'LfExt_packadd_source',
+" \   'accept': 'LfExt_packadd_accept',
+" \}
+" command! Tpackadd Leaderf packadd
+" " ============================================================================
 
-" ============================================================================
-" git checkout
-function! LfExt_git_checkout_source(args) abort
-    let l:source = filter(systemlist('git branch'), 'v:val[0] !=# "*"')
-    if empty(source)
-        echohl ErrorMsg
-        echo 'no other branch'
-        echohl None
-        return []
-    endif
-    return l:source
-endfunction
+" " ============================================================================
+" " git checkout
+" function! LfExt_git_checkout_source(args) abort
+"     let l:source = filter(systemlist('git branch'), 'v:val[0] !=# "*"')
+"     if empty(source)
+"         echohl ErrorMsg
+"         echo 'no other branch'
+"         echohl None
+"         return []
+"     endif
+"     return l:source
+" endfunction
 
-function! LfExt_git_checkout_accept(line, args) abort
-    call system('git checkout ' . a:line)
-endfunction
+" function! LfExt_git_checkout_accept(line, args) abort
+"     call system('git checkout ' . a:line)
+" endfunction
 
-let g:Lf_Extensions.git_checkout = {
-\   'source': 'LfExt_git_checkout_source',
-\   'accept': 'LfExt_git_checkout_accept',
-\}
-command! LfGitCheckout Leaderf git_checkout --popup
+" let g:Lf_Extensions.git_checkout = {
+" \   'source': 'LfExt_git_checkout_source',
+" \   'accept': 'LfExt_git_checkout_accept',
+" \}
+" command! LfGitCheckout Leaderf git_checkout --popup
 " ============================================================================
 
 " ============================================================================
 " mrw
-function! LfExt_mrw_source(args) abort
-    let l:files = mrw#read_cachefile(expand('%'))
-    let l:result = []
-    " from mrw.vim
-    let l:max_filename_len = max(map(copy(l:files), {i,x -> strdisplaywidth(fnamemodify(x, ':p:t'))}) + [0])
-    for l:file in l:files
-        let l:name = fnamemodify(l:file, ':p:t')
-        let l:space = l:max_filename_len - strdisplaywidth(l:name)
-        call add(l:result, printf('%s%s "%s"', l:name, repeat(' ', l:space), fnamemodify(l:file, ':p:h')))
-    endfor
-    return l:result
-endfunction
+" function! LfExt_mrw_source(args) abort
+"     let l:files = mrw#read_cachefile(expand('%'))
+"     let l:result = []
+"     " from mrw.vim
+"     let l:max_filename_len = max(map(copy(l:files), {i,x -> strdisplaywidth(fnamemodify(x, ':p:t'))}) + [0])
+"     for l:file in l:files
+"         let l:name = fnamemodify(l:file, ':p:t')
+"         let l:space = l:max_filename_len - strdisplaywidth(l:name)
+"         call add(l:result, printf('%s%s "%s"', l:name, repeat(' ', l:space), fnamemodify(l:file, ':p:h')))
+"     endfor
+"     return l:result
+" endfunction
 
-function! LfExt_mrw_get_digest(line, mode) abort
-    if a:mode ==# 0
-        return [a:line, 0]
-    elseif a:mode ==# 1
-        let l:end = stridx(a:line, ' ')
-        return [a:line[:l:end-1], 0]
-    else
-        let l:start = stridx(a:line, ' "')
-        return [a:line[l:start+2: -1], strlen(a:line) - 1]
-    endif
-endfunction
+" function! LfExt_mrw_get_digest(line, mode) abort
+"     if a:mode ==# 0
+"         return [a:line, 0]
+"     elseif a:mode ==# 1
+"         let l:end = stridx(a:line, ' ')
+"         return [a:line[:l:end-1], 0]
+"     else
+"         let l:start = stridx(a:line, ' "')
+"         return [a:line[l:start+2: -1], strlen(a:line) - 1]
+"     endif
+" endfunction
 
-function! LfExt_mrw_accept(line, args) abort
-    let l:path = LfExt_mrw_get_digest(a:line, 2)[0][:-2]
-    \           . '/'
-    \           . LfExt_mrw_get_digest(a:line, 1)[0]
-    exec 'drop ' . l:path
-endfunction
+" function! LfExt_mrw_accept(line, args) abort
+"     let l:path = LfExt_mrw_get_digest(a:line, 2)[0][:-2]
+"     \           . '/'
+"     \           . LfExt_mrw_get_digest(a:line, 1)[0]
+"     exec 'drop ' . l:path
+" endfunction
 
-let g:Lf_Extensions.mrw = {
-\   'source': 'LfExt_mrw_source',
-\   'accept': 'LfExt_mrw_accept',
-\   'get_digest': 'LfExt_mrw_get_digest',
-\   'supports_name_only': 1,
-\}
+" let g:Lf_Extensions.mrw = {
+" \   'source': 'LfExt_mrw_source',
+" \   'accept': 'LfExt_mrw_accept',
+" \   'get_digest': 'LfExt_mrw_get_digest',
+" \   'supports_name_only': 1,
+" \}
 " ============================================================================
 
 " ============================================================================
 " todo
-let s:todo_dict = {
-\   'cancel':           'call todo#ToggleMarkAsDone("Cancelled")',
-\   'done':             'call todo#ToggleMarkAsDone("")',
-\   'remove_complete':  'call todo#RemoveCompleted()',
-\   'add_due':          "normal! A due:\<C-R>=strftime('%Y-%m-%d')\<CR>\<Esc>0"
-\}
+" let s:todo_dict = {
+" \   'cancel':           'call todo#ToggleMarkAsDone("Cancelled")',
+" \   'done':             'call todo#ToggleMarkAsDone("")',
+" \   'remove_complete':  'call todo#RemoveCompleted()',
+" \   'add_due':          "normal! A due:\<C-R>=strftime('%Y-%m-%d')\<CR>\<Esc>0"
+" \}
 
-function! LfExt_todo_source(args) abort
-    return keys(s:todo_dict)
-endfunction
+" function! LfExt_todo_source(args) abort
+"     return keys(s:todo_dict)
+" endfunction
 
-function! LfExt_todo_accept(line, args) abort
-    silent execute s:todo_dict[a:line]
-endfunction
+" function! LfExt_todo_accept(line, args) abort
+"     silent execute s:todo_dict[a:line]
+" endfunction
 
-let g:Lf_Extensions.todo = {
-\   'source': 'LfExt_todo_source',
-\   'accept': 'LfExt_todo_accept',
-\}
+" let g:Lf_Extensions.todo = {
+" \   'source': 'LfExt_todo_source',
+" \   'accept': 'LfExt_todo_accept',
+" \}
 " ============================================================================
 
 let g:lightline = {
