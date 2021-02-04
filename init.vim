@@ -493,10 +493,14 @@ Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 if has('nvim')
     Plug 'kyazdani42/nvim-web-devicons'
+    " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+    " Plug 'romgrk/barbar.nvim'
+    " nnoremap <silent> gb :BufferLinePick<CR>
     Plug 'akinsho/nvim-bufferline.lua'
+    lua require'bufferline'.setup()
     " Plug 'glepnir/zephyr-nvim'
     " lua require('zephyr')
-    Plug 'nvim-treesitter/nvim-treesitter' "性能更好的语法高亮,需要night版本
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
