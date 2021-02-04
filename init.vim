@@ -511,8 +511,8 @@ if has('nvim')
     nnoremap <leader>fg <cmd>Telescope live_grep<cr>
     nnoremap <leader>fb <cmd>Telescope buffers<cr>
     nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-    Plug 'norcalli/nvim-colorizer.lua'
-    lua require'colorizer'.setup()
+    " Plug 'norcalli/nvim-colorizer.lua'
+    " lua require'colorizer'.setup()
     " 依赖python,在gvim下有问题
     " Plug 'yggdroot/leaderf'
     " Plug 'puremourning/vimspector' "可视化debug
