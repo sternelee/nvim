@@ -424,7 +424,8 @@ map <leader>sa ggVG"
 " 4. 插件安装
 
 " 环境要求nodejs(neovim), python3
-" 需要使用Scoop(或chcoc)安装ctags, fzf, maple, ripgrep
+" 需要使用Scoop(或chcoc)全局安装 ctags, fzf, maple, ripgrep, bat, lua
+" 参考: https://zhuanlan.zhihu.com/p/348257414
 " 参考: https://github.com/phaazon/config/tree/master/nvim
 " 参考：https://github.com/sainnhe/dotfiles
 " 参考：https://github.com/sternelee/vime
@@ -439,8 +440,12 @@ Plug 'w0rp/ale' " 语法检测
 " Plug 'scrooloose/syntastic'
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
+" Plug 'jayli/vim-easycomplete'
+" Plug 'skywind3000/vim-auto-popmenu'
 
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim' " needed for previews
@@ -466,16 +471,6 @@ Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
 Plug 'albertomontesg/lightline-asyncrun'
 Plug 'rmolin88/pomodoro.vim', { 'on': 'PomodoroStart' } "番茄时钟
-if has('gui_running')
-    Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
-    let g:Hexokinase_highlighters = ['foregroundfull']
-else
-    Plug 'norcalli/nvim-colorizer.lua'
-    " 依赖python,在gvim下有问题
-    " Plug 'yggdroot/leaderf'
-    " Plug 'puremourning/vimspector' "可视化debug
-    " Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
-endif
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'konfekt/fastfold' "性能更好的语法折叠
 " 功能很强的折叠插件, zc zo
@@ -489,29 +484,44 @@ Plug 'easymotion/vim-easymotion', {'on':
    \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
    \ '<Plug>(easymotion-overwin-w)', '<Plug>(easymotion-s)',
    \ ]}     " 基于字母的光标快速移动
+Plug 'hrsh7th/vim-eft'
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 let g:sneak#label = 1
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
-" if has('nvim')
-"     Plug 'kyazdani42/nvim-web-devicons'
-" else
-"     Plug 'ryanoasis/vim-devicons'
-" endif
-" Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 if has('nvim')
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'akinsho/nvim-bufferline.lua'
+    " Plug 'glepnir/zephyr-nvim'
+    " lua require('zephyr')
     Plug 'nvim-treesitter/nvim-treesitter' "性能更好的语法高亮,需要night版本
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
+    Plug 'kyazdani42/nvim-tree.lua'
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
-" else
-"     Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包
-"     Plug 'octol/vim-cpp-enhanced-highlight'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    nnoremap <leader>ff <cmd>Telescope find_files<cr>
+    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+    nnoremap <leader>fb <cmd>Telescope buffers<cr>
+    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+    Plug 'norcalli/nvim-colorizer.lua'
+    lua require'colorizer'.setup()
+    " 依赖python,在gvim下有问题
+    " Plug 'yggdroot/leaderf'
+    " Plug 'puremourning/vimspector' "可视化debug
+    " Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
+else
+    Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
+    let g:Hexokinase_highlighters = ['foregroundfull']
+    " Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
+    " Plug 'octol/vim-cpp-enhanced-highlight'
 endif
 " Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
 Plug 'heavenshell/vim-jsdoc', {
@@ -533,6 +543,9 @@ Plug 'matze/vim-move', {'on': [
   \ '<Plug>MoveBlockUp',
   \ '<Plug>MoveBlockRight',
   \ '<Plug>MoveBlockLeft']}   " 代码块移动
+Plug 'rhysd/accelerated-jk' " 加速jk移动
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
 Plug 'alvan/vim-closetag' "自动闭合标签
 Plug 'luochen1990/rainbow' "彩虹符号匹配
 " Plug 'ianva/vim-youdao-translater' "有道翻译
@@ -544,11 +557,14 @@ Plug 'troydm/zoomwintab.vim'
 Plug 'tpope/vim-repeat' "重复命令操作
 Plug 'ntpeters/vim-better-whitespace' "显示多余空格
 Plug 'mhinz/vim-startify' "启动界面预览
+" Plug 'glepnir/dashboard-nvim'
 Plug 'yggdroot/indentline' "配置显示缩进对齐线
+" Plug 'glepnir/indent-guides.nvim' " 基于lua的对齐线
 Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
 " Plug 'nicwest/vim-http', {'on': 'Http'} "配置http请求
+" Plug 'tomtom/tcomment_vim'
 " Plug 'scrooloose/nerdcommenter' "快捷代码注释
 Plug 'tpope/vim-commentary' "快捷代码注释
 " 生成注释文档
@@ -763,6 +779,9 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>rf <Plug>(coc-refactor)
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
