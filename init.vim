@@ -424,7 +424,7 @@ map <leader>sa ggVG"
 " 4. 插件安装
 
 " 环境要求nodejs(neovim), python3
-" 需要使用Scoop(或chcoc)全局安装 ctags, fzf, maple, ripgrep, bat, lua
+" 需要使用Scoop(或chcoc)全局安装 ctags, fzf, maple, ripgrep, bat
 " 参考: https://zhuanlan.zhihu.com/p/348257414
 " 参考: https://github.com/phaazon/config/tree/master/nvim
 " 参考：https://github.com/sainnhe/dotfiles
@@ -511,8 +511,8 @@ if has('nvim')
     nnoremap <leader>fg <cmd>Telescope live_grep<cr>
     nnoremap <leader>fb <cmd>Telescope buffers<cr>
     nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-    " Plug 'norcalli/nvim-colorizer.lua'
-    " lua require'colorizer'.setup()
+    Plug 'norcalli/nvim-colorizer.lua' " 最好把插件内的lua文件同步到bin/lua下
+    lua require'colorizer'.setup()
     " 依赖python,在gvim下有问题
     " Plug 'yggdroot/leaderf'
     " Plug 'puremourning/vimspector' "可视化debug
