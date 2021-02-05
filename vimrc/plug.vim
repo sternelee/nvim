@@ -82,8 +82,8 @@ if has('nvim')
     " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     " Plug 'romgrk/barbar.nvim'
     " nnoremap <silent> gb :BufferLinePick<CR>
-    Plug 'akinsho/nvim-bufferline.lua'
-    lua require'bufferline'.setup()
+    " Plug 'akinsho/nvim-bufferline.lua'
+    " lua require'bufferline'.setup{}
     " Plug 'glepnir/zephyr-nvim'
     " lua require('zephyr')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本
