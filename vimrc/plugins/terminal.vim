@@ -1,0 +1,1 @@
+" let g:terminal_shell = "C:/Program\ Files/PowerShell/7-preview/pwsh.exe"
