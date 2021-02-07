@@ -1,7 +1,7 @@
 " 插件安装
 
 " 环境要求nodejs(neovim), python3
-" 需要使用Scoop(或chcoc)全局安装 ctags, fzf, maple, ripgrep, bat
+" 需要使用Scoop(或chcoc)全局安装 ctags, fzf, maple, ripgrep, bat, fd
 " 参考: https://zhuanlan.zhihu.com/p/348257414
 " 参考: https://github.com/phaazon/config/tree/master/nvim
 " 参考：https://github.com/sainnhe/dotfiles
@@ -94,11 +94,14 @@ if has('nvim')
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
+
+    Plug 'norcalli/nvim-colorizer.lua' " 最好把插件内的lua文件同步到bin/lua下
+    lua require'colorizer'.setup()
+
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'norcalli/nvim-colorizer.lua' " 最好把插件内的lua文件同步到bin/lua下
-    lua require'colorizer'.setup()
+
     " 依赖python,在gvim下有问题
     " Plug 'yggdroot/leaderf'
     " Plug 'puremourning/vimspector' "可视化debug

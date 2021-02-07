@@ -143,11 +143,11 @@ autocmd FileType markdown let b:coc_pairs_disabled = ['`']
 " grep current word in current buffer
 " nnoremap <silent> <space>w  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
 
-let g:rust_recommended_style = 0
+" let g:rust_recommended_style = 0
 
-nnoremap <silent> <space>f  :<C-u>CocList files<cr>
-nnoremap <silent> <space>g  :<C-u>CocList grep<cr>
-nnoremap <silent> <space>b  :<C-u>CocList buffers<cr>
+nnoremap <silent> <space>cf  :<C-u>CocList files<cr>
+nnoremap <silent> <space>cg  :<C-u>CocList grep<cr>
+nnoremap <silent> <space>cb  :<C-u>CocList buffers<cr>
 command! -nargs=0 Format :CocCommand prettier.formatFile
 " 翻译
 nmap <Leader>ct <Plug>(coc-translator-p)
