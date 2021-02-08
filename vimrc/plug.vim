@@ -11,12 +11,12 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'w0rp/ale' " 语法检测
+" Plug 'w0rp/ale' " 语法检测
 " Plug 'sbdchd/neoformat'
 " Plug 'prettier/prettier'
 " Plug 'scrooloose/syntastic'
-" Plug 'rust-lang/rust.vim'
-" let g:rustfmt_autosave = 1
+Plug 'rust-lang/rust.vim'
+let g:rustfmt_autosave = 1
 " Plug 'jayli/vim-easycomplete'
 Plug 'skywind3000/vim-dict'
 Plug 'skywind3000/vim-auto-popmenu'

@@ -43,7 +43,7 @@
   "diagnostic.level": "hint",
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.refreshAfterSave": true,
-  "diagnostic.displayByAle": true,
+  "diagnostic.displayByAle": false,
   "diagnostic.virtualText": true,
   "diagnostic.errorSign": "\uf65b",
   "diagnostic.warningSign": "\uf421",
