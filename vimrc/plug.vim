@@ -10,18 +10,18 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
 " Plug 'sbdchd/neoformat'
-" Plug 'prettier/prettier'
+Plug 'prettier/prettier'
 " Plug 'scrooloose/syntastic'
-Plug 'rust-lang/rust.vim'
-let g:rustfmt_autosave = 1
+" Plug 'rust-lang/rust.vim'
+" let g:rustfmt_autosave = 1
 " Plug 'jayli/vim-easycomplete'
 Plug 'skywind3000/vim-dict'
 Plug 'skywind3000/vim-auto-popmenu'
 " 设定需要生效的文件类型，如果是 "*" 的话，代表所有类型
-let g:apc_enable_ft = {'text':1, 'markdown':1, 'stylus':1}
+let g:apc_enable_ft = {'*':1}
 " 设定从字典文件以及当前打开的文件里收集补全单词，详情看 ':help cpt'
 set cpt=.,k,w,b
 " 不要自动选中第一个选项。
@@ -30,8 +30,8 @@ set completeopt=longest,preview,menu,menuone,noselect
 set shortmess+=c
 
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+" Plug 'hrsh7th/vim-vsnip'
+" Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim' " needed for previews
@@ -49,10 +49,10 @@ Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
 Plug 'tpope/vim-fugitive'
 \ | Plug 'rbong/vim-flog'
-" \ | Plug 'mhinz/vim-signify'
-\ | Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/lightline.vim' "状态栏显示
-Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
+\ | Plug 'mhinz/vim-signify'
+" \ | Plug 'airblade/vim-gitgutter'
+" Plug 'itchyny/lightline.vim' "状态栏显示
+" Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 " Plug 'sainnhe/artify.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'albertomontesg/lightline-asyncrun'
@@ -78,12 +78,12 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 if has('nvim')
+    " https://github.com/glepnir/nvim-lua-guide-zh
     Plug 'kyazdani42/nvim-web-devicons'
-    " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+    Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     " Plug 'romgrk/barbar.nvim'
     " nnoremap <silent> gb :BufferLinePick<CR>
-    " Plug 'akinsho/nvim-bufferline.lua'
-    " lua require'bufferline'.setup{}
+    Plug 'akinsho/nvim-bufferline.lua'
     " Plug 'glepnir/zephyr-nvim'
     " lua require('zephyr')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本
@@ -101,6 +101,8 @@ if has('nvim')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-lua/completion-nvim'
+    autocmd BufEnter * lua require'completion'.on_attach()
 
     " 依赖python,在gvim下有问题
     " Plug 'yggdroot/leaderf'
@@ -257,3 +259,36 @@ for f in split(glob('$VIMPATH/vimrc/plugins/*.vim'), '\n')
     exe 'source' f
 endfor
 
+
+lua require 'spaceline'
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true
+  },
+  indent = {
+    enable = true
+  }
+}
+
+require'bufferline'.setup{
+  options = {
+    view = "default",
+    numbers = "ordinal",
+    number_style = "superscript",
+    mappings = true,
+    modified_icon = '●',
+    left_trunc_marker = '',
+    right_trunc_marker = '',
+    max_name_length = 18,
+    max_prefix_length = 15,
+    tab_size = 16,
+    diagnostics = false,
+    show_buffer_close_icons = false,
+    persist_buffer_sort = true,
+    separator_style = "slant",
+    enforce_regular_tabs = false,
+    always_show_bufferline = true,
+  }
+}
+EOF
