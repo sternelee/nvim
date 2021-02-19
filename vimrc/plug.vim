@@ -35,7 +35,6 @@ Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim' " needed for previews
-" Plug 'antoinemadec/coc-fzf'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " Plug 'wsdjeg/FlyGrep.vim'
 Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
@@ -53,9 +52,8 @@ Plug 'tpope/vim-fugitive'
 " \ | Plug 'airblade/vim-gitgutter'
 " Plug 'itchyny/lightline.vim' "状态栏显示
 " Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
-" Plug 'sainnhe/artify.vim'
-Plug 'itchyny/vim-gitbranch'
-Plug 'albertomontesg/lightline-asyncrun'
+" Plug 'itchyny/vim-gitbranch'
+" Plug 'albertomontesg/lightline-asyncrun'
 Plug 'rmolin88/pomodoro.vim', { 'on': 'PomodoroStart' } "番茄时钟
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'konfekt/fastfold' "性能更好的语法折叠
@@ -101,6 +99,9 @@ if has('nvim')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'anott03/nvim-lspinstall'
+    Plug 'alexaandru/nvim-lspupdate'
     Plug 'nvim-lua/completion-nvim'
     autocmd BufEnter * lua require'completion'.on_attach()
 
@@ -291,4 +292,7 @@ require'bufferline'.setup{
     always_show_bufferline = true,
   }
 }
+
+require'lspconfig'.tsserver.setup{}
+
 EOF

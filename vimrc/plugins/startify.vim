@@ -13,7 +13,7 @@ let g:startify_custom_indices = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0
 " line 579 for more details
 if has('nvim')
   let g:startify_commands = [
-        \ {'c': 'CocList'},
+        " \ {'c': 'CocList'},
         \ {'t': 'terminal'},
         \ ]
 endif
@@ -51,7 +51,7 @@ endfunction
 function! s:startify_mappings() abort
   nmap <silent><buffer> o <CR>
   nmap <silent><buffer> h :wincmd h<CR>
-  nmap <silent><buffer> <Tab> :CocList project<CR>
+  " nmap <silent><buffer> <Tab> :CocList project<CR>
 endfunction
 " augroup startifyCustom
 "   autocmd!
