@@ -68,7 +68,7 @@ Plug 'easymotion/vim-easymotion', {'on':
    \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
    \ '<Plug>(easymotion-overwin-w)', '<Plug>(easymotion-s)',
    \ ]}     " 基于字母的光标快速移动
-Plug 'hrsh7th/vim-eft'
+" Plug 'hrsh7th/vim-eft'
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 let g:sneak#label = 1
 " 显示文件图标
@@ -82,8 +82,6 @@ if has('nvim')
     " Plug 'romgrk/barbar.nvim'
     " nnoremap <silent> gb :BufferLinePick<CR>
     Plug 'akinsho/nvim-bufferline.lua'
-    " Plug 'glepnir/zephyr-nvim'
-    " lua require('zephyr')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
@@ -100,13 +98,10 @@ if has('nvim')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'anott03/nvim-lspinstall'
-    Plug 'alexaandru/nvim-lspupdate'
     Plug 'nvim-lua/completion-nvim'
     autocmd BufEnter * lua require'completion'.on_attach()
 
-    " 依赖python,在gvim下有问题
-    " Plug 'yggdroot/leaderf'
+    " Plug 'yggdroot/leaderf'" 依赖python
     " Plug 'puremourning/vimspector' "可视化debug
     " Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
 else
@@ -115,7 +110,7 @@ else
     " Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
     " Plug 'octol/vim-cpp-enhanced-highlight'
 endif
-" Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
+Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
@@ -127,7 +122,6 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " 多光标
 Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
-" Plug 'ayu-theme/ayu-vim'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'jiangmiao/auto-pairs' "符号补全
 Plug 'matze/vim-move', {'on': [
@@ -140,7 +134,7 @@ nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 Plug 'alvan/vim-closetag' "自动闭合标签
 Plug 'luochen1990/rainbow' "彩虹符号匹配
-" Plug 'ianva/vim-youdao-translater' "有道翻译
+Plug 'ianva/vim-youdao-translater' "有道翻译
 "Plug 'vim-scripts/YankRing.vim' "yank工具
 Plug 'junegunn/vim-peekaboo' "查看历史的复制和删除的寄存器, @或\" 触发
 Plug 'tpope/vim-eunuch' " 加强的目录和文件编辑
@@ -156,8 +150,6 @@ Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
 " Plug 'nicwest/vim-http', {'on': 'Http'} "配置http请求
-" Plug 'tomtom/tcomment_vim'
-" Plug 'scrooloose/nerdcommenter' "快捷代码注释
 Plug 'tpope/vim-commentary' "快捷代码注释
 " 生成注释文档
 " Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
@@ -206,7 +198,7 @@ let g:neomakemp_exclude_files=['*.jpg', '*.png', '*.min.js', '*.swp', '*.pyc','*
 let g:neomakemp_exclude_dirs=[ '.git', 'bin', 'log', 'build', 'node_modules', '.bundle', '.tmp','.svn' ]
 Plug 'ronakg/quickr-preview.vim'
 " 关闭buffer而不关闭窗口
-Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
+" Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " 平滑滚动
 " Plug 'psliwka/vim-smoothie'
 " 加强版的 go to file
@@ -231,20 +223,20 @@ let g:nrrw_rgn_nomap_Nr = 1
 " Plug 'inkarkat/vim-SyntaxRange'
 " 数据库
 " Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
-Plug 'tpope/vim-sensible' "合适的默认配置
+" Plug 'tpope/vim-sensible' "合适的默认配置
 Plug 'tpope/vim-unimpaired' "符号映射
 Plug 'tpope/vim-scriptease'
 " tmux相关插件
-if executable("tmux") && strlen($TMUX)
-    " tmux与vim窗口间导航
-    Plug 'christoomey/vim-tmux-navigator'
-    " tmux.conf set -g focus-events on
-    Plug 'tmux-plugins/vim-tmux-focus-events'
-    " 在tmux和vim之间进行复制与粘贴
-    Plug 'roxma/vim-tmux-clipboard'
-    " tmux补全插件
-    Plug 'wellle/tmux-complete.vim'
-endif
+" if executable("tmux") && strlen($TMUX)
+"     " tmux与vim窗口间导航
+"     Plug 'christoomey/vim-tmux-navigator'
+"     " tmux.conf set -g focus-events on
+"     Plug 'tmux-plugins/vim-tmux-focus-events'
+"     " 在tmux和vim之间进行复制与粘贴
+"     Plug 'roxma/vim-tmux-clipboard'
+"     " tmux补全插件
+"     Plug 'wellle/tmux-complete.vim'
+" endif
 
 call plug#end()
 
@@ -294,5 +286,11 @@ require'bufferline'.setup{
 }
 
 require'lspconfig'.tsserver.setup{}
-
+require'lspconfig'.vuels.setup{}
+require'lspconfig'.rust_analyzer.setup{}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
 EOF
