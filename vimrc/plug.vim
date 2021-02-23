@@ -235,7 +235,7 @@ Plug 'tpope/vim-scriptease'
 
 call plug#end()
 
-autocmd VimEnter * PlugClean! | PlugUpdate --sync
+" autocmd VimEnter * PlugClean! | PlugUpdate --sync
 
 filetype plugin indent on  " 根据侦测到的不同类型加载对应的插件
 nnoremap <leader><leader>i :PlugInstall<cr>
