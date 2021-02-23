@@ -10,7 +10,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
 " Plug 'sbdchd/neoformat'
 " Plug 'prettier/prettier'
@@ -110,7 +110,7 @@ else
     " Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
     " Plug 'octol/vim-cpp-enhanced-highlight'
 endif
-" Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
+Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
@@ -149,7 +149,7 @@ Plug 'yggdroot/indentline' "配置显示缩进对齐线
 Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
-" Plug 'nicwest/vim-http', {'on': 'Http'} "配置http请求
+Plug 'nicwest/vim-http', {'on': 'Http'} "配置http请求
 Plug 'tpope/vim-commentary' "快捷代码注释
 " 生成注释文档
 " Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
@@ -167,19 +167,18 @@ Plug 'pechorin/any-jump.vim' "跳转到函数定义
 "   \ }
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
-" Plug 'mzlogin/vim-markdown-toc'
+Plug 'mzlogin/vim-markdown-toc'
 " 专注阅读
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 \ | Plug 'junegunn/limelight.vim', { 'for': 'markdown' }
 Plug 'hotoo/pangu.vim', {'for': 'markdown'}
-" Plug 'gpanders/vim-medieval', {'for': 'markdown'}  "评估markdown代码块
-" Plug 'rhysd/vim-grammarous', {'for': ['markdown', 'vimwiki', 'md', 'tex']}
-" Plug 'jceb/vim-orgmode'
-" let g:org_agenda_files = ['~/org/index.org']
-" let g:org_aggressive_conceal = 1
-" let g:org_heading_shade_leading_stars = 1
-" let g:org_todo_keywords = ['TODO', 'WIP', 'REVIEW', '|', 'DONE', 'CANCELLED']
-" let g:org_indent = 1
+Plug 'gpanders/vim-medieval', {'for': 'markdown'}  "评估markdown代码块
+Plug 'jceb/vim-orgmode'
+let g:org_agenda_files = ['~/org/index.org']
+let g:org_aggressive_conceal = 1
+let g:org_heading_shade_leading_stars = 1
+let g:org_todo_keywords = ['TODO', 'WIP', 'REVIEW', '|', 'DONE', 'CANCELLED']
+let g:org_indent = 1
 Plug 'uguu-org/vim-matrix-screensaver', {'on': 'Matrix'} "黑客帝国的屏保
 " Plug 'metakirby5/codi.vim', {'on': 'Codi'} "代码执行预览
 Plug 'skywind3000/asynctasks.vim' "任务
@@ -193,25 +192,21 @@ Plug 'neomake/neomake'
 Plug 'tracyone/neomake-multiprocess'
 "autodetect the existence of commands and select the faster one(rg > ag > grep)
 let g:neomakemp_grep_command = "rg"
-"following is default value
 let g:neomakemp_exclude_files=['*.jpg', '*.png', '*.min.js', '*.swp', '*.pyc','*.out','*.o']
 let g:neomakemp_exclude_dirs=[ '.git', 'bin', 'log', 'build', 'node_modules', '.bundle', '.tmp','.svn' ]
 Plug 'ronakg/quickr-preview.vim'
-" 关闭buffer而不关闭窗口
-" Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
+" Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'} " 关闭buffer而不关闭窗口
 " 平滑滚动
 Plug 'psliwka/vim-smoothie'
-" 加强版的 go to file
-Plug 'tpope/vim-apathy'
+Plug 'tpope/vim-apathy' " 加强版的 go to file
 " 查看启动时间
 Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 " Plug 'andrewradev/linediff.vim' "行代码的对比
 " Plug 'valloric/matchtagalways'
 " Plug 'andymass/vim-matchup' " 高亮匹配语句
-" Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代码点值和十六进制值
-" Plug 'stefandtw/quickfix-reflector.vim'
+Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代码点值和十六进制值
 " Plug 'machakann/vim-swap' "交换参数, g>或g<
-" Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 " Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Plug 'kana/vim-textobj-user'
 " Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']} " 悬浮终端
@@ -222,8 +217,8 @@ let g:nrrw_rgn_nomap_nr = 1
 let g:nrrw_rgn_nomap_Nr = 1
 " Plug 'inkarkat/vim-SyntaxRange'
 " 数据库
-" Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
-" Plug 'tpope/vim-sensible' "合适的默认配置
+Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
+Plug 'tpope/vim-sensible' "合适的默认配置
 Plug 'tpope/vim-unimpaired' "符号映射
 Plug 'tpope/vim-scriptease'
 " tmux相关插件
@@ -240,7 +235,7 @@ Plug 'tpope/vim-scriptease'
 
 call plug#end()
 
-" autocmd VimEnter * PlugClean! | PlugUpdate --sync
+autocmd VimEnter * PlugClean! | PlugUpdate --sync
 
 filetype plugin indent on  " 根据侦测到的不同类型加载对应的插件
 nnoremap <leader><leader>i :PlugInstall<cr>

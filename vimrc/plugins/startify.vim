@@ -13,10 +13,10 @@ let g:startify_custom_indices = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0
 " line 579 for more details
 if has('nvim')
   let g:startify_commands = [
-        \ {'c': 'CocList'},
         \ {'t': 'terminal'},
         \ ]
 endif
+        " \ {'c': 'CocList'},
 let g:startify_padding_left = 4
 let g:startify_custom_header = [
             \ '+------------------------------+',
