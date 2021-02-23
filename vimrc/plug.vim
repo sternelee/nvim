@@ -110,7 +110,7 @@ else
     " Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
     " Plug 'octol/vim-cpp-enhanced-highlight'
 endif
-Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
+" Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
@@ -251,5 +251,4 @@ nnoremap <leader><leader>c :PlugClean<cr>
 for f in split(glob('$VIMPATH/vimrc/plugins/*.vim'), '\n')
     exe 'source' f
 endfor
-
 
