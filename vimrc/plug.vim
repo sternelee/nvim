@@ -97,9 +97,9 @@ if has('nvim')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    " Plug 'neovim/nvim-lspconfig'
-    " Plug 'nvim-lua/completion-nvim'
-    " autocmd BufEnter * lua require'completion'.on_attach()
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+    autocmd BufEnter * lua require'completion'.on_attach()
 
     " Plug 'yggdroot/leaderf'" 依赖python
     " Plug 'puremourning/vimspector' "可视化debug
@@ -197,7 +197,7 @@ let g:neomakemp_exclude_dirs=[ '.git', 'bin', 'log', 'build', 'node_modules', '.
 Plug 'ronakg/quickr-preview.vim'
 " Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'} " 关闭buffer而不关闭窗口
 " 平滑滚动
-Plug 'psliwka/vim-smoothie'
+" Plug 'psliwka/vim-smoothie'
 Plug 'tpope/vim-apathy' " 加强版的 go to file
 " 查看启动时间
 Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}

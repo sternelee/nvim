@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='D:/www/rust/gcid'
+let g:netrw_dirhist_1='D:\www\rust'
 let g:netrw_dirhist_0='D:\www\xunlei\sj-m-ssl.xunlei.com\pages\h5'
 let g:netrw_dirhist_9='C:\Users\stern\AppData\Local\nvim\vimrc'
 let g:netrw_dirhist_8='C:/Users/stern/AppData/Local/nvim/vimrc/plugins'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_6='C:/Users/sterne/AppData/Local/nvim'
 let g:netrw_dirhist_5='C:\Users\sterne\AppData\Local\nvim'
 let g:netrw_dirhist_4='C:/www/react-app/src'
 let g:netrw_dirhist_3='C:/www/APlayerAndroid-Studio/ffmpeg_relate'
-let g:netrw_dirhist_2='C:/Users/stern/AppData/Local/nvim/vimrc/plugins'
-let g:netrw_dirhist_1='C:/Users/stern/AppData/Local/nvim/vimrc'
