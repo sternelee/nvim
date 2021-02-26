@@ -1,4 +1,8 @@
 lua require 'spaceline'
+lua require('zephyr').get_zephyr_color()
+lua require'snippets'.use_suggested_mappings()
+inoremap <c-k> <cmd>lua return require'snippets'.expand_or_advance(1)<CR>
+inoremap <c-j> <cmd>lua return require'snippets'.advance_snippet(-1)<CR>
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -30,11 +34,11 @@ require'bufferline'.setup{
   }
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-require'lspconfig'.html.setup {
-  capabilities = capabilities,
-}
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- require'lspconfig'.html.setup {
+--   capabilities = capabilities,
+-- }
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end

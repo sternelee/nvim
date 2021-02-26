@@ -12,8 +12,8 @@ call plug#begin('~/.vim/plugged')
 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
-" Plug 'sbdchd/neoformat'
-Plug 'prettier/prettier'
+Plug 'sbdchd/neoformat'
+" Plug 'prettier/prettier'
 " Plug 'scrooloose/syntastic'
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
@@ -29,7 +29,7 @@ set completeopt=longest,preview,menu,menuone,noselect
 " 禁止在下方显示一些啰嗦的提示
 set shortmess+=c
 
-Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 " Plug 'hrsh7th/vim-vsnip'
 " Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
@@ -61,13 +61,7 @@ Plug 'konfekt/fastfold' "性能更好的语法折叠
 Plug 'pseewald/vim-anyfold'
 Plug 'tpope/vim-surround' "匹配符号快捷操作
 Plug 'terryma/vim-expand-region' "扩大缩小选择区域
-Plug 'easymotion/vim-easymotion', {'on':
-   \ [
-   \ '<Plug>(easymotion-bd-f)', '<Plug>(easymotion-overwin-f)',
-   \ '<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-bd-jk)',
-   \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
-   \ '<Plug>(easymotion-overwin-w)', '<Plug>(easymotion-s)',
-   \ ]}     " 基于字母的光标快速移动
+Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
 " Plug 'hrsh7th/vim-eft'
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 let g:sneak#label = 1
@@ -79,6 +73,7 @@ if has('nvim')
     " https://github.com/glepnir/nvim-lua-guide-zh
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+    Plug 'glepnir/zephyr-nvim'
     " Plug 'romgrk/barbar.nvim'
     " nnoremap <silent> gb :BufferLinePick<CR>
     Plug 'akinsho/nvim-bufferline.lua'
@@ -100,6 +95,7 @@ if has('nvim')
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/completion-nvim'
     autocmd BufEnter * lua require'completion'.on_attach()
+    Plug 'norcalli/snippets.nvim'
 
     " Plug 'yggdroot/leaderf'" 依赖python
     " Plug 'puremourning/vimspector' "可视化debug
@@ -112,7 +108,7 @@ else
 endif
 Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
 Plug 'heavenshell/vim-jsdoc', {
-  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
   \ 'do': 'make install'
   \}
 Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript-jsx', 'typescript-tsx'] } "高亮jsx结构
@@ -124,11 +120,7 @@ Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'jiangmiao/auto-pairs' "符号补全
-Plug 'matze/vim-move', {'on': [
-  \ '<Plug>MoveBlockDown',
-  \ '<Plug>MoveBlockUp',
-  \ '<Plug>MoveBlockRight',
-  \ '<Plug>MoveBlockLeft']}   " 代码块移动
+Plug 'matze/vim-move' " 代码块移动
 Plug 'rhysd/accelerated-jk' " 加速jk移动
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
