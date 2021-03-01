@@ -10,7 +10,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
 Plug 'sbdchd/neoformat'
 " Plug 'prettier/prettier'
@@ -29,13 +29,13 @@ set completeopt=longest,preview,menu,menuone,noselect
 " 禁止在下方显示一些啰嗦的提示
 set shortmess+=c
 
-" Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 " Plug 'hrsh7th/vim-vsnip'
 " Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim' " needed for previews
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " Plug 'wsdjeg/FlyGrep.vim'
 Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
 " 函数列表
@@ -50,10 +50,10 @@ Plug 'tpope/vim-fugitive'
 \ | Plug 'rbong/vim-flog'
 \ | Plug 'mhinz/vim-signify'
 " \ | Plug 'airblade/vim-gitgutter'
-" Plug 'itchyny/lightline.vim' "状态栏显示
-" Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
-" Plug 'itchyny/vim-gitbranch'
-" Plug 'albertomontesg/lightline-asyncrun'
+Plug 'itchyny/lightline.vim' "状态栏显示
+Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
+Plug 'itchyny/vim-gitbranch'
+Plug 'albertomontesg/lightline-asyncrun'
 Plug 'rmolin88/pomodoro.vim', { 'on': 'PomodoroStart' } "番茄时钟
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'konfekt/fastfold' "性能更好的语法折叠
@@ -72,11 +72,11 @@ Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 if has('nvim')
     " https://github.com/glepnir/nvim-lua-guide-zh
     Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-    Plug 'glepnir/zephyr-nvim'
+    " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+    " Plug 'glepnir/zephyr-nvim'
     " Plug 'romgrk/barbar.nvim'
     " nnoremap <silent> gb :BufferLinePick<CR>
-    Plug 'akinsho/nvim-bufferline.lua'
+    " Plug 'akinsho/nvim-bufferline.lua'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
@@ -92,10 +92,10 @@ if has('nvim')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/completion-nvim'
-    autocmd BufEnter * lua require'completion'.on_attach()
-    Plug 'norcalli/snippets.nvim'
+    " Plug 'neovim/nvim-lspconfig'
+    " Plug 'nvim-lua/completion-nvim'
+    " autocmd BufEnter * lua require'completion'.on_attach()
+    " Plug 'norcalli/snippets.nvim'
 
     " Plug 'yggdroot/leaderf'" 依赖python
     " Plug 'puremourning/vimspector' "可视化debug
@@ -106,7 +106,7 @@ else
     " Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
     " Plug 'octol/vim-cpp-enhanced-highlight'
 endif
-Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
+" Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
   \ 'do': 'make install'
@@ -147,16 +147,16 @@ Plug 'tpope/vim-commentary' "快捷代码注释
 " Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
 Plug 'asins/vimcdoc' "中文文档计划
 set helplang=cn
-" Plug 'jbgutierrez/vim-better-comments' "显示注释
+Plug 'jbgutierrez/vim-better-comments' "显示注释
 Plug 't9md/vim-choosewin' "快捷窗口选择-
 Plug 'pechorin/any-jump.vim' "跳转到函数定义
-" Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' } "模糊匹配搜索器/跳跃器
-" let g:aerojump_keymaps = {
-"   \ "<C-t>": "AerojumpDown",
-"   \ "<C-s>": "AerojumpUp",
-"   \ "<Esc>": "AerojumpExit",
-"   \ "<CR>": "AerojumpSelect",
-"   \ }
+Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' } "模糊匹配搜索器/跳跃器
+let g:aerojump_keymaps = {
+  \ "<C-t>": "AerojumpDown",
+  \ "<C-s>": "AerojumpUp",
+  \ "<Esc>": "AerojumpExit",
+  \ "<CR>": "AerojumpSelect",
+  \ }
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
 Plug 'mzlogin/vim-markdown-toc'
@@ -178,7 +178,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'tommcdo/vim-exchange'
-" Plug 'brooth/far.vim' " 全局替换插件
+Plug 'brooth/far.vim' " 全局替换插件
 Plug 'markonm/traces.vim'
 Plug 'neomake/neomake'
 Plug 'tracyone/neomake-multiprocess'
