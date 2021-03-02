@@ -165,7 +165,7 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 \ | Plug 'junegunn/limelight.vim', { 'for': 'markdown' }
 Plug 'hotoo/pangu.vim', {'for': 'markdown'}
 Plug 'gpanders/vim-medieval', {'for': 'markdown'}  "评估markdown代码块
-Plug 'jceb/vim-orgmode'
+Plug 'jceb/vim-orgmode', {'for': 'org'}
 let g:org_agenda_files = ['~/org/index.org']
 let g:org_aggressive_conceal = 1
 let g:org_heading_shade_leading_stars = 1
@@ -178,9 +178,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'tommcdo/vim-exchange'
-Plug 'brooth/far.vim' " 全局替换插件
-Plug 'markonm/traces.vim'
-Plug 'neomake/neomake'
+Plug 'brooth/far.vim' " 全局替换插件 Plug 'markonm/traces.vim' Plug 'neomake/neomake'
 Plug 'tracyone/neomake-multiprocess'
 "autodetect the existence of commands and select the faster one(rg > ag > grep)
 let g:neomakemp_grep_command = "rg"
