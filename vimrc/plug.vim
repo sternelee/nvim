@@ -35,7 +35,7 @@ Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim' " needed for previews
-" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " Plug 'wsdjeg/FlyGrep.vim'
 Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
 " 函数列表
@@ -99,7 +99,7 @@ if has('nvim')
 
     " Plug 'yggdroot/leaderf'" 依赖python
     " Plug 'puremourning/vimspector' "可视化debug
-    " Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
+    Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']

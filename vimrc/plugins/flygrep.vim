@@ -1,1 +1,1 @@
-nnoremap <Space>F :FlyGrep<cr>
+" nnoremap <Space>F :FlyGrep<cr>

@@ -66,7 +66,7 @@ augroup END
 " 新建终端
 nnoremap <leader>tt :terminal<cr>
 " 浏览目录
-nnoremap <leader>e :Explore<cr>
+" nnoremap <leader>e :Explore<cr>
 
 " 插入模式下的一些快捷键
 inoremap <M-o> <esc>o
@@ -125,7 +125,6 @@ noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " Write buffer (save)保存
-noremap <Leader>w :w<CR>
 imap <C-S> <esc>:w<CR>
 imap <C-Q> <esc>:wq<CR>
 
