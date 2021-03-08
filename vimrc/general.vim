@@ -8,12 +8,15 @@
 nmap tu :syntax sync fromstart<cr>
 
 " 2. 初始配置
-
+" 去掉python依赖
 " let g:python3_host_prog=" 建议使用scoop install -g python
-let g:python_host_skip_check=1
+let g:loaded_python_provider = 0
 " let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_skip_check=1
+" let g:python_host_skip_check=1
+let g:loaded_python3_provider = 0
 " let g:python3_host_prog = 'C:\ProgramData\scoop\shims\python3.EXE'
+let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
 
 "更新配置 :so $MYVIMRC
 "设置默认编码

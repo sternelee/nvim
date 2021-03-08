@@ -29,10 +29,10 @@ set completeopt=longest,preview,menu,menuone,noselect
 " 禁止在下方显示一些啰嗦的提示
 set shortmess+=c
 
-Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 " Plug 'hrsh7th/vim-vsnip'
 " Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
+" Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim' " needed for previews
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
@@ -99,7 +99,7 @@ if has('nvim')
 
     " Plug 'yggdroot/leaderf'" 依赖python
     " Plug 'puremourning/vimspector' "可视化debug
-    Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
+    " Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
@@ -150,13 +150,13 @@ set helplang=cn
 Plug 'jbgutierrez/vim-better-comments' "显示注释
 Plug 't9md/vim-choosewin' "快捷窗口选择-
 Plug 'pechorin/any-jump.vim' "跳转到函数定义
-Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' } "模糊匹配搜索器/跳跃器
-let g:aerojump_keymaps = {
-  \ "<C-t>": "AerojumpDown",
-  \ "<C-s>": "AerojumpUp",
-  \ "<Esc>": "AerojumpExit",
-  \ "<CR>": "AerojumpSelect",
-  \ }
+" Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' } "模糊匹配搜索器/跳跃器
+" let g:aerojump_keymaps = {
+"   \ "<C-t>": "AerojumpDown",
+"   \ "<C-s>": "AerojumpUp",
+"   \ "<Esc>": "AerojumpExit",
+"   \ "<CR>": "AerojumpSelect",
+"   \ }
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
 Plug 'mzlogin/vim-markdown-toc'
@@ -165,12 +165,12 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 \ | Plug 'junegunn/limelight.vim', { 'for': 'markdown' }
 Plug 'hotoo/pangu.vim', {'for': 'markdown'}
 Plug 'gpanders/vim-medieval', {'for': 'markdown'}  "评估markdown代码块
-Plug 'jceb/vim-orgmode', {'for': 'org'}
-let g:org_agenda_files = ['~/org/index.org']
-let g:org_aggressive_conceal = 1
-let g:org_heading_shade_leading_stars = 1
-let g:org_todo_keywords = ['TODO', 'WIP', 'REVIEW', '|', 'DONE', 'CANCELLED']
-let g:org_indent = 1
+" Plug 'jceb/vim-orgmode', {'for': 'org'}
+" let g:org_agenda_files = ['~/org/index.org']
+" let g:org_aggressive_conceal = 1
+" let g:org_heading_shade_leading_stars = 1
+" let g:org_todo_keywords = ['TODO', 'WIP', 'REVIEW', '|', 'DONE', 'CANCELLED']
+" let g:org_indent = 1
 Plug 'uguu-org/vim-matrix-screensaver', {'on': 'Matrix'} "黑客帝国的屏保
 " Plug 'metakirby5/codi.vim', {'on': 'Codi'} "代码执行预览
 Plug 'skywind3000/asynctasks.vim' "任务
@@ -196,7 +196,7 @@ Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 " Plug 'andymass/vim-matchup' " 高亮匹配语句
 Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代码点值和十六进制值
 " Plug 'machakann/vim-swap' "交换参数, g>或g<
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 " Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Plug 'kana/vim-textobj-user'
 " Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']} " 悬浮终端
