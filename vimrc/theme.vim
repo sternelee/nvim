@@ -10,8 +10,8 @@ if has('termguicolors')
 	set termguicolors
 endif
 
-colorscheme challenger_deep
-" colorscheme cyberpunk-neon zephyr challenger_deep
+colorscheme cyberpunk
+" colorscheme cyberpunk-neon zephyr challenger_deep cyberpunk
 hi Comment cterm=italic
 
 highlight Comment cterm=italic gui=italic

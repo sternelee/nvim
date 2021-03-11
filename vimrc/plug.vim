@@ -10,7 +10,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
 Plug 'sbdchd/neoformat'
 " Plug 'prettier/prettier'
@@ -18,12 +18,12 @@ Plug 'sbdchd/neoformat'
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
 " Plug 'jayli/vim-easycomplete'
-" Plug 'skywind3000/vim-dict'
-" Plug 'skywind3000/vim-auto-popmenu'
+Plug 'skywind3000/vim-dict'
+Plug 'skywind3000/vim-auto-popmenu'
 " 设定需要生效的文件类型，如果是 "*" 的话，代表所有类型
-" let g:apc_enable_ft = {'*':1}
+let g:apc_enable_ft = {'*':1}
 " 设定从字典文件以及当前打开的文件里收集补全单词，详情看 ':help cpt'
-" set cpt=.,k,w,b
+set cpt=.,k,w,b
 " 不要自动选中第一个选项。
 set completeopt=longest,preview,menu,menuone,noselect
 " 禁止在下方显示一些啰嗦的提示
@@ -47,9 +47,10 @@ Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
 Plug 'tpope/vim-fugitive'
-\ | Plug 'rbong/vim-flog'
-\ | Plug 'mhinz/vim-signify'
-" \ | Plug 'airblade/vim-gitgutter'
+Plug 'rbong/vim-flog'
+Plug 'mhinz/vim-signify'
+" Plug 'airblade/vim-gitgutter'
+Plug 'rhysd/git-messenger.vim'
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
@@ -77,7 +78,7 @@ if has('nvim')
     " Plug 'romgrk/barbar.nvim'
     " nnoremap <silent> gb :BufferLinePick<CR>
     " Plug 'akinsho/nvim-bufferline.lua'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本,建议更新完后把lua文件同步到nvim的lua目录下
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
@@ -92,10 +93,10 @@ if has('nvim')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    " Plug 'neovim/nvim-lspconfig'
-    " Plug 'nvim-lua/completion-nvim'
-    " autocmd BufEnter * lua require'completion'.on_attach()
-    " Plug 'norcalli/snippets.nvim'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+    autocmd BufEnter * lua require'completion'.on_attach()
+    Plug 'norcalli/snippets.nvim'
 
     " Plug 'yggdroot/leaderf'" 依赖python
     " Plug 'puremourning/vimspector' "可视化debug

@@ -1,10 +1,10 @@
 local luv = vim.loop
-local lib = require'lib.lib'
-local config = require'lib.config'
-local colors = require'lib.colors'
-local renderer = require'lib.renderer'
-local fs = require'lib.fs'
-local utils = require'lib.utils'
+local lib = require'nvim-tree.lib'
+local config = require'nvim-tree.config'
+local colors = require'nvim-tree.colors'
+local renderer = require'nvim-tree.renderer'
+local fs = require'nvim-tree.fs'
+local utils = require'nvim-tree.utils'
 local api = vim.api
 
 local M = {}
@@ -65,7 +65,8 @@ end
 local keypress_funcs = {
   create = fs.create,
   remove = fs.remove,
-  rename = fs.rename,
+  rename = fs.rename(false),
+  full_rename = fs.rename(true),
   copy = fs.copy,
   cut = fs.cut,
   paste = fs.paste,
@@ -119,14 +120,20 @@ end
 function M.on_enter()
   local bufnr = api.nvim_get_current_buf()
   local bufname = api.nvim_buf_get_name(bufnr)
+  local buftype = api.nvim_buf_get_option(bufnr, 'filetype')
+  local ft_ignore = vim.g.nvim_tree_auto_ignore_ft or {}
 
   local stats = luv.fs_stat(bufname)
   local is_dir = stats and stats.type == 'directory'
+
+  local disable_netrw = vim.g.nvim_tree_disable_netrw or 1
+  local hijack_netrw = vim.g.nvim_tree_hijack_netrw or 1
   if is_dir then
     api.nvim_command('cd '..bufname)
   end
-  local should_open = vim.g.nvim_tree_auto_open == 1 and (bufname == '' or is_dir)
-  colors.setup()
+  local should_open = vim.g.nvim_tree_auto_open == 1 and
+    ((is_dir and (hijack_netrw == 1 or disable_netrw == 1)) or bufname == '') and
+    not vim.tbl_contains(ft_ignore, buftype)
   lib.init(should_open, should_open)
 end
 
@@ -190,25 +197,7 @@ function M.reset_highlight()
   renderer.render_hl(lib.Tree.bufnr)
 end
 
-function M.xdg_open()
-  local node = lib.get_node_at_cursor()
-  -- TODO: this should open symlink targets
-  if not node or node.entries or node.link_to then return end
-
-  local cmd
-  if vim.fn.has('unix') == 1 then
-    cmd = 'xdg-open'
-  else
-    cmd = 'open'
-  end
-
-  vim.loop.spawn(cmd, {args={node.absolute_path}}, vim.schedule_wrap(function(code)
-    if code ~= 0 then
-      api.nvim_err_writeln("Could not open "..node.absolute_path)
-    end
-  end))
-end
-
+colors.setup()
 vim.defer_fn(M.on_enter, 1)
 
 return M
