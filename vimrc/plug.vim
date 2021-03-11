@@ -119,6 +119,7 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'aloussase/cyberpunk'
 Plug 'jiangmiao/auto-pairs' "符号补全
 Plug 'matze/vim-move' " 代码块移动
 Plug 'rhysd/accelerated-jk' " 加速jk移动
