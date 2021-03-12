@@ -18,20 +18,20 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
 " Plug 'jayli/vim-easycomplete'
-" Plug 'skywind3000/vim-dict'
-" Plug 'skywind3000/vim-auto-popmenu'
+Plug 'skywind3000/vim-dict'
+Plug 'skywind3000/vim-auto-popmenu'
 " 设定需要生效的文件类型，如果是 "*" 的话，代表所有类型
-" let g:apc_enable_ft = {'*':1}
+let g:apc_enable_ft = {'*':1}
 " 设定从字典文件以及当前打开的文件里收集补全单词，详情看 ':help cpt'
-" set cpt=.,k,w,b
+set cpt=.,k,w,b
 " 不要自动选中第一个选项。
-" set completeopt=menu,menuone,noselect,longest,preview,
+set completeopt=menu,menuone,noselect,longest,preview,
 " 禁止在下方显示一些啰嗦的提示
 set shortmess+=c
 
 " Plug 'hrsh7th/vim-vsnip'
 " Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
+" Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim' " needed for previews
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
@@ -77,12 +77,12 @@ if has('nvim')
     " Plug 'glepnir/zephyr-nvim'
     " Plug 'romgrk/barbar.nvim'
     " nnoremap <silent> gb :BufferLinePick<CR>
-    Plug 'akinsho/nvim-bufferline.lua'
+    " Plug 'akinsho/nvim-bufferline.lua'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本,建议更新完后把lua文件同步到nvim的lua目录下
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
-    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
@@ -109,7 +109,7 @@ if has('nvim')
 
     " Plug 'yggdroot/leaderf'" 依赖python
     " Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
-    " Plug 'puremourning/vimspector' "可视化debug
+    Plug 'puremourning/vimspector' "可视化debug
     " Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
