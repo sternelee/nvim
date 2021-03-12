@@ -10,29 +10,28 @@
 
 call plug#begin('~/.vim/plugged')
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
-Plug 'sbdchd/neoformat'
+" Plug 'sbdchd/neoformat'
 " Plug 'prettier/prettier'
 " Plug 'scrooloose/syntastic'
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
 " Plug 'jayli/vim-easycomplete'
-Plug 'skywind3000/vim-dict'
-Plug 'skywind3000/vim-auto-popmenu'
+" Plug 'skywind3000/vim-dict'
+" Plug 'skywind3000/vim-auto-popmenu'
 " 设定需要生效的文件类型，如果是 "*" 的话，代表所有类型
-let g:apc_enable_ft = {'*':1}
+" let g:apc_enable_ft = {'*':1}
 " 设定从字典文件以及当前打开的文件里收集补全单词，详情看 ':help cpt'
-set cpt=.,k,w,b
+" set cpt=.,k,w,b
 " 不要自动选中第一个选项。
-set completeopt=longest,preview,menu,menuone,noselect
+" set completeopt=menu,menuone,noselect,longest,preview,
 " 禁止在下方显示一些啰嗦的提示
 set shortmess+=c
 
-" Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 " Plug 'hrsh7th/vim-vsnip'
 " Plug 'hrsh7th/vim-vsnip-integ'
-" Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
+Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim' " needed for previews
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
@@ -48,8 +47,8 @@ Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
-Plug 'mhinz/vim-signify'
-" Plug 'airblade/vim-gitgutter'
+" Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/git-messenger.vim'
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
@@ -73,11 +72,12 @@ Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 if has('nvim')
     " https://github.com/glepnir/nvim-lua-guide-zh
     Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'kyazdani42/nvim-tree.lua'
     " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     " Plug 'glepnir/zephyr-nvim'
     " Plug 'romgrk/barbar.nvim'
     " nnoremap <silent> gb :BufferLinePick<CR>
-    " Plug 'akinsho/nvim-bufferline.lua'
+    Plug 'akinsho/nvim-bufferline.lua'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本,建议更新完后把lua文件同步到nvim的lua目录下
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
@@ -93,12 +93,22 @@ if has('nvim')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/completion-nvim'
-    autocmd BufEnter * lua require'completion'.on_attach()
-    Plug 'norcalli/snippets.nvim'
+
+    " Plug 'neovim/nvim-lspconfig'
+    " Plug 'nvim-lua/completion-nvim' " 自动完成
+    " Plug 'steelsojka/completion-buffers'
+    " Plug 'nvim-treesitter/completion-treesitter'
+    " Plug 'kristijanhusak/vim-dadbod-completion'
+    " 在每一个buffer都自动完成
+    " autocmd BufEnter * lua require'completion'.on_attach()
+    " let g:completion_trigger_keyword_length = 2 " default = 1
+    " let g:completion_timer_cycle = 200 "default value is 80
+    " Plug 'norcalli/snippets.nvim'
+    " let g:completion_enable_snippet = 'snippets.nvim'
+    " Plug 'glepnir/indent-guides.nvim' " 基于lua的对齐线
 
     " Plug 'yggdroot/leaderf'" 依赖python
+    " Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
     " Plug 'puremourning/vimspector' "可视化debug
     " Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
 else
@@ -139,7 +149,6 @@ Plug 'ntpeters/vim-better-whitespace' "显示多余空格
 Plug 'mhinz/vim-startify' "启动界面预览
 " Plug 'glepnir/dashboard-nvim'
 Plug 'yggdroot/indentline' "配置显示缩进对齐线
-" Plug 'glepnir/indent-guides.nvim' " 基于lua的对齐线
 Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
@@ -149,7 +158,7 @@ Plug 'tpope/vim-commentary' "快捷代码注释
 " Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
 Plug 'asins/vimcdoc' "中文文档计划
 set helplang=cn
-Plug 'jbgutierrez/vim-better-comments' "显示注释
+" Plug 'jbgutierrez/vim-better-comments' "显示注释
 Plug 't9md/vim-choosewin' "快捷窗口选择-
 Plug 'pechorin/any-jump.vim' "跳转到函数定义
 " Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' } "模糊匹配搜索器/跳跃器
