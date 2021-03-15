@@ -72,7 +72,6 @@ Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 if has('nvim')
     " https://github.com/glepnir/nvim-lua-guide-zh
     Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'kyazdani42/nvim-tree.lua'
     " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     " Plug 'glepnir/zephyr-nvim'
     " Plug 'romgrk/barbar.nvim'
@@ -82,7 +81,7 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
-    Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
+    " Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
