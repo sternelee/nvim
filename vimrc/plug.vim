@@ -36,7 +36,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'junegunn/fzf.vim' " needed for previews
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " Plug 'wsdjeg/FlyGrep.vim'
-Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
+" Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
 " 函数列表
 " Plug 'preservim/tagbar'
 " nmap <F8> :TagbarToggle<CR>
@@ -47,9 +47,9 @@ Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
-" Plug 'mhinz/vim-signify'
-Plug 'airblade/vim-gitgutter'
-Plug 'rhysd/git-messenger.vim'
+Plug 'mhinz/vim-signify'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'rhysd/git-messenger.vim'
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
@@ -58,7 +58,7 @@ Plug 'rmolin88/pomodoro.vim', { 'on': 'PomodoroStart' } "番茄时钟
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'konfekt/fastfold' "性能更好的语法折叠
 " 功能很强的折叠插件, zc zo
-Plug 'pseewald/vim-anyfold'
+" Plug 'pseewald/vim-anyfold'
 Plug 'tpope/vim-surround' "匹配符号快捷操作
 Plug 'terryma/vim-expand-region' "扩大缩小选择区域
 Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
@@ -132,9 +132,9 @@ Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'aloussase/cyberpunk'
 Plug 'jiangmiao/auto-pairs' "符号补全
 Plug 'matze/vim-move' " 代码块移动
-Plug 'rhysd/accelerated-jk' " 加速jk移动
-nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gk)
+" Plug 'rhysd/accelerated-jk' " 加速jk移动
+" nmap j <Plug>(accelerated_jk_gj)
+" nmap k <Plug>(accelerated_jk_gk)
 Plug 'alvan/vim-closetag' "自动闭合标签
 Plug 'luochen1990/rainbow' "彩虹符号匹配
 Plug 'ianva/vim-youdao-translater' "有道翻译

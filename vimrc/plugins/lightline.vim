@@ -1,20 +1,13 @@
-function! GitStatus()
-  let [a,m,r] = GitGutterGetHunkSummary()
-  return printf('+%d ~%d -%d', a, m, r)
-endfunction
-set statusline+=%{GitStatus()}
-
-
 let g:lightline = {
       \ 'colorscheme': 'challenger_deep',
       \ 'active': {
       \   'left': [ ['homemode'], ['method'],
-      \             ['gitbranch', 'gitgutter'],['cocerror'],['cocwarn']],
+      \             ['gitbranch'],['cocerror'],['cocwarn']],
       \   'right':[ ['lineinfo'],
       \             ['percent'], ['fileformat','fileencoding'] , ['asyncrun_status'], ['neomake_status']],
       \ },
       \ 'inactive': {
-      \   'left': [['homemode'], ['gitbranch'], ['gitgutter']],
+      \   'left': [['homemode'], ['gitbranch']],
       \   'right':[['lineinfo'], ['percent']],
       \ },
       \ 'tabline': {
@@ -33,7 +26,6 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'homemode': 'LightlineMode',
-      \   'gitgutter': 'LightLineGitGutter',
       \   'gitbranch': 'gitbranch#name',
       \   'readonly': 'LightLineReadonly',
       \   'modified': 'LightLineModified',
@@ -135,22 +127,6 @@ endfunction
 
 autocmd User CocDiagnosticChange call lightline#update()
 
-function! LightLineGitGutter()
-  if ! exists('*GitGutterGetHunkSummary')
-        \ || ! get(g:, 'gitgutter_enabled', 0)
-        \ || winwidth('.') <= 90
-    return ''
-  endif
-  let symbols = ['+','~','-']
-  let hunks = GitGutterGetHunkSummary()
-  let ret = []
-  for i in [0, 1, 2]
-    if hunks[i] > 0
-      call add(ret, symbols[i] . hunks[i])
-    endif
-  endfor
-  return join(ret, ' ')
-endfunction
 
 function! LightLineFilename()
   return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .

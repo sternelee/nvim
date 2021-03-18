@@ -55,7 +55,7 @@
   "list.nextKeymap": "<C-t>",
   "list.previousKeymap": "<C-s>",
   //git
-  "git.enableGutters": true,
+  "git.enableGutters": false,
   "git.addGBlameToBufferVar": true,
   "git.addGBlameToVirtualText": true,
   "git.addedSign.hlGroup": "GitGutterAdd",
