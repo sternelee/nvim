@@ -130,7 +130,7 @@ Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'aloussase/cyberpunk'
-Plug 'jiangmiao/auto-pairs' "符号补全
+" Plug 'jiangmiao/auto-pairs' "符号补全,当前使用了coc-pairs
 Plug 'matze/vim-move' " 代码块移动
 " Plug 'rhysd/accelerated-jk' " 加速jk移动
 " nmap j <Plug>(accelerated_jk_gj)
@@ -182,9 +182,11 @@ Plug 'gpanders/vim-medieval', {'for': 'markdown'}  "评估markdown代码块
 " let g:org_todo_keywords = ['TODO', 'WIP', 'REVIEW', '|', 'DONE', 'CANCELLED']
 " let g:org_indent = 1
 Plug 'uguu-org/vim-matrix-screensaver', {'on': 'Matrix'} "黑客帝国的屏保
-" Plug 'metakirby5/codi.vim', {'on': 'Codi'} "代码执行预览
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
+" Plug 'metakirby5/codi.vim', {'on': 'Codi'} "代码执行预览,只支持linux
+Plug 'michaelb/sniprun' " 运行代码块
+Plug 'thinca/vim-quickrun'
 Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'tommcdo/vim-exchange'
@@ -209,7 +211,7 @@ Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代�
 " Plug 'vimwiki/vimwiki'
 " Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Plug 'kana/vim-textobj-user'
-" Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']} " 悬浮终端
+Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']} " 悬浮终端
 " Plug 'danilamihailov/beacon.nvim' "看到你的跳转
 " Plug 'lifepillar/vim-mucomplete' "链式的极简自动完成
 Plug 'chrisbra/NrrwRgn' "专注于选定区域，而使其余区域无法访问,选择区域后:NR

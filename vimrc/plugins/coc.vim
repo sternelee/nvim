@@ -31,7 +31,14 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-emmet',
   \ 'coc-gitignore',
-  \ 'coc-explorer'
+  \ 'coc-explorer',
+  \  'coc-project',
+  \  'coc-pairs',
+  \  'coc-markdownlint',
+  \  'coc-post',
+  \  'coc-vetur',
+  \  'coc-todolist',
+  \  'coc-toml'
   \ ]
 
 " from readme
