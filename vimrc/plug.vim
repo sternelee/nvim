@@ -185,7 +185,7 @@ Plug 'uguu-org/vim-matrix-screensaver', {'on': 'Matrix'} "黑客帝国的屏保
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
 " Plug 'metakirby5/codi.vim', {'on': 'Codi'} "代码执行预览,只支持linux
-Plug 'michaelb/sniprun' " 运行代码块
+" Plug 'michaelb/sniprun' " 运行代码块,仅linux
 Plug 'thinca/vim-quickrun'
 Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
