@@ -10,24 +10,24 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
 " Plug 'sbdchd/neoformat'
-" Plug 'prettier/prettier'
+Plug 'prettier/prettier'
 " Plug 'scrooloose/syntastic'
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
 " Plug 'jayli/vim-easycomplete'
-" Plug 'skywind3000/vim-dict'
-" Plug 'skywind3000/vim-auto-popmenu'
+Plug 'skywind3000/vim-dict'
+Plug 'skywind3000/vim-auto-popmenu'
 " 设定需要生效的文件类型，如果是 "*" 的话，代表所有类型
-" let g:apc_enable_ft = {'*':1}
+let g:apc_enable_ft = {'*':1}
 " 设定从字典文件以及当前打开的文件里收集补全单词，详情看 ':help cpt'
-" set cpt=.,k,w,b
+set cpt=.,k,w,b
 " 不要自动选中第一个选项。
-" set completeopt=menu,menuone,noselect,longest,preview,
+set completeopt=menu,menuone,noselect,longest,preview,
 " 禁止在下方显示一些啰嗦的提示
-" set shortmess+=c
+set shortmess+=c
 
 " Plug 'hrsh7th/vim-vsnip'
 " Plug 'hrsh7th/vim-vsnip-integ'
@@ -42,6 +42,7 @@ Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " nmap <F8> :TagbarToggle<CR>
 Plug 'liuchengxu/vista.vim'
 " Plug 'ludovicchabant/vim-gutentags'
+" Plug 'skywind3000/gutentags_plus'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
@@ -93,17 +94,17 @@ if has('nvim')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
 
-    " Plug 'neovim/nvim-lspconfig'
-    " Plug 'nvim-lua/completion-nvim' " 自动完成
-    " Plug 'steelsojka/completion-buffers'
-    " Plug 'nvim-treesitter/completion-treesitter'
-    " Plug 'kristijanhusak/vim-dadbod-completion'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim' " 自动完成
+    Plug 'steelsojka/completion-buffers'
+    Plug 'nvim-treesitter/completion-treesitter'
+    Plug 'kristijanhusak/vim-dadbod-completion'
     " 在每一个buffer都自动完成
-    " autocmd BufEnter * lua require'completion'.on_attach()
-    " let g:completion_trigger_keyword_length = 2 " default = 1
-    " let g:completion_timer_cycle = 200 "default value is 80
-    " Plug 'norcalli/snippets.nvim'
-    " let g:completion_enable_snippet = 'snippets.nvim'
+    autocmd BufEnter * lua require'completion'.on_attach()
+    let g:completion_trigger_keyword_length = 2 " default = 1
+    let g:completion_timer_cycle = 200 "default value is 80
+    Plug 'norcalli/snippets.nvim'
+    let g:completion_enable_snippet = 'snippets.nvim'
     " Plug 'glepnir/indent-guides.nvim' " 基于lua的对齐线
 
     " Plug 'yggdroot/leaderf'" 依赖python
@@ -130,7 +131,7 @@ Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'aloussase/cyberpunk'
-" Plug 'jiangmiao/auto-pairs' "符号补全,当前使用了coc-pairs
+Plug 'jiangmiao/auto-pairs' "符号补全,当前使用了coc-pairs
 Plug 'matze/vim-move' " 代码块移动
 " Plug 'rhysd/accelerated-jk' " 加速jk移动
 " nmap j <Plug>(accelerated_jk_gj)
@@ -192,10 +193,6 @@ Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'tommcdo/vim-exchange'
 Plug 'brooth/far.vim' " 全局替换插件 Plug 'markonm/traces.vim' Plug 'neomake/neomake'
 Plug 'tracyone/neomake-multiprocess'
-"autodetect the existence of commands and select the faster one(rg > ag > grep)
-let g:neomakemp_grep_command = "rg"
-let g:neomakemp_exclude_files=['*.jpg', '*.png', '*.min.js', '*.swp', '*.pyc','*.out','*.o']
-let g:neomakemp_exclude_dirs=[ '.git', 'bin', 'log', 'build', 'node_modules', '.bundle', '.tmp','.svn' ]
 Plug 'ronakg/quickr-preview.vim'
 " Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'} " 关闭buffer而不关闭窗口
 " 平滑滚动
