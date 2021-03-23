@@ -50,7 +50,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
 Plug 'mhinz/vim-signify'
 " Plug 'airblade/vim-gitgutter'
-" Plug 'rhysd/git-messenger.vim'
+Plug 'rhysd/git-messenger.vim'
+Plug 'sjl/gundo.vim'
+Plug 'mattn/gist-vim'
+Plug 'junegunn/gv.vim'
+Plug 'apzelos/blamer.nvim'
+let g:blamer_enabled = 1
+Plug 'lambdalisue/gina.vim'
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
@@ -58,6 +64,7 @@ Plug 'albertomontesg/lightline-asyncrun'
 Plug 'rmolin88/pomodoro.vim', { 'on': 'PomodoroStart' } "番茄时钟
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'konfekt/fastfold' "性能更好的语法折叠
+Plug 'sickill/vim-pasta'
 " 功能很强的折叠插件, zc zo
 " Plug 'pseewald/vim-anyfold'
 Plug 'tpope/vim-surround' "匹配符号快捷操作
@@ -95,6 +102,8 @@ if has('nvim')
     Plug 'nvim-telescope/telescope.nvim'
 
     Plug 'neovim/nvim-lspconfig'
+    Plug 'kabouzeid/nvim-lspinstall'
+    Plug 'alexaandru/nvim-lspupdate'
     Plug 'nvim-lua/completion-nvim' " 自动完成
     Plug 'steelsojka/completion-buffers'
     Plug 'nvim-treesitter/completion-treesitter'
