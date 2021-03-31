@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='C:\Users\stern\AppData\Local\nvim\vimrc'
+let g:netrw_dirhist_2='D:/www/xunlei/sj-m-ssl.xunlei.com/pages/decompress'
+let g:netrw_dirhist_1='D:\www\xunlei\sj-m-ssl.xunlei.com\pages\decompress\_id'
+let g:netrw_dirhist_0='D:/www/xunlei/sj-m-ssl.xunlei.com'
 let g:netrw_dirhist_9='C:/www/wasm-player-sdk'
 let g:netrw_dirhist_8='C:/www/vite-react'
 let g:netrw_dirhist_7='C:/www/vite-react/src'
 let g:netrw_dirhist_6='C:\www\vite-react'
 let g:netrw_dirhist_5='D:\www\gatsby-blog'
 let g:netrw_dirhist_4='C:\Users\stern\AppData\Local\nvim\vimrc\plugins'
-let g:netrw_dirhist_3='D:\www\xunlei\pan.xunlei.com'
-let g:netrw_dirhist_2='D:/www/rust/gcid'
-let g:netrw_dirhist_1='D:\www\rust'
-let g:netrw_dirhist_0='D:\www\xunlei\sj-m-ssl.xunlei.com\pages\h5'

@@ -10,10 +10,10 @@
 
 call plug#begin('~/.vim/plugged')
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
 " Plug 'sbdchd/neoformat'
-Plug 'prettier/prettier'
+" Plug 'prettier/prettier'
 " Plug 'scrooloose/syntastic'
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
@@ -101,19 +101,19 @@ if has('nvim')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
 
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'kabouzeid/nvim-lspinstall'
-    Plug 'alexaandru/nvim-lspupdate'
-    Plug 'nvim-lua/completion-nvim' " 自动完成
-    Plug 'steelsojka/completion-buffers'
-    Plug 'nvim-treesitter/completion-treesitter'
-    Plug 'kristijanhusak/vim-dadbod-completion'
-    " 在每一个buffer都自动完成
-    autocmd BufEnter * lua require'completion'.on_attach()
-    let g:completion_trigger_keyword_length = 2 " default = 1
-    let g:completion_timer_cycle = 200 "default value is 80
-    Plug 'norcalli/snippets.nvim'
-    let g:completion_enable_snippet = 'snippets.nvim'
+    " Plug 'neovim/nvim-lspconfig'
+    " Plug 'kabouzeid/nvim-lspinstall'
+    " Plug 'alexaandru/nvim-lspupdate'
+    " Plug 'nvim-lua/completion-nvim' " 自动完成
+    " Plug 'steelsojka/completion-buffers'
+    " Plug 'nvim-treesitter/completion-treesitter'
+    " Plug 'kristijanhusak/vim-dadbod-completion'
+    " " 在每一个buffer都自动完成
+    " autocmd BufEnter * lua require'completion'.on_attach()
+    " let g:completion_trigger_keyword_length = 2 " default = 1
+    " let g:completion_timer_cycle = 200 "default value is 80
+    " Plug 'norcalli/snippets.nvim'
+    " let g:completion_enable_snippet = 'snippets.nvim'
     " Plug 'glepnir/indent-guides.nvim' " 基于lua的对齐线
 
     " Plug 'yggdroot/leaderf'" 依赖python
