@@ -47,15 +47,18 @@ Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'rbong/vim-flog'
 Plug 'mhinz/vim-signify'
 " Plug 'airblade/vim-gitgutter'
-Plug 'rhysd/git-messenger.vim'
+" Plug 'rhysd/git-messenger.vim'
 Plug 'sjl/gundo.vim'
+" gist 相关
+Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'junegunn/gv.vim'
-Plug 'apzelos/blamer.nvim'
-let g:blamer_enabled = 1
+" Plug 'apzelos/blamer.nvim'
+" let g:blamer_enabled = 1
 Plug 'lambdalisue/gina.vim'
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
@@ -70,9 +73,11 @@ Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-surround' "匹配符号快捷操作
 Plug 'terryma/vim-expand-region' "扩大缩小选择区域
 Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
+Plug 'phaazon/hop.nvim'
 " Plug 'hrsh7th/vim-eft'
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 let g:sneak#label = 1
+Plug 'airblade/vim-rooter'
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
 Plug 'leafoftree/vim-vue-plugin'
@@ -97,9 +102,11 @@ if has('nvim')
     Plug 'norcalli/nvim-colorizer.lua' " 最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
 
+    " Telescope
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-media-files.nvim'
 
     " Plug 'neovim/nvim-lspconfig'
     " Plug 'kabouzeid/nvim-lspinstall'
@@ -224,8 +231,8 @@ Plug 'chrisbra/NrrwRgn' "专注于选定区域，而使其余区域无法访问,
 let g:nrrw_rgn_nomap_nr = 1
 let g:nrrw_rgn_nomap_Nr = 1
 " Plug 'inkarkat/vim-SyntaxRange'
-" 数据库
-Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion' " 数据库
 Plug 'tpope/vim-sensible' "合适的默认配置
 Plug 'tpope/vim-unimpaired' "符号映射
 Plug 'tpope/vim-scriptease'
