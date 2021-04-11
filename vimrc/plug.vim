@@ -47,19 +47,19 @@ Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'rbong/vim-flog'
+" Plug 'tpope/vim-rhubarb'
+" Plug 'rbong/vim-flog'
 Plug 'mhinz/vim-signify'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'rhysd/git-messenger.vim'
-Plug 'sjl/gundo.vim'
+" Plug 'sjl/gundo.vim'
+Plug 'junegunn/gv.vim'
+Plug 'lambdalisue/gina.vim'
 " gist 相关
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
-Plug 'junegunn/gv.vim'
 " Plug 'apzelos/blamer.nvim'
 " let g:blamer_enabled = 1
-Plug 'lambdalisue/gina.vim'
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
@@ -99,10 +99,10 @@ if has('nvim')
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
 
-    Plug 'norcalli/nvim-colorizer.lua' " 最好把插件内的lua文件同步到bin/lua下
+    Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
 
-    " Telescope
+    " Telescope, 搜索grep工具
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
@@ -130,7 +130,7 @@ if has('nvim')
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
-    " Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
+    Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
     " Plug 'octol/vim-cpp-enhanced-highlight'
 endif
 " Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
@@ -207,7 +207,8 @@ Plug 'thinca/vim-quickrun'
 Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'tommcdo/vim-exchange'
-Plug 'brooth/far.vim' " 全局替换插件 Plug 'markonm/traces.vim' Plug 'neomake/neomake'
+Plug 'brooth/far.vim' " 全局替换插件
+Plug 'markonm/traces.vim' Plug 'neomake/neomake'
 Plug 'tracyone/neomake-multiprocess'
 Plug 'ronakg/quickr-preview.vim'
 " Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'} " 关闭buffer而不关闭窗口

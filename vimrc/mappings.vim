@@ -66,28 +66,18 @@ augroup END
 " 新建终端, 这里使用了powershell 7
 nnoremap <leader>t :terminal pwsh<cr>
 " 浏览目录
-" nnoremap <leader>e :Explore<cr>
+nnoremap <leader>e :Explore<cr>
 
-" 插入模式下的一些快捷键
-inoremap <M-o> <esc>o
-inoremap <M-O> <esc>O
-inoremap <M-h> <HOME>
-inoremap <M-l> <END>
-inoremap <c-h> <left>
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-inoremap <c-l> <right>
-
-function! s:writeCurrent() abort
-    if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# ''
-        silent write
-    endif
-endfunction
+" function! s:writeCurrent() abort
+"     if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# ''
+"         silent write
+"     endif
+" endfunction
 " noremap <silent> <space><space> <esc>:call common#functions#Wall()<cr>
 " noremap <silent> <space><space> <esc>:call <SID>writeCurrent()<cr>
 " xnoremap <silent> <space><space> <esc>:call <SID>writeCurrent()<cr>
-noremap <silent> <space><space> <esc>:silent! write<cr>
-xnoremap <silent> <space><space> <esc>:silent! write<cr>
+" noremap <silent> <space><space> <esc>:silent! write<cr>
+" xnoremap <silent> <space><space> <esc>:silent! write<cr>
 
 nnoremap j gj
 nnoremap k gk
@@ -97,13 +87,6 @@ vnoremap k gk
 " 复制到末尾
 nnoremap Y y$
 nnoremap vv ^vg_
-
-nnoremap <silent> <leader>tn :tabnew<cr>
-nnoremap <silent> <leader>tc :tabclose<cr>
-nnoremap <silent> <M-L> :tabmove +1<cr>
-nnoremap <silent> <M-H> :tabmove -1<cr>
-tnoremap <silent> <M-L> <c-\><c-n>:tabmove +1<cr>
-tnoremap <silent> <M-H> <c-\><c-n>:tabmove -1<cr>
 
 " 使用系统应用打开当前buffer文件
 noremap <silent> <M-x> :call common#functions#OpenFileUsingSystemApp(expand('%:p'))<cr>
@@ -117,33 +100,32 @@ endfunction
 map <leader>sz :call GetFilesize(@%)<CR>
 
 " 3. 常用键位的映射
-
 inoremap jk <ESC>
-
 " j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
+"取消高亮
+"map <leader>n :nohl<CR>
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>bn :bn<CR>
+"插入模式下快速回到normal模式并且到新行
+inoremap <C-O> <Esc>o
+"删除buffer
+nnoremap <C-x> :bd<CR>
 " Write buffer (save)保存
 imap <C-S> <esc>:w<CR>
 imap <C-Q> <esc>:wq<CR>
+" 插入模式下的一些快捷键
+inoremap <M-o> <esc>o
+inoremap <M-O> <esc>O
+inoremap <M-h> <HOME>
+inoremap <M-l> <END>
+inoremap <c-h> <left>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-l> <right>
 
-"取消高亮
-"map <leader>n :nohl<CR>
-
-"插入模式下快速回到normal模式并且到新行
-inoremap <C-O> <Esc>o
-
-nnoremap <leader>bp :bp<CR>
-nnoremap <leader>bn :bn<CR>
-"删除buffer
-nnoremap <C-x>  :bd<CR>
-
-"选择窗口
-"nnoremap <C-h> <C-w>h
-"nnoremap <C-l> <C-w>l
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
 function! WinMove(key)
     let t:curwin = winnr()
     exec "wincmd ".a:key
@@ -172,7 +154,10 @@ nmap <leader>tn :tabnew<cr>
 nmap <leader>te :tabedit
 nmap <leader>tc :tabclose<cr>
 nmap <leader>tm :tabmove
-
+nnoremap <silent> <M-L> :tabmove +1<cr>
+nnoremap <silent> <M-H> :tabmove -1<cr>
+tnoremap <silent> <M-L> <c-\><c-n>:tabmove +1<cr>
+tnoremap <silent> <M-H> <c-\><c-n>:tabmove -1<cr>
 
 " Tab move lines left or right (c-Ctrl,s-Shift)
 nmap    <c-tab>     v>
@@ -188,7 +173,6 @@ vmap    <s-tab>     <gv
 nmap <C-w>[ :vertical resize -3<CR>
 nmap <C-w>] :vertical resize +3<CR>
 
-
 " 常用
 nnoremap <F3> :set list! list?<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
@@ -196,8 +180,6 @@ nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 map <leader>sa ggVG"
-
-
 
 " 打开terminal,水平分屏
 " :terminal
