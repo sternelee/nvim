@@ -208,7 +208,8 @@ Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'tommcdo/vim-exchange'
 Plug 'brooth/far.vim' " 全局替换插件
-Plug 'markonm/traces.vim' Plug 'neomake/neomake'
+" Plug 'markonm/traces.vim'
+" Plug 'neomake/neomake'
 Plug 'tracyone/neomake-multiprocess'
 Plug 'ronakg/quickr-preview.vim'
 " Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'} " 关闭buffer而不关闭窗口
