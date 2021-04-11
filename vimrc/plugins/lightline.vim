@@ -1,5 +1,5 @@
 let g:lightline = {
-      \ 'colorscheme': 'challenger_deep',
+      \ 'colorscheme': 'nightfly',
       \ 'active': {
       \   'left': [ ['homemode'], ['method'],
       \             ['gitbranch'],['cocerror'],['cocwarn']],
