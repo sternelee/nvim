@@ -25,7 +25,7 @@ let g:apc_enable_ft = {'*':1}
 " 设定从字典文件以及当前打开的文件里收集mp4download/mp4download/补全单词，详情看 ':help cpt'
 set cpt=.,k,w,b
 " 不要自动选中第一个选项。
-set completeopt=menu,menuone,noselect,longest,preview,
+set completeopt=menu,menuone,noselect
 " 禁止在下方显示一些啰嗦的提示
 set shortmess+=c
 
@@ -52,7 +52,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'rhysd/git-messenger.vim'
-" Plug 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim'
 " Plug 'junegunn/gv.vim'
 Plug 'lambdalisue/gina.vim'
 " gist 相关
