@@ -47,18 +47,15 @@ Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
 Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-rhubarb'
-" Plug 'rbong/vim-flog'
+Plug 'tpope/vim-rhubarb'
 Plug 'mhinz/vim-signify'
-" Plug 'airblade/vim-gitgutter'
 " Plug 'rhysd/git-messenger.vim'
-Plug 'sjl/gundo.vim'
-" Plug 'junegunn/gv.vim'
+Plug 'junegunn/gv.vim'
 Plug 'lambdalisue/gina.vim'
 " gist 相关
 " Plug 'mattn/webapi-vim'
 " Plug 'mattn/gist-vim'
-" Plug 'apzelos/blamer.nvim'
+Plug 'apzelos/blamer.nvim'
 " let g:blamer_enabled = 1
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
@@ -80,7 +77,7 @@ let g:sneak#label = 1
 Plug 'airblade/vim-rooter'
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
-Plug 'leafoftree/vim-vue-plugin'
+" Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 " Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
 if has('nvim')
@@ -95,7 +92,7 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
-    " Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
+    Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
@@ -131,7 +128,6 @@ if has('nvim')
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
-    " Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
     " Plug 'octol/vim-cpp-enhanced-highlight'
 endif
 " Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
@@ -176,16 +172,9 @@ Plug 'tpope/vim-commentary' "快捷代码注释
 " Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
 Plug 'asins/vimcdoc' "中文文档计划
 set helplang=cn
-" Plug 'jbgutierrez/vim-better-comments' "显示注释
+Plug 'jbgutierrez/vim-better-comments' "显示注释
 Plug 't9md/vim-choosewin' "快捷窗口选择-
 Plug 'pechorin/any-jump.vim' "跳转到函数定义
-" Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' } "模糊匹配搜索器/跳跃器
-" let g:aerojump_keymaps = {
-"   \ "<C-t>": "AerojumpDown",
-"   \ "<C-s>": "AerojumpUp",
-"   \ "<Esc>": "AerojumpExit",
-"   \ "<CR>": "AerojumpSelect",
-"   \ }
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
 Plug 'mzlogin/vim-markdown-toc'
@@ -212,8 +201,8 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'brooth/far.vim' " 全局替换插件
 " Plug 'markonm/traces.vim'
 " Plug 'neomake/neomake'
-Plug 'tracyone/neomake-multiprocess'
-Plug 'ronakg/quickr-preview.vim'
+" Plug 'tracyone/neomake-multiprocess'
+" Plug 'ronakg/quickr-preview.vim'
 " Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'} " 关闭buffer而不关闭窗口
 " 平滑滚动
 " Plug 'psliwka/vim-smoothie'
@@ -221,14 +210,10 @@ Plug 'tpope/vim-apathy' " 加强版的 go to file
 " 查看启动时间
 Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 " Plug 'andrewradev/linediff.vim' "行代码的对比
-" Plug 'valloric/matchtagalways'
-" Plug 'andymass/vim-matchup' " 高亮匹配语句
 Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代码点值和十六进制值
 " Plug 'machakann/vim-swap' "交换参数, g>或g<
 " Plug 'vimwiki/vimwiki'
-" Plug 'jeffkreeftmeijer/vim-numbertoggle'
-" Plug 'kana/vim-textobj-user'
-" Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']} " 悬浮终端
+Plug 'kana/vim-textobj-user'
 " Plug 'danilamihailov/beacon.nvim' "看到你的跳转
 " Plug 'lifepillar/vim-mucomplete' "链式的极简自动完成
 Plug 'chrisbra/NrrwRgn' "专注于选定区域，而使其余区域无法访问,选择区域后:NR
