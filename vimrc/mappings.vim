@@ -113,6 +113,7 @@ nnoremap <leader>bn :bn<CR>
 inoremap <C-O> <Esc>o
 "删除buffer
 nnoremap <C-x> :bd<CR>
+" nnoremap <C-X> :bufdo bd<CR>
 " Write buffer (save)保存
 imap <C-S> <esc>:w<CR>
 imap <C-Q> <esc>:wq<CR>
@@ -178,7 +179,6 @@ nnoremap <F3> :set list! list?<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader>w :w<CR>
 map <leader>sa ggVG"
 
 " 打开terminal,水平分屏

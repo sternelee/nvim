@@ -34,7 +34,6 @@
     "typeParameter": "\uf728",
     "default": "\uf29c"
   },
-  "diagnostic.signOffset": 9999999,
   "diagnostic.enable": true,
   "diagnostic.enableSign": true,
   "diagnostic.highlightOffset": 100,
@@ -42,7 +41,6 @@
   "diagnostic.virtualTextPrefix": "← ",
   "diagnostic.level": "hint",
   "diagnostic.refreshOnInsertMode": false,
-  "diagnostic.refreshAfterSave": true,
   "diagnostic.displayByAle": false,
   "diagnostic.virtualText": true,
   "diagnostic.errorSign": "\uf65b",
@@ -91,18 +89,8 @@
   "git.virtualTextPrefix": " \ue729 ",
   "project.dbpath": "~/.local/share/nvim/coc/project.json",
   "project.rootPatterns": [".git", ".svn", ".root", ".project", ".hg"],
-  "bookmark.sign": "\uf5c2",
   "suggest.languageSourcePriority": 99,
-  "snippets.shortcut": "S",
-  "snippets.priority": 98,
-  "snippets.extends": {
-    "cpp": ["c"],
-    "javascriptreact": ["javascript"],
-    "typescript": ["javascript"]
-  },
   "coc.preferences.snippetStatusText": "✨",
-  "snippets.userSnippetsDirectory": "~/.local/share/nvim/snippets",
-  "nextword.filetypes": ["markdown", "text", "help", "gitcommit", "snippets"],
   // source
   "coc.source.file.shortcut": "F",
   "coc.source.file.priority": 89,
@@ -112,11 +100,6 @@
   "coc.source.buffer.shortcut": "B",
   "coc.source.buffer.priority": 87,
   "coc.source.buffer.ignoreGitignore": false,
-  "coc.source.syntax.shortcut": "X",
-  "coc.source.syntax.priority": 79,
-  "coc.source.tag.shortcut": "T",
-  "coc.source.tag.priority": 78,
-  "coc.source.dictionary.shortcut": "D",
   "coc.source.dictionary.priority": 9,
   "coc.source.dictionary.filetypes": [
     "markdown",
@@ -129,12 +112,8 @@
   "coc.source.emoji.priority": 8,
   "coc.source.emoji.filetypes": ["markdown", "text"],
   "coc.preferences.colorSupport": true,
-  // highlight
-  "highlight.document.enable": true,
-  "highlight.colors.enable": false,
-  "highlight.disableLanguages": [],
   // Eslint
-  "eslint.enable": false,
+  "eslint.enable": true,
   //emmet
   "emmet.includeLanguages": {
     "vue-html": "html",

@@ -10,7 +10,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
 " Plug 'sbdchd/neoformat'
 " Plug 'prettier/prettier'
@@ -18,16 +18,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
 " Plug 'jayli/vim-easycomplete'
-" Plug 'skywind3000/vim-dict'
-" Plug 'skywind3000/vim-auto-popmenu'
+Plug 'skywind3000/vim-dict'
+Plug 'skywind3000/vim-auto-popmenu'
 " 设定需要生效的文件类型，如果是 "*" 的话，代表所有类型
-" let g:apc_enable_ft = {'*':1}
-" 设定从字典文件以及当前打开的文件里收集补全单词，详情看 ':help cpt'
-" set cpt=.,k,w,b
+let g:apc_enable_ft = {'*':1}
+" 设定从字典文件以及当前打开的文件里收集mp4download/mp4download/补全单词，详情看 ':help cpt'
+set cpt=.,k,w,b
 " 不要自动选中第一个选项。
-" set completeopt=menu,menuone,noselect,longest,preview,
+set completeopt=menu,menuone,noselect,longest,preview,
 " 禁止在下方显示一些啰嗦的提示
-" set shortmess+=c
+set shortmess+=c
 
 " Plug 'hrsh7th/vim-vsnip'
 " Plug 'hrsh7th/vim-vsnip-integ'
@@ -40,7 +40,7 @@ Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
 " 函数列表
 " Plug 'preservim/tagbar'
 " nmap <F8> :TagbarToggle<CR>
-Plug 'liuchengxu/vista.vim'
+" Plug 'liuchengxu/vista.vim'
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'skywind3000/gutentags_plus'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
@@ -53,11 +53,11 @@ Plug 'mhinz/vim-signify'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'rhysd/git-messenger.vim'
 " Plug 'sjl/gundo.vim'
-Plug 'junegunn/gv.vim'
+" Plug 'junegunn/gv.vim'
 Plug 'lambdalisue/gina.vim'
 " gist 相关
-Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'
+" Plug 'mattn/webapi-vim'
+" Plug 'mattn/gist-vim'
 " Plug 'apzelos/blamer.nvim'
 " let g:blamer_enabled = 1
 Plug 'itchyny/lightline.vim' "状态栏显示
@@ -73,7 +73,7 @@ Plug 'konfekt/fastfold' "性能更好的语法折叠
 Plug 'tpope/vim-surround' "匹配符号快捷操作
 Plug 'terryma/vim-expand-region' "扩大缩小选择区域
 Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
-Plug 'phaazon/hop.nvim'
+" Plug 'phaazon/hop.nvim'
 " Plug 'hrsh7th/vim-eft'
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 let g:sneak#label = 1
@@ -82,6 +82,7 @@ Plug 'airblade/vim-rooter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
+" Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
 if has('nvim')
     " https://github.com/glepnir/nvim-lua-guide-zh
     Plug 'kyazdani42/nvim-web-devicons'
@@ -108,19 +109,19 @@ if has('nvim')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-media-files.nvim'
 
-    " Plug 'neovim/nvim-lspconfig'
+    Plug 'neovim/nvim-lspconfig'
     " Plug 'kabouzeid/nvim-lspinstall'
     " Plug 'alexaandru/nvim-lspupdate'
-    " Plug 'nvim-lua/completion-nvim' " 自动完成
-    " Plug 'steelsojka/completion-buffers'
-    " Plug 'nvim-treesitter/completion-treesitter'
-    " Plug 'kristijanhusak/vim-dadbod-completion'
-    " " 在每一个buffer都自动完成
-    " autocmd BufEnter * lua require'completion'.on_attach()
+    Plug 'nvim-lua/completion-nvim' " 自动完成
+    Plug 'steelsojka/completion-buffers'
+    Plug 'nvim-treesitter/completion-treesitter'
+    Plug 'kristijanhusak/vim-dadbod-completion'
+    " 在每一个buffer都自动完成
+    autocmd BufEnter *.js,*.ts,*.tsx,*.html,*.css,*.vue,*.md,*.rs lua require'completion'.on_attach()
     " let g:completion_trigger_keyword_length = 2 " default = 1
     " let g:completion_timer_cycle = 200 "default value is 80
-    " Plug 'norcalli/snippets.nvim'
-    " let g:completion_enable_snippet = 'snippets.nvim'
+    Plug 'norcalli/snippets.nvim'
+    let g:completion_enable_snippet = 'snippets.nvim'
     " Plug 'glepnir/indent-guides.nvim' " 基于lua的对齐线
 
     " Plug 'yggdroot/leaderf'" 依赖python
@@ -130,7 +131,7 @@ if has('nvim')
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
-    Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
+    " Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
     " Plug 'octol/vim-cpp-enhanced-highlight'
 endif
 " Plug 'mattn/emmet-vim', { 'for': 'html' } "html快捷生成代码块,已经用了coc
@@ -150,9 +151,9 @@ Plug 'aloussase/cyberpunk'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'jiangmiao/auto-pairs' "符号补全,当前使用了coc-pairs
 Plug 'matze/vim-move' " 代码块移动
-" Plug 'rhysd/accelerated-jk' " 加速jk移动
-" nmap j <Plug>(accelerated_jk_gj)
-" nmap k <Plug>(accelerated_jk_gk)
+Plug 'rhysd/accelerated-jk' " 加速jk移动
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
 Plug 'alvan/vim-closetag' "自动闭合标签
 Plug 'luochen1990/rainbow' "彩虹符号匹配
 Plug 'ianva/vim-youdao-translater' "有道翻译
@@ -192,7 +193,7 @@ Plug 'mzlogin/vim-markdown-toc'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 \ | Plug 'junegunn/limelight.vim', { 'for': 'markdown' }
 Plug 'hotoo/pangu.vim', {'for': 'markdown'}
-Plug 'gpanders/vim-medieval', {'for': 'markdown'}  "评估markdown代码块
+" Plug 'gpanders/vim-medieval', {'for': 'markdown'}  "评估markdown代码块
 " Plug 'jceb/vim-orgmode', {'for': 'org'}
 " let g:org_agenda_files = ['~/org/index.org']
 " let g:org_aggressive_conceal = 1
@@ -227,7 +228,7 @@ Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代�
 " Plug 'vimwiki/vimwiki'
 " Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Plug 'kana/vim-textobj-user'
-Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']} " 悬浮终端
+" Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']} " 悬浮终端
 " Plug 'danilamihailov/beacon.nvim' "看到你的跳转
 " Plug 'lifepillar/vim-mucomplete' "链式的极简自动完成
 Plug 'chrisbra/NrrwRgn' "专注于选定区域，而使其余区域无法访问,选择区域后:NR
