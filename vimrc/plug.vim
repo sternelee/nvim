@@ -18,6 +18,9 @@ Plug 'prettier/prettier'
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
 " Plug 'jayli/vim-easycomplete'
+Plug 'skywind3000/asynctasks.vim' "任务
+Plug 'skywind3000/asyncrun.vim'
+" Plug 'skywind3000/gutentags_plus'
 Plug 'skywind3000/vim-dict'
 Plug 'skywind3000/vim-auto-popmenu'
 " 设定需要生效的文件类型，如果是 "*" 的话，代表所有类型
@@ -40,9 +43,8 @@ Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
 " 函数列表
 " Plug 'preservim/tagbar'
 " nmap <F8> :TagbarToggle<CR>
-" Plug 'liuchengxu/vista.vim'
-" Plug 'ludovicchabant/vim-gutentags'
-" Plug 'skywind3000/gutentags_plus'
+Plug 'liuchengxu/vista.vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
@@ -79,7 +81,7 @@ Plug 'airblade/vim-rooter'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
-" Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
+Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
 if has('nvim')
     " https://github.com/glepnir/nvim-lua-guide-zh
     Plug 'kyazdani42/nvim-web-devicons'
@@ -119,11 +121,11 @@ if has('nvim')
     " let g:completion_timer_cycle = 200 "default value is 80
     Plug 'norcalli/snippets.nvim'
     let g:completion_enable_snippet = 'snippets.nvim'
-    " Plug 'glepnir/indent-guides.nvim' " 基于lua的对齐线
+    Plug 'glepnir/indent-guides.nvim' " 基于lua的对齐线
 
     " Plug 'yggdroot/leaderf'" 依赖python
     " Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
-    Plug 'puremourning/vimspector' "可视化debug
+    " Plug 'puremourning/vimspector' "可视化debug
     " Plug 'tadaa/vimade' " 聚焦当前操作窗口,但在%s做替换时有bug
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
@@ -162,7 +164,7 @@ Plug 'tpope/vim-repeat' "重复命令操作
 Plug 'ntpeters/vim-better-whitespace' "显示多余空格
 Plug 'mhinz/vim-startify' "启动界面预览
 " Plug 'glepnir/dashboard-nvim'
-Plug 'yggdroot/indentline' "配置显示缩进对齐线
+" Plug 'yggdroot/indentline' "配置显示缩进对齐线
 Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
@@ -172,7 +174,7 @@ Plug 'tpope/vim-commentary' "快捷代码注释
 " Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
 Plug 'asins/vimcdoc' "中文文档计划
 set helplang=cn
-Plug 'jbgutierrez/vim-better-comments' "显示注释
+" Plug 'jbgutierrez/vim-better-comments' "显示注释
 Plug 't9md/vim-choosewin' "快捷窗口选择-
 Plug 'pechorin/any-jump.vim' "跳转到函数定义
 Plug 'plasticboy/vim-markdown'
@@ -190,8 +192,6 @@ Plug 'hotoo/pangu.vim', {'for': 'markdown'}
 " let g:org_todo_keywords = ['TODO', 'WIP', 'REVIEW', '|', 'DONE', 'CANCELLED']
 " let g:org_indent = 1
 Plug 'uguu-org/vim-matrix-screensaver', {'on': 'Matrix'} "黑客帝国的屏保
-Plug 'skywind3000/asynctasks.vim' "任务
-Plug 'skywind3000/asyncrun.vim'
 " Plug 'metakirby5/codi.vim', {'on': 'Codi'} "代码执行预览,只支持linux
 " Plug 'michaelb/sniprun' " 运行代码块,仅linux
 Plug 'thinca/vim-quickrun'
@@ -203,14 +203,13 @@ Plug 'brooth/far.vim' " 全局替换插件
 " Plug 'neomake/neomake'
 " Plug 'tracyone/neomake-multiprocess'
 " Plug 'ronakg/quickr-preview.vim'
-" Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'} " 关闭buffer而不关闭窗口
 " 平滑滚动
 " Plug 'psliwka/vim-smoothie'
 Plug 'tpope/vim-apathy' " 加强版的 go to file
 " 查看启动时间
 Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 " Plug 'andrewradev/linediff.vim' "行代码的对比
-Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代码点值和十六进制值
+" Plug 'tpope/vim-characterize' "ga显示光标下 Unicode 字符的名称、代码点值和十六进制值
 " Plug 'machakann/vim-swap' "交换参数, g>或g<
 " Plug 'vimwiki/vimwiki'
 Plug 'kana/vim-textobj-user'
