@@ -12,8 +12,8 @@ call plug#begin('~/.vim/plugged')
 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale' " 语法检测
-" Plug 'sbdchd/neoformat'
-Plug 'prettier/prettier'
+Plug 'sbdchd/neoformat'
+" Plug 'prettier/prettier'
 " Plug 'scrooloose/syntastic'
 " Plug 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
@@ -43,8 +43,8 @@ Plug 'misterbuckley/vim-definitive' "搜索定义、类声明等
 " 函数列表
 " Plug 'preservim/tagbar'
 " nmap <F8> :TagbarToggle<CR>
-Plug 'liuchengxu/vista.vim'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'liuchengxu/vista.vim'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
@@ -76,12 +76,12 @@ Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
 " Plug 'hrsh7th/vim-eft'
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 let g:sneak#label = 1
-Plug 'airblade/vim-rooter'
+" Plug 'airblade/vim-rooter'
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
 " Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
-Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
+" Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
 if has('nvim')
     " https://github.com/glepnir/nvim-lua-guide-zh
     Plug 'kyazdani42/nvim-web-devicons'
@@ -95,6 +95,7 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
     Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
+    nnoremap <leader>n :NvimTreeToggle<CR>
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
@@ -149,9 +150,9 @@ Plug 'aloussase/cyberpunk'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'jiangmiao/auto-pairs' "符号补全,当前使用了coc-pairs
 Plug 'matze/vim-move' " 代码块移动
-Plug 'rhysd/accelerated-jk' " 加速jk移动
-nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gk)
+" Plug 'rhysd/accelerated-jk' " 加速jk移动
+" nmap j <Plug>(accelerated_jk_gj)
+" nmap k <Plug>(accelerated_jk_gk)
 Plug 'alvan/vim-closetag' "自动闭合标签
 Plug 'luochen1990/rainbow' "彩虹符号匹配
 Plug 'ianva/vim-youdao-translater' "有道翻译
@@ -167,7 +168,7 @@ Plug 'mhinz/vim-startify' "启动界面预览
 " Plug 'yggdroot/indentline' "配置显示缩进对齐线
 Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
+" Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
 Plug 'nicwest/vim-http', {'on': 'Http'} "配置http请求
 Plug 'tpope/vim-commentary' "快捷代码注释
 " 生成注释文档
@@ -221,9 +222,9 @@ let g:nrrw_rgn_nomap_Nr = 1
 " Plug 'inkarkat/vim-SyntaxRange'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion' " 数据库
-Plug 'tpope/vim-sensible' "合适的默认配置
-Plug 'tpope/vim-unimpaired' "符号映射
-Plug 'tpope/vim-scriptease'
+" Plug 'tpope/vim-sensible' "合适的默认配置
+" Plug 'tpope/vim-unimpaired' "符号映射
+" Plug 'tpope/vim-scriptease'
 " tmux相关插件
 " if executable("tmux") && strlen($TMUX)
 "     " tmux与vim窗口间导航
