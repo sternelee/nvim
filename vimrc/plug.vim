@@ -161,6 +161,7 @@ Plug 'junegunn/vim-peekaboo' "查看历史的复制和删除的寄存器, @或\"
 Plug 'tpope/vim-eunuch' " 加强的目录和文件编辑
 " 最大化窗口，ctrl w o
 Plug 'troydm/zoomwintab.vim'
+Plug 'mhinz/vim-hugefile'
 Plug 'tpope/vim-repeat' "重复命令操作
 Plug 'ntpeters/vim-better-whitespace' "显示多余空格
 Plug 'mhinz/vim-startify' "启动界面预览

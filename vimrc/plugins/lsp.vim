@@ -2,6 +2,15 @@ lua require'snippets'.use_suggested_mappings()
 inoremap <c-k> <cmd>lua return require'snippets'.expand_or_advance(1)<CR>
 inoremap <c-j> <cmd>lua return require'snippets'.advance_snippet(-1)<CR>
 lua <<EOF
+
+vim.loop.spawn = (function ()
+  local spawn = vim.loop.spawn
+  return function(path, options, on_exit)
+    local full_path = vim.fn.exepath(path)
+    return spawn(full_path, options, on_exit)
+  end
+end)()
+
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true
@@ -65,7 +74,8 @@ end
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { "vuels", "rust_analyzer", "tsserver" }
+-- npm install --global vls typescript typescript-language-server vscode-css-languageserver-bin bash-language-server vscode-json-languageserver stylelint-lsp
+local servers = { "vuels", "rust_analyzer", "tsserver", "cssls", "bashls", "jsonls", "stylelint_lsp" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end

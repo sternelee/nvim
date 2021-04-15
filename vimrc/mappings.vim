@@ -66,7 +66,7 @@ augroup END
 " 新建终端, 这里使用了powershell 7
 nnoremap <leader>t :terminal pwsh<cr>
 " 浏览目录
-nnoremap <leader>e :Explore<cr>
+" nnoremap <leader>e :Explore<cr>
 
 " function! s:writeCurrent() abort
 "     if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# ''
@@ -79,10 +79,10 @@ nnoremap <leader>e :Explore<cr>
 " noremap <silent> <space><space> <esc>:silent! write<cr>
 " xnoremap <silent> <space><space> <esc>:silent! write<cr>
 
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
+map j gj
+map k gk
+map j gj
+map k gk
 
 " 复制到末尾
 nnoremap Y y$

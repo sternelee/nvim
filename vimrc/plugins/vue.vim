@@ -7,3 +7,5 @@
 " let g:vim_vue_plugin_highlight_vue_attr = 1
 " let g:vim_vue_plugin_highlight_vue_keyword = 1
 " let g:vim_vue_plugin_use_foldexpr = 1
+
+autocmd BufRead,BufNewFile *.styl setlocal filetype=less.scss.css

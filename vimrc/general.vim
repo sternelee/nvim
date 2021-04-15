@@ -71,7 +71,7 @@ set hlsearch      " 高亮显示搜索结果
 set nolist
 " 在处理未保存或只读文件的时候，弹出确认
 " set confirm
-set nowrap " 禁止折行
+set wrap " 自动折行
 syntax enable " 开启语法高亮功能
 set synmaxcol=256 " 高亮限制前x列
 syntax on     " 允许用指定语法高亮配色方案替换默认方案
