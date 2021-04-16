@@ -64,4 +64,4 @@ endfunction
 "   " autocmd User Startified nmap <silent><buffer> <CR> <plug>(startify-open-buffers):call ToggleCocExplorer()<CR>
 " augroup END
 
-nnoremap <Leader>H :Startify<Cr>
+nnoremap <Leader>S :Startify<Cr>

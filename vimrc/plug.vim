@@ -2,38 +2,28 @@
 
 " 环境要求nodejs(neovim), python3
 " 需要使用Scoop(或chcoc)全局安装 ctags, fzf, maple, ripgrep, bat, fd
-" 参考: https://zhuanlan.zhihu.com/p/348257414
-" 参考: https://github.com/phaazon/config/tree/master/nvim
-" 参考：https://github.com/sainnhe/dotfiles
-" 参考：https://github.com/sternelee/vime
-" 插件推荐: https://blog.csdn.net/weixin_31468621/article/details/112422509
 
 call plug#begin('~/.vim/plugged')
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'w0rp/ale' " 语法检测
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sbdchd/neoformat'
 " Plug 'prettier/prettier'
-" Plug 'scrooloose/syntastic'
-" Plug 'rust-lang/rust.vim'
-" let g:rustfmt_autosave = 1
-" Plug 'jayli/vim-easycomplete'
+Plug 'simrat39/rust-tools.nvim'
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
 " Plug 'skywind3000/gutentags_plus'
-Plug 'skywind3000/vim-dict'
-Plug 'skywind3000/vim-auto-popmenu'
+" Plug 'skywind3000/vim-dict'
+" Plug 'skywind3000/vim-auto-popmenu'
 " 设定需要生效的文件类型，如果是 "*" 的话，代表所有类型
-let g:apc_enable_ft = {'*':1}
+" let g:apc_enable_ft = {'*':1}
 " 设定从字典文件以及当前打开的文件里收集mp4download/mp4download/补全单词，详情看 ':help cpt'
 set cpt=.,k,w,b
 " 不要自动选中第一个选项。
-set completeopt=menu,menuone,noselect
+set completeopt=menuone,noselect
 " 禁止在下方显示一些啰嗦的提示
 set shortmess+=c
 
-" Plug 'hrsh7th/vim-vsnip'
-" Plug 'hrsh7th/vim-vsnip-integ'
+" Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
 " Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim' " needed for previews
@@ -50,15 +40,12 @@ Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'mhinz/vim-signify'
-" Plug 'rhysd/git-messenger.vim'
+" Plug 'mhinz/vim-signify'
 Plug 'junegunn/gv.vim'
 Plug 'lambdalisue/gina.vim'
 " gist 相关
 " Plug 'mattn/webapi-vim'
 " Plug 'mattn/gist-vim'
-Plug 'apzelos/blamer.nvim'
-" let g:blamer_enabled = 1
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
@@ -79,12 +66,15 @@ let g:sneak#label = 1
 " Plug 'airblade/vim-rooter'
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
-" Plug 'leafoftree/vim-vue-plugin'
+Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
-" Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
+Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
 if has('nvim')
     " https://github.com/glepnir/nvim-lua-guide-zh
     Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'nvim-lua/plenary.nvim'
+    " Plug 'famiu/feline.nvim'
+    " Plug 'lewis6991/gitsigns.nvim'
     " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     " Plug 'glepnir/zephyr-nvim'
     " Plug 'romgrk/barbar.nvim'
@@ -94,8 +84,8 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
-    Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
-    nnoremap <leader>n :NvimTreeToggle<CR>
+    " Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
+    " nnoremap <leader>n :NvimTreeToggle<CR>
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
@@ -105,24 +95,21 @@ if has('nvim')
 
     " Telescope, 搜索grep工具
     Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-media-files.nvim'
 
-    Plug 'neovim/nvim-lspconfig'
+    " Plug 'neovim/nvim-lspconfig'
     " Plug 'kabouzeid/nvim-lspinstall'
     " Plug 'alexaandru/nvim-lspupdate'
-    Plug 'nvim-lua/completion-nvim' " 自动完成
-    Plug 'steelsojka/completion-buffers'
-    Plug 'nvim-treesitter/completion-treesitter'
-    Plug 'kristijanhusak/vim-dadbod-completion'
-    " 在每一个buffer都自动完成
-    autocmd BufEnter *.js,*.ts,*.tsx,*.html,*.css,*.vue,*.md,*.rs lua require'completion'.on_attach()
-    " let g:completion_trigger_keyword_length = 2 " default = 1
-    " let g:completion_timer_cycle = 200 "default value is 80
-    Plug 'norcalli/snippets.nvim'
-    let g:completion_enable_snippet = 'snippets.nvim'
-    Plug 'glepnir/indent-guides.nvim' " 基于lua的对齐线
+    " Plug 'norcalli/snippets.nvim'
+    " Plug 'glepnir/indent-guides.nvim' " 基于lua的对齐线
+    
+    " Plug 'nvim-lua/completion-nvim' " 自动完成
+    " Plug 'steelsojka/completion-buffers'
+    " Plug 'nvim-treesitter/completion-treesitter'
+    " Plug 'kristijanhusak/vim-dadbod-completion'
+    
+    " Plug 'hrsh7th/nvim-compe'
 
     " Plug 'yggdroot/leaderf'" 依赖python
     " Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
@@ -145,10 +132,11 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " 多光标
 Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
+" 主题
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'aloussase/cyberpunk'
 Plug 'bluz71/vim-nightfly-guicolors'
-Plug 'jiangmiao/auto-pairs' "符号补全,当前使用了coc-pairs
+" Plug 'jiangmiao/auto-pairs' "符号补全,当前使用了coc-pairs
 Plug 'matze/vim-move' " 代码块移动
 " Plug 'rhysd/accelerated-jk' " 加速jk移动
 " nmap j <Plug>(accelerated_jk_gj)
@@ -166,7 +154,7 @@ Plug 'tpope/vim-repeat' "重复命令操作
 Plug 'ntpeters/vim-better-whitespace' "显示多余空格
 Plug 'mhinz/vim-startify' "启动界面预览
 " Plug 'glepnir/dashboard-nvim'
-" Plug 'yggdroot/indentline' "配置显示缩进对齐线
+Plug 'yggdroot/indentline' "配置显示缩进对齐线
 Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
 " Plug 'tpope/vim-sleuth' "自适应配置缓冲选项
@@ -200,7 +188,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'tommcdo/vim-exchange'
-Plug 'brooth/far.vim' " 全局替换插件
+" Plug 'brooth/far.vim' " 全局替换插件,依赖python
 " Plug 'markonm/traces.vim'
 " Plug 'neomake/neomake'
 " Plug 'tracyone/neomake-multiprocess'
