@@ -1,4 +1,4 @@
-nnoremap <leader>Gl <cmd>Gina pull<cr>
-nnoremap <leader>Gp <cmd>Gina push<cr>
-nnoremap <leader>Ga <cmd>Gina add .<cr>
-nnoremap <leader>Gd <cmd>Gina diff<cr>
+nnoremap <leader>gs <cmd>Gina status<cr>
+nnoremap <leader>gl <cmd>Gina pull<cr>
+nnoremap <leader>gu <cmd>Gina push<cr>
+nnoremap <leader>ga <cmd>Gina add .<cr>

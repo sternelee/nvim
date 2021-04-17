@@ -64,7 +64,7 @@ augroup vime_keymap_group
 augroup END
 
 " 新建终端, 这里使用了powershell 7
-nnoremap <leader>t :terminal pwsh<cr>
+nnoremap <leader>\ :terminal pwsh<cr>
 " 浏览目录
 " nnoremap <leader>e :Explore<cr>
 
@@ -115,8 +115,8 @@ inoremap <C-O> <Esc>o
 nnoremap <C-x> :bd<CR>
 " nnoremap <C-X> :bufdo bd<CR>
 " Write buffer (save)保存
-imap <C-S> <esc>:w<CR>
-imap <C-Q> <esc>:wq<CR>
+nnoremap <C-S> <esc>:w<CR>
+nnoremap <C-Q> <esc>:wq<CR>
 " 插入模式下的一些快捷键
 inoremap <M-o> <esc>o
 inoremap <M-O> <esc>O

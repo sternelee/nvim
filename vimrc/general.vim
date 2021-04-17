@@ -4,7 +4,7 @@
 " https://github.com/neovim/neovim/wiki/Related-projects#gui
 " windows 推荐使用Nvy
 " 1. 初始化
-nmap tu :syntax sync fromstart<cr>
+" nmap tu :syntax sync fromstart<cr>
 
 " 2. 初始配置
 " 去掉python依赖
@@ -99,7 +99,7 @@ set nobackup            " 设置不备份
 set noswapfile          " 禁止生成临时文件
 set nowritebackup
 set autoread            " 文件在vim之外修改过，自动重新读入
-set autowrite           " 设置自动保存
+" set autowrite           " 设置自动保存
 set noeb
 set vb
 set splitbelow
@@ -130,7 +130,7 @@ set winaltkeys=no
 set timeout ttimeout
 set timeoutlen=500
 set ttimeoutlen=10
-set updatetime=300
+set updatetime=100
 set scrolljump=5
 "set re=1
 " set autochdir 自动pwd到文件当前目录
@@ -187,11 +187,11 @@ inoremap <C-ScrollWheelDown> <Esc>:call AdjustFontSize(-1)<CR>a
 " endfunction
 " call Cw(Xunlei)
 
-autocmd syntax *
-  \ let a=0+system("wc -L ".expand("%")."|awk '{printf $1}'") |
-  \ if a >= 200 |
-  \    syntax off |
-  \ endif
+" autocmd syntax *
+"   \ let a=0+system("wc -L ".expand("%")."|awk '{printf $1}'") |
+"   \ if a >= 200 |
+"   \    syntax off |
+"   \ endif
 
 let g:neovide_fullscreen=v:true
 let g:neovide_cursor_vfx_mode = "sonicboom"
