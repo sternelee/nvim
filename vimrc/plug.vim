@@ -4,7 +4,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'} " 有可能会卡
 Plug 'simrat39/rust-tools.nvim'
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
@@ -69,6 +69,7 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
+    Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
@@ -80,6 +81,10 @@ if has('nvim')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-media-files.nvim'
+
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
@@ -88,6 +93,9 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
   \ 'do': 'make install'
   \}
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript-jsx', 'typescript-tsx'] } "高亮jsx结构
 Plug 'chemzqm/vim-jsx-improve', { 'for': ['javascript-jsx', 'typescript-tsx'] } "jsx语法缩进
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
@@ -111,7 +119,6 @@ Plug 'mhinz/vim-hugefile'
 Plug 'tpope/vim-repeat' "重复命令操作
 Plug 'ntpeters/vim-better-whitespace' "显示多余空格
 Plug 'mhinz/vim-startify' "启动界面预览
-Plug 'yggdroot/indentline' "配置显示缩进对齐线
 Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
 Plug 'nicwest/vim-http', {'on': 'Http'} "配置http请求
