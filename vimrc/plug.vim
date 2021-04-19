@@ -60,7 +60,7 @@ Plug 'airblade/vim-rooter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
-Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
+" Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
 if has('nvim')
     " https://github.com/glepnir/nvim-lua-guide-zh
     Plug 'kyazdani42/nvim-web-devicons'
@@ -73,7 +73,7 @@ if has('nvim')
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
-    Plug 'glepnir/indent-guides.nvim' 
+    Plug 'glepnir/indent-guides.nvim'
 
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
