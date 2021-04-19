@@ -74,6 +74,7 @@ if has('nvim')
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
     Plug 'glepnir/indent-guides.nvim'
+    Plug 'windwp/nvim-autopairs'
 
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
