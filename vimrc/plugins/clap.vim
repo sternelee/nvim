@@ -1,10 +1,10 @@
 " :call clap#installer#build_maple()
  nnoremap <Leader>c :Clap<Cr>
- nnoremap <Leader>fb :Clap buffers<Cr>
- nnoremap <Leader>ff :Clap files<Cr>
- nnoremap <Leader>fe :Clap filer<Cr>
- nnoremap <Leader>fG :Clap grep<Cr>
- nnoremap <Leader>fg :Clap grep2<Cr>
+ nnoremap <Leader>cb :Clap buffers<Cr>
+ nnoremap <Leader>cf :Clap files<Cr>
+ nnoremap <Leader>ce :Clap filer<Cr>
+ nnoremap <Leader>cG :Clap grep<Cr>
+ nnoremap <Leader>cg :Clap grep2<Cr>
  let g:clap_insert_mode_only = v:true
  let g:clap_current_selection_sign = { 'text': '->', 'texthl': 'ClapCurrentSelectionSign', 'linehl': 'ClapCurrentSelection' }
  let g:clap_selected_sign = { 'text': ' ·', 'texthl': 'ClapSelectedSign', 'linehl': 'ClapSelected' }

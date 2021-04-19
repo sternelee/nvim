@@ -73,6 +73,7 @@ if has('nvim')
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
+    Plug 'glepnir/indent-guides.nvim' 
 
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
@@ -105,6 +106,7 @@ Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
 " 主题
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'artanikin/vim-synthwave84'
 Plug 'aloussase/cyberpunk'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'matze/vim-move' " 代码块移动
