@@ -89,7 +89,7 @@ if has('nvim')
     " Plug 'nvim-lua/completion-nvim' | Plug 'steelsojka/completion-buffers' | Plug 'nvim-treesitter/completion-treesitter'
     " let g:completion_enable_snippet = 'vim-vsnip'
     Plug 'hrsh7th/nvim-compe'
-    Plug 'tzachar/compe-tabnine'
+    Plug 'tzachar/compe-tabnine' "复制binaries目录到对应的插件目录下
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
