@@ -80,9 +80,7 @@
   "explorer.icon.enableVimDevicons": true,
   "explorer.keyMappingMode": "none",
   "explorer.previewAction.onHover": false,
-  "rust-analyzer.assist.importMergeBehaviour": "full",
-  "rust-analyzer.inlayHints.chainingHints": true,
-  "rust-analyzer.inlayHints.refreshOnInsertMode": true,
   "coc.preferences.formatOnType": false,
+  "coc.preferences.highlightTimeout": 800,
   "tabnine.priority": 30
 }
