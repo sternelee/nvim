@@ -58,7 +58,7 @@ let g:sneak#label = 1
 Plug 'airblade/vim-rooter'
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
-Plug 'leafoftree/vim-vue-plugin'
+" Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 " Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
 if has('nvim')
@@ -84,9 +84,11 @@ if has('nvim')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-media-files.nvim'
 
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-compe'
+    Plug 'neovim/nvim-lspconfig' " 若执行LspInfo报错，可修改对应的lua文件
     Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
+    " Plug 'nvim-lua/completion-nvim' | Plug 'steelsojka/completion-buffers' | Plug 'nvim-treesitter/completion-treesitter'
+    " let g:completion_enable_snippet = 'vim-vsnip'
+    Plug 'hrsh7th/nvim-compe'
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
