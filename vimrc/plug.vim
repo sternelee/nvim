@@ -4,7 +4,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'} " 有可能会卡
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " 有可能会卡
 Plug 'simrat39/rust-tools.nvim'
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
@@ -84,11 +84,11 @@ if has('nvim')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-media-files.nvim'
 
-    Plug 'neovim/nvim-lspconfig' " 若执行LspInfo报错，可修改对应的lua文件
+    " Plug 'neovim/nvim-lspconfig' " 若执行LspInfo报错，可修改对应的lua文件
     Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
     " Plug 'nvim-lua/completion-nvim' | Plug 'steelsojka/completion-buffers' | Plug 'nvim-treesitter/completion-treesitter'
     " let g:completion_enable_snippet = 'vim-vsnip'
-    Plug 'hrsh7th/nvim-compe'
+    " Plug 'hrsh7th/nvim-compe'
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
