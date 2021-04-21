@@ -52,7 +52,6 @@ Plug 'konfekt/fastfold' "性能更好的语法折叠
 Plug 'tpope/vim-surround' "匹配符号快捷操作
 Plug 'terryma/vim-expand-region' "扩大缩小选择区域
 Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
-" Plug 'phaazon/hop.nvim'
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 let g:sneak#label = 1
 Plug 'airblade/vim-rooter'
@@ -75,6 +74,7 @@ if has('nvim')
     set foldexpr=nvim_treesitter#foldexpr()
     Plug 'glepnir/indent-guides.nvim'
     Plug 'windwp/nvim-autopairs'
+    Plug 'phaazon/hop.nvim'
 
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
@@ -84,12 +84,12 @@ if has('nvim')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-media-files.nvim'
 
+    Plug 'mfussenegger/nvim-dap'
     Plug 'neovim/nvim-lspconfig' " 若执行LspInfo报错，可修改对应的lua文件
     Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
+    Plug 'glepnir/lspsaga.nvim'
     " Plug 'nvim-lua/completion-nvim' | Plug 'steelsojka/completion-buffers' | Plug 'nvim-treesitter/completion-treesitter'
-    " let g:completion_enable_snippet = 'vim-vsnip'
-    Plug 'hrsh7th/nvim-compe'
-    Plug 'tzachar/compe-tabnine' "复制binaries目录到对应的插件目录下
+    Plug 'hrsh7th/nvim-compe' | Plug 'tzachar/compe-tabnine' "复制binaries目录到对应的插件目录下
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
