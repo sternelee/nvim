@@ -27,8 +27,8 @@ Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " 函数列表
 " Plug 'preservim/tagbar'
 " nmap <F8> :TagbarToggle<CR>
-" Plug 'liuchengxu/vista.vim'
-" Plug 'ludovicchabant/vim-gutentags'
+Plug 'liuchengxu/vista.vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
@@ -69,12 +69,13 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
     Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
+    command! -nargs=0 Explore :NvimTreeToggle
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
     Plug 'glepnir/indent-guides.nvim'
     Plug 'windwp/nvim-autopairs'
-    Plug 'phaazon/hop.nvim'
+    " Plug 'phaazon/hop.nvim'
 
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
@@ -98,9 +99,9 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
   \ 'do': 'make install'
   \}
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'yarn install',
+"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript-jsx', 'typescript-tsx'] } "高亮jsx结构
 Plug 'chemzqm/vim-jsx-improve', { 'for': ['javascript-jsx', 'typescript-tsx'] } "jsx语法缩进
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }

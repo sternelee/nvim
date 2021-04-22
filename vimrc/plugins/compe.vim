@@ -19,8 +19,9 @@ let g:compe.source.calc = v:true
 let g:compe.source.spell = v:true
 let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
-let g:compe.source.vsnip = v:true
+let g:compe.source.vsnip = v:false
 let g:compe.source.treesitter = v:true
+let g:compe.source.snippets_nvim = v:false
 
 let g:compe.source.tabnine = {}
 let g:compe.source.tabnine.max_line = 1000
@@ -96,7 +97,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-local servers = { "vls", "cssls","html", "rust_analyzer", "tsserver", "bashls", "jsonls" }
+local servers = { "vls", "cssls", "html", "rust_analyzer", "tsserver", "bashls", "jsonls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
