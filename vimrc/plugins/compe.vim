@@ -97,7 +97,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-local servers = { "vls", "cssls", "html", "rust_analyzer", "tsserver", "bashls", "jsonls" }
+local servers = { "vls", "cssls", "html", "rls", "tsserver", "bashls", "jsonls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

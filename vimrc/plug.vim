@@ -57,7 +57,7 @@ let g:sneak#label = 1
 Plug 'airblade/vim-rooter'
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
-" Plug 'leafoftree/vim-vue-plugin'
+Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 " Plug 'sheerun/vim-polyglot' " 多语言的代码高亮集成包, markdown语法显示有问题
 if has('nvim')
