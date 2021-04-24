@@ -15,7 +15,6 @@ nnoremap <silent> ]e :Lspsaga diagnostic_jump_prev<CR>
 nnoremap <silent> <A-d> :Lspsaga open_floaterm<CR>
 tnoremap <silent> <A-d> <C-\><C-n>:Lspsaga close_floaterm<CR>
 highlight link LspSagaFinderSelection Search
-
 lua << EOF
 local saga = require 'lspsaga'
 saga.init_lsp_saga()

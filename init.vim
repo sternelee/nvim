@@ -137,13 +137,6 @@ inoremap <C-ScrollWheelUp> <Esc>:call AdjustFontSize(1)<CR>a
 inoremap <C-ScrollWheelDown> <Esc>:call AdjustFontSize(-1)<CR>a
 " 显示相对路径
 " set statusline=%f
-" 设置启动的工作路径
-let g:Work = "D:/www"
-let g:Xunlei = g:Work."/xunlei/"
-function! Cw(dir)
-    execute ":cd  ".a:dir
-endfunction
-call Cw(Xunlei)
 " syntax sync minlines=256
 " syntax sync maxlines=500
 autocmd syntax *
@@ -156,7 +149,7 @@ let g:neovide_cursor_vfx_mode = "sonicboom"
 let g:neovide_cursor_antialiasing=v:true
 
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " 有可能会卡
+" Plug 'neoclide/coc.nvim', {'branch': 'release'} " 有可能会卡
 Plug 'simrat39/rust-tools.nvim'
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
@@ -194,17 +187,34 @@ if has('nvim')
     Plug 'nvim-treesitter/playground'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
-    Plug 'glepnir/indent-guides.nvim'
-    Plug 'windwp/nvim-autopairs'
-    " Plug 'phaazon/hop.nvim'
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
+    Plug 'mfussenegger/nvim-dap' " debug
+    Plug 'neovim/nvim-lspconfig' " 若执行LspInfo报错，可修改对应的lua文件
+    Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
+    Plug 'hrsh7th/nvim-compe' | Plug 'tzachar/compe-tabnine' "复制binaries目录到对应的插件目录下
+    Plug 'glepnir/lspsaga.nvim'
     " Telescope, 搜索grep工具
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-media-files.nvim'
     Plug 'mfussenegger/nvim-dap'
     Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
+    Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'} " 显示markdown preview
+    Plug 'ttys3/nvim-blamer.lua' " 显示commit记录
+    Plug 'kosayoda/nvim-lightbulb'
+    Plug 'karb94/neoscroll.nvim' " 流畅滚动
+    lua require('neoscroll').setup()
+    Plug 'kdheepak/lazygit.nvim'
+    Plug 'glepnir/indent-guides.nvim' " 对齐线
+    Plug 'windwp/nvim-autopairs'
+    Plug 'kevinhwang91/nvim-hlslens'
+    Plug 'phaazon/hop.nvim' " 快速字母导航
+    Plug 'notomo/gesture.nvim' " 手势
+    Plug 'simrat39/symbols-outline.nvim'
+    lug require('symbols-outline').setup()
+    Plug 'folke/lsp-trouble.nvim'
+    lua require('trouble').setup()
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
