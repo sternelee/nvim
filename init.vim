@@ -212,7 +212,7 @@ if has('nvim')
     Plug 'phaazon/hop.nvim' " 快速字母导航
     Plug 'notomo/gesture.nvim' " 手势
     Plug 'simrat39/symbols-outline.nvim'
-    lug require('symbols-outline').setup()
+    lua require('symbols-outline').setup()
     Plug 'folke/lsp-trouble.nvim'
     lua require('trouble').setup()
 else
