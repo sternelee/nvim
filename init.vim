@@ -108,6 +108,8 @@ set nrformats-=octal
 set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
 set fillchars=vert:│,fold:·
 set hidden
+set completeopt=menuone,noselect
+set shortmess+=c " 禁止在下方显示一些啰嗦的提示
 set wildignore+=*\\node_modules\\*,*.swp,*.zip,*.exe  " Windows
 " 打开文件自动定位到最后编辑的位置
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
@@ -153,8 +155,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'simrat39/rust-tools.nvim'
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
-set completeopt=menuone,noselect
-set shortmess+=c " 禁止在下方显示一些啰嗦的提示
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
@@ -203,8 +203,6 @@ if has('nvim')
     Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'} " 显示markdown preview
     Plug 'ttys3/nvim-blamer.lua' " 显示commit记录
     Plug 'kosayoda/nvim-lightbulb'
-    Plug 'karb94/neoscroll.nvim' " 流畅滚动
-    lua require('neoscroll').setup()
     Plug 'kdheepak/lazygit.nvim'
     Plug 'glepnir/indent-guides.nvim' " 对齐线
     Plug 'windwp/nvim-autopairs'

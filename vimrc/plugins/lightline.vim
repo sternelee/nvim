@@ -2,7 +2,7 @@ let g:lightline = {
       \ 'colorscheme': 'nightfly',
       \ 'active': {
       \   'left': [ ['homemode'],['mode', 'filename'],
-      \             ['gitbranch'],['coc_error', 'coc_warning', 'coc_hint', 'coc_info']],
+      \             ['gitbranch']],
       \   'right':[ ['lineinfo'],
       \             ['percent'], ['fileformat','fileencoding'] , ['asyncrun_status']],
       \ },
@@ -19,11 +19,6 @@ let g:lightline = {
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers',
-      \   'coc_error'        : 'LightlineCocErrors',
-      \   'coc_warning'      : 'LightlineCocWarnings',
-      \   'coc_info'         : 'LightlineCocInfos',
-      \   'coc_hint'         : 'LightlineCocHints',
-      \   'coc_fix'          : 'LightlineCocFixes',
       \   'asyncrun_status': 'lightline#asyncrun#status',
       \ },
       \ 'component_function': {
@@ -90,32 +85,6 @@ function! LightLineReadonly()
     return ""
   endif
 endfunction
-
-function! s:lightline_coc_diagnostic(kind, sign) abort
-  let info = get(b:, 'coc_diagnostic_info', 0)
-  if empty(info) || get(info, a:kind, 0) == 0
-    return ''
-  endif
-  return printf('%s%d', a:sign, info[a:kind])
-endfunction
-
-function! LightlineCocErrors() abort
-  return s:lightline_coc_diagnostic('error', 'E')
-endfunction
-
-function! LightlineCocWarnings() abort
-  return s:lightline_coc_diagnostic('warning', 'W')
-endfunction
-
-function! LightlineCocInfos() abort
-  return s:lightline_coc_diagnostic('information', 'I')
-endfunction
-
-function! LightlineCocHints() abort
-  return s:lightline_coc_diagnostic('hints', 'H')
-endfunction
-
-autocmd User CocDiagnosticChange call lightline#update()
 
 function! LightLineFilename()
   return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
