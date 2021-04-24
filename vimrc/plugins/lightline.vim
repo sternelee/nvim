@@ -1,10 +1,10 @@
 let g:lightline = {
       \ 'colorscheme': 'nightfly',
       \ 'active': {
-      \   'left': [ ['homemode'], ['method'],
-      \             ['gitbranch'],['cocerror'],['cocwarn']],
+      \   'left': [ ['homemode'],['mode', 'filename'],
+      \             ['gitbranch'],['coc_error', 'coc_warning', 'coc_hint', 'coc_info']],
       \   'right':[ ['lineinfo'],
-      \             ['percent'], ['fileformat','fileencoding'] , ['asyncrun_status'], ['neomake_status']],
+      \             ['percent'], ['fileformat','fileencoding'] , ['asyncrun_status']],
       \ },
       \ 'inactive': {
       \   'left': [['homemode'], ['gitbranch']],
@@ -19,10 +19,12 @@ let g:lightline = {
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers',
-      \   'cocerror': 'LightLineCocError',
-      \   'cocwarn' : 'LightLineCocWarn',
+      \   'coc_error'        : 'LightlineCocErrors',
+      \   'coc_warning'      : 'LightlineCocWarnings',
+      \   'coc_info'         : 'LightlineCocInfos',
+      \   'coc_hint'         : 'LightlineCocHints',
+      \   'coc_fix'          : 'LightlineCocFixes',
       \   'asyncrun_status': 'lightline#asyncrun#status',
-      \   'neomake_status': 'neomakemp#run_status()'
       \ },
       \ 'component_function': {
       \   'homemode': 'LightlineMode',
@@ -31,20 +33,11 @@ let g:lightline = {
       \   'modified': 'LightLineModified',
       \   'filetype': 'LightLineFiletype',
       \   'fileformat': 'LightLineFileformat',
-      \   'method': 'NearestMethodOrFunction'
       \ },
       \ 'component_type': {'buffers': 'tabsel'},
       \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2"},
       \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3"}
       \ }
-let g:lightline.separator = { 'left': "\ue0b8", 'right': "\ue0be" }
-let g:lightline.subseparator = { 'left': "\ue0b9", 'right': "\ue0b9" }
-let g:lightline.tabline_separator = { 'left': "\ue0bc", 'right': "\ue0ba" }
-let g:lightline.tabline_subseparator = { 'left': "\ue0bb", 'right': "\ue0bb" }
-let g:lightline#ale#indicator_checking = "\uf110"
-let g:lightline#ale#indicator_warnings = "\uf529"
-let g:lightline#ale#indicator_errors = "\uf00d"
-let g:lightline#ale#indicator_ok = "\uf00c"
 let g:lightline#asyncrun#indicator_none = ''
 let g:lightline#asyncrun#indicator_run = 'Running...'
 function! LightlineMode()
@@ -76,7 +69,6 @@ function! NearestMethodOrFunction()
   return l:method
 endfunction
 
-
 function! LightLineModified()
   if &filetype == "help"
     return ""
@@ -99,34 +91,31 @@ function! LightLineReadonly()
   endif
 endfunction
 
-function! LightLineCocError()
-  let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? 'X' : 'E')
-  let info = get(b:, 'coc_diagnostic_info', {})
-  if empty(info)
+function! s:lightline_coc_diagnostic(kind, sign) abort
+  let info = get(b:, 'coc_diagnostic_info', 0)
+  if empty(info) || get(info, a:kind, 0) == 0
     return ''
   endif
-  let errmsgs = []
-  if get(info, 'error', 0)
-    call add(errmsgs, error_sign . info['error'])
-  endif
-  return trim(join(errmsgs, ' ') . ' ' . get(g:, 'coc_status', ''))
+  return printf('%s%d', a:sign, info[a:kind])
 endfunction
 
-function! LightLineCocWarn() abort
-  let warning_sign = get(g:, 'coc_status_warning_sign')
-  let info = get(b:, 'coc_diagnostic_info', {})
-  if empty(info)
-    return ''
-  endif
-  let warnmsgs = []
-  if get(info, 'warning', 0)
-    call add(warnmsgs, warning_sign . info['warning'])
-  endif
-  return trim(join(warnmsgs, ' ') . ' ' . get(g:, 'coc_status', ''))
+function! LightlineCocErrors() abort
+  return s:lightline_coc_diagnostic('error', 'E')
+endfunction
+
+function! LightlineCocWarnings() abort
+  return s:lightline_coc_diagnostic('warning', 'W')
+endfunction
+
+function! LightlineCocInfos() abort
+  return s:lightline_coc_diagnostic('information', 'I')
+endfunction
+
+function! LightlineCocHints() abort
+  return s:lightline_coc_diagnostic('hints', 'H')
 endfunction
 
 autocmd User CocDiagnosticChange call lightline#update()
-
 
 function! LightLineFilename()
   return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
