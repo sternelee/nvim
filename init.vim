@@ -208,11 +208,14 @@ if has('nvim')
     Plug 'windwp/nvim-autopairs'
     Plug 'kevinhwang91/nvim-hlslens'
     Plug 'phaazon/hop.nvim' " 快速字母导航
+    nnoremap <Leader>o :HopWord<CR>
     Plug 'notomo/gesture.nvim' " 手势
     Plug 'simrat39/symbols-outline.nvim'
     lua require('symbols-outline').setup()
+    nnoremap <Leader>so :SymbolsOutline<CR>
     Plug 'folke/lsp-trouble.nvim'
     lua require('trouble').setup()
+    nnoremap <leader>tt <cmd>LspTroubleToggle<cr>
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
@@ -450,4 +453,4 @@ nnoremap <F4> :set wrap! wrap?<CR>
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 nnoremap <leader>q :q<CR>
 map <leader>sa ggVG"
-nnoremap <Leader>so :so $MYVIMRC<CR>
+nnoremap <Leader>sm :so $MYVIMRC<CR>
