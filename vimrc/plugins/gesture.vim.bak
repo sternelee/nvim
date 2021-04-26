@@ -1,3 +1,4 @@
+Plug 'notomo/gesture.nvim' " 手势
 set mouse=a
 
 nnoremap <silent> <LeftDrag> <Cmd>lua require("gesture").draw()<CR>

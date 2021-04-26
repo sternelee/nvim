@@ -209,7 +209,6 @@ if has('nvim')
     Plug 'kevinhwang91/nvim-hlslens'
     Plug 'phaazon/hop.nvim' " 快速字母导航
     nnoremap <Leader>o :HopWord<CR>
-    Plug 'notomo/gesture.nvim' " 手势
     Plug 'simrat39/symbols-outline.nvim'
     lua require('symbols-outline').setup()
     nnoremap <Leader>so :SymbolsOutline<CR>
