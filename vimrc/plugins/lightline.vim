@@ -4,7 +4,7 @@ let g:lightline = {
       \   'left': [ ['homemode'],['mode', 'filename'],
       \             ['gitbranch']],
       \   'right':[ ['lineinfo'],
-      \             ['percent'], ['fileformat','fileencoding'] , ['asyncrun_status']],
+      \             ['percent'], ['fileformat','fileencoding']],
       \ },
       \ 'inactive': {
       \   'left': [['homemode'], ['gitbranch']],
@@ -19,7 +19,6 @@ let g:lightline = {
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers',
-      \   'asyncrun_status': 'lightline#asyncrun#status',
       \ },
       \ 'component_function': {
       \   'homemode': 'LightlineMode',
@@ -33,8 +32,6 @@ let g:lightline = {
       \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2"},
       \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3"}
       \ }
-let g:lightline#asyncrun#indicator_none = ''
-let g:lightline#asyncrun#indicator_run = 'Running...'
 function! LightlineMode()
   let nr = s:get_buffer_number()
   let nmap = [ '0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']
@@ -54,14 +51,6 @@ function! s:get_buffer_number()
     endif
   endfor
   return ''
-endfunction
-
-function! NearestMethodOrFunction()
-  let l:method = get(b:, 'vista_nearest_method_or_function', '')
-  if l:method != ''
-    let l:method = '[' . l:method . ']'
-  endif
-  return l:method
 endfunction
 
 function! LightLineModified()

@@ -150,23 +150,19 @@ autocmd syntax *
 let g:neovide_cursor_vfx_mode = "sonicboom"
 let g:neovide_cursor_antialiasing=v:true
 
+" lua require('plugins')
+
 call plug#begin('~/.vim/plugged')
-" Plug 'neoclide/coc.nvim', {'branch': 'release'} " 有可能会卡
 Plug 'simrat39/rust-tools.nvim'
-Plug 'skywind3000/asynctasks.vim' "任务
-Plug 'skywind3000/asyncrun.vim'
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 Plug 'tpope/vim-fugitive' " git插件
 Plug 'tpope/vim-rhubarb'
 Plug 'mhinz/vim-signify'
 Plug 'junegunn/gv.vim'
-Plug 'lambdalisue/gina.vim'
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
-Plug 'albertomontesg/lightline-asyncrun'
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'sickill/vim-pasta'
 Plug 'konfekt/fastfold' "性能更好的语法折叠
@@ -201,12 +197,9 @@ if has('nvim')
     Plug 'mfussenegger/nvim-dap'
     Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
     Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'} " 显示markdown preview
-    Plug 'ttys3/nvim-blamer.lua' " 显示commit记录
-    Plug 'kosayoda/nvim-lightbulb'
     Plug 'kdheepak/lazygit.nvim'
     Plug 'glepnir/indent-guides.nvim' " 对齐线
     Plug 'windwp/nvim-autopairs'
-    Plug 'kevinhwang91/nvim-hlslens'
     Plug 'phaazon/hop.nvim' " 快速字母导航
     nnoremap <Leader>o :HopWord<CR>
     Plug 'simrat39/symbols-outline.nvim'
@@ -240,7 +233,6 @@ Plug 'luochen1990/rainbow' "彩虹符号匹配
 Plug 'ianva/vim-youdao-translater' "有道翻译
 Plug 'junegunn/vim-peekaboo' "查看历史的复制和删除的寄存器, @或\" 触发
 Plug 'tpope/vim-eunuch' " 加强的目录和文件编辑
-Plug 'troydm/zoomwintab.vim' " 最大化窗口，ctrl w o
 Plug 'mhinz/vim-hugefile'
 Plug 'tpope/vim-repeat' "重复命令操作
 Plug 'ntpeters/vim-better-whitespace' "显示多余空格
@@ -248,10 +240,8 @@ Plug 'mhinz/vim-startify' "启动界面预览
 Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary' "快捷代码注释
-Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}} " 生成注释文档
 Plug 'asins/vimcdoc' "中文文档计划
 set helplang=cn
-Plug 't9md/vim-choosewin' "快捷窗口选择-
 Plug 'pechorin/any-jump.vim' "跳转到函数定义
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
