@@ -43,7 +43,7 @@ local on_attach = function(client, bufnr)
   local opts = { noremap=true, silent=true }
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -95,11 +95,19 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 -- npm install --global vls vscode-css-languageserver-bin vscode-html-languageserver-bin typescript typescript-language-server vscode-json-languageserver graphql-language-service-cli dockerfile-language-server-nodejs stylelint-lsp vim-language-server yaml-language-server
-local servers = { "vls", "cssls", "html", "rls", "tsserver", "bashls", "jsonls", "graphql", "dockerls", "stylelint_lsp", "vimls", "yamlls" }
+local servers = { "vls", "cssls", "html", "rls", "tsserver",  "graphql" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
+  }
+end
+
+
+local servers2 = { "bashls", "jsonls",  "dockerls", "vimls", "yamlls" }
+for _, lsp in ipairs(servers2) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
   }
 end
 
