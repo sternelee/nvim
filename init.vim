@@ -157,6 +157,7 @@ Plug 'simrat39/rust-tools.nvim'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 Plug 'tpope/vim-fugitive' " git插件
+Plug 'lambdalisue/gina.vim'
 Plug 'tpope/vim-rhubarb'
 Plug 'mhinz/vim-signify'
 Plug 'junegunn/gv.vim'
