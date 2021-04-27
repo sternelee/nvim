@@ -20,17 +20,14 @@ let g:compe.source.spell = v:true
 let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
 let g:compe.source.vsnip = v:false
-let g:compe.source.treesitter = v:true
 let g:compe.source.snippets_nvim = v:false
 
 let g:compe.source.tabnine = {}
 let g:compe.source.tabnine.max_line = 1000
-let g:compe.source.tabnine.max_num_results = 6
+let g:compe.source.tabnine.max_num_results = 10
 let g:compe.source.tabnine.priority = 40
-" setting sort to false means compe will leave tabnine to sort the completion items
-let g:compe.source.tabnine.sort = v:false
+let g:compe.source.tabnine.sort = v:true
 let g:compe.source.tabnine.show_prediction_strength = v:true
-let g:compe.source.tabnine.ignore_pattern = '[(]'
 
 highlight link CompeDocumentation NormalFloat
 
@@ -97,7 +94,8 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-local servers = { "vls", "cssls", "html", "rls", "tsserver", "bashls", "jsonls" }
+-- npm install --global vls vscode-css-languageserver-bin vscode-html-languageserver-bin typescript typescript-language-server vscode-json-languageserver graphql-language-service-cli dockerfile-language-server-nodejs stylelint-lsp vim-language-server yaml-language-server
+local servers = { "vls", "cssls", "html", "rls", "tsserver", "bashls", "jsonls", "graphql", "dockerls", "stylelint_lsp", "vimls", "yamlls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

@@ -168,6 +168,7 @@ Plug 'sickill/vim-pasta'
 Plug 'konfekt/fastfold' "性能更好的语法折叠
 Plug 'tpope/vim-surround' "匹配符号快捷操作
 Plug 'terryma/vim-expand-region' "扩大缩小选择区域
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 let g:sneak#label = 1
@@ -177,12 +178,6 @@ Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 if has('nvim')
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本,建议更新完后把lua文件同步到nvim的lua目录下
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-    Plug 'nvim-treesitter/nvim-treesitter-refactor'
-    Plug 'nvim-treesitter/playground'
-    set foldmethod=expr
-    set foldexpr=nvim_treesitter#foldexpr()
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
     Plug 'mfussenegger/nvim-dap' " debug
@@ -197,7 +192,6 @@ if has('nvim')
     Plug 'mfussenegger/nvim-dap'
     Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
     Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'} " 显示markdown preview
-    Plug 'kdheepak/lazygit.nvim'
     Plug 'glepnir/indent-guides.nvim' " 对齐线
     Plug 'windwp/nvim-autopairs'
     Plug 'phaazon/hop.nvim' " 快速字母导航

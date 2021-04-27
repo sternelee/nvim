@@ -27,7 +27,6 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 local servers = { "vls", "cssls", "html", "rust_analyzer", "tsserver", "bashls", "jsonls" }
--- npm install --global vls vscode-css-languageserver-bin vscode-html-languageserver-bin typescript typescript-language-server vscode-json-languageserver
 local completion = require('completion')
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
