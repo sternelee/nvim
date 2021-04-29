@@ -108,7 +108,7 @@ set nrformats-=octal
 set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
 set fillchars=vert:│,fold:·
 set hidden
-set completeopt=menuone,noselect
+set completeopt=menuone,noinsert,noselect
 set shortmess+=c " 禁止在下方显示一些啰嗦的提示
 set wildignore+=*\\node_modules\\*,*.swp,*.zip,*.exe  " Windows
 " 打开文件自动定位到最后编辑的位置
@@ -185,6 +185,8 @@ if has('nvim')
     Plug 'neovim/nvim-lspconfig' " 若执行LspInfo报错，可修改对应的lua文件
     Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
     Plug 'hrsh7th/nvim-compe' | Plug 'tzachar/compe-tabnine' "复制binaries目录到对应的插件目录下
+    " Plug 'skywind3000/vim-dict'
+    " Plug 'nvim-lua/completion-nvim' | Plug 'steelsojka/completion-buffers' | Plug 'aca/completion-tabnine'
     Plug 'glepnir/lspsaga.nvim'
     " Telescope, 搜索grep工具
     Plug 'nvim-lua/popup.nvim'
