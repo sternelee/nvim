@@ -26,10 +26,12 @@ let g:compe.source.tabnine = {}
 let g:compe.source.tabnine.max_line = 1000
 let g:compe.source.tabnine.max_num_results = 10
 let g:compe.source.tabnine.priority = 40
-let g:compe.source.tabnine.sort = v:true
+let g:compe.source.tabnine.sort = v:false
 let g:compe.source.tabnine.show_prediction_strength = v:true
 
 highlight link CompeDocumentation NormalFloat
+
+" 使用`rust_analyzer`时，下载 `rust-analyzer-windows.exe` 重命名为 `rusy-analyzer.exe` 放在全局变量中即可
 
 lua << EOF
 local nvim_lsp = require('lspconfig')
@@ -50,10 +52,10 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  -- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', 'ge', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
@@ -95,7 +97,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 -- npm install --global vls vscode-css-languageserver-bin vscode-html-languageserver-bin typescript typescript-language-server vscode-json-languageserver graphql-language-service-cli dockerfile-language-server-nodejs stylelint-lsp vim-language-server yaml-language-server
-local servers = { "vls", "cssls", "html", "rls", "tsserver",  "graphql" }
+local servers = { "vls", "cssls", "html", "rust_analyzer", "tsserver",  "graphql" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

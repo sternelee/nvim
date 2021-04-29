@@ -2,7 +2,7 @@
  nnoremap <Leader>c :Clap<Cr>
  nnoremap <Leader>cb :Clap buffers<Cr>
  nnoremap <Leader>cf :Clap files<Cr>
- nnoremap <Leader>e :Clap filer<Cr>
+ nnoremap <Leader>ce :Clap filer<Cr>
  nnoremap <Leader>cG :Clap grep<Cr>
  nnoremap <Leader>cg :Clap grep2<Cr>
  let g:clap_insert_mode_only = v:true

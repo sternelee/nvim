@@ -1,12 +1,14 @@
 let g:completion_chain_complete_list = {
     \ 'default': [
-    \    {'complete_items': ['lsp', 'buffers', 'snippet', 'ts', 'tabnine' ]},
+    \    {'complete_items': ['lsp', 'buffers', 'snippet', 'tabnine' ]},
     \    {'mode': '<c-p>'},
     \    {'mode': '<c-n>'}
     \]
 \}
 
 let g:completion_enable_snippet = 'vim-vsnip'
+let g:completion_tabnine_priority = 50
+let g:completion_tabnine_sort_by_details=1
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -26,12 +28,19 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-local servers = { "vls", "cssls", "html", "rust_analyzer", "tsserver", "bashls", "jsonls" }
+local servers = { "vls", "cssls", "html", "rls", "tsserver",  "graphql" }
 local completion = require('completion')
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = completion.on_attach,
     capabilities = capabilities,
+  }
+end
+
+local servers2 = { "bashls", "jsonls",  "dockerls", "vimls", "yamlls" }
+for _, lsp in ipairs(servers2) do
+  nvim_lsp[lsp].setup {
+    on_attach = completion.on_attach,
   }
 end
 
