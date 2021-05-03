@@ -1,5 +1,5 @@
 " execute 'source' '~/AppData/Local/nvim/vimrc/init.vim'
-"
+
 let g:loaded_python_provider = 0
 let g:loaded_python3_provider = 0
 let g:loaded_ruby_provider = 0
@@ -18,7 +18,7 @@ set ignorecase      " 搜索时大小写不敏感
 set wildmenu        " vim 自身命令行模式智能补全
 set linebreak
 set mouse=a         " 设置鼠标滚动
-set gcr=a:block-blinkon0   " 禁止光标闪烁
+" set gcr=a:block-blinkon0   " 禁止光标闪烁
 if has('gui_running')
   " 禁止显示滚动条
   set guioptions-=m " Hide menu bar.
@@ -43,10 +43,10 @@ set hlsearch      " 高亮显示搜索结果
 set nolist
 set confirm " 在处理未保存或只读文件的时候，弹出确认
 set wrap " 自动折行
-syntax enable " 开启语法高亮功能
+" syntax enable " 开启语法高亮功能
 set synmaxcol=256 " 高亮限制前x列
 syntax on     " 允许用指定语法高亮配色方案替换默认方案
-syntax sync fromstart
+" syntax sync fromstart
 set secure
 set redrawtime=2000
 filetype indent on  " 自适应不同语言的智能缩进
@@ -108,6 +108,7 @@ set nrformats-=octal
 set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
 set fillchars=vert:│,fold:·
 set hidden
+set cpt=.,k,w,b
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c " 禁止在下方显示一些啰嗦的提示
 set wildignore+=*\\node_modules\\*,*.swp,*.zip,*.exe  " Windows
@@ -173,20 +174,24 @@ Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
 Plug 'justinmk/vim-sneak' "双字母选择的光标移动
 let g:sneak#label = 1
+Plug 'skywind3000/vim-dict' "相当全的字典,用于默认补全
 Plug 'ryanoasis/vim-devicons' " 显示文件图标
-Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 if has('nvim')
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本,建议更新完后把lua文件同步到nvim的lua目录下
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+    Plug 'nvim-treesitter/nvim-treesitter-refactor'
+    Plug 'nvim-treesitter/playground'
+    Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
+    command! -nargs=0 Explore :NvimTreeToggle
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
     Plug 'mfussenegger/nvim-dap' " debug
     Plug 'neovim/nvim-lspconfig' " 若执行LspInfo报错，可修改对应的lua文件
     Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
     Plug 'hrsh7th/nvim-compe' | Plug 'tzachar/compe-tabnine' "复制binaries目录到对应的插件目录下
-    " Plug 'skywind3000/vim-dict'
-    " Plug 'nvim-lua/completion-nvim' | Plug 'steelsojka/completion-buffers' | Plug 'aca/completion-tabnine'
     Plug 'glepnir/lspsaga.nvim'
     " Telescope, 搜索grep工具
     Plug 'nvim-lua/popup.nvim'
@@ -205,9 +210,6 @@ if has('nvim')
     Plug 'folke/lsp-trouble.nvim'
     lua require('trouble').setup()
     nnoremap <leader>tt <cmd>LspTroubleToggle<cr>
-else
-    Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
-    let g:Hexokinase_highlighters = ['foregroundfull']
 endif
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
@@ -229,6 +231,7 @@ Plug 'alvan/vim-closetag' "自动闭合标签
 Plug 'luochen1990/rainbow' "彩虹符号匹配
 Plug 'ianva/vim-youdao-translater' "有道翻译
 Plug 'junegunn/vim-peekaboo' "查看历史的复制和删除的寄存器, @或\" 触发
+Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 Plug 'tpope/vim-eunuch' " 加强的目录和文件编辑
 Plug 'mhinz/vim-hugefile'
 Plug 'tpope/vim-repeat' "重复命令操作

@@ -1,7 +1,7 @@
 let g:compe = {}
 let g:compe.enabled = v:true
 let g:compe.autocomplete = v:true
-let g:compe.debug = v:false
+let g:compe.debug = v:true
 let g:compe.min_length = 1
 let g:compe.preselect = 'enable'
 let g:compe.throttle_time = 80
@@ -34,6 +34,14 @@ highlight link CompeDocumentation NormalFloat
 " 使用`rust_analyzer`时，下载 `rust-analyzer-windows.exe` 重命名为 `rusy-analyzer.exe` 放在全局变量中即可
 
 lua << EOF
+vim.loop.spawn = (function ()
+  local spawn = vim.loop.spawn
+  return function(path, options, on_exit)
+    local full_path = vim.fn.exepath(path)
+    return spawn(full_path, options, on_exit)
+  end
+end)()
+
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -83,9 +91,6 @@ local on_attach = function(client, bufnr)
   end
 end
 
--- Use a loop to conveniently both setup defined servers
--- and map buffer local keybindings when the language server attaches
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -95,8 +100,8 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     'additionalTextEdits',
   }
 }
-
 -- npm install --global vls vscode-css-languageserver-bin vscode-html-languageserver-bin typescript typescript-language-server vscode-json-languageserver graphql-language-service-cli dockerfile-language-server-nodejs stylelint-lsp vim-language-server yaml-language-server
+-- rls, rust_analyzer
 local servers = { "vls", "cssls", "html", "rust_analyzer", "tsserver",  "graphql" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -104,7 +109,6 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-
 
 local servers2 = { "bashls", "jsonls",  "dockerls", "vimls", "yamlls" }
 for _, lsp in ipairs(servers2) do
@@ -156,12 +160,11 @@ vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 require('nvim-autopairs').setup({
-  disable_filetype = { "TelescopePrompt" , "vim" },
+  disable_filetype = { "TelescopePrompt" },
 })
 local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
 
--- skip it, if you use another global object
 _G.MUtils= {}
 
 vim.g.completion_confirm_key = ""
@@ -178,4 +181,5 @@ MUtils.completion_confirm=function()
 end
 
 remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+vim.lsp.set_log_level("debug")
 EOF

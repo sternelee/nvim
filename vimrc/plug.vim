@@ -89,7 +89,7 @@ if has('nvim')
     Plug 'neovim/nvim-lspconfig' " 若执行LspInfo报错，可修改对应的lua文件
     Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
     " Plug 'glepnir/lspsaga.nvim'
-    " Plug 'nvim-lua/completion-nvim' | Plug 'steelsojka/completion-buffers' | Plug 'nvim-treesitter/completion-treesitter'
+    " Plug 'nvim-lua/completion-nvim' | Plug 'steelsojka/completion-buffers' | Plug 'aca/completion-tabnine'
     Plug 'hrsh7th/nvim-compe' | Plug 'tzachar/compe-tabnine' "复制binaries目录到对应的插件目录下
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }

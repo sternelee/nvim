@@ -17,53 +17,11 @@ let g:which_key_map = {
       \ 'w' : 'Save',
       \ 'h' : 'Tabpre',
       \ 'l' : 'Tabnext',
-      \ ',' : {
-            \ 'name' : '+Easymotion',
-            \ 'w' : 'Easymotion-w',
-            \ 'b' : 'Easymotion-b',
-            \ 'f' : 'Easymotion-f',
-            \ },
-      \ 'c' : {
-            \ 'name' : '+NerdCommenter',
-            \ },
       \ 'b' : {
             \ 'name' : '+Buffer',
             \ 'n'    : 'NextBuffer',
             \ 'p'    : 'PreBuffer',
             \ },
-      \ }
-
-let g:which_key_local_map ={
-      \ 'name' : '+LocalLeaderKey'  ,
-      \ 'c'    : {
-              \ 'name' : '+CocList' ,
-              \ 'a'    : 'CocDiagnostics',
-              \ 'c'    : 'CocCommands',
-              \ 'e'    : 'CocExtensions',
-              \ 'j'    : 'CocNext',
-              \ 'k'    : 'CocPrev',
-              \ 'o'    : 'CocOutLine',
-              \ 'r'    : 'CocResume',
-              \ 's'    : 'CocIsymbols',
-              \ },
-      \ 'g'    : 'Open-Tagbar',
-      \ 'f'    : 'FzfRgWord',
-      \ 'l'    : 'DeniteLine',
-      \ 'o'    : 'DeniteFileOld',
-      \ 'r'    : 'DeniteFileMru',
-      \ 's'    : 'DeniteCode',
-      \ 'w'    : 'DeniteCursorWorld',
-      \ 'd'    : 'DefxToggle',
-      \ }
-
-let g:which_key_rsbgmap = {
-      \ 'name' : '+RightSquarebrackets',
-      \ 'c'    : 'CocDiagnosticsNext',
-      \ }
-
-let g:which_key_lsbgmap = {
-      \ 'name' : '+LeftSquarebrackets',
-      \ 'c'    : 'CocDiagnosticsPre',
       \ }
 
 let g:which_key_use_floating_win = 1

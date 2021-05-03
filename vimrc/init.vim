@@ -39,8 +39,3 @@ call s:source_rc('theme.vim')
 "---------------------------------------------------------------------------
 
 set secure
-
-" vim卡顿 https://github.com/wklken/k-vim/issues/233
-" 主要是因为syntax on. 如果syntax off会好很多
-
-set foldmethod=manual
