@@ -108,8 +108,9 @@ set nrformats-=octal
 set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
 set fillchars=vert:│,fold:·
 set hidden
-set cpt=.,k,w,b
-set completeopt=menuone,noinsert,noselect
+" set cpt=.,k,w,b
+" set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noselect
 set shortmess+=c " 禁止在下方显示一些啰嗦的提示
 set wildignore+=*\\node_modules\\*,*.swp,*.zip,*.exe  " Windows
 " 打开文件自动定位到最后编辑的位置
@@ -154,6 +155,7 @@ let g:neovide_cursor_antialiasing=v:true
 " lua require('plugins')
 
 call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'simrat39/rust-tools.nvim'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
@@ -189,27 +191,14 @@ if has('nvim')
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
     Plug 'mfussenegger/nvim-dap' " debug
-    Plug 'neovim/nvim-lspconfig' " 若执行LspInfo报错，可修改对应的lua文件
-    Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
-    Plug 'hrsh7th/nvim-compe' | Plug 'tzachar/compe-tabnine' "复制binaries目录到对应的插件目录下
-    Plug 'glepnir/lspsaga.nvim'
     " Telescope, 搜索grep工具
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-media-files.nvim'
-    Plug 'mfussenegger/nvim-dap'
-    Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
-    Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'} " 显示markdown preview
     Plug 'glepnir/indent-guides.nvim' " 对齐线
     Plug 'windwp/nvim-autopairs'
     Plug 'phaazon/hop.nvim' " 快速字母导航
     nnoremap <Leader>o :HopWord<CR>
-    Plug 'simrat39/symbols-outline.nvim'
-    lua require('symbols-outline').setup()
-    nnoremap <Leader>so :SymbolsOutline<CR>
-    Plug 'folke/lsp-trouble.nvim'
-    lua require('trouble').setup()
-    nnoremap <leader>tt <cmd>LspTroubleToggle<cr>
 endif
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
@@ -261,7 +250,6 @@ Plug 'chrisbra/NrrwRgn' "专注于选定区域，而使其余区域无法访问,
 let g:nrrw_rgn_nomap_nr = 1
 let g:nrrw_rgn_nomap_Nr = 1
 Plug 'mbbill/undotree'
-Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion' " 数据库
 
 call plug#end()
 

@@ -76,6 +76,7 @@ if has('nvim')
     Plug 'glepnir/indent-guides.nvim'
     Plug 'windwp/nvim-autopairs'
     " Plug 'phaazon/hop.nvim'
+    Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'} " 显示markdown preview
 
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
@@ -91,6 +92,12 @@ if has('nvim')
     " Plug 'glepnir/lspsaga.nvim'
     " Plug 'nvim-lua/completion-nvim' | Plug 'steelsojka/completion-buffers' | Plug 'aca/completion-tabnine'
     Plug 'hrsh7th/nvim-compe' | Plug 'tzachar/compe-tabnine' "复制binaries目录到对应的插件目录下
+    Plug 'simrat39/symbols-outline.nvim'
+    lua require('symbols-outline').setup()
+    nnoremap <Leader>so :SymbolsOutline<CR>
+    Plug 'folke/lsp-trouble.nvim'
+    lua require('trouble').setup()
+    nnoremap <leader>tt <cmd>LspTroubleToggle<cr>
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']
