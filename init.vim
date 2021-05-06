@@ -195,7 +195,7 @@ if has('nvim')
     Plug 'glepnir/indent-guides.nvim' " 对齐线
     Plug 'windwp/nvim-autopairs'
     Plug 'phaazon/hop.nvim' " 快速字母导航
-    nnoremap <Leader>o :HopWord<CR>
+    nnoremap <Leader>W :HopWord<CR>
 endif
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
