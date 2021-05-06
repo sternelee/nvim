@@ -32,6 +32,7 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-emmet',
   \ 'coc-gitignore',
+  \ 'coc-explorer',
   \ 'coc-project',
   \ 'coc-vetur',
   \ 'coc-toml',
@@ -41,18 +42,21 @@ let g:coc_global_extensions = [
   \ ]
 
 set updatetime=300
-nmap <space>e :CocCommand explorer<CR>
 if has("patch-8.1.1564")
-set signcolumn=number
+  set signcolumn=number
 else
-set signcolumn=yes
+  set signcolumn=yes
 endif
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent>[g <Plug>(coc-diagnostic-prev)
 nmap <silent>]g <Plug>(coc-diagnostic-next)
@@ -111,3 +115,4 @@ nnoremap <silent><space>fb :<C-u>CocList buffers<cr>
 command! -nargs=0 Format :CocCommand prettier.formatFile
 nmap <Leader>ct <Plug>(coc-translator-p)
 vmap <Leader>ct <Plug>(coc-translator-pv)
+nnoremap <Leader>e :CocCommand explorer<CR>

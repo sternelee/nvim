@@ -167,6 +167,7 @@ Plug 'junegunn/gv.vim'
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
+Plug 'josa42/vim-lightline-coc'
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'sickill/vim-pasta'
 Plug 'konfekt/fastfold' "性能更好的语法折叠
@@ -186,8 +187,6 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
-    Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
-    command! -nargs=0 Explore :NvimTreeToggle
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
     Plug 'mfussenegger/nvim-dap' " debug
@@ -331,7 +330,7 @@ augroup END
 " 新建终端, 这里使用了powershell 7
 nnoremap <leader>\ :terminal pwsh<cr>
 " 浏览目录
-nnoremap <leader>e :Explore<cr>
+" nnoremap <leader>e :Explore<cr>
 function! s:writeCurrent() abort
     if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# ''
         silent write
