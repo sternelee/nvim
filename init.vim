@@ -154,7 +154,6 @@ let g:neovide_cursor_antialiasing=v:true
 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'simrat39/rust-tools.nvim'
 Plug 'liuchengxu/vista.vim'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
@@ -237,6 +236,8 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 \ | Plug 'junegunn/limelight.vim', { 'for': 'markdown' } " 专注阅读
 Plug 'hotoo/pangu.vim', {'for': 'markdown'}
 Plug 'uguu-org/vim-matrix-screensaver', {'on': 'Matrix'} "黑客帝国的屏保
+Plug 'lfv89/vim-interestingwords' " 高亮标记单词
+let g:interestingWordsRandomiseColors = 1
 Plug 'thinca/vim-quickrun' " 代码执行
 Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
@@ -248,6 +249,7 @@ Plug 'chrisbra/NrrwRgn' "专注于选定区域，而使其余区域无法访问,
 let g:nrrw_rgn_nomap_nr = 1
 let g:nrrw_rgn_nomap_Nr = 1
 Plug 'mbbill/undotree'
+Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion' " 数据库
 
 call plug#end()
 

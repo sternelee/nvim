@@ -151,6 +151,8 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 \ | Plug 'junegunn/limelight.vim', { 'for': 'markdown' }
 Plug 'hotoo/pangu.vim', {'for': 'markdown'}
 Plug 'uguu-org/vim-matrix-screensaver', {'on': 'Matrix'} "黑客帝国的屏保
+Plug 'lfv89/vim-interestingwords' " 高亮标记单词
+let g:interestingWordsRandomiseColors = 1
 Plug 'thinca/vim-quickrun'
 Plug 'christoomey/vim-conflicted'
 Plug 'chrisbra/vim-diff-enhanced'
