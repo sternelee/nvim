@@ -108,8 +108,6 @@ set nrformats-=octal
 set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
 set fillchars=vert:│,fold:·
 set hidden
-" set cpt=.,k,w,b
-" set completeopt=menuone,noinsert,noselect
 set completeopt=menuone,noselect
 set shortmess+=c " 禁止在下方显示一些啰嗦的提示
 set wildignore+=*\\node_modules\\*,*.swp,*.zip,*.exe  " Windows
@@ -157,6 +155,7 @@ let g:neovide_cursor_antialiasing=v:true
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'simrat39/rust-tools.nvim'
+Plug 'liuchengxu/vista.vim'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 Plug 'tpope/vim-fugitive' " git插件
