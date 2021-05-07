@@ -119,4 +119,4 @@ nnoremap <silent><space>fb :<C-u>CocList buffers<cr>
 command! -nargs=0 Format :CocCommand prettier.formatFile
 nmap <Leader>ct <Plug>(coc-translator-p)
 vmap <Leader>ct <Plug>(coc-translator-pv)
-nnoremap <Leader>e :CocCommand explorer<CR>
+" nnoremap <Leader>ce :CocCommand explorer<CR>

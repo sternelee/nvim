@@ -188,6 +188,8 @@ if has('nvim')
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
     Plug 'mfussenegger/nvim-dap' " debug
+    Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
+    command! -nargs=0 Explore :NvimTreeToggle
     " Telescope, 搜索grep工具
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope.nvim'
@@ -210,7 +212,6 @@ Plug 'terryma/vim-multiple-cursors'
 " 主题
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'artanikin/vim-synthwave84'
-Plug 'aloussase/cyberpunk'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'matze/vim-move' " 代码块移动
 Plug 'alvan/vim-closetag' "自动闭合标签
@@ -331,7 +332,7 @@ augroup END
 " 新建终端, 这里使用了powershell 7
 nnoremap <leader>\ :terminal pwsh<cr>
 " 浏览目录
-" nnoremap <leader>e :Explore<cr>
+nnoremap <leader>e :Explore<cr>
 function! s:writeCurrent() abort
     if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# ''
         silent write
