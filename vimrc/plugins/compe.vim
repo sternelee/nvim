@@ -19,7 +19,7 @@ let g:compe.source.calc = v:true
 let g:compe.source.spell = v:true
 let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
-let g:compe.source.vsnip = v:false
+let g:compe.source.vsnip = v:true
 let g:compe.source.snippets_nvim = v:false
 
 let g:compe.source.tabnine = {}

@@ -94,10 +94,10 @@ if has('nvim')
     Plug 'hrsh7th/nvim-compe' | Plug 'tzachar/compe-tabnine' "复制binaries目录到对应的插件目录下
     Plug 'simrat39/symbols-outline.nvim'
     lua require('symbols-outline').setup()
-    nnoremap <Leader>so :SymbolsOutline<CR>
+    nnoremap <Leader>o :SymbolsOutline<CR>
     Plug 'folke/lsp-trouble.nvim'
     lua require('trouble').setup()
-    nnoremap <leader>tt <cmd>LspTroubleToggle<cr>
+    nnoremap <silent>tt <cmd>LspTroubleToggle<cr>
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
     let g:Hexokinase_highlighters = ['foregroundfull']

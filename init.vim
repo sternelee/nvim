@@ -153,8 +153,9 @@ let g:neovide_cursor_antialiasing=v:true
 " lua require('plugins')
 
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'liuchengxu/vista.vim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'josa42/vim-lightline-coc'
+" Plug 'liuchengxu/vista.vim'
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 Plug 'tpope/vim-fugitive' " git插件
@@ -165,7 +166,6 @@ Plug 'junegunn/gv.vim'
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
-Plug 'josa42/vim-lightline-coc'
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'sickill/vim-pasta'
 Plug 'konfekt/fastfold' "性能更好的语法折叠
@@ -187,6 +187,16 @@ if has('nvim')
     Plug 'nvim-treesitter/playground'
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
+    Plug 'neovim/nvim-lspconfig' " 若执行LspInfo报错，可修改对应的lua文件
+    Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'hrsh7th/nvim-compe' | Plug 'tzachar/compe-tabnine' "复制binaries目录到对应的插件目录下
+    Plug 'simrat39/symbols-outline.nvim'
+    lua require('symbols-outline').setup()
+    nnoremap <Leader>o :SymbolsOutline<CR>
+    Plug 'folke/lsp-trouble.nvim'
+    lua require('trouble').setup()
+    nnoremap <silent>tt <cmd>LspTroubleToggle<cr>
     Plug 'mfussenegger/nvim-dap' " debug
     Plug 'kyazdani42/nvim-tree.lua' " lua的目录浏览
     command! -nargs=0 Explore :NvimTreeToggle
