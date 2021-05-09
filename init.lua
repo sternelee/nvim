@@ -34,7 +34,7 @@ require('packer').startup(function()
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
-  use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
+  -- use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
 
   use 'hrsh7th/nvim-compe'
   use 'tzachar/compe-tabnine'
@@ -58,7 +58,6 @@ require('packer').startup(function()
   use 'b3nj5m1n/kommentary'
   use 'luochen1990/rainbow'
   use 'alvan/vim-closetag'
-  use 'Yggdroot/indentLine'
   use 'ntpeters/vim-better-whitespace'
   use 'matze/vim-move'
   use 'tpope/vim-repeat'
@@ -78,7 +77,7 @@ local fn = vim.fn
 --gui
 g.neovide_fullscreen = true
 g.neovide_cursor_vfx_mode = "pixiedust"
-vim.api.nvim_exec([[set guifont=Iosevka:h14]], false)
+vim.api.nvim_exec([[set guifont=VictorMono\ NF:h14]], false)
 
 --theme
 g.material_style = "moonlight"
@@ -127,6 +126,8 @@ opt('o', 'relativenumber', true)
 opt('o', 'hlsearch', true)
 opt('o', 'inccommand', 'split')
 opt('o', 'smarttab', true)
+opt('o', 'incsearch', true)
+opt('o', 'helplang', 'cn')
 
 --opt('o', 'breakindent', true)
 --opt('o', 'lbr', true)
@@ -152,6 +153,7 @@ map('n', 'q', '<cmd>q<CR>')
 map('n', '<leader>w', '<cmd>HopWord<CR>')                              --easymotion/hop
 map('n', '<leader>l', '<cmd>HopLine<CR>')
 map('n', '<leader>/', '<cmd>HopPattern<CR>')
+map('n', '<leader>T', '<cmd>Telescope<CR>')                   --fuzzy
 map('n', '<leader>o', '<cmd>Telescope oldfiles<CR>')                   --fuzzy
 map('n', '<leader>p', '<cmd>Telescope find_files<CR>')
 map('n', '<leader>B', '<cmd>Telescope buffers<CR>')
@@ -188,18 +190,18 @@ let g:VM_maps["Add Cursor Up"] = '<A-k>'
 ]], false)
 
 --indentline
-g.indentLine_enabled = 1
 g.indent_blankline_char = "▏"
 g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
 g.indent_blankline_buftype_exclude = {"terminal"}
 g.indent_blankline_show_trailing_blankline_indent = false
 g.indent_blankline_show_first_indent_level = false
-g.indentline_setColors = 0
 
 -- closetag
 g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.js,*.jsx,*.vue'
 g.closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx,*.js'
 g.closetag_emptyTags_caseSensitive = 1
+
+g.better_whitespace_enabled = 0
 
 --barbar
 vim.api.nvim_exec([[
