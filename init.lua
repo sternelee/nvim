@@ -29,7 +29,7 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter-refactor'
   use 'nvim-treesitter/playground'
   use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
-  use 'lewis6991/spellsitter.nvim'
+  -- use 'lewis6991/spellsitter.nvim'
 
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
@@ -56,8 +56,18 @@ require('packer').startup(function()
   use 'rhysd/git-messenger.vim'
   use 'voldikss/vim-translator'
   use 'uguu-org/vim-matrix-screensaver'
-  use 'glepnir/indent-guides.nvim'
   use 'b3nj5m1n/kommentary'
+  use 'luochen1990/rainbow'
+  use 'alvan/vim-closetag'
+  use 'Yggdroot/indentLine'
+  use 'ntpeters/vim-better-whitespace'
+  use 'matze/vim-move'
+  use 'tpope/vim-repeat'
+  use 'asins/vimcdoc'
+  use 'plasticboy/vim-markdown'
+use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+  use { 'junegunn/goyo.vim', ft = { 'markdown' } }
+  use { 'uguu-org/vim-matrix-screensaver', cmd = 'Matrix' }
 
 end)
 
@@ -139,6 +149,7 @@ map('c', 'jk', '<C-C>')
 map('n', ';', ':')                                                     --semicolon to enter command mode
 map('n', 'j', 'gj')                                                    --move by visual line not actual line
 map('n', 'k', 'gk')
+map('n', 'q', '<cmd>q<CR>')
 map('n', '<leader>w', '<cmd>HopWord<CR>')                              --easymotion/hop
 map('n', '<leader>l', '<cmd>HopLine<CR>')
 map('n', '<leader>/', '<cmd>HopPattern<CR>')
@@ -186,6 +197,11 @@ g.indent_blankline_show_trailing_blankline_indent = false
 g.indent_blankline_show_first_indent_level = false
 g.indentline_setColors = 0
 
+-- closetag
+g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.js,*.jsx,*.vue'
+g.closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx,*.js'
+g.closetag_emptyTags_caseSensitive = 1
+
 --barbar
 vim.api.nvim_exec([[
 let bufferline = get(g:, 'bufferline', {})
@@ -214,7 +230,7 @@ require'compe'.setup {
     path = true;
     buffer = true;
     calc = true;
-    spell = true;
+    spell = false;
     nvim_lsp = true;
     nvim_lua = true;
     vsnip = true;
@@ -225,7 +241,7 @@ require'compe'.setup {
 }
 
 --spellsitter
-require('spellsitter').setup()
+-- require('spellsitter').setup()
 
 -- setup for TrueZen.nvim
 local true_zen = require("true-zen")
