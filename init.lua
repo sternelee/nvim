@@ -177,7 +177,7 @@ map('n', '<leader>ga', '<cmd>Gina add .<CR>')
 map('n', '<leader>gt', '<cmd>Gina commit<CR>')
 map('n', '<leader>gs', '<cmd>Gina status<CR>')
 map('n', '<leader>gl', '<cmd>Gina pull<CR>')
-map('n', '<leader>gu', '<cmd>Gina pull<CR>')
+map('n', '<leader>gu', '<cmd>Gina push<CR>')
 cmd([[autocmd BufWritePre * %s/\s\+$//e]])                             --remove trailing whitespaces
 cmd([[autocmd BufWritePre * %s/\n\+\%$//e]])
 
