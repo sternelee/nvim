@@ -55,7 +55,6 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'rhysd/git-messenger.vim'
   use 'voldikss/vim-translator'
-  use 'uguu-org/vim-matrix-screensaver'
   use 'b3nj5m1n/kommentary'
   use 'luochen1990/rainbow'
   use 'alvan/vim-closetag'
@@ -65,7 +64,7 @@ require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'asins/vimcdoc'
   use 'plasticboy/vim-markdown'
-use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
   use { 'junegunn/goyo.vim', ft = { 'markdown' } }
   use { 'uguu-org/vim-matrix-screensaver', cmd = 'Matrix' }
 
