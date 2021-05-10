@@ -34,6 +34,43 @@ require('packer').startup(function()
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
+  use {
+    'nvim-telescope/telescope-project.nvim',
+    config = function()
+      require"telescope".load_extension("project")
+    end
+  }
+  use {
+    'nvim-telescope/telescope-github.nvim',
+    config = function()
+      require"telescope".load_extension("gh")
+    end
+  }
+  use {
+    'nvim-telescope/telescope-packer.nvim',
+    config = function()
+      require"telescope".load_extension("packer")
+    end
+  }
+  use {
+    'nvim-telescope/telescope-media-files.nvim',
+    config = function()
+      require"telescope".extensions.media_files.media_files()
+    end
+  }
+  use {
+    'nvim-telescope/telescope-bookmarks.nvim',
+    config = function()
+      require"telescope".load_extension("bookmarks")
+    end
+  }
+  use {
+    'nvim-telescope/telescope-cheat.nvim',
+    requires = 'tami5/sql.nvim',
+    config = function()
+      require"telescope".load_extension("cheat")
+    end
+  }
   -- use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
 
   use 'hrsh7th/nvim-compe'
@@ -66,6 +103,7 @@ require('packer').startup(function()
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
   use { 'junegunn/goyo.vim', ft = { 'markdown' } }
   use { 'uguu-org/vim-matrix-screensaver', cmd = 'Matrix' }
+  use 'windwp/nvim-autopairs'
 
 end)
 
@@ -117,7 +155,7 @@ opt('o', 'showmode', false )
 opt('o', 'background', 'dark' )
 opt('o', 'backup', false )
 opt('w', 'number', true)                              -- Print line number
-opt('o', 'lazyredraw', true)
+opt('o', 'lazyredraw', false)
 opt('o', 'signcolumn', 'yes')
 opt('o', 'mouse', 'a')
 opt('o', 'cmdheight', 1)
@@ -236,7 +274,7 @@ require'compe'.setup {
     nvim_lua = true;
     vsnip = true;
     tabnine = {
-        priority = 40;
+        priority = 60;
     }
   };
 }
@@ -504,6 +542,7 @@ require'lspinstall'.post_install_hook = function ()
 end
 
 require("trouble").setup {}
+
 require'lspsaga'.init_lsp_saga{
     error_sign = "",
     warn_sign = "",
@@ -555,6 +594,29 @@ vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
+require('nvim-autopairs').setup({
+  disable_filetype = { "TelescopePrompt" },
+})
+local remap = vim.api.nvim_set_keymap
+local npairs = require('nvim-autopairs')
+
+_G.MUtils= {}
+
+vim.g.completion_confirm_key = ""
+MUtils.completion_confirm=function()
+  if vim.fn.pumvisible() ~= 0  then
+    if vim.fn.complete_info()["selected"] ~= -1 then
+      return vim.fn["compe#confirm"](npairs.esc("<c-r>"))
+    else
+      return npairs.esc("<cr>")
+    end
+  else
+    return npairs.autopairs_cr()
+  end
+end
+
+remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+vim.lsp.set_log_level("debug")
 --evilline
 local lualine = require'lualine'
 
@@ -872,7 +934,16 @@ require('telescope').setup{
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
 
     -- Developer configurations: Not meant for general override
-    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
+    extensions = {
+      bookmarks = {
+        -- Available: 'brave', 'google_chrome', 'safari', 'firefox', 'firefox_dev'
+        selected_browser = 'brave',
+        url_open_command = 'open',
+        url_open_plugin = nil,
+        firefox_profile_name = nil,
+      },
+    }
   }
 }
 
