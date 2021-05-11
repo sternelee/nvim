@@ -13,24 +13,26 @@ require('packer').startup(function()
   use 'romgrk/barbar.nvim'
   use 'kyazdani42/nvim-tree.lua'
   use 'glepnir/dashboard-nvim'
-
+  -- git相关
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim'}
   use 'lambdalisue/gina.vim'
+  -- use 'kdheepak/lazygit.nvim'
 
   use 'kdav5758/TrueZen.nvim'
   use 'junegunn/limelight.vim'
   use 'yamatsum/nvim-cursorline'
-  use 'norcalli/nvim-colorizer.lua'
+  use 'norcalli/nvim-colorizer.lua' -- 色值高亮
 
-  use 'shaunsingh/moonlight.nvim'
+  use 'shaunsingh/moonlight.nvim' -- theme
+  -- 语法高亮
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use  'nvim-treesitter/nvim-treesitter-textobjects'
   use 'nvim-treesitter/nvim-treesitter-refactor'
   use 'nvim-treesitter/playground'
   use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
   -- use 'lewis6991/spellsitter.nvim'
-
+  -- 导航finder操作
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
@@ -40,30 +42,24 @@ require('packer').startup(function()
       require"telescope".load_extension("project")
     end
   }
-  use {
+  --[[ use {
     'nvim-telescope/telescope-github.nvim',
     config = function()
       require"telescope".load_extension("gh")
     end
-  }
-  use {
-    'nvim-telescope/telescope-packer.nvim',
-    config = function()
-      require"telescope".load_extension("packer")
-    end
-  }
+  } ]]
   use {
     'nvim-telescope/telescope-media-files.nvim',
     config = function()
       require"telescope".extensions.media_files.media_files()
     end
   }
-  use {
+  --[[ use {
     'nvim-telescope/telescope-bookmarks.nvim',
     config = function()
       require"telescope".load_extension("bookmarks")
     end
-  }
+  } ]]
   use {
     'nvim-telescope/telescope-cheat.nvim',
     requires = 'tami5/sql.nvim',
@@ -71,10 +67,12 @@ require('packer').startup(function()
       require"telescope".load_extension("cheat")
     end
   }
+  -- use 'oberblastmeister/neuron.nvim' -- 笔记工具
   -- use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
-
+  -- use 'vijaymarupudi/nvim-fzf'
+  -- 补全和提示工具
   use 'hrsh7th/nvim-compe'
-  use 'tzachar/compe-tabnine'
+  use { 'tzachar/compe-tabnine', requires = 'hrsh7th/nvim-compe'}
   use 'onsails/lspkind-nvim'
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-trouble.nvim'
@@ -82,28 +80,52 @@ require('packer').startup(function()
   use 'simrat39/symbols-outline.nvim'
   use 'kabouzeid/nvim-lspinstall'
   use 'ray-x/lsp_signature.nvim'
-
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  -- snippet相关
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
   use 'rafamadriz/friendly-snippets'
 
+  -- use 'mfussenegger/nvim-dap' -- 程序调试
+  use 'akinsho/nvim-toggleterm.lua' -- 交互终端
+  use 'kevinhwang91/nvim-hlslens'
   use 'tpope/vim-eunuch'
-  use 'junegunn/vim-peekaboo'
+  use 'junegunn/vim-peekaboo' -- 查看历史的复制和删除的寄存器, @触发
   use 'tpope/vim-surround'
-  use 'rhysd/git-messenger.vim'
-  use 'voldikss/vim-translator'
-  use 'b3nj5m1n/kommentary'
-  use 'luochen1990/rainbow'
+  use 'voldikss/vim-translator' -- npm install fanyi -g 安装翻译
+  use 'b3nj5m1n/kommentary' -- 注释
   use 'alvan/vim-closetag'
   use 'ntpeters/vim-better-whitespace'
   use 'matze/vim-move'
   use 'tpope/vim-repeat'
-  use 'asins/vimcdoc'
+  use 'asins/vimcdoc' -- 中文帮助文档
   use 'plasticboy/vim-markdown'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+  use 'npxbr/glow.nvim' -- Glow md文档预览
   use { 'junegunn/goyo.vim', ft = { 'markdown' } }
   use { 'uguu-org/vim-matrix-screensaver', cmd = 'Matrix' }
-  use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-autopairs' -- 自动符号匹配
+  use 'rktjmp/lush.nvim' -- 动态更新UI样式
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {}
+    end
+  } -- 提示leader按键
+  --[[ use {'pwntester/octo.nvim', config=function()
+    require"octo".setup()
+  end} -- 查看github issues ]]
+
+  use 'sindrets/diffview.nvim' -- diff对比
+  use 'p00f/nvim-ts-rainbow' -- 彩虹匹配
+  use 'f-person/git-blame.nvim' -- 显示git message
+  use 'lukas-reineke/format.nvim' -- 格式化
+  use 'konfekt/fastfold' -- 性能更好的语法折叠
+  use {
+      'NTBBloodbath/rest.nvim',
+      requires = { 'nvim-lua/plenary.nvim' }
+  } -- 测试rest请求
+  use 'dstein64/vim-startuptime'
 
 end)
 
@@ -219,6 +241,11 @@ map('n', '<leader>gu', '<cmd>Gina push<CR>')
 cmd([[autocmd BufWritePre * %s/\s\+$//e]])                             --remove trailing whitespaces
 cmd([[autocmd BufWritePre * %s/\n\+\%$//e]])
 
+local numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9"}
+for _, num in pairs(numbers) do
+  map('n', '<leader>'..num, '<cmd>BufferGoto '..num..'<CR>')
+end
+
 --visual multi
 vim.api.nvim_exec([[
 let g:VM_maps = {}
@@ -241,11 +268,29 @@ g.closetag_emptyTags_caseSensitive = 1
 
 g.better_whitespace_enabled = 0
 
+-- fastfold
+g.fastfold_savehook = 1
+g.fastfold_fold_command_suffixes =  {'x','X','a','A','o','O','c','C'}
+g.fastfold_fold_movement_commands = {']z', '[z', 'zj', 'zk'}
+g.markdown_folding = 1
+g.tex_fold_enabled = 1
+g.vimsyn_folding = 'af'
+g.xml_syntax_folding = 1
+g.javaScript_fold = 1
+g.sh_fold_enabled= 7
+g.ruby_fold = 1
+g.perl_fold = 1
+g.perl_fold_blocks = 1
+g.r_syntax_folding = 1
+g.rust_fold = 1
+g.php_folding = 1
+
 --barbar
 vim.api.nvim_exec([[
 let bufferline = get(g:, 'bufferline', {})
 let bufferline.animation = v:false
 let bufferline.auto_hide = v:true
+let bufferline.icons = 'both'
 ]], false)
 
 require('kommentary.config').use_extended_mappings()
@@ -423,6 +468,8 @@ vim.fn.sign_define(
     {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"}
 )
 
+require'diffview'.setup{}
+
 -- Snippets support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -480,7 +527,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -494,9 +541,12 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
   buf_set_keymap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', opts)
-  buf_set_keymap('n', 'na', '<cmd>Lspsaga code_action<CR>', opts)
+  buf_set_keymap('n', 'ca', '<cmd>Lspsaga code_action<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>Lspsaga signature_help<CR>', opts)
   buf_set_keymap('n', 'rn', '<cmd>Lspsaga rename<CR>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', opts)
+  buf_set_keymap('n', '<space>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
   buf_set_keymap('n', '[e', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
   buf_set_keymap('n', ']e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
 
@@ -936,16 +986,26 @@ require('telescope').setup{
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
     extensions = {
-      bookmarks = {
+      --[[ bookmarks = {
         -- Available: 'brave', 'google_chrome', 'safari', 'firefox', 'firefox_dev'
         selected_browser = 'brave',
         url_open_command = 'open',
         url_open_plugin = nil,
         firefox_profile_name = nil,
-      },
+      }, ]]
     }
   }
 }
+
+require("toggleterm").setup{}
+
+--[[ require('neuron').setup {
+    virtual_titles = true,
+    mappings = true,
+    run = nil, -- function to run when in neuron dir
+    neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
+    leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
+} ]]
 
 vim.g.dashboard_session_directory = '~/.config/nvim/.sessions'
 vim.g.dashboard_default_executive = 'telescope'
