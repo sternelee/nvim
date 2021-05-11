@@ -213,13 +213,16 @@ map('n', 'q', '<cmd>q<CR>')
 map('n', '<leader>w', '<cmd>HopWord<CR>')                              --easymotion/hop
 map('n', '<leader>l', '<cmd>HopLine<CR>')
 map('n', '<leader>/', '<cmd>HopPattern<CR>')
-map('n', '<leader>T', '<cmd>Telescope<CR>')                   --fuzzy
-map('n', '<leader>o', '<cmd>Telescope oldfiles<CR>')                   --fuzzy
+map('n', '<leader>ft', '<cmd>Telescope<CR>')                   --fuzzy
+map('n', '<leader>fr', '<cmd>Telescope oldfiles<CR>')                   --fuzzy
 map('n', '<leader>p', '<cmd>Telescope find_files<CR>')
-map('n', '<leader>B', '<cmd>Telescope buffers<CR>')
+map('n', '<leader>fb', '<cmd>Telescope buffers<CR>')
 map('n', '<leader>f', '<cmd>Telescope current_buffer_fuzzy_find<CR>')
-map('n', '<leader><S-f>', '<cmd>Telescope treesitter<CR>')
-map('n', '<leader><S-p>', '<cmd>Telescope commands<CR>')
+map('n', '<leader>g', '<cmd>Telescope live_grep<CR>')
+map('n', '<leader>fs', '<cmd>Telescope treesitter<CR>')
+map('n', '<leader>fc', '<cmd>Telescope commands<CR>')
+map('n', '<leader>fp', '<cmd>Telescope project<CR>')
+map('n', '<leader>fm', '<cmd>Telescope marks<CR>')
 map('n', '<leader>z', '<cmd>TZAtaraxis<CR>')                           --ataraxis
 map('n', '<leader>x', '<cmd>TZAtaraxis l45 r45 t2 b2<CR>')
 map('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>')                      --nvimtree
@@ -1021,11 +1024,11 @@ vim.api.nvim_exec([[
 vim.g.dashboard_custom_section = {
     a = {description = {'  Reload Last Session            SPC q l'}, command = 'SessionLoad'},
     b = {description = {'  Recently Opened Files          SPC f r'}, command = 'Telescope oldfiles'},
-    c = {description = {'  Open Project                   SPC f p'}, command = 'Telescope marks'},
-    d = {description = {'  Jump to Bookmark               SPC f b'}, command = 'Telescope project'},
-    e = {description = {'  Find File                      SPC f f'}, command = 'Telescope find_files'},
-    f = {description = {'  Find Word                      SPC s p'}, command = 'Telescope live_grep'},
-    g = {description = {'  Open Neovim Configuration     SPC f P'}, command = ':e ~/AppData/Local/nvim/init.lua'},
+    c = {description = {'  Open Project                   SPC f m'}, command = 'Telescope marks'},
+    d = {description = {'  Jump to Bookmark               SPC f p'}, command = 'Telescope project'},
+    e = {description = {'  Find File                      SPC p'}, command = 'Telescope find_files'},
+    f = {description = {'  Find Word                      SPC g'}, command = 'Telescope live_grep'},
+    g = {description = {'  Open Neovim Configuration     SPC SPC'}, command = ':e ~/AppData/Local/nvim/init.lua'},
 }
 
 vim.g.dashboard_custom_header = {
