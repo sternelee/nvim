@@ -72,7 +72,7 @@ require('packer').startup(function()
   -- use 'vijaymarupudi/nvim-fzf'
   -- 补全和提示工具
   use 'hrsh7th/nvim-compe'
-  use { 'tzachar/compe-tabnine', requires = 'hrsh7th/nvim-compe'}
+  -- use { 'tzachar/compe-tabnine', requires = 'hrsh7th/nvim-compe'}
   use 'onsails/lspkind-nvim'
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-trouble.nvim'
@@ -92,6 +92,7 @@ require('packer').startup(function()
   use 'tpope/vim-eunuch'
   use 'junegunn/vim-peekaboo' -- 查看历史的复制和删除的寄存器, @触发
   use 'tpope/vim-surround'
+  use 'terryma/vim-expand-region' -- 扩大缩小选择区域
   use 'voldikss/vim-translator' -- npm install fanyi -g 安装翻译
   use 'b3nj5m1n/kommentary' -- 注释
   use 'alvan/vim-closetag'
@@ -101,7 +102,7 @@ require('packer').startup(function()
   use 'asins/vimcdoc' -- 中文帮助文档
   use 'plasticboy/vim-markdown'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-  use 'npxbr/glow.nvim' -- Glow md文档预览
+  -- use 'npxbr/glow.nvim' -- Glow md文档预览
   use { 'junegunn/goyo.vim', ft = { 'markdown' } }
   use { 'uguu-org/vim-matrix-screensaver', cmd = 'Matrix' }
   use 'windwp/nvim-autopairs' -- 自动符号匹配
@@ -223,6 +224,7 @@ map('n', '<leader>fs', '<cmd>Telescope treesitter<CR>')
 map('n', '<leader>fc', '<cmd>Telescope commands<CR>')
 map('n', '<leader>fp', '<cmd>Telescope project<CR>')
 map('n', '<leader>fm', '<cmd>Telescope marks<CR>')
+map('n', '<leader>fe', '<cmd>e ~/AppData/Local/nvim/init.lua<CR>')
 map('n', '<leader>z', '<cmd>TZAtaraxis<CR>')                           --ataraxis
 map('n', '<leader>x', '<cmd>TZAtaraxis l45 r45 t2 b2<CR>')
 map('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>')                      --nvimtree
@@ -248,6 +250,12 @@ local numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9"}
 for _, num in pairs(numbers) do
   map('n', '<leader>'..num, '<cmd>BufferGoto '..num..'<CR>')
 end
+
+-- general
+g.loaded_python_provider = 0
+g.loaded_python3_provider = 0
+g.loaded_ruby_provider = 0
+g.loaded_perl_provider = 0
 
 --visual multi
 vim.api.nvim_exec([[
@@ -321,9 +329,7 @@ require'compe'.setup {
     nvim_lsp = true;
     nvim_lua = true;
     vsnip = true;
-    tabnine = {
-        priority = 60;
-    }
+    -- tabnine = true;
   };
 }
 
@@ -548,7 +554,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
   buf_set_keymap('n', '<C-k>', '<cmd>Lspsaga signature_help<CR>', opts)
   buf_set_keymap('n', 'rn', '<cmd>Lspsaga rename<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', opts)
+  -- buf_set_keymap('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', opts)
   buf_set_keymap('n', '<space>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
   buf_set_keymap('n', '[e', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
   buf_set_keymap('n', ']e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
@@ -959,7 +965,7 @@ require('telescope').setup{
     initial_mode = "insert",
     selection_strategy = "reset",
     sorting_strategy = "ascending",
-    layout_strategy = "vertical",
+    -- layout_strategy = "vertical",
     layout_defaults = {
       horizontal = {
         mirror = false,
@@ -1026,9 +1032,9 @@ vim.g.dashboard_custom_section = {
     b = {description = {'  Recently Opened Files          SPC f r'}, command = 'Telescope oldfiles'},
     c = {description = {'  Open Project                   SPC f m'}, command = 'Telescope marks'},
     d = {description = {'  Jump to Bookmark               SPC f p'}, command = 'Telescope project'},
-    e = {description = {'  Find File                      SPC p'}, command = 'Telescope find_files'},
-    f = {description = {'  Find Word                      SPC g'}, command = 'Telescope live_grep'},
-    g = {description = {'  Open Neovim Configuration     SPC SPC'}, command = ':e ~/AppData/Local/nvim/init.lua'},
+    e = {description = {'  Find File                      SPC p  '}, command = 'Telescope find_files'},
+    f = {description = {'  Find Word                      SPC g  '}, command = 'Telescope live_grep'},
+    g = {description = {'  Open Neovim Configuration      SPC f e'}, command = ':e ~/AppData/Local/nvim/init.lua'},
 }
 
 vim.g.dashboard_custom_header = {
