@@ -18,6 +18,7 @@ require('packer').startup(function()
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim'}
   use 'lambdalisue/gina.vim'
   -- use 'kdheepak/lazygit.nvim'
+  -- use 'ThePrimeagen/git-worktree.nvim'
 
   use 'kdav5758/TrueZen.nvim'
   use 'junegunn/limelight.vim'
@@ -55,6 +56,12 @@ require('packer').startup(function()
     end
   }
   --[[ use {
+    'nvim-telescope/telescope-dap.nvim',
+    config = function()
+      require"telescope".load_extension("dap")
+    end
+  } ]]
+  --[[ use {
     'nvim-telescope/telescope-bookmarks.nvim',
     config = function()
       require"telescope".load_extension("bookmarks")
@@ -86,7 +93,8 @@ require('packer').startup(function()
   use 'hrsh7th/vim-vsnip-integ'
   use 'rafamadriz/friendly-snippets'
 
-  -- use 'mfussenegger/nvim-dap' -- 程序调试
+  --[[ use 'mfussenegger/nvim-dap' -- 程序调试
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} } ]]
   use 'akinsho/nvim-toggleterm.lua' -- 交互终端
   use 'kevinhwang91/nvim-hlslens'
   use 'tpope/vim-eunuch'
@@ -127,6 +135,7 @@ require('packer').startup(function()
       requires = { 'nvim-lua/plenary.nvim' }
   } -- 测试rest请求
   use 'dstein64/vim-startuptime'
+  -- use 'ethanjwright/toolwindow.nvim'
 
 end)
 
@@ -478,6 +487,7 @@ vim.fn.sign_define(
 )
 
 require'diffview'.setup{}
+-- require("dapui").setup()
 
 -- Snippets support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
