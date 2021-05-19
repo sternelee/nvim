@@ -178,7 +178,6 @@ opt('o', 'smartcase', true)                           -- Don't ignore case with 
 opt('o', 'splitbelow', true)                          -- Put new windows below current
 opt('o', 'splitright', true)                          -- Put new windows right of current
 opt('o', 'termguicolors', true)                       -- True color support
-opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
 opt('o', 'clipboard', 'unnamed')
 opt('o', 'pumblend', 25 )
 opt('o', 'scrolloff', 2 )
