@@ -8,7 +8,7 @@ end
 --setup packer
 require('packer').startup(function()
   use "wbthomason/packer.nvim"
-
+  -- 状态栏
   use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use 'romgrk/barbar.nvim'
   use 'kyazdani42/nvim-tree.lua'
@@ -134,7 +134,7 @@ require('packer').startup(function()
       'NTBBloodbath/rest.nvim',
       requires = { 'nvim-lua/plenary.nvim' }
   } -- 测试rest请求
-  use 'dstein64/vim-startuptime'
+  -- use 'dstein64/vim-startuptime' -- nvim --startuptime time.log
   -- use 'ethanjwright/toolwindow.nvim'
 
 end)
@@ -592,7 +592,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 local function setup_servers()
   require'lspinstall'.setup()
   -- local servers = require'lspinstall'.installed_servers()
-  local servers = { "vls", "cssls", "html", "rust_analyzer", "tsserver",  "graphql" }
+  local servers = { "cssls", "html", "rust_analyzer", "tsserver",  "graphql" }
   for _, server in pairs(servers) do
     require'lspconfig'[server].setup{
       on_attach = on_attach,
