@@ -1039,8 +1039,8 @@ vim.api.nvim_exec([[
 vim.g.dashboard_custom_section = {
     a = {description = {'  Reload Last Session            SPC q l'}, command = 'SessionLoad'},
     b = {description = {'  Recently Opened Files          SPC f r'}, command = 'Telescope oldfiles'},
-    c = {description = {'  Open Project                   SPC f m'}, command = 'Telescope marks'},
-    d = {description = {'  Jump to Bookmark               SPC f p'}, command = 'Telescope project'},
+    c = {description = {'  Open Project                   SPC f p'}, command = 'Telescope Project'},
+    d = {description = {'  Jump to Bookmark               SPC f m'}, command = 'Telescope marks'},
     e = {description = {'  Find File                      SPC p  '}, command = 'Telescope find_files'},
     f = {description = {'  Find Word                      SPC g  '}, command = 'Telescope live_grep'},
     g = {description = {'  Open Neovim Configuration      SPC f e'}, command = ':e ~/AppData/Local/nvim/init.lua'},
