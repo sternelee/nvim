@@ -56,7 +56,7 @@ augroup END
 " 新建终端, 这里使用了powershell 7
 nnoremap <leader>\ :terminal pwsh<cr>
 " 浏览目录
-nnoremap <leader>e :Explore<cr>
+" nnoremap <leader>e :Explore<cr>
 function! s:writeCurrent() abort
     if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# ''
         silent write

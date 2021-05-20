@@ -1,7 +1,8 @@
 let g:lightline = {
       \ 'colorscheme': 'nightfly',
       \ 'active': {
-      \   'left': [ ['homemode'],['mode', 'filename'],['gitbranch']],
+      \   'left': [ ['homemode'],['mode','filename'],['gitbranch'],
+      \             ['coc_info','coc_hints','coc_errors','coc_warnings','coc_ok'],[ 'coc_status'  ], ],
       \   'right':[ ['lineinfo'],['percent'], ['fileformat','fileencoding']],
       \ },
       \ 'inactive': {
@@ -31,9 +32,8 @@ let g:lightline = {
       \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3"}
       \ }
 
-" call lightline#coc#register()
-" \             ['coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ], [ 'coc_status'  ], ['method']],
-" \   'method': 'NearestMethodOrFunction',
+call lightline#coc#register()
+
 function! LightlineMode()
   let nr = s:get_buffer_number()
   let nmap = [ '0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']

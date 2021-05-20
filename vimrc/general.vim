@@ -1,39 +1,22 @@
-" 参考: https://www.sainnhe.dev/post/status-line-config/
-" gvim需要把lua53.dll放在与gvim.exe同级下
-" https://yianwillis.github.io/vimcdoc/doc/quickref.html
-" https://github.com/neovim/neovim/wiki/Related-projects#gui
 " windows 推荐使用Nvy
-" 1. 初始化
-" nmap tu :syntax sync fromstart<cr>
 
-" 2. 初始配置
-" 去掉python依赖
-" let g:python3_host_prog=" 建议使用scoop install -g python
+" 去掉依赖
 let g:loaded_python_provider = 0
-" let g:python_host_prog = '/usr/local/bin/python'
-" let g:python_host_skip_check=1
 let g:loaded_python3_provider = 0
-" let g:python3_host_prog = 'C:\ProgramData\scoop\shims\python3.EXE'
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 
-"更新配置 :so $MYVIMRC
-"设置默认编码
-set encoding=utf-8
+" 更新配置 :so $MYVIMRC
+set encoding=utf-8 "设置默认编码
 set langmenu=zh_CN
-"提示信息乱码解决
-language message zh_CN.UTF-8
-" 设置文件编码
-set fileencodings=utf-8,ucs-bom,chinese,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-
+language message zh_CN.UTF-8 "提示信息乱码解决
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 filetype on         " 开启文件类型侦测
 filetype plugin on  " 根据侦测到的不同类型加载对应的插件
 " autocmd BufWritePost $MYVIMRC source $MYVIMRC " 让配置变更立即生效
 set incsearch       " 开启实时搜索功能
-" set ignorecase      " 搜索时大小写不敏感
+set ignorecase      " 搜索时大小写不敏感
 set wildmenu        " vim 自身命令行模式智能补全
 set linebreak
 set mouse=a         " 设置鼠标滚动

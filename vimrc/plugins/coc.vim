@@ -1,5 +1,6 @@
 " coc config
 let g:coc_start_at_startup=0
+
 function! CocTimerStart(timer)
     exec "CocStart"
 endfunction
@@ -119,4 +120,4 @@ nnoremap <silent><space>fb :<C-u>CocList buffers<cr>
 command! -nargs=0 Format :CocCommand prettier.formatFile
 nmap <Leader>ct <Plug>(coc-translator-p)
 vmap <Leader>ct <Plug>(coc-translator-pv)
-" nnoremap <Leader>ce :CocCommand explorer<CR>
+nnoremap <Leader>e :CocCommand explorer<CR>
