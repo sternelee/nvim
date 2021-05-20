@@ -34,11 +34,11 @@ if has('gui_running')
 endif
 
 " 将外部命令 wmctrl 控制窗口最大化的命令行参数封装成一个 vim 的函数
-" fun! ToggleFullscreen()
-"     call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
-" endf
+fun! ToggleFullscreen()
+    call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
+endf
 " 全屏开/关快捷键
-" map <silent> <F11> :call ToggleFullscreen()<CR>
+map <silent> <F11> :call ToggleFullscreen()<CR>
 "" 启动 vim 时自动全屏
 " autocmd VimEnter * call ToggleFullscreen()
 set laststatus=2   " 总是显示状态栏
@@ -58,7 +58,7 @@ set wrap " 自动折行
 syntax enable " 开启语法高亮功能
 set synmaxcol=256 " 高亮限制前x列
 syntax on     " 允许用指定语法高亮配色方案替换默认方案
-" syntax sync minlines=256
+syntax sync minlines=256
 autocmd BufEnter * :syn sync maxlines=500
 syntax sync fromstart
 " set secure
@@ -82,7 +82,7 @@ set nobackup            " 设置不备份
 set noswapfile          " 禁止生成临时文件
 set nowritebackup
 set autoread            " 文件在vim之外修改过，自动重新读入
-" set autowrite           " 设置自动保存
+set autowrite           " 设置自动保存
 set noeb
 set vb
 set splitbelow
@@ -98,15 +98,15 @@ set showtabline=2
 set noshowmode
 set shortmess=a
 set cmdheight=1
-if has('statusline')
-    set laststatus=2
-    " Broken down into easily includeable segments
-    set statusline=%<%f\                     " Filename
-    set statusline+=%w%h%m%r                 " Options
-    set statusline+=\ [%{&ff}/%Y]            " Filetype
-    set statusline+=\ [%{getcwd()}]          " Current dir
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-endif
+" if has('statusline')
+"     set laststatus=2
+"     " Broken down into easily includeable segments
+"     set statusline=%<%f\                     " Filename
+"     set statusline+=%w%h%m%r                 " Options
+"     set statusline+=\ [%{&ff}/%Y]            " Filetype
+"     set statusline+=\ [%{getcwd()}]          " Current dir
+"     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+" endif
 set clipboard+=unnamed " 剪切板共享
 " 设置 alt 键不映射到菜单栏
 set winaltkeys=no
@@ -130,11 +130,11 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "
 
 if has('nvim')
     set inccommand=split
-    set guifont=Iosevka:h18
-    let s:fontname='Iosevka'
+    set guifont=VictorMono\ NF:h18
+    let s:fontname='VictorMono NF'
   else
-    set guifont=Iosevka_NF:h16:W300:cANSI:qDRAFT
-    let s:fontname='Iosevka_NF'
+    set guifont=VictorMono_NF:h16:W300:cANSI:qDRAFT
+    let s:fontname='VictorMono_NF'
 endif
 
 if has('nvim') || has('termguicolors')
@@ -158,9 +158,6 @@ noremap <C-ScrollWheelDown> :call AdjustFontSize(-1)<CR>
 inoremap <C-ScrollWheelUp> <Esc>:call AdjustFontSize(1)<CR>a
 inoremap <C-ScrollWheelDown> <Esc>:call AdjustFontSize(-1)<CR>a
 " autocmd VimEnter * call AdjustFontSize(-1)
-
-" 显示相对路径
-" set statusline=%f
 
 " 设置启动的工作路径
 " let g:Work = "D:/www"

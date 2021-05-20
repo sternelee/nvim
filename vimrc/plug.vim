@@ -7,6 +7,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'josa42/vim-lightline-coc'
 set completeopt=menuone,noselect
 set shortmess+=c " 禁止在下方显示一些啰嗦的提示
+Plug 'liuchengxu/vista.vim'
+let g:vista_default_executive = 'coc'
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
@@ -47,14 +49,18 @@ if has('nvim')
     " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
+    " Telescope, 搜索grep工具
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-media-files.nvim'
     Plug 'glepnir/indent-guides.nvim'
     Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'} " 显示markdown preview
 
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
-else
-    Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
-    let g:Hexokinase_highlighters = ['foregroundfull']
+" else
+"     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
+"     let g:Hexokinase_highlighters = ['foregroundfull']
 endif
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
@@ -76,7 +82,7 @@ Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'matze/vim-move' " 代码块移动
 Plug 'alvan/vim-closetag' "自动闭合标签
 Plug 'luochen1990/rainbow' "彩虹符号匹配
-Plug 'ianva/vim-youdao-translater' "有道翻译
+Plug 'voldikss/vim-translator'  " npm install fanyi -g 安装翻译
 Plug 'junegunn/vim-peekaboo' "查看历史的复制和删除的寄存器, @或\" 触发
 Plug 'tpope/vim-eunuch' " 加强的目录和文件编辑
 Plug 'troydm/zoomwintab.vim' " 最大化窗口，ctrl w o
