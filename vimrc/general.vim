@@ -119,6 +119,7 @@ set scrolljump=5
 " set autochdir 自动pwd到文件当前目录
 set whichwrap=b,s,<,>,[,]
 set nobomb
+set novb
 set backspace=indent,eol,start
 set nrformats-=octal
 set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
@@ -133,7 +134,7 @@ if has('nvim')
     set guifont=VictorMono\ NF:h18
     let s:fontname='VictorMono NF'
   else
-    set guifont=VictorMono_NF:h16:W300:cANSI:qDRAFT
+    set guifont=Victor_Mono:h16:W300:cANSI:qDRAFT
     let s:fontname='VictorMono_NF'
 endif
 
