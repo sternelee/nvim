@@ -58,6 +58,7 @@ if has('nvim')
 
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
+    Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion' " 数据库
 " else
 "     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
 "     let g:Hexokinase_highlighters = ['foregroundfull']
@@ -119,7 +120,6 @@ Plug 'chrisbra/NrrwRgn' "专注于选定区域，而使其余区域无法访问,
 let g:nrrw_rgn_nomap_nr = 1
 let g:nrrw_rgn_nomap_Nr = 1
 Plug 'mbbill/undotree'
-Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion' " 数据库
 
 call plug#end()
 

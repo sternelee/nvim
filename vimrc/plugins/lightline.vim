@@ -3,7 +3,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ ['homemode'],['mode','filename'],['gitbranch'],
       \             ['coc_info','coc_hints','coc_errors','coc_warnings','coc_ok'],['coc_status','method']],
-      \   'right':[ ['lineinfo'],['percent'], ['fileformat','fileencoding']],
+      \   'right':[ ['lineinfo'],['percent'], ['fileformat','fileencoding'], ['asyncrun_status']],
       \ },
       \ 'inactive': {
       \   'left': [['homemode'], ['gitbranch']],
@@ -18,6 +18,7 @@ let g:lightline = {
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers',
+      \   'asyncrun_status': 'lightline#asyncrun#status',
       \ },
       \ 'component_function': {
       \   'homemode': 'LightlineMode',
