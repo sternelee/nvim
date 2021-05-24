@@ -11,7 +11,7 @@ Plug 'liuchengxu/vista.vim'
 let g:vista_default_executive = 'coc'
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
-Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
+" Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
@@ -30,13 +30,10 @@ Plug 'sickill/vim-pasta'
 Plug 'konfekt/fastfold' "性能更好的语法折叠
 Plug 'tpope/vim-surround' "匹配符号快捷操作
 Plug 'terryma/vim-expand-region' "扩大缩小选择区域
-Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
-Plug 'justinmk/vim-sneak' "双字母选择的光标移动
-let g:sneak#label = 1
 Plug 'airblade/vim-rooter'
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
-Plug 'leafoftree/vim-vue-plugin'
+" Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 if has('nvim')
     " https://github.com/glepnir/nvim-lua-guide-zh
@@ -53,23 +50,27 @@ if has('nvim')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-media-files.nvim'
+    Plug 'phaazon/hop.nvim'
+    map  <Leader>w :HopWord<CR>
+    map  <Leader>l :HopLine<CR>
+    map  <Leader>/ :HopPattern<CR>
     Plug 'glepnir/indent-guides.nvim'
-    Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'} " 显示markdown preview
+    " Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'} " 显示markdown preview
 
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
-    Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion' " 数据库
-" else
-"     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
-"     let g:Hexokinase_highlighters = ['foregroundfull']
+    " Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion' " 数据库
+else
+    Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
+    Plug 'justinmk/vim-sneak' "双字母选择的光标移动
+    let g:sneak#label = 1
+    Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
+    let g:Hexokinase_highlighters = ['foregroundfull']
 endif
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
   \ 'do': 'make install'
   \}
-" Plug 'prettier/vim-prettier', {
-"   \ 'do': 'yarn install',
-"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript-jsx', 'typescript-tsx'] } "高亮jsx结构
 Plug 'chemzqm/vim-jsx-improve', { 'for': ['javascript-jsx', 'typescript-tsx'] } "jsx语法缩进
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
@@ -79,6 +80,7 @@ Plug 'terryma/vim-multiple-cursors'
 " 主题
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'artanikin/vim-synthwave84'
+" 操作与编辑
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'matze/vim-move' " 代码块移动
 Plug 'alvan/vim-closetag' "自动闭合标签
@@ -98,7 +100,7 @@ Plug 'tpope/vim-commentary' "快捷代码注释
 " 生成注释文档
 Plug 'asins/vimcdoc' "中文文档计划
 set helplang=cn
-Plug 'pechorin/any-jump.vim' "跳转到函数定义
+" Plug 'pechorin/any-jump.vim' "跳转到函数定义
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
 Plug 'mzlogin/vim-markdown-toc'
