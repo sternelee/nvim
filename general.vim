@@ -9,7 +9,7 @@ let g:loaded_perl_provider = 0
 " 更新配置 :so $MYVIMRC
 set encoding=utf-8 "设置默认编码
 set langmenu=zh_CN
-language message zh_CN.UTF-8 "提示信息乱码解决
+" language message zh_CN.UTF-8 "提示信息乱码解决
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 filetype on         " 开启文件类型侦测

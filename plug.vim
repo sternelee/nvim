@@ -56,10 +56,8 @@ if has('nvim')
     map  <Leader>/ :HopPattern<CR>
     Plug 'glepnir/indent-guides.nvim'
     " Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'} " 显示markdown preview
-
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
-    " Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion' " 数据库
 else
     Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
     Plug 'justinmk/vim-sneak' "双字母选择的光标移动
@@ -133,7 +131,7 @@ nnoremap <leader><leader>u :PlugUpdate<cr>
 nnoremap <leader><leader>c :PlugClean<cr>
 
 " 加载插件配置
-for f in split(glob('$VIMPATH/vimrc/plugins/*.vim'), '\n')
+for f in split(glob('$VIMPATH/nvim/plugins/*.vim'), '\n')
     exe 'source' f
 endfor
 
