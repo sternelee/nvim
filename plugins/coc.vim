@@ -40,7 +40,8 @@ let g:coc_global_extensions = [
   \ 'coc-tabnine',
   \ 'coc-emoji',
   \ 'coc-prettier',
-  \ 'coc-eslint'
+  \ 'coc-eslint',
+  \ 'coc-pairs'
   \ ]
 
 set updatetime=300
