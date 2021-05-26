@@ -23,9 +23,8 @@ require('packer').startup(function()
 
   use 'kdav5758/TrueZen.nvim'
   use 'junegunn/limelight.vim'
-  use 'yamatsum/nvim-cursorline'
+  -- use 'yamatsum/nvim-cursorline'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
-
   use 'shaunsingh/moonlight.nvim' -- theme
   -- 语法高亮
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -76,7 +75,6 @@ require('packer').startup(function()
     end
   }
   -- use 'oberblastmeister/neuron.nvim' -- 笔记工具
-  -- use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
   -- use 'vijaymarupudi/nvim-fzf'
   -- 补全和提示工具
   use 'hrsh7th/nvim-compe'
@@ -89,6 +87,7 @@ require('packer').startup(function()
   use 'kabouzeid/nvim-lspinstall'
   use 'ray-x/lsp_signature.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  use 'jose-elias-alvarez/null-ls.nvim'
   -- snippet相关
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
@@ -147,13 +146,10 @@ local fn = vim.fn
 --gui
 g.neovide_fullscreen = true
 g.neovide_cursor_vfx_mode = "pixiedust"
-vim.api.nvim_exec([[set guifont=VictorMono\ NF:h14]], false)
+vim.api.nvim_exec([[set guifont=VictorMono\ NF:h16]], false)
 
 --theme
-g.material_style = "moonlight"
-g.material_borders = false
-g.material_contrast = false
-require('material').set()
+require('moonlight').set()
 
 --settings
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
@@ -232,7 +228,7 @@ map('n', '<leader>fs', '<cmd>Telescope treesitter<CR>')
 map('n', '<leader>fc', '<cmd>Telescope commands<CR>')
 map('n', '<leader>fp', '<cmd>Telescope project<CR>')
 map('n', '<leader>fm', '<cmd>Telescope marks<CR>')
-map('n', '<leader>fe', '<cmd>e ~/AppData/Local/nvim/init.lua<CR>')
+-- map('n', '<leader>fe', '<cmd>e ~/AppData/Local/nvim/init.lua<CR>')
 map('n', '<leader>z', '<cmd>TZAtaraxis<CR>')                           --ataraxis
 map('n', '<leader>x', '<cmd>TZAtaraxis l45 r45 t2 b2<CR>')
 map('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>')                      --nvimtree
@@ -247,7 +243,7 @@ map('n', '<leader>bj', '<cmd>bprevious<CR>')
 map('n', '<leader>bn', '<cmd>bnext<CR>')
 map('n', '<leader>be', '<cmd>tabedit<CR>')
 map('n', '<leader>ga', '<cmd>Gina add .<CR>')
-map('n', '<leader>gt', '<cmd>Gina commit<CR>')
+map('n', '<leader>gm', '<cmd>Gina commit<CR>')
 map('n', '<leader>gs', '<cmd>Gina status<CR>')
 map('n', '<leader>gl', '<cmd>Gina pull<CR>')
 map('n', '<leader>gu', '<cmd>Gina push<CR>')
@@ -345,71 +341,7 @@ require'compe'.setup {
 -- require('spellsitter').setup()
 
 -- setup for TrueZen.nvim
-local true_zen = require("true-zen")
-true_zen.setup({
-    true_false_commands = false,
-	cursor_by_mode = false,
-	bottom = {
-		hidden_laststatus = 0,
-		hidden_ruler = false,
-		hidden_showmode = false,
-		hidden_showcmd = false,
-		hidden_cmdheight = 1,
-
-		shown_laststatus = 2,
-		shown_ruler = false,
-		shown_showmode = false,
-		shown_showcmd = false,
-		shown_cmdheight = 1
-	},
-	top = {
-		hidden_showtabline = 0,
-
-		shown_showtabline = 2
-	},
-	left = {
-		hidden_number = false,
-		hidden_relativenumber = false,
-		hidden_signcolumn = "no",
-
-		shown_number = true,
-		shown_relativenumber = false,
-		shown_signcolumn = "yes"
-	},
-	ataraxis = {
-		just_do_it_for_me = true,
-		left_padding = 40,
-		right_padding = 40,
-		top_padding = 0,
-		bottom_padding = 0,
-		custome_bg = "#2f334d",
-		disable_bg_configuration = false,
-		disable_fillchars_configuration = false,
-		force_when_plus_one_window = true,
-		force_hide_statusline = true
-	},
-	focus = {
-		margin_of_error = 5,
-		focus_method = "experimental"
-	},
-	events = {
-		before_minimalist_mode_shown = false,
-		before_minimalist_mode_hidden = false,
-        after_minimalist_mode_shown = false,
-		after_minimalist_mode_hidden = false
-	},
-	integrations = {
-		integration_galaxyline = false,
-		integration_vim_airline = false,
-		integration_vim_powerline = false,
-		integration_tmux = false,
-		integration_express_line = false,
-		integration_gitgutter = false,
-		integration_vim_signify = false,
-		integration_limelight = false,
-		integration_tzfocus_tzataraxis = true
-	}
-})
+require("truezen")
 
 --nvim treesitter
 require'nvim-treesitter.configs'.setup {
@@ -488,421 +420,10 @@ vim.fn.sign_define(
 require'diffview'.setup{}
 -- require("dapui").setup()
 
--- Snippets support
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+require("lsp")
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
- vim.lsp.diagnostic.on_publish_diagnostics, {
-   virtual_text = {
-     prefix = " ", -- change this to whatever you want your diagnostic icons to be
-   },
- }
-)
-
--- Signature help
-require('lsp_signature').on_attach()
-
-require('lspkind').init({
-    with_text = true,
-    symbol_map = {
-        Text = '',
-        Method = 'ƒ',
-        Function = '',
-        Constructor = '',
-        Variable = '',
-        Class = '',
-        Interface = 'ﰮ',
-        Module = '',
-        Property = '',
-        Unit = '',
-        Value = '',
-        Enum = '',
-        Keyword = '',
-        Snippet = '﬌',
-        Color = '',
-        File = '',
-        Folder = '',
-        EnumMember = '',
-        Constant = '',
-        Struct = ''
-    },
-})
-
---lspconfig + lsp trouble + lspsaga
--- require'lspconfig'.pyls.setup{}
--- require'lspconfig'.kotlin_language_server.setup{ cmd = { "/Users/shauryasingh/lsp/server/bin/kotlin-language-server" }}
-
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<spacn>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'ge', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-
-  buf_set_keymap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', opts)
-  buf_set_keymap('n', 'ca', '<cmd>Lspsaga code_action<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>Lspsaga signature_help<CR>', opts)
-  buf_set_keymap('n', 'rn', '<cmd>Lspsaga rename<CR>', opts)
-  -- buf_set_keymap('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', opts)
-  buf_set_keymap('n', '<space>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
-  buf_set_keymap('n', '[e', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
-  buf_set_keymap('n', ']e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
-
-  -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", "<space>fo", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  end
-  if client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("v", "<space>fo", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-  end
-
-end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  }
-}
-
---lsp isntaller
-local function setup_servers()
-  require'lspinstall'.setup()
-  -- local servers = require'lspinstall'.installed_servers()
-  local servers = { "cssls", "html", "rust_analyzer", "tsserver",  "graphql" }
-  for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{
-      on_attach = on_attach,
-      capabilities = capabilities,
-    }
-  end
-end
-
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
-
-require("trouble").setup {}
-
-require'lspsaga'.init_lsp_saga{
-    error_sign = "",
-    warn_sign = "",
-    hint_sign = "",
-    infor_sign = ""
-}
-require('symbols-outline').setup()
-
---use tab to navigate autocomplete
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
-end
-
--- Use (s-)tab to:
---- move to prev/next item in completion menuone
---- jump to prev/next snippet's placeholder
-_G.tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-n>"
-  elseif vim.fn.call("vsnip#available", {1}) == 1 then
-    return t "<Plug>(vsnip-expand-or-jump)"
-  elseif check_back_space() then
-    return t "<Tab>"
-  else
-    return vim.fn['compe#complete']()
-  end
-end
-_G.s_tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-p>"
-  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-    return t "<Plug>(vsnip-jump-prev)"
-  else
-    return t "<S-Tab>"
-  end
-end
-
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-
-require('nvim-autopairs').setup({
-  disable_filetype = { "TelescopePrompt" },
-})
-local remap = vim.api.nvim_set_keymap
-local npairs = require('nvim-autopairs')
-
-_G.MUtils= {}
-
-vim.g.completion_confirm_key = ""
-MUtils.completion_confirm=function()
-  if vim.fn.pumvisible() ~= 0  then
-    if vim.fn.complete_info()["selected"] ~= -1 then
-      return vim.fn["compe#confirm"](npairs.esc("<c-r>"))
-    else
-      return npairs.esc("<cr>")
-    end
-  else
-    return npairs.autopairs_cr()
-  end
-end
-
-remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
-vim.lsp.set_log_level("debug")
 --evilline
-local lualine = require'lualine'
-
--- Color table for highlights
-local colors = {
-  bg       = '#1d2133',
-  fg       = '#e4f3fa',
-  yellow   = '#ffc777',
-  cyan     = '#04d1f9',
-  darkblue = '#a1abe0',
-  green    = '#2df4c0',
-  orange   = '#f67f81',
-  violet   = '#ecb2f0',
-  magenta  = '#b4a4f4',
-  blue     = '#04d1f9';
-  red      = '#ff757f';
-}
-
-local conditions = {
-  buffer_not_empty = function()
-    return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
-  end,
-  hide_in_width = function()
-    return vim.fn.winwidth(0) > 80
-  end,
-  check_git_workspace = function()
-    local filepath = vim.fn.expand('%:p:h')
-    local gitdir = vim.fn.finddir('.git', filepath .. ';')
-    return gitdir and #gitdir > 0 and #gitdir < #filepath
-  end
-}
-
--- Config
-local config = {
-  options = {
-    -- Disable sections and component separators
-    component_separators = "",
-    section_separators = "",
-    theme = {
-      -- We are going to use lualine_c and lualine_x as left and
-      -- right section. Both are highlighted by c theme .  So we
-      -- are just setting default looks o statusline
-      normal = { c = {fg = colors.fg, bg = colors.bg}},
-      inactive = { c = {fg = colors.fg, bg = colors.bg}}
-    },
-  },
-  sections = {
-    -- these are to remove the defaults
-    lualine_a = {},
-    lualine_b = {},
-    lualine_y = {},
-    lualine_z = {},
-    -- These will be filled later
-    lualine_c = {},
-    lualine_x = {},
-  },
-  inactive_sections = {
-    -- these are to remove the defaults
-    lualine_a = {},
-    lualine_v = {},
-    lualine_y = {},
-    lualine_z = {},
-    lualine_c = {},
-    lualine_x = {},
-  }
-}
-
--- Inserts a component in lualine_c at left section
-local function ins_left(component)
-  table.insert(config.sections.lualine_c, component)
-end
-
--- Inserts a component in lualine_x ot right section
-local function ins_right(component)
-  table.insert(config.sections.lualine_x, component)
-end
-
-ins_left {
- function() return '▊' end,
- color = {fg = colors.blue}, -- Sets highlighting of component
- left_padding = 0 -- We don't need space before this
-}
-
-ins_left {
-  -- mode component
-  function()
-    -- auto change color according to neovims mode
-    local mode_color = {
-      n      = colors.red,
-      i      = colors.green,
-      v      = colors.blue,
-      [''] = colors.blue,
-      V      = colors.blue,
-      c      = colors.magenta,
-      no     = colors.red,
-      s      = colors.orange,
-      S      = colors.orange,
-      [''] = colors.orange,
-      ic     = colors.yellow,
-      R      = colors.violet,
-      Rv     = colors.violet,
-      cv     = colors.red,
-      ce     = colors.red,
-      r      = colors.cyan,
-      rm     = colors.cyan,
-      ['r?'] = colors.cyan,
-      ['!']  = colors.red,
-      t      = colors.red
-    }
-    vim.api.nvim_command('hi! LualineMode guifg='..mode_color[vim.fn.mode()] .. " guibg="..colors.bg)
-    return ' '
-  end,
-  color = "LualineMode",
-  left_padding = 0,
-}
-
-ins_left {
-  -- filesize component
-  function()
-    local function format_file_size(file)
-      local size = vim.fn.getfsize(file)
-      if size <= 0 then return '' end
-      local sufixes = {'b', 'k', 'm', 'g'}
-      local i = 1
-      while size > 1024 do
-        size = size / 1024
-        i = i + 1
-      end
-      return string.format('%.1f%s', size, sufixes[i])
-    end
-    local file = vim.fn.expand('%:p')
-    if string.len(file) == 0 then return '' end
-    return format_file_size(file)
-  end,
-  condition = conditions.buffer_not_empty,
-}
-
-ins_left {
-  'filename',
-  condition = conditions.buffer_not_empty,
-  color = {fg = colors.blue, gui = 'bold'},
-}
-
-ins_left {
-  'location',
-  color = {fg = colors.darkblue, gui = 'bold'}
-}
-
-ins_left {
-  'progress',
-  color = {fg = colors.darkblue, gui = 'bold'},
-}
-
-ins_left {
-  'diagnostics',
-  sources = {'nvim_lsp'},
-  symbols = {error = ' ', warn = ' ', info= ' '},
-  color_error = colors.red,
-  color_warn = colors.yellow,
-  color_info = colors.cyan,
-}
-
-
-
--- Add components to right sections
-ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  condition = conditions.hide_in_width,
-  color = {fg = colors.darkblue, gui = 'bold'}
-}
-
-ins_right {
-  'fileformat',
-  icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
-  color = {fg = colors.darkblue, gui='bold'},
-}
-
-ins_right {
-  'branch',
-  icon = '',
-  condition = conditions.check_git_workspace,
-  color = {fg = colors.green, gui = 'bold'},
-}
-
-ins_right {
-  'diff',
-  -- Is it me or the symbol for modified us really weird
-  symbols = {added= ' ', modified= ' ', removed= ' '},
-  color_added = colors.green,
-  color_modified = colors.orange,
-  color_removed = colors.red,
-  condition = conditions.hide_in_width
-}
-
-ins_right {
-  -- Lsp server name .
-  function ()
-    local msg = 'none'
-    local buf_ft = vim.api.nvim_buf_get_option(0,'filetype')
-    local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then return msg end
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
-      end
-    end
-    return msg
-  end,
-  color = {fg = colors.cyan, gui = 'bold'}
-}
-
-ins_right {
-  function() return '▊' end,
-  color = {fg = colors.blue},
-  right_padding = 0,
-}
-lualine.setup(config)
+require("evilline")
 
 --colorizer
 require'colorizer'.setup()
@@ -1025,46 +546,4 @@ require("toggleterm").setup{}
     leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
 } ]]
 
-vim.g.dashboard_session_directory = '~/.config/nvim/.sessions'
-vim.g.dashboard_default_executive = 'telescope'
-vim.cmd("let g:dashboard_default_executive = 'telescope'")
-
-vim.cmd("let g:dashboard_session_directory = $HOME..'/.config/nvim/.sessions'")
-vim.cmd("let packages = len(globpath('~/.local/share/nvim/site/pack/packer/start', '*', 0, 1))")
-
-vim.api.nvim_exec([[
-    let g:dashboard_custom_footer = ['LuaJIT loaded '..packages..' packages']
-]], false)
-
-vim.g.dashboard_custom_section = {
-    a = {description = {'  Reload Last Session            SPC q l'}, command = 'SessionLoad'},
-    b = {description = {'  Recently Opened Files          SPC f r'}, command = 'Telescope oldfiles'},
-    c = {description = {'  Open Project                   SPC f p'}, command = 'Telescope Project'},
-    d = {description = {'  Jump to Bookmark               SPC f m'}, command = 'Telescope marks'},
-    e = {description = {'  Find File                      SPC p  '}, command = 'Telescope find_files'},
-    f = {description = {'  Find Word                      SPC g  '}, command = 'Telescope live_grep'},
-    g = {description = {'  Open Neovim Configuration      SPC f e'}, command = ':e ~/AppData/Local/nvim/init.lua'},
-}
-
-vim.g.dashboard_custom_header = {
-                 "=================     ===============     ===============   ========  ========",
-                 "\\\\ . . . . . . .\\\\   //. . . . . . .\\\\   //. . . . . . .\\\\  \\\\. . .\\\\// . . //",
-                 "||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\\/ . . .||",
-                 "|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||",
-                 "||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||",
-                 "|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\\ . . . . ||",
-                 "||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\\_ . .|. .||",
-                 "|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\\ `-_/| . ||",
-                 "||_-' ||  .|/    || ||    \\|.  || `-_|| ||_-' ||  .|/    || ||   | \\  / |-_.||",
-                 "||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \\  / |  `||",
-                 "||    `'         || ||         `'    || ||    `'         || ||   | \\  / |   ||",
-                 "||            .===' `===.         .==='.`===.         .===' /==. |  \\/  |   ||",
-                 "||         .=='   \\_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \\/  |   ||",
-                 "||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \\/  |   ||",
-                 "||   .=='    _-'          `-__\\._-'         `-_./__-'         `' |. /|  |   ||",
-                 "||.=='    _-'                                                     `' |  /==.||",
-                 "=='    _-'                        N E O V I M                         \\/   `==",
-                 "\\   _-'                                                                `-_   /",
-                 " `''                                                                      ``'  ",
-                 "                                                                               ",
-}
+require("dashboard")
