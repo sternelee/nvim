@@ -7,15 +7,16 @@ end
 
 --setup packer
 require('packer').startup(function()
-  use "wbthomason/packer.nvim"
+  use 'wbthomason/packer.nvim'
+  use 'nvim-lua/plenary.nvim'
   -- 状态栏
   use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use 'romgrk/barbar.nvim'
   use 'kyazdani42/nvim-tree.lua'
   use 'glepnir/dashboard-nvim'
   -- git相关
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim'}
+  use 'TimUntersberger/neogit'
+  use 'lewis6991/gitsigns.nvim'
   use 'lambdalisue/gina.vim'
   -- use 'kdheepak/lazygit.nvim'
   -- use 'ThePrimeagen/git-worktree.nvim'
@@ -107,7 +108,6 @@ require('packer').startup(function()
   use 'ntpeters/vim-better-whitespace'
   use 'matze/vim-move'
   use 'tpope/vim-repeat'
-  use 'asins/vimcdoc' -- 中文帮助文档
   use 'plasticboy/vim-markdown'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
   -- use 'npxbr/glow.nvim' -- Glow md文档预览
