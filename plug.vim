@@ -31,7 +31,6 @@ Plug 'konfekt/fastfold' "性能更好的语法折叠
 Plug 'tpope/vim-surround' "匹配符号快捷操作
 Plug 'terryma/vim-expand-region' "扩大缩小选择区域
 Plug 'airblade/vim-rooter'
-Plug 'thaerkh/vim-indentguides'
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
 " Plug 'leafoftree/vim-vue-plugin'

@@ -37,7 +37,6 @@ let g:coc_global_extensions = [
   \ 'coc-project',
   \ 'coc-vetur',
   \ 'coc-toml',
-  \ 'coc-tabnine',
   \ 'coc-emoji',
   \ 'coc-prettier',
   \ 'coc-eslint',
