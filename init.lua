@@ -218,20 +218,19 @@ map('n', 'q', '<cmd>q<CR>')
 map('n', '<leader>w', '<cmd>HopWord<CR>')                              --easymotion/hop
 map('n', '<leader>l', '<cmd>HopLine<CR>')
 map('n', '<leader>/', '<cmd>HopPattern<CR>')
-map('n', '<leader>ft', '<cmd>Telescope<CR>')                   --fuzzy
+map('n', '<leader>p', '<cmd>Telescope<CR>')                   --fuzzy
 map('n', '<leader>fr', '<cmd>Telescope oldfiles<CR>')                   --fuzzy
-map('n', '<leader>p', '<cmd>Telescope find_files<CR>')
+map('n', '<leader>f', '<cmd>Telescope find_files<CR>')
 map('n', '<leader>fb', '<cmd>Telescope buffers<CR>')
-map('n', '<leader>f', '<cmd>Telescope current_buffer_fuzzy_find<CR>')
 map('n', '<leader>g', '<cmd>Telescope live_grep<CR>')
 map('n', '<leader>fs', '<cmd>Telescope treesitter<CR>')
 map('n', '<leader>fc', '<cmd>Telescope commands<CR>')
 map('n', '<leader>fp', '<cmd>Telescope project<CR>')
 map('n', '<leader>fm', '<cmd>Telescope marks<CR>')
--- map('n', '<leader>fe', '<cmd>e ~/AppData/Local/nvim/init.lua<CR>')
+map('n', '<leader>fe', '<cmd>e ~/AppData/Local/nvim/init.lua<CR>')
 map('n', '<leader>z', '<cmd>TZAtaraxis<CR>')                           --ataraxis
 map('n', '<leader>x', '<cmd>TZAtaraxis l45 r45 t2 b2<CR>')
-map('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>')                      --nvimtree
+map('n', '<leader>e', '<cmd>NvimTreeToggle<CR>')                      --nvimtree
 map('n', '<c-k>', '<cmd>wincmd k<CR>')                                 --ctrlhjkl to navigate splits
 map('n', '<c-j>', '<cmd>wincmd j<CR>')
 map('n', '<c-h>', '<cmd>wincmd h<CR>')
@@ -257,7 +256,7 @@ end
 
 -- general
 g.loaded_python_provider = 0
-g.loaded_python3_provider = 0
+-- g.loaded_python3_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 
@@ -281,7 +280,7 @@ g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.js,*.jsx,*.vue'
 g.closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx,*.js'
 g.closetag_emptyTags_caseSensitive = 1
 
-g.better_whitespace_enabled = 0
+g.better_whitespace_enabled = 1
 
 -- fastfold
 g.fastfold_savehook = 1
