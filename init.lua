@@ -26,6 +26,7 @@ require('packer').startup(function()
   -- use 'yamatsum/nvim-cursorline'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
   use 'shaunsingh/moonlight.nvim' -- theme
+  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
   -- 语法高亮
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use  'nvim-treesitter/nvim-treesitter-textobjects'
@@ -88,6 +89,7 @@ require('packer').startup(function()
   use 'ray-x/lsp_signature.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'jose-elias-alvarez/null-ls.nvim'
+  -- use 'nvim-lua/lsp_extensions.nvim'
   -- snippet相关
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
@@ -133,6 +135,7 @@ require('packer').startup(function()
       'NTBBloodbath/rest.nvim',
       requires = { 'nvim-lua/plenary.nvim' }
   } -- 测试rest请求
+  use 'ThePrimeagen/vim-be-good'
   -- use 'dstein64/vim-startuptime' -- nvim --startuptime time.log
   -- use 'ethanjwright/toolwindow.nvim'
 
@@ -280,7 +283,7 @@ g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.js,*.jsx,*.vue'
 g.closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx,*.js'
 g.closetag_emptyTags_caseSensitive = 1
 
-g.better_whitespace_enabled = 1
+g.better_whitespace_enabled = 0
 
 -- fastfold
 g.fastfold_savehook = 1
