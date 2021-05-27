@@ -142,6 +142,12 @@ require('packer').startup(function()
       requires = { 'nvim-lua/plenary.nvim' }
   } -- 测试rest请求
   use 'ThePrimeagen/vim-be-good'
+  use {
+    'ahmedkhalf/lsp-rooter.nvim',
+    config = function()
+      require('lsp-rooter').setup {}
+    end
+  }
   -- use 'dstein64/vim-startuptime' -- nvim --startuptime time.log
   -- use 'ethanjwright/toolwindow.nvim'
 
@@ -186,6 +192,9 @@ opt('o', 'termguicolors', true)                       -- True color support
 opt('o', 'clipboard', 'unnamed')
 opt('o', 'pumblend', 25 )
 opt('o', 'scrolloff', 2 )
+opt('o', 'tabstop', 2)
+opt('o', 'shiftwidth', 2)
+opt('o', 'softtabstop', 2)
 opt('o', 'swapfile', false )
 opt('o', 'showmode', false )
 opt('o', 'background', 'dark' )
@@ -201,7 +210,7 @@ opt('o', 'hlsearch', true)
 opt('o', 'inccommand', 'split')
 opt('o', 'smarttab', true)
 opt('o', 'incsearch', true)
-opt('o', 'helplang', 'cn')
+opt('o', 'foldmethod', 'manual')
 
 --opt('o', 'breakindent', true)
 --opt('o', 'lbr', true)
