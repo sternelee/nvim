@@ -80,7 +80,7 @@ require('packer').startup(function()
   -- use 'vijaymarupudi/nvim-fzf'
   -- 补全和提示工具
   use 'hrsh7th/nvim-compe'
-  use { 'tzachar/compe-tabnine', requires = 'hrsh7th/nvim-compe'}
+  use { 'tzachar/compe-tabnine', run = './install.sh' requires = 'hrsh7th/nvim-compe'}
   use 'onsails/lspkind-nvim'
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-trouble.nvim'
