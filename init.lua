@@ -69,18 +69,18 @@ require('packer').startup(function()
       require"telescope".load_extension("bookmarks")
     end
   } ]]
-  use {
+  --[[ use {
     'nvim-telescope/telescope-cheat.nvim',
     requires = 'tami5/sql.nvim',
     config = function()
       require"telescope".load_extension("cheat")
     end
-  }
+  } ]]
   -- use 'oberblastmeister/neuron.nvim' -- 笔记工具
   -- use 'vijaymarupudi/nvim-fzf'
   -- 补全和提示工具
   use 'hrsh7th/nvim-compe'
-  use { 'tzachar/compe-tabnine', run = './install.sh' requires = 'hrsh7th/nvim-compe'}
+  use { 'tzachar/compe-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-compe'}
   use 'onsails/lspkind-nvim'
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-trouble.nvim'
