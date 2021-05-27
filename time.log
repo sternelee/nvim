@@ -1,0 +1,159 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.078  000.078: --- NVIM STARTING ---
+076.365  076.287: locale set
+077.552  001.187: inits 1
+078.224  000.672: window checked
+078.234  000.010: parsing arguments
+078.348  000.114: expanding arguments
+078.391  000.043: inits 2
+081.485  003.094: init highlight
+081.494  000.009: waiting for UI
+087.714  006.220: done waiting for UI
+087.764  000.050: initialized screen early for UI
+283.064  000.891  000.891: sourcing C:\Neovim\share\nvim\runtime\syntax\syncolor.vim
+343.858  000.559  000.559: sourcing C:\Neovim\share\nvim\runtime\syntax\syncolor.vim
+353.219  051.465  050.906: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\moonlight.nvim\colors\moonlight.vim
+2286.692  2146.572: sourcing vimrc file(s)
+2313.578  000.207  000.207: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter\ftdetect\gdscript.vim
+2314.315  000.179  000.179: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter\ftdetect\gomod.vim
+2315.010  000.274  000.274: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter\ftdetect\query.vim
+2315.655  000.182  000.182: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\rest.nvim\ftdetect\http.vim
+2316.370  000.258  000.258: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-markdown\ftdetect\markdown.vim
+2317.532  030.056  028.956: sourcing C:\Neovim\share\nvim\runtime\filetype.vim
+2326.242  000.203  000.203: sourcing C:\Neovim\share\nvim\runtime\ftplugin.vim
+2334.362  000.218  000.218: sourcing C:\Neovim\share\nvim\runtime\indent.vim
+2407.258  000.662  000.662: sourcing C:\Neovim\share\nvim\runtime\syntax\syncolor.vim
+2417.251  000.372  000.372: sourcing C:\Neovim\share\nvim\runtime\syntax\syncolor.vim
+2425.311  000.430  000.430: sourcing C:\Neovim\share\nvim\runtime\syntax\syncolor.vim
+2434.539  078.292  076.829: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\moonlight.nvim\colors\moonlight.vim
+2435.294  089.040  010.748: sourcing C:\Neovim\share\nvim\runtime\syntax\synload.vim
+2435.506  090.491  001.451: sourcing C:\Neovim\share\nvim\runtime\syntax\syntax.vim
+2527.789  000.701  000.701: sourcing C:\Neovim\share\nvim\runtime\plugin\gzip.vim
+2528.427  000.218  000.218: sourcing C:\Neovim\share\nvim\runtime\plugin\health.vim
+2529.197  000.256  000.256: sourcing C:\Neovim\share\nvim\runtime\plugin\man.vim
+2550.690  000.667  000.667: sourcing C:\Neovim\share\nvim\runtime\pack\dist\opt\matchit\plugin\matchit.vim
+2551.068  021.426  020.759: sourcing C:\Neovim\share\nvim\runtime\plugin\matchit.vim
+2552.068  000.493  000.493: sourcing C:\Neovim\share\nvim\runtime\plugin\matchparen.vim
+2553.507  000.978  000.978: sourcing C:\Neovim\share\nvim\runtime\plugin\netrwPlugin.vim
+2555.862  000.350  000.350: sourcing C:\Users\stern\AppData\Local\nvim-data/rplugin.vim
+2555.907  001.958  001.608: sourcing C:\Neovim\share\nvim\runtime\plugin\rplugin.vim
+2556.906  000.340  000.340: sourcing C:\Neovim\share\nvim\runtime\plugin\shada.vim
+2557.552  000.181  000.181: sourcing C:\Neovim\share\nvim\runtime\plugin\spellfile.vim
+2558.391  000.414  000.414: sourcing C:\Neovim\share\nvim\runtime\plugin\tarPlugin.vim
+2559.140  000.320  000.320: sourcing C:\Neovim\share\nvim\runtime\plugin\tohtml.vim
+2559.774  000.178  000.178: sourcing C:\Neovim\share\nvim\runtime\plugin\tutor.vim
+2560.659  000.460  000.460: sourcing C:\Neovim\share\nvim\runtime\plugin\zipPlugin.vim
+2560.919  125.334: loading plugins
+2592.829  000.207  000.207: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\barbar.nvim\autoload\bufferline.vim
+2599.577  000.323  000.323: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\barbar.nvim\autoload\bufferline\highlight.vim
+2650.404  066.214  065.683: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\barbar.nvim\plugin\bufferline.vim
+2653.107  000.741  000.741: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\dashboard-nvim\plugin\dashboard.vim
+2655.517  000.354  000.354: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\diffview.nvim\plugin\diffview.vim
+2658.085  000.858  000.858: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\fastfold\plugin\fastfold.vim
+2659.947  000.247  000.247: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\format.nvim\plugin\format.vim
+2662.545  000.260  000.260: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\gina.vim\plugin\gina.vim
+2719.955  055.804  055.804: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\git-blame.nvim\plugin\gitblame.vim
+2722.684  000.240  000.240: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\hop.nvim\plugin\hop.vim
+2731.212  000.401  000.401: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\indent-blankline.nvim\autoload\indent_blankline\helper.vim
+2760.155  035.735  035.335: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\indent-blankline.nvim\plugin\indent_blankline.vim
+2788.308  025.231  025.231: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\kommentary\plugin\kommentary.vim
+2790.547  000.418  000.418: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\limelight.vim\plugin\limelight.vim
+2794.017  000.855  000.855: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\lsp-trouble.nvim\plugin\trouble.vim
+2798.756  000.792  000.792: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\lspsaga.nvim\plugin\lspsaga.vim
+2802.114  000.441  000.441: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\lush.nvim\plugin\lush.vim
+2832.012  027.390  027.390: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\neogit\plugin\neogit.vim
+2834.671  000.189  000.189: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-autopairs\plugin\nvim-autopairs.vim
+2837.028  000.280  000.280: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-colorizer.lua\plugin\colorizer.vim
+2840.188  000.593  000.593: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\plugin\compe.vim
+2846.142  004.193  004.193: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-hlslens\plugin\hlslens.vim
+2848.725  000.328  000.328: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-lspconfig\plugin\lspconfig.vim
+2850.771  000.241  000.241: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-lspinstall\plugin\lspinstall.vim
+2852.801  000.241  000.241: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-toggleterm.lua\plugin\toggleterm.vim
+2855.890  000.600  000.600: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-tree.lua\plugin\tree.vim
+2859.868  001.232  001.232: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter\plugin\nvim-treesitter.vim
+2861.813  000.152  000.152: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter\ftdetect\gdscript.vim
+2862.434  000.203  000.203: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter\ftdetect\gomod.vim
+2863.074  000.158  000.158: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter\ftdetect\query.vim
+2868.331  003.565  003.565: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter-refactor\plugin\nvim-treesitter-refactor.vim
+2895.466  025.241  025.241: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter-textobjects\plugin\nvim-treesitter-textobjects.vim
+2900.916  003.451  003.451: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-ts-rainbow\plugin\rainbow.vim
+2903.574  000.370  000.370: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-web-devicons\plugin\nvim-web-devicons.vim
+2909.459  003.407  003.407: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\playground\plugin\nvim-treesitter-playground.vim
+2911.673  000.345  000.345: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\plenary.nvim\plugin\plenary.vim
+2914.361  000.281  000.281: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\rest.nvim\plugin\rest-nvim.vim
+2915.691  000.247  000.247: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\rest.nvim\ftdetect\http.vim
+2918.681  000.663  000.663: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\symbols-outline.nvim\plugin\symbols-outline.vim
+2923.740  000.543  000.543: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\telescope.nvim\plugin\telescope.vim
+2925.848  000.336  000.336: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\TrueZen.nvim\plugin\true-zen-cmds.vim
+2928.602  000.927  000.927: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-better-whitespace\plugin\better-whitespace.vim
+2931.136  000.659  000.659: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-closetag\plugin\closetag.vim
+2935.309  002.487  002.487: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-eunuch\plugin\eunuch.vim
+2940.098  000.469  000.469: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-expand-region\autoload\expand_region.vim
+2940.296  002.883  002.414: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-expand-region\plugin\expand_region.vim
+2942.079  000.203  000.203: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-markdown\ftdetect\markdown.vim
+2944.642  000.785  000.785: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-move\plugin\move.vim
+2946.682  000.361  000.361: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-peekaboo\plugin\peekaboo.vim
+2949.890  000.836  000.836: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-surround\plugin\surround.vim
+2953.740  000.937  000.937: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-translator\plugin\translator.vim
+2958.722  000.572  000.572: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-visual-multi\autoload\vm\plugs.vim
+2961.069  000.515  000.515: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-visual-multi\autoload\vm\maps.vim
+2962.646  000.439  000.439: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-visual-multi\autoload\vm\maps\all.vim
+2963.638  007.563  006.037: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-visual-multi\plugin\visual-multi.vim
+2967.522  001.998  001.998: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\plugin\vsnip.vim
+2969.731  000.362  000.362: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip-integ\plugin\vsnip_integ.vim
+2971.824  000.320  000.320: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\which-key.nvim\plugin\which-key.vim
+2972.956  129.275: loading packages
+2975.667  000.223  000.223: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip-integ\autoload\vsnip_integ\integration.vim
+2976.911  000.268  000.268: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip-integ\autoload\vsnip_integ\detection.vim
+3006.218  031.828  031.336: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip-integ\after\plugin\vsnip_integ.vim
+3039.173  020.778  020.778: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_buffer.vim
+3057.659  017.976  017.976: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_calc.vim
+3077.852  019.724  019.724: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_emoji.vim
+3121.513  043.095  043.095: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_luasnip.vim
+3144.663  022.686  022.686: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_nvim_lsp.vim
+3164.235  019.094  019.094: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_nvim_lua.vim
+3184.169  019.337  019.337: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_omni.vim
+3204.652  019.905  019.905: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_path.vim
+3254.482  048.896  048.896: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_snippets_nvim.vim
+3275.450  020.477  020.477: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_spell.vim
+3294.449  018.415  018.415: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_tags.vim
+3317.038  022.129  022.129: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_treesitter.vim
+3317.776  000.247  000.247: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_ultisnips.vim
+3318.461  000.234  000.234: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_vim_lsc.vim
+3319.632  000.379  000.379: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_vim_lsp.vim
+3339.169  018.723  018.723: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\nvim-compe\after\plugin\compe_vsnip.vim
+3339.892  023.012: loading after plugins
+3339.938  000.046: inits 3
+3343.559  003.621: reading ShaDa
+3356.254  000.363  000.363: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\indent-blankline.nvim\autoload\indent_blankline.vim
+3357.067  013.145: opening buffers
+3491.788  000.433  000.433: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-peekaboo\autoload\peekaboo.vim
+3491.930  134.431: BufEnter autocommands
+3491.936  000.006: editing files in windows
+3498.966  000.423  000.423: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\dashboard-nvim\autoload\dashboard.vim
+3505.174  000.241  000.241: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\dashboard-nvim\autoload\dashboard\utils.vim
+3512.809  000.396  000.396: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\dashboard-nvim\autoload\dashboard\section.vim
+3719.025  200.202  200.202: sourcing C:\Neovim\share\nvim\runtime\autoload\provider\clipboard.vim
+3777.620  000.378  000.378: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\dashboard-nvim\syntax\dashboard.vim
+3786.511  000.126  000.126: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\dashboard-nvim\syntax\dashboard.vim
+3856.110  162.408: VimEnter autocommands
+3856.120  000.010: UIEnter autocommands
+3856.127  000.006: before starting main loop
+3862.479  000.808  000.808: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\autoload\vital\vsnip.vim
+3864.082  000.381  000.381: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\autoload\vital\_vsnip\VS\LSP\Position.vim
+3865.596  000.295  000.295: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\autoload\vital\_vsnip.vim
+3866.052  005.621  004.136: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\autoload\vsnip\snippet.vim
+3867.706  000.415  000.415: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\autoload\vital\_vsnip\VS\LSP\TextEdit.vim
+3869.311  000.347  000.347: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\autoload\vital\_vsnip\VS\LSP\Text.vim
+3871.190  000.393  000.393: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\autoload\vital\_vsnip\VS\Vim\Buffer.vim
+3872.776  000.309  000.309: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\autoload\vital\_vsnip\VS\Vim\Option.vim
+3874.634  000.463  000.463: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\autoload\vital\_vsnip\VS\LSP\Diff.vim
+3874.904  015.796  008.248: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\autoload\vsnip\session.vim
+3875.204  017.341  001.545: sourcing C:\Users\stern\AppData\Local\nvim-data\site\pack\packer\start\vim-vsnip\autoload\vsnip.vim
+3881.263  007.795: first screen update
+3881.269  000.007: --- NVIM STARTED ---

@@ -26,7 +26,8 @@ require('packer').startup(function()
   -- use 'yamatsum/nvim-cursorline'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
   use 'shaunsingh/moonlight.nvim' -- theme
-  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
+  use 'rktjmp/lush.nvim' -- 动态更新UI样式
+  use 'npxbr/gruvbox.nvim'
   -- 语法高亮
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use  'nvim-treesitter/nvim-treesitter-textobjects'
@@ -115,7 +116,6 @@ require('packer').startup(function()
   use { 'junegunn/goyo.vim', ft = { 'markdown' } }
   use { 'uguu-org/vim-matrix-screensaver', cmd = 'Matrix' }
   use 'windwp/nvim-autopairs' -- 自动符号匹配
-  use 'rktjmp/lush.nvim' -- 动态更新UI样式
   use {
     "folke/which-key.nvim",
     config = function()
