@@ -100,6 +100,8 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 --lsp isntaller
+-- npm install --global vls vscode-css-languageserver-bin vscode-html-languageserver-bin typescript typescript-language-server vscode-json-languageserver graphql-language-service-cli dockerfile-language-server-nodejs stylelint-lsp vim-language-server yaml-language-server
+-- rls, rust_analyzer
 local function setup_servers()
   -- require'lspinstall'.setup()
   -- local servers = require'lspinstall'.installed_servers()
