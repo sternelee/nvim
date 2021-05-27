@@ -80,7 +80,7 @@ require('packer').startup(function()
   -- use 'vijaymarupudi/nvim-fzf'
   -- 补全和提示工具
   use 'hrsh7th/nvim-compe'
-  -- use { 'tzachar/compe-tabnine', requires = 'hrsh7th/nvim-compe'}
+  use { 'tzachar/compe-tabnine', requires = 'hrsh7th/nvim-compe'}
   use 'onsails/lspkind-nvim'
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-trouble.nvim'
@@ -112,7 +112,7 @@ require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'plasticboy/vim-markdown'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-  -- use 'npxbr/glow.nvim' -- Glow md文档预览
+  use 'npxbr/glow.nvim' -- Glow md文档预览
   use { 'junegunn/goyo.vim', ft = { 'markdown' } }
   use { 'uguu-org/vim-matrix-screensaver', cmd = 'Matrix' }
   use 'windwp/nvim-autopairs' -- 自动符号匹配
@@ -130,6 +130,12 @@ require('packer').startup(function()
   use 'p00f/nvim-ts-rainbow' -- 彩虹匹配
   use 'f-person/git-blame.nvim' -- 显示git message
   use 'lukas-reineke/format.nvim' -- 格式化
+  use {
+      'folke/todo-comments.nvim',
+      config = function ()
+          require('todo-comments').setup{}
+      end
+  }
   use 'konfekt/fastfold' -- 性能更好的语法折叠
   use {
       'NTBBloodbath/rest.nvim',
@@ -335,7 +341,7 @@ require'compe'.setup {
     nvim_lsp = true;
     nvim_lua = true;
     vsnip = true;
-    -- tabnine = true;
+    tabnine = true;
   };
 }
 
