@@ -15,19 +15,19 @@ require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
   use 'glepnir/dashboard-nvim'
   -- git相关
-  -- use 'TimUntersberger/neogit'
+  use 'TimUntersberger/neogit'
   use 'lewis6991/gitsigns.nvim'
   use 'lambdalisue/gina.vim'
-  -- use 'kdheepak/lazygit.nvim'
+  use 'kdheepak/lazygit.nvim'
   -- use 'ThePrimeagen/git-worktree.nvim'
 
-  -- use 'kdav5758/TrueZen.nvim'
+  use 'kdav5758/TrueZen.nvim'
   use 'junegunn/limelight.vim'
   -- use 'yamatsum/nvim-cursorline'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
   use 'shaunsingh/moonlight.nvim' -- theme
   use 'rktjmp/lush.nvim' -- 动态更新UI样式
-  -- use 'npxbr/gruvbox.nvim'
+  use 'npxbr/gruvbox.nvim'
   -- 语法高亮
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use  'nvim-treesitter/nvim-treesitter-textobjects'
@@ -148,7 +148,7 @@ require('packer').startup(function()
       require('lsp-rooter').setup {}
     end
   }
-  -- use 'dstein64/vim-startuptime' -- nvim --startuptime time.log
+  use 'dstein64/vim-startuptime' -- nvim --startuptime time.log
   -- use 'ethanjwright/toolwindow.nvim'
 
 end)
@@ -358,7 +358,7 @@ require'compe'.setup {
 -- require('spellsitter').setup()
 
 -- setup for TrueZen.nvim
--- require("truezen")
+require("truezen")
 
 --nvim treesitter
 require'nvim-treesitter.configs'.setup {
@@ -373,8 +373,8 @@ require'nvim-treesitter.configs'.setup {
 }
 
 --neogit
---[[ local neogit = require('neogit')
-neogit.setup {} ]]
+local neogit = require('neogit')
+neogit.setup {}
 
 --gitsigns
 require('gitsigns').setup {
