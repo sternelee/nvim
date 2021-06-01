@@ -15,19 +15,19 @@ require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
   use 'glepnir/dashboard-nvim'
   -- git相关
-  use 'TimUntersberger/neogit'
+  -- use 'TimUntersberger/neogit'
   use 'lewis6991/gitsigns.nvim'
   use 'lambdalisue/gina.vim'
   -- use 'kdheepak/lazygit.nvim'
   -- use 'ThePrimeagen/git-worktree.nvim'
 
-  use 'kdav5758/TrueZen.nvim'
+  -- use 'kdav5758/TrueZen.nvim'
   use 'junegunn/limelight.vim'
   -- use 'yamatsum/nvim-cursorline'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
   use 'shaunsingh/moonlight.nvim' -- theme
   use 'rktjmp/lush.nvim' -- 动态更新UI样式
-  use 'npxbr/gruvbox.nvim'
+  -- use 'npxbr/gruvbox.nvim'
   -- 语法高亮
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use  'nvim-treesitter/nvim-treesitter-textobjects'
@@ -51,12 +51,12 @@ require('packer').startup(function()
       require"telescope".load_extension("gh")
     end
   } ]]
-  use {
+  --[[ use {
     'nvim-telescope/telescope-media-files.nvim',
     config = function()
       require"telescope".extensions.media_files.media_files()
     end
-  }
+  } ]]
   --[[ use {
     'nvim-telescope/telescope-dap.nvim',
     config = function()
@@ -86,7 +86,7 @@ require('packer').startup(function()
   use 'folke/lsp-trouble.nvim'
   use 'glepnir/lspsaga.nvim'
   use 'simrat39/symbols-outline.nvim'
-  use 'kabouzeid/nvim-lspinstall'
+  -- use 'kabouzeid/nvim-lspinstall'
   use 'ray-x/lsp_signature.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'jose-elias-alvarez/null-ls.nvim'
@@ -112,7 +112,7 @@ require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'plasticboy/vim-markdown'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-  use 'npxbr/glow.nvim' -- Glow md文档预览
+  -- use 'npxbr/glow.nvim' -- Glow md文档预览
   use { 'junegunn/goyo.vim', ft = { 'markdown' } }
   use { 'uguu-org/vim-matrix-screensaver', cmd = 'Matrix' }
   use 'windwp/nvim-autopairs' -- 自动符号匹配
@@ -358,7 +358,7 @@ require'compe'.setup {
 -- require('spellsitter').setup()
 
 -- setup for TrueZen.nvim
-require("truezen")
+-- require("truezen")
 
 --nvim treesitter
 require'nvim-treesitter.configs'.setup {
@@ -373,8 +373,8 @@ require'nvim-treesitter.configs'.setup {
 }
 
 --neogit
-local neogit = require('neogit')
-neogit.setup {}
+--[[ local neogit = require('neogit')
+neogit.setup {} ]]
 
 --gitsigns
 require('gitsigns').setup {
