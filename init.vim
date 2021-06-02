@@ -23,10 +23,10 @@ function! s:source_rc(path, ...) abort
   endtry
 endfunction
 
-augroup MyAutoCmd
-	autocmd!
-	autocmd CursorHold *? syntax sync minlines=256
-augroup END
+" augroup MyAutoCmd
+" 	autocmd!
+" 	autocmd CursorHold *? syntax sync minlines=256
+" augroup END
 
 syntax enable
 

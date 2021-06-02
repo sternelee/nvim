@@ -82,6 +82,7 @@ Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'matze/vim-move' " 代码块移动
 Plug 'alvan/vim-closetag' "自动闭合标签
 Plug 'luochen1990/rainbow' "彩虹符号匹配
+Plug 'yggdroot/indentline' " 对齐线
 Plug 'voldikss/vim-translator'  " npm install fanyi -g 安装翻译
 Plug 'junegunn/vim-peekaboo' "查看历史的复制和删除的寄存器, @或\" 触发
 Plug 'tpope/vim-eunuch' " 加强的目录和文件编辑
