@@ -51,18 +51,18 @@ require('packer').startup(function()
       require"telescope".load_extension("gh")
     end
   } ]]
-  --[[ use {
+  use {
     'nvim-telescope/telescope-media-files.nvim',
     config = function()
       require"telescope".extensions.media_files.media_files()
     end
-  } ]]
-  --[[ use {
+  }
+  use {
     'nvim-telescope/telescope-dap.nvim',
     config = function()
       require"telescope".load_extension("dap")
     end
-  } ]]
+  }
   --[[ use {
     'nvim-telescope/telescope-bookmarks.nvim',
     config = function()
@@ -80,7 +80,7 @@ require('packer').startup(function()
   -- use 'vijaymarupudi/nvim-fzf'
   -- 补全和提示工具
   use 'hrsh7th/nvim-compe'
-  use { 'tzachar/compe-tabnine', requires = 'hrsh7th/nvim-compe'}
+  -- use { 'tzachar/compe-tabnine', requires = 'hrsh7th/nvim-compe'}
   use 'onsails/lspkind-nvim'
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-trouble.nvim'
@@ -96,8 +96,8 @@ require('packer').startup(function()
   use 'hrsh7th/vim-vsnip-integ'
   use 'rafamadriz/friendly-snippets'
 
-  --[[ use 'mfussenegger/nvim-dap' -- 程序调试
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} } ]]
+  use 'mfussenegger/nvim-dap' -- 程序调试
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use 'akinsho/nvim-toggleterm.lua' -- 交互终端
   use 'kevinhwang91/nvim-hlslens'
   use 'tpope/vim-eunuch'
@@ -350,7 +350,7 @@ require'compe'.setup {
     nvim_lsp = true;
     nvim_lua = true;
     vsnip = true;
-    tabnine = true;
+    -- tabnine = true;
   };
 }
 
@@ -435,7 +435,7 @@ vim.fn.sign_define(
 )
 
 require'diffview'.setup{}
--- require("dapui").setup()
+require("dapui").setup()
 
 require("lsp")
 
