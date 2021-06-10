@@ -36,6 +36,7 @@ require('packer').startup(function()
   use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
   -- use 'lewis6991/spellsitter.nvim'
   -- 导航finder操作
+  -- use { 'liuchengxu/vim-clap' }
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
@@ -80,7 +81,7 @@ require('packer').startup(function()
   -- use 'vijaymarupudi/nvim-fzf'
   -- 补全和提示工具
   use 'hrsh7th/nvim-compe'
-  use { 'tzachar/compe-tabnine', requires = 'hrsh7th/nvim-compe'}
+  -- use { 'tzachar/compe-tabnine', requires = 'hrsh7th/nvim-compe'}
   use 'onsails/lspkind-nvim'
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-trouble.nvim'
@@ -150,4 +151,16 @@ require('packer').startup(function()
   }
   use 'dstein64/vim-startuptime' -- nvim --startuptime time.log
   -- use 'ethanjwright/toolwindow.nvim'
+  --[[ use { 'vhyrro/neorg', requires = { 'nvim-lua/plenary.nvim' }, config = function()
+
+  	require('neorg').setup {
+  		load = {
+  			["core.defaults"] = {}, -- Load all the default modules
+  			["core.norg.concealer"] = {} -- Enhances the text editing experience by using icons
+  		},
+
+  		-- Tells neorg where to load community provided modules. If unspecified, this is the default
+  		community_module_path = vim.fn.stdpath("cache") .. "/neorg_community_modules"
+  	}
+  end} ]]
 end)

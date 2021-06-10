@@ -67,7 +67,9 @@ require'compe'.setup {
     nvim_lsp = true;
     nvim_lua = true;
     vsnip = true;
-    tabnine = true;
+    omni = true;
+    nvim_treesitter = true;
+    -- tabnine = true;
   };
 }
 
@@ -224,8 +226,8 @@ require('telescope').setup{
       '--smart-case'
     },
     prompt_position = "top",
-    prompt_prefix = " ",
-    selection_caret = " ",
+    -- prompt_prefix = " ",
+    -- selection_caret = " ",
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
