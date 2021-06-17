@@ -2,7 +2,7 @@
 
 " 去掉依赖
 let g:loaded_python_provider = 0
-" let g:loaded_python3_provider = 0
+let g:loaded_python3_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 
@@ -147,7 +147,7 @@ endif
 " set guifont=Operator_Mono_Lig_Light:h18
 let s:fontsize = 14
 " let s:fontname='Operator Mono Lig Light'
-" let g:Powerline_symbols='unicode'
+let g:Powerline_symbols='unicode'
 " 改变字体大小
 function! AdjustFontSize(amount)
   let s:fontsize = s:fontsize+a:amount
@@ -173,6 +173,9 @@ inoremap <C-ScrollWheelDown> <Esc>:call AdjustFontSize(-1)<CR>a
 "   \ if a >= 200 |
 "   \    syntax off |
 "   \ endif
+
+" set viminfo='100,n$HOME/.vim/files/info/viminfo
+" set sessionoptions=blank,curdir,folds,help,tabpages,winpos
 
 let g:neovide_fullscreen=v:true
 let g:neovide_cursor_vfx_mode = "sonicboom"

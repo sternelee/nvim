@@ -12,7 +12,7 @@ let g:vista_default_executive = 'coc'
 Plug 'skywind3000/asynctasks.vim' "任务
 Plug 'skywind3000/asyncrun.vim'
 " Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
-" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 " git插件
