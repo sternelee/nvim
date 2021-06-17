@@ -36,7 +36,7 @@ require('packer').startup(function()
   use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
   -- use 'lewis6991/spellsitter.nvim'
   -- 导航finder操作
-  -- use { 'liuchengxu/vim-clap' }
+  use { 'liuchengxu/vim-clap', run = ':Clap install-binary' }
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
@@ -46,12 +46,6 @@ require('packer').startup(function()
       require"telescope".load_extension("project")
     end
   }
-  --[[ use {
-    'nvim-telescope/telescope-github.nvim',
-    config = function()
-      require"telescope".load_extension("gh")
-    end
-  } ]]
   use {
     'nvim-telescope/telescope-media-files.nvim',
     config = function()
@@ -64,12 +58,12 @@ require('packer').startup(function()
   --     require"telescope".load_extension("dap")
   --   end
   -- }
-  use {
-    'nvim-telescope/telescope-bookmarks.nvim',
-    config = function()
-      require"telescope".load_extension("bookmarks")
-    end
-  }
+  -- use {
+  --   'nvim-telescope/telescope-bookmarks.nvim',
+  --   config = function()
+  --     require"telescope".load_extension("bookmarks")
+  --   end
+  -- }
   -- use {
   --   'nvim-telescope/telescope-cheat.nvim',
   --   requires = 'tami5/sql.nvim',
@@ -82,7 +76,7 @@ require('packer').startup(function()
   use {'vijaymarupudi/nvim-fzf-commands', requires = 'vijaymarupudi/nvim-fzf'} ]]
   -- 补全和提示工具
   use 'hrsh7th/nvim-compe'
-  use {'tzachar/compe-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-compe'}
+  -- use {'tzachar/compe-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-compe'}
   use 'onsails/lspkind-nvim'
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-trouble.nvim'
@@ -277,6 +271,10 @@ map('n', '<leader>gm', '<cmd>Gina commit<CR>')
 map('n', '<leader>gs', '<cmd>Gina status<CR>')
 map('n', '<leader>gl', '<cmd>Gina pull<CR>')
 map('n', '<leader>gu', '<cmd>Gina push<CR>')
+map('n', '<silent>ff', '<cmd>Clap files<CR>')
+map('n', '<silent>fg', '<cmd>Clap grep2<CR>')
+map('n', '<silent>fb', '<cmd>Clap buffers<CR>')
+map('n', '<silent>fG', '<cmd>Clap grep<CR>')
 cmd([[autocmd BufWritePre * %s/\s\+$//e]])                             --remove trailing whitespaces
 cmd([[autocmd BufWritePre * %s/\n\+\%$//e]])
 
@@ -365,14 +363,14 @@ require'compe'.setup {
     vsnip = true;
     omni = true;
     nvim_treesitter = true;
-    tabnine = {
-      max_line = 1000;
-      max_num_results = 6;
-      priority = 5000;
-      sort = false;
-      show_prediction_strength = true;
-      ignore_pattern = '';
-    }
+    -- tabnine = {
+    --   max_line = 1000;
+    --   max_num_results = 6;
+    --   priority = 5000;
+    --   sort = false;
+    --   show_prediction_strength = true;
+    --   ignore_pattern = '';
+    -- }
   };
 }
 
@@ -517,36 +515,25 @@ g.nvim_tree_icons = {
 }
 
 --telescope
+local actions = require('telescope.actions')
+local trouble = require("trouble.providers.telescope")
 require('telescope').setup{
   defaults = {
-    vimgrep_arguments = {
-      'rg',
-      -- '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case'
-    },
-    -- prompt_position = "top",
-    -- prompt_prefix = " ",
-    -- selection_caret = " ",
-    -- entry_prefix = "  ",
+    find_command = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
+    prompt_position = "bottom",
+    -- prompt_prefix = " ",
+    prompt_prefix = " ",
+    selection_caret = " ",
+    entry_prefix = "  ",
     initial_mode = "insert",
-    -- selection_strategy = "reset",
-    sorting_strategy = "ascending",
-    layout_strategy = "vertical",
-    layout_defaults = {
-      horizontal = {
-        mirror = true,
-      },
-      vertical = {
-        mirror = true,
-      },
-    },
-    -- file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+    -- initial_mode = "insert",
+    selection_strategy = "reset",
+    sorting_strategy = "descending",
+    layout_strategy = "horizontal",
+    layout_defaults = {horizontal = {mirror = false}, vertical = {mirror = false}},
+    file_sorter = require'telescope.sorters'.get_fzy_sorter,
     file_ignore_patterns = {},
-    -- generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+    generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
     shorten_path = true,
     winblend = 0,
     width = 0.75,
@@ -554,24 +541,54 @@ require('telescope').setup{
     results_height = 1,
     results_width = 0.8,
     border = {},
-    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
     color_devicons = true,
     use_less = true,
-    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+    set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
 
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
-    extensions = {
-      bookmarks = {
-        -- Available: 'brave', 'google_chrome', 'safari', 'firefox', 'firefox_dev'
-        selected_browser = 'google_chrome',
-        url_open_command = 'open',
-        url_open_plugin = nil,
-        firefox_profile_name = nil,
-      },
+    mappings = {
+        i = {
+            ["<C-c>"] = actions.close,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<c-t>"] = trouble.open_with_trouble,
+            ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+            -- To disable a keymap, put [map] = false
+            -- So, to not map "<C-n>", just put
+            -- ["<c-x>"] = false,
+            -- ["<esc>"] = actions.close,
+
+            -- Otherwise, just set the mapping to the function that you want it to be.
+            -- ["<C-i>"] = actions.select_horizontal,
+
+            -- Add up multiple actions
+            ["<CR>"] = actions.select_default + actions.center
+
+            -- You can perform as many actions in a row as you like
+            -- ["<CR>"] = actions.select_default + actions.center + my_cool_custom_action,
+        },
+        n = {
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<c-t>"] = trouble.open_with_trouble,
+            ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist
+            -- ["<C-i>"] = my_cool_custom_action,
+        }
+    }
+  },
+  extensions = {
+    fzy_native = {
+      override_generic_sorter = false,
+      override_file_sorter = true
+    },
+    project = {
+      base_dir = '~/projects',
+      max_depth = 3
     }
   }
 }
