@@ -36,7 +36,7 @@ require('packer').startup(function()
   use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
   -- use 'lewis6991/spellsitter.nvim'
   -- 导航finder操作
-  use { 'liuchengxu/vim-clap', run = ':Clap install-binary' }
+  -- use { 'liuchengxu/vim-clap', run = ':Clap install-binary' }
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
@@ -271,10 +271,6 @@ map('n', '<leader>gm', '<cmd>Gina commit<CR>')
 map('n', '<leader>gs', '<cmd>Gina status<CR>')
 map('n', '<leader>gl', '<cmd>Gina pull<CR>')
 map('n', '<leader>gu', '<cmd>Gina push<CR>')
-map('n', '<silent>ff', '<cmd>Clap files<CR>')
-map('n', '<silent>fg', '<cmd>Clap grep2<CR>')
-map('n', '<silent>fb', '<cmd>Clap buffers<CR>')
-map('n', '<silent>fG', '<cmd>Clap grep<CR>')
 cmd([[autocmd BufWritePre * %s/\s\+$//e]])                             --remove trailing whitespaces
 cmd([[autocmd BufWritePre * %s/\n\+\%$//e]])
 
