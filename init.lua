@@ -1,7 +1,17 @@
---Install packer
+--make life easier
+local cmd = vim.cmd
+local g = vim.g
+local fn = vim.fn
 local execute = vim.api.nvim_command
-local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+local nvim_exec = vim.api.nvim_exec
+local remap = vim.api.nvim_set_keymap
+--gui
+g.neovide_fullscreen = true
+g.neovide_cursor_vfx_mode = "pixiedust"
+nvim_exec([[set guifont=VictorMono\ NF:h16]], false)
+--Install packer
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
   execute('!git clone https://github.com/wbthomason/packer.nvim '.. install_path)
 end
 
@@ -13,28 +23,18 @@ require('packer').startup(function()
   use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use 'romgrk/barbar.nvim'
   use 'kyazdani42/nvim-tree.lua'
-  use 'glepnir/dashboard-nvim'
   -- git相关
-  -- use 'TimUntersberger/neogit'
   use 'lewis6991/gitsigns.nvim'
   use 'lambdalisue/gina.vim'
-  -- use 'kdheepak/lazygit.nvim'
-  -- use 'ThePrimeagen/git-worktree.nvim'
-
-  -- use 'kdav5758/TrueZen.nvim'
   use 'junegunn/limelight.vim'
-  -- use 'yamatsum/nvim-cursorline'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
   use 'shaunsingh/moonlight.nvim' -- theme
-  use 'rktjmp/lush.nvim' -- 动态更新UI样式
-  -- use 'npxbr/gruvbox.nvim'
   -- 语法高亮
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use  'nvim-treesitter/nvim-treesitter-textobjects'
   use 'nvim-treesitter/nvim-treesitter-refactor'
   use 'nvim-treesitter/playground'
   use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
-  -- use 'lewis6991/spellsitter.nvim'
   -- 导航finder操作
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
@@ -45,74 +45,30 @@ require('packer').startup(function()
       require"telescope".load_extension("project")
     end
   }
-  --[[ use {
-    'nvim-telescope/telescope-github.nvim',
-    config = function()
-      require"telescope".load_extension("gh")
-    end
-  } ]]
-  --[[ use {
-    'nvim-telescope/telescope-media-files.nvim',
-    config = function()
-      require"telescope".extensions.media_files.media_files()
-    end
-  } ]]
-  --[[ use {
-    'nvim-telescope/telescope-dap.nvim',
-    config = function()
-      require"telescope".load_extension("dap")
-    end
-  } ]]
-  --[[ use {
-    'nvim-telescope/telescope-bookmarks.nvim',
-    config = function()
-      require"telescope".load_extension("bookmarks")
-    end
-  } ]]
-  --[[ use {
-    'nvim-telescope/telescope-cheat.nvim',
-    requires = 'tami5/sql.nvim',
-    config = function()
-      require"telescope".load_extension("cheat")
-    end
-  } ]]
-  -- use 'oberblastmeister/neuron.nvim' -- 笔记工具
-  -- use 'vijaymarupudi/nvim-fzf'
-  -- 补全和提示工具
-  use 'hrsh7th/nvim-compe'
-  use { 'tzachar/compe-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-compe'}
-  use 'onsails/lspkind-nvim'
+  -- 语法建议
   use 'neovim/nvim-lspconfig'
+  use 'nvim-lua/completion-nvim'
+  use 'steelsojka/completion-buffers'
+  use 'nvim-treesitter/completion-treesitter'
+  use 'kristijanhusak/completion-tags'
+  -- 语法提示
   use 'folke/lsp-trouble.nvim'
-  use 'glepnir/lspsaga.nvim'
   use 'simrat39/symbols-outline.nvim'
-  -- use 'kabouzeid/nvim-lspinstall'
   use 'ray-x/lsp_signature.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'jose-elias-alvarez/null-ls.nvim'
-  -- use 'nvim-lua/lsp_extensions.nvim'
   -- snippet相关
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
   use 'rafamadriz/friendly-snippets'
-
-  --[[ use 'mfussenegger/nvim-dap' -- 程序调试
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} } ]]
   use 'akinsho/nvim-toggleterm.lua' -- 交互终端
   use 'kevinhwang91/nvim-hlslens'
   use 'tpope/vim-eunuch'
-  use 'junegunn/vim-peekaboo' -- 查看历史的复制和删除的寄存器, @触发
-  use 'tpope/vim-surround'
-  use 'terryma/vim-expand-region' -- 扩大缩小选择区域
+  use 'gennaro-tedesco/nvim-peekup' -- 查看历史的复制和删除的寄存器
   use 'voldikss/vim-translator' -- npm install fanyi -g 安装翻译
   use 'b3nj5m1n/kommentary' -- 注释
-  use 'alvan/vim-closetag'
-  use 'ntpeters/vim-better-whitespace'
-  use 'matze/vim-move'
-  use 'tpope/vim-repeat'
-  use 'plasticboy/vim-markdown'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-  -- use 'npxbr/glow.nvim' -- Glow md文档预览
+  use 'npxbr/glow.nvim' -- Glow md文档预览
   use { 'junegunn/goyo.vim', ft = { 'markdown' } }
   use { 'uguu-org/vim-matrix-screensaver', cmd = 'Matrix' }
   use 'windwp/nvim-autopairs' -- 自动符号匹配
@@ -122,14 +78,9 @@ require('packer').startup(function()
       require("which-key").setup {}
     end
   } -- 提示leader按键
-  --[[ use {'pwntester/octo.nvim', config=function()
-    require"octo".setup()
-  end} -- 查看github issues ]]
-
   use 'sindrets/diffview.nvim' -- diff对比
   use 'p00f/nvim-ts-rainbow' -- 彩虹匹配
   use 'f-person/git-blame.nvim' -- 显示git message
-  use 'lukas-reineke/format.nvim' -- 格式化
   use {
       'folke/todo-comments.nvim',
       config = function ()
@@ -148,27 +99,10 @@ require('packer').startup(function()
       require('lsp-rooter').setup {}
     end
   }
-  -- use 'dstein64/vim-startuptime' -- nvim --startuptime time.log
-  -- use 'ethanjwright/toolwindow.nvim'
-
 end)
-
---make life easier
-local cmd = vim.cmd
-local g = vim.g
-local fn = vim.fn
-
---gui
-g.neovide_fullscreen = true
-g.neovide_cursor_vfx_mode = "pixiedust"
-vim.api.nvim_exec([[set guifont=VictorMono\ NF:h16]], false)
-
---theme
-require('moonlight').set()
 
 --settings
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
-
 local function opt(scope, key, value)
   scopes[scope][key] = value
   if scope ~= 'o' then scopes['o'][key] = value end
@@ -180,7 +114,7 @@ opt('b', 'expandtab', true)                           -- Use spaces instead of t
 opt('b', 'shiftwidth', indent)                        -- Size of an indent
 opt('b', 'smartindent', true)                         -- Insert indents automatically
 opt('b', 'tabstop', indent)                           -- Number of spaces tabs count for
-opt('o', 'completeopt', 'menuone,noselect')           -- Completion options (for compe)
+opt('o', 'completeopt', 'menuone,noinsert,noselect')           -- Completion options (for compe)
 opt('o', 'hidden', true)                              -- Enable modified buffers in background
 opt('o', 'scrolloff', 3 )                             -- Lines of context
 opt('o', 'shiftround', true)                          -- Round indent
@@ -274,31 +208,31 @@ end
 
 -- general
 g.loaded_python_provider = 0
--- g.loaded_python3_provider = 0
+g.loaded_python3_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 
 --visual multi
-vim.api.nvim_exec([[
+nvim_exec([[
 let g:VM_maps = {}
 let g:VM_default_mappings = 0
 let g:VM_maps["Add Cursor Down"] = '<A-j>'
 let g:VM_maps["Add Cursor Up"] = '<A-k>'
 ]], false)
 
---indentline
-g.indent_blankline_char = "▏"
-g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
-g.indent_blankline_buftype_exclude = {"terminal"}
-g.indent_blankline_show_trailing_blankline_indent = false
-g.indent_blankline_show_first_indent_level = false
-
--- closetag
-g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.js,*.jsx,*.vue'
-g.closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx,*.js'
-g.closetag_emptyTags_caseSensitive = 1
-
-g.better_whitespace_enabled = 0
+-- completion
+g.completion_chain_complete_list = {
+  default = {
+    { complete_items = { 'lsp' } },
+    { complete_items = { 'buffers' } },
+    { complete_items = { 'snippet' } },
+    { complete_items = { 'tags' } },
+    { complete_items = { 'ts' } },
+    { mode = { 'file' } },
+    { mode = { '<c-p>' } },
+    { mode = { '<c-n>' } }
+  }
+}
 
 -- fastfold
 g.fastfold_savehook = 1
@@ -318,63 +252,31 @@ g.rust_fold = 1
 g.php_folding = 1
 
 --barbar
-vim.api.nvim_exec([[
+nvim_exec([[
 let bufferline = get(g:, 'bufferline', {})
 let bufferline.animation = v:false
 let bufferline.auto_hide = v:true
 let bufferline.icons = 'both'
 ]], false)
 
+--theme
+require('moonlight').set()
+
 require('kommentary.config').use_extended_mappings()
-
---nvim-compe
-require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
-
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    spell = false;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-    tabnine = true;
-  };
-}
-
---spellsitter
--- require('spellsitter').setup()
-
--- setup for TrueZen.nvim
--- require("truezen")
 
 --nvim treesitter
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"vue", "html", "javascript", "typescript", "css"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {"vue", "html", "javascript", "typescript", "css", "json", "rust", "lua"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
-    enable = true,              -- false will disable the whole extension
+    enable = true,
   },
   rainbow = {
     enable = true,
-    extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+    extended_mode = true,
   }
 }
 
---neogit
---[[ local neogit = require('neogit')
-neogit.setup {} ]]
+require('lsp')
 
 --gitsigns
 require('gitsigns').setup {
@@ -417,27 +319,24 @@ require('gitsigns').setup {
   use_internal_diff = false,  -- If luajit is present
 }
 
-vim.fn.sign_define(
+fn.sign_define(
     "LspDiagnosticsSignError",
     {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"}
 )
-vim.fn.sign_define(
+fn.sign_define(
     "LspDiagnosticsSignWarning",
     {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"}
 )
-vim.fn.sign_define(
+fn.sign_define(
     "LspDiagnosticsSignHint",
     {texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint"}
 )
-vim.fn.sign_define(
+fn.sign_define(
     "LspDiagnosticsSignInformation",
     {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"}
 )
 
 require'diffview'.setup{}
--- require("dapui").setup()
-
-require("lsp")
 
 --evilline
 require("evilline")
@@ -541,26 +440,8 @@ require('telescope').setup{
 
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
-    extensions = {
-      --[[ bookmarks = {
-        -- Available: 'brave', 'google_chrome', 'safari', 'firefox', 'firefox_dev'
-        selected_browser = 'brave',
-        url_open_command = 'open',
-        url_open_plugin = nil,
-        firefox_profile_name = nil,
-      }, ]]
-    }
+    extensions = {}
   }
 }
 
 require("toggleterm").setup{}
-
---[[ require('neuron').setup {
-    virtual_titles = true,
-    mappings = true,
-    run = nil, -- function to run when in neuron dir
-    neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
-    leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
-} ]]
-
-require("dashboard")
