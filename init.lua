@@ -14,7 +14,7 @@ local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   execute('!git clone https://github.com/wbthomason/packer.nvim '.. install_path)
 end
-
+-- https://github.com/rockerBOO/awesome-neovim
 --setup packer
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
@@ -56,12 +56,12 @@ require('packer').startup(function()
   use 'simrat39/symbols-outline.nvim'
   use 'ray-x/lsp_signature.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
-  use 'jose-elias-alvarez/null-ls.nvim'
+  -- use 'jose-elias-alvarez/null-ls.nvim'
   -- snippet相关
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
   use 'rafamadriz/friendly-snippets'
-  use 'akinsho/nvim-toggleterm.lua' -- 交互终端
+  -- 方便操作
   use 'kevinhwang91/nvim-hlslens'
   use 'tpope/vim-eunuch'
   use 'gennaro-tedesco/nvim-peekup' -- 查看历史的复制和删除的寄存器
@@ -221,6 +221,10 @@ let g:VM_maps["Add Cursor Up"] = '<A-k>'
 ]], false)
 
 -- completion
+nvim_exec([[
+  inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+]], false)
 g.completion_chain_complete_list = {
   default = {
     { complete_items = { 'lsp' } },
@@ -233,6 +237,7 @@ g.completion_chain_complete_list = {
     { mode = { '<c-n>' } }
   }
 }
+g.completion_enable_snippet = {'vim-vsnip'}
 
 -- fastfold
 g.fastfold_savehook = 1
@@ -438,10 +443,7 @@ require('telescope').setup{
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
 
-    -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
     extensions = {}
   }
 }
-
-require("toggleterm").setup{}
