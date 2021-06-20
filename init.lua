@@ -45,6 +45,13 @@ require('packer').startup(function()
       require"telescope".load_extension("project")
     end
   }
+  use {
+    'ahmedkhalf/lsp-rooter.nvim',
+    config = function()
+      require('lsp-rooter').setup {
+      }
+    end
+  }
   -- 语法建议
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
@@ -63,13 +70,12 @@ require('packer').startup(function()
   use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
   use 'kevinhwang91/nvim-hlslens'
   use 'tpope/vim-eunuch'
-  use 'gennaro-tedesco/nvim-peekup' -- 查看历史的复制和删除的寄存器
+  use 'gennaro-tedesco/nvim-peekup' -- 查看历史的复制和删除的寄存器,快捷键 ""
   use 'voldikss/vim-translator' -- npm install fanyi -g 安装翻译
   use 'b3nj5m1n/kommentary' -- 注释
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-  use 'npxbr/glow.nvim' -- Glow md文档预览
-  use { 'junegunn/goyo.vim', ft = { 'markdown' } }
-  use { 'uguu-org/vim-matrix-screensaver', cmd = 'Matrix' }
+  use {'iamcco/markdown-preview.nvim', opt = true, run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+  use 'Pocco81/TrueZen.nvim'
+  use { 'uguu-org/vim-matrix-screensaver', opt = true, cmd = 'Matrix' }
   use 'windwp/nvim-autopairs' -- 自动符号匹配
   use {
     "folke/which-key.nvim",
@@ -86,17 +92,7 @@ require('packer').startup(function()
       end
   }
   use 'konfekt/fastfold' -- 性能更好的语法折叠
-  use {
-      'NTBBloodbath/rest.nvim',
-      requires = { 'nvim-lua/plenary.nvim' }
-  } -- 测试rest请求
   use 'ThePrimeagen/vim-be-good'
-  use {
-    'ahmedkhalf/lsp-rooter.nvim',
-    config = function()
-      require('lsp-rooter').setup {}
-    end
-  }
 end)
 
 --settings
