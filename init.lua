@@ -78,6 +78,12 @@ require('packer').startup(function()
   use { 'uguu-org/vim-matrix-screensaver', opt = true, cmd = 'Matrix' }
   use 'windwp/nvim-autopairs' -- 自动符号匹配
   use {
+    "blackCauldron7/surround.nvim",
+    config = function()
+      require "surround".setup {}
+    end
+  }
+  use {
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup {}
