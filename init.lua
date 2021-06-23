@@ -35,6 +35,7 @@ require('packer').startup(function()
   use 'junegunn/limelight.vim'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
   use 'shaunsingh/moonlight.nvim' -- theme
+  use 'sunjon/shade.nvim'
   -- 导航finder操作
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
@@ -439,6 +440,16 @@ require'diffview'.setup{}
 
 --colorizer
 require'colorizer'.setup()
+
+require'shade'.setup({
+  overlay_opacity = 50,
+  opacity_step = 1,
+  keys = {
+    brightness_up    = '<C-Up>',
+    brightness_down  = '<C-Down>',
+    toggle           = '<Leader>s',
+  }
+})
 
 --nvimtree
 g.nvim_tree_side = "left"

@@ -6,4 +6,3 @@
 `execute 'source' fnamemodify(expand('<sfile>'), ':h').'./vimrc/vimrc'`
 
 根据`general.vim`配置目录
-
