@@ -57,6 +57,7 @@ require('packer').startup(function()
   use 'hrsh7th/nvim-compe'
   -- 语法提示
   use 'folke/lsp-trouble.nvim'
+  use 'onsails/lspkind-nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'ray-x/lsp_signature.nvim'
   use 'ray-x/navigator.lua'
@@ -99,6 +100,7 @@ require('packer').startup(function()
   }
   use 'konfekt/fastfold' -- 性能更好的语法折叠
   use 'ThePrimeagen/vim-be-good'
+  use 'sbdchd/neoformat'
 end)
 
 --settings
@@ -425,6 +427,7 @@ end
 remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
 vim.lsp.set_log_level("debug")
 require("trouble").setup {}
+require("lspkind").init()
 
 require('symbols-outline').setup()
 
@@ -811,3 +814,51 @@ ins_right {
   right_padding = 0,
 }
 lualine.setup(lualine_config)
+
+local true_zen = require("true-zen")
+
+true_zen.setup(
+    {
+        true_false_commands = false,
+        cursor_by_mode = false,
+        before_minimalist_mode_shown = true,
+        before_minimalist_mode_hidden = true,
+        after_minimalist_mode_shown = true,
+        after_minimalist_mode_hidden = true,
+        bottom = {
+            hidden_laststatus = 0,
+            hidden_ruler = false,
+            hidden_showmode = false,
+            hidden_showcmd = false,
+            hidden_cmdheight = 1,
+            shown_laststatus = 2,
+            shown_ruler = true,
+            shown_showmode = false,
+            shown_showcmd = false,
+            shown_cmdheight = 1
+        },
+        top = {
+            hidden_showtabline = 0,
+            shown_showtabline = 2
+        },
+        left = {
+            hidden_number = false,
+            hidden_relativenumber = false,
+            hidden_signcolumn = "no",
+            shown_number = true,
+            shown_relativenumber = false,
+            shown_signcolumn = "yes"
+        },
+        ataraxis = {
+            just_do_it_for_me = false,
+            left_padding = 37,
+            right_padding = 37,
+            top_padding = 2,
+            bottom_padding = 2,
+            custome_bg = "#1e222a"
+        },
+        integrations = {
+            integration_galaxyline = true
+        }
+    }
+)
