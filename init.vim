@@ -33,7 +33,6 @@ syntax enable
 " Loading configuration modules
 call s:source_rc('general.vim')
 call s:source_rc('plug.vim')
-" call s:source_rc('dein.vim')
 call s:source_rc('mappings.vim')
 call s:source_rc('theme.vim')
 "---------------------------------------------------------------------------
