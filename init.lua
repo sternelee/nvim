@@ -23,6 +23,7 @@ require('packer').startup(function()
   use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use 'romgrk/barbar.nvim'
   use 'kyazdani42/nvim-tree.lua'
+  use 'glepnir/dashboard-nvim'
   -- git相关
   use 'lewis6991/gitsigns.nvim'
   use 'lambdalisue/gina.vim'
@@ -35,10 +36,12 @@ require('packer').startup(function()
   use 'junegunn/limelight.vim'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
   use 'shaunsingh/moonlight.nvim' -- theme
-  use 'sunjon/shade.nvim'
+  use 'savq/melange'
+  use 'sunjon/shade.nvim' -- 高亮当前tab窗口
   -- 导航finder操作
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
+  use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
   use {
     'nvim-telescope/telescope-project.nvim',
@@ -69,7 +72,7 @@ require('packer').startup(function()
   use 'hrsh7th/vim-vsnip-integ'
   use 'rafamadriz/friendly-snippets'
   -- 方便操作
-  use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
+  use 'glepnir/indent-guides.nvim'
   use 'kevinhwang91/nvim-hlslens'
   use 'tpope/vim-eunuch'
   use 'gennaro-tedesco/nvim-peekup' -- 查看历史的复制和删除的寄存器,快捷键 ""
@@ -180,6 +183,10 @@ map('n', '<leader>fs', '<cmd>Telescope treesitter<CR>')
 map('n', '<leader>fc', '<cmd>Telescope commands<CR>')
 map('n', '<leader>fp', '<cmd>Telescope project<CR>')
 map('n', '<leader>fm', '<cmd>Telescope marks<CR>')
+map('n', 'ff', '<cmd>Clap files<CR>')
+map('n', 'fb', '<cmd>Clap buffers<CR>')
+map('n', 'fg', '<cmd>Clap grep2<CR>')
+map('n', 'fG', '<cmd>Clap grep<CR>')
 map('n', '<leader>fe', '<cmd>e ~/.config/nvim/init.lua<CR>')
 map('n', '<leader>z', '<cmd>TZAtaraxis<CR>')                           --ataraxis
 map('n', '<leader>x', '<cmd>TZAtaraxis l45 r45 t2 b2<CR>')
@@ -247,6 +254,7 @@ let bufferline.icons = 'both'
 
 --theme
 require('moonlight').set()
+-- cmd 'colorscheme melange'
 
 require('kommentary.config').use_extended_mappings()
 
@@ -451,6 +459,9 @@ require'shade'.setup({
   }
 })
 
+require('indent_guides').setup({
+})
+
 --nvimtree
 g.nvim_tree_side = "left"
 g.nvim_tree_width = 25
@@ -645,7 +656,7 @@ local lualine_config = {
     -- Disable sections and component separators
     component_separators = "",
     section_separators = "",
-    theme = 'moonlight'
+    -- theme = 'moonlight'
     -- theme = {
     --   -- We are going to use lualine_c and lualine_x as left and
     --   -- right section. Both are highlighted by c theme .  So we
@@ -873,3 +884,43 @@ true_zen.setup(
         }
     }
 )
+
+g.dashboard_session_directory = '~/.config/nvim/.sessions'
+g.dashboard_default_executive = 'telescope'
+cmd("let packages = len(globpath('~/AppData/Local/nvim-dat/site/pack/packer/start', '*', 0, 1))")
+
+nvim_exec([[
+    let g:dashboard_custom_footer = ['LuaJIT loaded '..packages..' packages']
+]], false)
+g.dashboard_custom_section = {
+    a = {description = {'  Reload Last Session            SPC q l'}, command = 'SessionLoad'},
+    b = {description = {'  Recently Opened Files          SPC f r'}, command = 'Telescope oldfiles'},
+    c = {description = {'  Open Project                   SPC f p'}, command = 'Telescope Project'},
+    d = {description = {'  Jump to Bookmark               SPC f m'}, command = 'Telescope marks'},
+    e = {description = {'  Find File                      SPC f  '}, command = 'Telescope find_files'},
+    f = {description = {'  Find Word                      SPC g  '}, command = 'Telescope live_grep'},
+    g = {description = {'  Open Neovim Configuration      SPC f e'}, command = ':e ~/AppData/Local/nvim/init.lua'},
+}
+
+g.dashboard_custom_header = {
+                 "=================     ===============     ===============   ========  ========",
+                 "\\\\ . . . . . . .\\\\   //. . . . . . .\\\\   //. . . . . . .\\\\  \\\\. . .\\\\// . . //",
+                 "||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\\/ . . .||",
+                 "|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||",
+                 "||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||",
+                 "|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\\ . . . . ||",
+                 "||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\\_ . .|. .||",
+                 "|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\\ `-_/| . ||",
+                 "||_-' ||  .|/    || ||    \\|.  || `-_|| ||_-' ||  .|/    || ||   | \\  / |-_.||",
+                 "||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \\  / |  `||",
+                 "||    `'         || ||         `'    || ||    `'         || ||   | \\  / |   ||",
+                 "||            .===' `===.         .==='.`===.         .===' /==. |  \\/  |   ||",
+                 "||         .=='   \\_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \\/  |   ||",
+                 "||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \\/  |   ||",
+                 "||   .=='    _-'          `-__\\._-'         `-_./__-'         `' |. /|  |   ||",
+                 "||.=='    _-'                                                     `' |  /==.||",
+                 "=='    _-'                        N E O V I M                         \\/   `==",
+                 "\\   _-'                                                                `-_   /",
+                 " `''                                                                      ``'  ",
+                 "                                                                               ",
+}
