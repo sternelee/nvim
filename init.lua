@@ -21,7 +21,6 @@ require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'
   -- 状态栏
   use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
-  use 'ryanoasis/vim-devicons'
   use 'romgrk/barbar.nvim'
   use 'kyazdani42/nvim-tree.lua'
   use 'glepnir/dashboard-nvim'
@@ -42,7 +41,6 @@ require('packer').startup(function()
   -- 导航finder操作
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
-  use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
   use {
     'nvim-telescope/telescope-project.nvim',
@@ -59,11 +57,7 @@ require('packer').startup(function()
   }
   -- 语法建议
   use 'neovim/nvim-lspconfig'
-  -- use 'hrsh7th/nvim-compe'
-  use 'nvim-lua/completion-nvim'
-  use 'steelsojka/completion-buffers'
-  use 'nvim-treesitter/completion-treesitter'
-  use 'kristijanhusak/completion-tags'
+  use 'hrsh7th/nvim-compe'
   -- 语法提示
   use 'folke/lsp-trouble.nvim'
   use 'onsails/lspkind-nvim'
@@ -125,7 +119,7 @@ opt('b', 'expandtab', true)                           -- Use spaces instead of t
 opt('b', 'shiftwidth', indent)                        -- Size of an indent
 opt('b', 'smartindent', true)                         -- Insert indents automatically
 opt('b', 'tabstop', indent)                           -- Number of spaces tabs count for
-opt('o', 'completeopt', 'menuone,noselect,noinsert')           -- Completion options (for compe)
+opt('o', 'completeopt', 'menuone,noinsert')           -- Completion options (for compe)
 opt('o', 'hidden', true)                              -- Enable modified buffers in background
 opt('o', 'scrolloff', 3 )                             -- Lines of context
 opt('o', 'shiftround', true)                          -- Round indent
@@ -188,10 +182,6 @@ map('n', '<leader>fs', '<cmd>Telescope treesitter<CR>')
 map('n', '<leader>fc', '<cmd>Telescope commands<CR>')
 map('n', '<leader>fp', '<cmd>Telescope project<CR>')
 map('n', '<leader>fm', '<cmd>Telescope marks<CR>')
-map('n', 'ff', '<cmd>Clap files<CR>')
-map('n', 'fb', '<cmd>Clap buffers<CR>')
-map('n', 'fg', '<cmd>Clap grep2<CR>')
-map('n', 'fG', '<cmd>Clap grep<CR>')
 map('n', '<leader>fe', '<cmd>e ~/.config/nvim/init.lua<CR>')
 map('n', '<leader>z', '<cmd>TZAtaraxis<CR>')                           --ataraxis
 map('n', '<leader>x', '<cmd>TZAtaraxis l45 r45 t2 b2<CR>')
@@ -340,7 +330,7 @@ local function setup_servers()
   local servers = { "cssls", "html", "rust_analyzer", "tsserver",  "graphql", "vls" }
   for _, server in pairs(servers) do
     require'lspconfig'[server].setup{
-      on_attach = require('completion').on_attach,
+      on_attach = on_attach,
       capabilities = capabilities,
     }
   end
@@ -348,15 +338,31 @@ end
 
 setup_servers()
 
-g.completion_chain_complete_list = {
-  default = {
-    { complete_items = { 'lsp' } },
-    { complete_items = { 'buffers' } },
-    { complete_items = { 'ts' } },
-    { complete_items = { 'tags' } },
-    { mode = { '<c-p>' } },
-    { mode = { '<c-n>' } }
-  },
+--nvim-compe
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    spell = false;
+    nvim_lsp = true;
+    nvim_lua = true;
+    vsnip = true;
+    omni = true;
+    nvim_treesitter = true;
+  };
 }
 
 --use tab to navigate autocomplete
