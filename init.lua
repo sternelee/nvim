@@ -35,8 +35,8 @@ require('packer').startup(function()
   use 'nvim-treesitter/playground'
   use 'junegunn/limelight.vim'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
-  -- use 'shaunsingh/moonlight.nvim' -- theme
-  use 'savq/melange'
+  use 'shaunsingh/moonlight.nvim' -- theme
+  use 'bluz71/vim-nightfly-guicolors'
   use 'sunjon/shade.nvim' -- 高亮当前tab窗口
   -- 导航finder操作
   use 'mg979/vim-visual-multi'
@@ -253,8 +253,8 @@ let bufferline.icons = 'both'
 ]], false)
 
 --theme
--- require('moonlight').set()
-cmd 'colorscheme melange'
+require('moonlight').set()
+cmd 'colorscheme nightfly'
 
 require('kommentary.config').use_extended_mappings()
 
@@ -522,7 +522,6 @@ require('telescope').setup{
       '--column',
       '--smart-case'
     },
-    prompt_position = "top",
     prompt_prefix = " ",
     selection_caret = " ",
     entry_prefix = "  ",
@@ -530,24 +529,11 @@ require('telescope').setup{
     selection_strategy = "reset",
     sorting_strategy = "ascending",
     -- layout_strategy = "vertical",
-    layout_defaults = {
-      horizontal = {
-        mirror = false,
-      },
-      vertical = {
-        mirror = true,
-      },
-    },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
     file_ignore_patterns = {},
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     shorten_path = true,
     winblend = 0,
-    width = 0.75,
-    preview_cutoff = 120,
-    results_height = 1,
-    results_width = 0.8,
-    border = {},
     borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
     color_devicons = true,
     use_less = true,
@@ -656,7 +642,7 @@ local lualine_config = {
     -- Disable sections and component separators
     component_separators = "",
     section_separators = "",
-    -- theme = 'moonlight'
+    theme = 'moonlight'
     -- theme = {
     --   -- We are going to use lualine_c and lualine_x as left and
     --   -- right section. Both are highlighted by c theme .  So we

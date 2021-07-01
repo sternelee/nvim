@@ -20,4 +20,3 @@ if exists('g:GuiLoaded')
 endif
 
 " vim:set et sw=2:
-
