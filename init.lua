@@ -253,7 +253,7 @@ let bufferline.icons = 'both'
 ]], false)
 
 --theme
-require('moonlight').set()
+-- require('moonlight').set()
 cmd 'colorscheme nightfly'
 
 require('kommentary.config').use_extended_mappings()
