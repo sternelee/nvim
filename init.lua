@@ -26,7 +26,7 @@ require('packer').startup(function()
   use 'glepnir/dashboard-nvim'
   -- git相关
   use 'lewis6991/gitsigns.nvim'
-  use 'lambdalisue/gina.vim'
+  use 'tpope/vim-fugitive'
   use 'f-person/git-blame.nvim' -- 显示git message
   -- 语法高亮
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -35,7 +35,7 @@ require('packer').startup(function()
   use 'nvim-treesitter/playground'
   use 'junegunn/limelight.vim'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
-  use 'shaunsingh/moonlight.nvim' -- theme
+  -- use 'shaunsingh/moonlight.nvim' -- theme
   use 'savq/melange'
   use 'sunjon/shade.nvim' -- 高亮当前tab窗口
   -- 导航finder操作
@@ -103,7 +103,12 @@ require('packer').startup(function()
   }
   use 'konfekt/fastfold' -- 性能更好的语法折叠
   use 'ThePrimeagen/vim-be-good'
-  use 'sbdchd/neoformat'
+  use {
+    'mhartington/formatter.nvim',
+    config = function()
+      require('formatter').setup{}
+    end
+  }
 end)
 
 --settings
@@ -196,11 +201,11 @@ map('n', '<leader>b', '<cmd>BufferPick<CR>')
 map('n', '<leader>bj', '<cmd>bprevious<CR>')
 map('n', '<leader>bn', '<cmd>bnext<CR>')
 map('n', '<leader>be', '<cmd>tabedit<CR>')
-map('n', '<leader>ga', '<cmd>Gina add .<CR>')
-map('n', '<leader>gm', '<cmd>Gina commit<CR>')
-map('n', '<leader>gs', '<cmd>Gina status<CR>')
-map('n', '<leader>gl', '<cmd>Gina pull<CR>')
-map('n', '<leader>gu', '<cmd>Gina push<CR>')
+map('n', '<leader>ga', '<cmd>Git add .<CR>')
+map('n', '<leader>gm', '<cmd>Git commit<CR>')
+map('n', '<leader>gs', '<cmd>Git status<CR>')
+map('n', '<leader>gl', '<cmd>Git pull<CR>')
+map('n', '<leader>gu', '<cmd>Git push<CR>')
 cmd([[autocmd BufWritePre * %s/\s\+$//e]])                             --remove trailing whitespaces
 cmd([[autocmd BufWritePre * %s/\n\+\%$//e]])
 
@@ -248,8 +253,8 @@ let bufferline.icons = 'both'
 ]], false)
 
 --theme
-require('moonlight').set()
--- cmd 'colorscheme melange'
+-- require('moonlight').set()
+cmd 'colorscheme melange'
 
 require('kommentary.config').use_extended_mappings()
 
@@ -880,7 +885,7 @@ true_zen.setup(
     }
 )
 
-g.dashboard_session_directory = '~/.config/nvim/.sessions'
+g.dashboard_session_directory = '/.sessions'
 g.dashboard_default_executive = 'telescope'
 cmd("let packages = len(globpath('~/AppData/Local/nvim-dat/site/pack/packer/start', '*', 0, 1))")
 
