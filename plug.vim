@@ -34,37 +34,21 @@ Plug 'terryma/vim-expand-region' "扩大缩小选择区域
 Plug 'airblade/vim-rooter'
 " 显示文件图标
 Plug 'ryanoasis/vim-devicons'
-" Plug 'leafoftree/vim-vue-plugin'
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 if has('nvim')
     " https://github.com/glepnir/nvim-lua-guide-zh
-    Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "性能更好的语法高亮,需要night版本,建议更新完后把lua文件同步到nvim的lua目录下
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/playground'
-    " Plug 'romgrk/nvim-treesitter-context'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
-    " Telescope, 搜索grep工具
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-telescope/telescope-media-files.nvim'
     Plug 'phaazon/hop.nvim'
     map  <Leader>w :HopWord<CR>
     map  <Leader>l :HopLine<CR>
     map  <Leader>/ :HopPattern<CR>
-    " Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'} " 显示markdown preview
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
-else
-    Plug 'easymotion/vim-easymotion' " 基于字母的光标快速移动
-    Plug 'sheerun/vim-polyglot'
-    Plug 'justinmk/vim-sneak' "双字母选择的光标移动
-    let g:sneak#label = 1
-    Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
-    let g:Hexokinase_highlighters = ['foregroundfull']
 endif
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
