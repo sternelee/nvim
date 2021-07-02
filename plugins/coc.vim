@@ -25,11 +25,9 @@ let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-html',
   \ 'coc-lists',
-  \ 'coc-dictionary',
   \ 'coc-marketplace',
   \ 'coc-tsserver',
   \ 'coc-json',
-  \ 'coc-translator',
   \ 'coc-css',
   \ 'coc-emmet',
   \ 'coc-gitignore',
@@ -37,7 +35,6 @@ let g:coc_global_extensions = [
   \ 'coc-project',
   \ 'coc-vetur',
   \ 'coc-toml',
-  \ 'coc-emoji',
   \ 'coc-prettier',
   \ 'coc-eslint',
   \ 'coc-pairs'
@@ -119,6 +116,4 @@ nnoremap <silent><space>ff :<C-u>CocList files<cr>
 nnoremap <silent><space>fg :<C-u>CocList grep<cr>
 nnoremap <silent><space>fb :<C-u>CocList buffers<cr>
 command! -nargs=0 Format :CocCommand prettier.formatFile
-nmap <Leader>ct <Plug>(coc-translator-p)
-vmap <Leader>ct <Plug>(coc-translator-pv)
 nnoremap <Leader>e :CocCommand explorer<CR>

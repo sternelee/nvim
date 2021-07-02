@@ -18,7 +18,7 @@
   "coc.source.emoji.priority": 8,
   "coc.source.emoji.filetypes": ["markdown", "text"],
   "coc.preferences.colorSupport": true,
-  "eslint.enable": true,
+  "eslint.enable": false,
   "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevicons": true,
   "explorer.keyMappingMode": "none",
