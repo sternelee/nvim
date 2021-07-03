@@ -77,7 +77,6 @@ require('packer').startup(function()
   use 'gennaro-tedesco/nvim-peekup' -- 查看历史的复制和删除的寄存器,快捷键 ""
   use 'voldikss/vim-translator' -- npm install fanyi -g 安装翻译
   use 'b3nj5m1n/kommentary' -- 注释
-  use {'iamcco/markdown-preview.nvim', opt = true, run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
   use 'Pocco81/TrueZen.nvim'
   use { 'uguu-org/vim-matrix-screensaver', opt = true, cmd = 'Matrix' }
   use 'windwp/nvim-autopairs' -- 自动符号匹配
@@ -332,7 +331,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 local function setup_servers()
-  local servers = { "cssls", "html", "rust_analyzer", "tsserver",  "graphql", "vls" }
+  local servers = { "cssls", "html", "rls", "tsserver",  "graphql", "vls" }
   for _, server in pairs(servers) do
     require'lspconfig'[server].setup{
       on_attach = on_attach,
@@ -347,7 +346,7 @@ setup_servers()
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
-  debug = false;
+  debug = true;
   min_length = 1;
   preselect = 'enable';
   throttle_time = 80;
@@ -361,7 +360,7 @@ require'compe'.setup {
     path = true;
     buffer = true;
     calc = true;
-    spell = false;
+    spell = true;
     nvim_lsp = true;
     nvim_lua = true;
     vsnip = true;
@@ -515,7 +514,6 @@ require('telescope').setup{
   defaults = {
     vimgrep_arguments = {
       'rg',
-      '--color=never',
       '--no-heading',
       '--with-filename',
       '--line-number',
