@@ -16,7 +16,6 @@ Plug 'mhinz/vim-signify'
 Plug 'itchyny/lightline.vim' "状态栏显示
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
-Plug 'rmolin88/pomodoro.vim', { 'on': 'PomodoroStart' } "番茄时钟
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'sickill/vim-pasta'
 Plug 'konfekt/fastfold' "性能更好的语法折叠
@@ -50,11 +49,9 @@ Plug 'yggdroot/indentline' " 对齐线
 Plug 'voldikss/vim-translator'  " npm install fanyi -g 安装翻译
 Plug 'junegunn/vim-peekaboo' "查看历史的复制和删除的寄存器, @或\" 触发
 Plug 'tpope/vim-eunuch' " 加强的目录和文件编辑
-Plug 'mhinz/vim-hugefile'
 Plug 'tpope/vim-repeat' "重复命令操作
 Plug 'ntpeters/vim-better-whitespace' "显示多余空格
 Plug 'mhinz/vim-startify' "启动界面预览
-Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary' "快捷代码注释
 Plug 'asins/vimcdoc' "中文文档计划
 set helplang=cn
@@ -73,7 +70,6 @@ Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 Plug 'chrisbra/NrrwRgn' "专注于选定区域，而使其余区域无法访问,选择区域后:NR
 let g:nrrw_rgn_nomap_nr = 1
 let g:nrrw_rgn_nomap_Nr = 1
-Plug 'mbbill/undotree'
 
 call plug#end()
 
