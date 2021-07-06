@@ -12,6 +12,5 @@ endif
 
 colorscheme nightfly
 " colorscheme challenger_deep cyberpunk
-" hi Comment cterm=italic
 
-" highlight Comment cterm=italic gui=italic
+highlight Comment cterm=italic gui=italic

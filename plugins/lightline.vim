@@ -1,8 +1,7 @@
 let g:lightline = {
       \ 'colorscheme': 'nightfly',
       \ 'active': {
-      \   'left': [ ['homemode'],['mode','filename'],['gitbranch'],
-      \             ['coc_info','coc_hints','coc_errors','coc_warnings','coc_ok'],['coc_status','method']],
+      \   'left': [ ['homemode'],['mode','filename'],['gitbranch']],
       \   'right':[ ['lineinfo'],['percent'], ['fileformat','fileencoding'], ['asyncrun_status']],
       \ },
       \ 'inactive': {
@@ -26,19 +25,12 @@ let g:lightline = {
       \   'readonly': 'LightLineReadonly',
       \   'modified': 'LightLineModified',
       \   'filetype': 'LightLineFiletype',
-      \   'fileformat': 'LightLineFileformat',
-      \   'method': 'NearestMethodOrFunction'
+      \   'fileformat': 'LightLineFileformat'
       \ },
       \ 'component_type': {'buffers': 'tabsel'},
       \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2"},
       \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3"}
       \ }
-
-call lightline#coc#register()
-
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
 
 function! LightlineMode()
   let nr = s:get_buffer_number()

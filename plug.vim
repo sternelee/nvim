@@ -2,27 +2,20 @@
 " 需要使用Scoop(或chcoc)全局安装 ctags, fzf, maple, ripgrep, bat, fd
 
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " 语法提示
-set completeopt=menuone,noselect
+Plug 'skywind3000/vim-auto-popmenu'
+Plug 'skywind3000/vim-dict'
+let g:apc_enable_ft = {'*':1}
+set cpt=.,k,w,b
+set completeopt=menu,menuone,noselect
 set shortmess+=c " 禁止在下方显示一些啰嗦的提示
-Plug 'liuchengxu/vista.vim'
-let g:vista_default_executive = 'coc'
-Plug 'skywind3000/asynctasks.vim' "任务
-Plug 'skywind3000/asyncrun.vim'
-" Plug 'tpope/vim-dispatch', {'on': 'Dispatch'} "异步执行make和test
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary', 'on': 'Clap' }
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'liuchengxu/vim-which-key' "显示leader快捷键
 Plug 'junegunn/vim-easy-align' "代码对齐
 Plug 'tpope/vim-fugitive' " git插件
 Plug 'mhinz/vim-signify'
-Plug 'junegunn/gv.vim'
-Plug 'lambdalisue/gina.vim'
 Plug 'itchyny/lightline.vim' "状态栏显示
-Plug 'josa42/vim-lightline-coc'
 Plug 'mgee/lightline-bufferline' "状态栏buffer快捷导航
 Plug 'itchyny/vim-gitbranch'
-Plug 'albertomontesg/lightline-asyncrun'
 Plug 'rmolin88/pomodoro.vim', { 'on': 'PomodoroStart' } "番茄时钟
 Plug 'haya14busa/incsearch.vim' "增强/文字搜索
 Plug 'sickill/vim-pasta'
@@ -39,17 +32,9 @@ if has('nvim')
     Plug 'nvim-treesitter/playground'
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
-    Plug 'phaazon/hop.nvim'
-    map  <Leader>w :HopWord<CR>
-    map  <Leader>l :HopLine<CR>
-    map  <Leader>/ :HopPattern<CR>
     Plug 'norcalli/nvim-colorizer.lua' " 颜色值显示,最好把插件内的lua文件同步到bin/lua下
     lua require'colorizer'.setup()
 endif
-Plug 'heavenshell/vim-jsdoc', {
-  \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
-  \ 'do': 'make install'
-  \}
 " 多光标
 Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
@@ -69,14 +54,12 @@ Plug 'mhinz/vim-hugefile'
 Plug 'tpope/vim-repeat' "重复命令操作
 Plug 'ntpeters/vim-better-whitespace' "显示多余空格
 Plug 'mhinz/vim-startify' "启动界面预览
-Plug 'kristijanhusak/vim-carbon-now-sh' "代码块生成图片
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary' "快捷代码注释
 Plug 'asins/vimcdoc' "中文文档计划
 set helplang=cn
 " Plug 'pechorin/any-jump.vim' "跳转到函数定义
 Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
 Plug 'mzlogin/vim-markdown-toc'
 " 专注阅读
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
