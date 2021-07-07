@@ -16,6 +16,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 -- https://github.com/rockerBOO/awesome-neovim
 --setup packer
+cmd [[packadd packer.nvim]]
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
@@ -78,7 +79,6 @@ require('packer').startup(function()
   use 'voldikss/vim-translator' -- npm install fanyi -g 安装翻译
   use 'b3nj5m1n/kommentary' -- 注释
   use 'Pocco81/TrueZen.nvim'
-  use { 'uguu-org/vim-matrix-screensaver', opt = true, cmd = 'Matrix' }
   use 'windwp/nvim-autopairs' -- 自动符号匹配
   use {
     "blackCauldron7/surround.nvim",
