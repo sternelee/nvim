@@ -20,7 +20,7 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
   -- 状态栏
-  use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+  use {'windwp/windline.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use 'romgrk/barbar.nvim'
   use 'kyazdani42/nvim-tree.lua'
   use 'glepnir/dashboard-nvim'
@@ -118,7 +118,7 @@ local function opt(scope, key, value)
 end
 
 local indent = 4
-cmd 'hi NORMAL guibg=#2f334d'
+-- cmd 'hi NORMAL guibg=#2f334d'
 opt('b', 'expandtab', true)                           -- Use spaces instead of tabs
 opt('b', 'shiftwidth', indent)                        -- Size of an indent
 opt('b', 'smartindent', true)                         -- Insert indents automatically
@@ -143,7 +143,7 @@ opt('o', 'showmode', false )
 opt('o', 'background', 'dark' )
 opt('o', 'backup', false )
 opt('w', 'number', true)                              -- Print line number
-opt('o', 'lazyredraw', false)
+opt('o', 'lazyredraw', true)
 opt('o', 'signcolumn', 'yes')
 opt('o', 'mouse', 'a')
 opt('o', 'cmdheight', 1)
@@ -157,8 +157,20 @@ opt('o', 'foldmethod', 'manual')
 opt('o', 'breakindent', true)
 opt('o', 'lbr', true)
 opt('o', 'formatoptions', 'l')
+opt('o', 'laststatus', 2)
+opt('o', 'cursorline', true)
+opt('o', 'autowrite', true)
+opt('o', 'autoindent', true)
+
 --set shortmess
 vim.o.shortmess = vim.o.shortmess .. "c"
+
+nvim_exec([[
+filetype on
+filetype plugin on
+autocmd BufEnter * :syn sync maxlines=500
+filetype indent on
+]], false)
 
 --mappings
 local function map(mode, lhs, rhs, opts)
@@ -461,6 +473,204 @@ require'shade'.setup({
 require('indent_guides').setup({
 })
 
+local windline = require('windline')
+local helper = require('windline.helpers')
+local sep = helper.separators
+local vim_components = require('windline.components.vim')
+
+local b_components = require('windline.components.basic')
+local state = _G.WindLine.state
+
+local lsp_comps = require('windline.components.lsp')
+local git_comps = require('windline.components.git')
+
+local hl_list = {
+    Black = { 'white', 'black' },
+    White = { 'black', 'white' },
+    Inactive = { 'InactiveFg', 'InactiveBg' },
+    Active = { 'ActiveFg', 'ActiveBg' },
+}
+local basic = {}
+
+basic.divider = { b_components.divider, '' }
+basic.space = { ' ', '' }
+basic.file_name_inactive = { b_components.full_file_name, hl_list.Inactive }
+basic.line_col_inactive = { b_components.line_col, hl_list.Inactive }
+basic.progress_inactive = { b_components.progress, hl_list.Inactive }
+
+basic.vi_mode = {
+    name = 'vi_mode',
+    hl_colors = {
+        Normal = { 'black', 'red', 'bold' },
+        Insert = { 'black', 'green', 'bold' },
+        Visual = { 'black', 'yellow', 'bold' },
+        Replace = { 'black', 'blue_light', 'bold' },
+        Command = { 'black', 'magenta', 'bold' },
+        NormalBefore = { 'red', 'black' },
+        InsertBefore = { 'green', 'black' },
+        VisualBefore = { 'yellow', 'black' },
+        ReplaceBefore = { 'blue_light', 'black' },
+        CommandBefore = { 'magenta', 'black' },
+        NormalAfter = { 'white', 'red' },
+        InsertAfter = { 'white', 'green' },
+        VisualAfter = { 'white', 'yellow' },
+        ReplaceAfter = { 'white', 'blue_light' },
+        CommandAfter = { 'white', 'magenta' },
+    },
+    text = function()
+        return {
+            { sep.left_rounded, state.mode[2] .. 'Before' },
+            { state.mode[1] .. ' ', state.mode[2] },
+            { sep.left_rounded, state.mode[2] .. 'After' },
+        }
+    end,
+}
+
+basic.lsp_diagnos = {
+    name = 'diagnostic',
+    hl_colors = {
+        red = { 'red', 'black' },
+        yellow = { 'yellow', 'black' },
+        blue = { 'blue', 'black' },
+    },
+    width = 90,
+    text = function()
+        if lsp_comps.check_lsp() then
+            return {
+                { lsp_comps.lsp_error({ format = '  %s' }), 'red' },
+                { lsp_comps.lsp_warning({ format = '  %s' }), 'yellow' },
+                { lsp_comps.lsp_hint({ format = '  %s' }), 'blue' },
+            }
+        end
+        return ''
+    end,
+}
+
+basic.file = {
+    name = 'file',
+    hl_colors = {
+        default = hl_list.White,
+    },
+    text = function()
+        return {
+            { b_components.cache_file_icon(''), 'default' },
+            { ' ', '' },
+            { b_components.cache_file_name('[No Name]', 'unique'), '' },
+            { b_components.file_modified(' '), '' },
+            { b_components.cache_file_size(), '' },
+        }
+    end,
+}
+
+basic.right = {
+    hl_colors = {
+        sep_before = { 'black_light', 'black' },
+        sep_after = { 'black_light', 'black' },
+        text = { 'white', 'black_light' },
+    },
+    text = function()
+        return {
+            { sep.left_rounded, 'sep_before' },
+            { 'l/n', 'text' },
+            { b_components.line_col, 'text' },
+            { '', 'text' },
+            { b_components.progress, 'text' },
+            { sep.right_rounded, 'sep_after' },
+        }
+    end,
+}
+basic.git = {
+    name = 'git',
+    width = 90,
+    hl_colors = {
+        green = { 'green', 'black' },
+        red = { 'red', 'black' },
+        blue = { 'blue', 'black' },
+    },
+    text = function()
+        if git_comps.is_git() then
+            return {
+                { ' ' },
+                { git_comps.diff_added({ format = ' %s' }), 'green' },
+                { git_comps.diff_removed({ format = '  %s' }), 'red' },
+                { git_comps.diff_changed({ format = ' 柳%s' }), 'blue' },
+            }
+        end
+        return ''
+    end,
+}
+
+local default = {
+    filetypes = { 'default' },
+    active = {
+        { ' ', hl_list.Black },
+        basic.vi_mode,
+        basic.file,
+        { vim_components.search_count(), { 'red', 'white' } },
+        { sep.right_rounded, hl_list.Black },
+        basic.lsp_diagnos,
+        basic.git,
+        basic.divider,
+        {git_comps.git_branch({ icon = '  ' }),  { 'green', 'black' }, 90 },
+        { ' ', hl_list.Black },
+        basic.right,
+        { ' ', hl_list.Black },
+    },
+    in_active = {
+        basic.file_name_inactive,
+        basic.divider,
+        basic.divider,
+        basic.line_col_inactive,
+        { '', { 'white', 'InactiveBg' } },
+        basic.progress_inactive,
+    },
+}
+
+local quickfix = {
+    filetypes = { 'qf', 'Trouble' },
+    active = {
+        { '🚦 Quickfix ', { 'white', 'black' } },
+        { helper.separators.slant_right, { 'black', 'black_light' } },
+        {
+            function()
+                return vim.fn.getqflist({ title = 0 }).title
+            end,
+            { 'cyan', 'black_light' },
+        },
+        { ' Total : %L ', { 'cyan', 'black_light' } },
+        { helper.separators.slant_right, { 'black_light', 'InactiveBg' } },
+        { ' ', { 'InactiveFg', 'InactiveBg' } },
+        basic.divider,
+        { helper.separators.slant_right, { 'InactiveBg', 'black' } },
+        { '🧛 ', { 'white', 'black' } },
+    },
+    show_in_active = true,
+}
+
+local explorer = {
+    filetypes = { 'fern', 'NvimTree', 'lir' },
+    active = {
+        { '  ', { 'white', 'black' } },
+        { helper.separators.slant_right, { 'black', 'black_light' } },
+        { b_components.divider, '' },
+        { b_components.file_name(''), { 'white', 'black_light' } },
+    },
+    show_in_active = true,
+
+}
+
+windline.setup({
+    colors_name = function(colors)
+        -- ADD MORE COLOR HERE ----
+        return colors
+    end,
+    statuslines = {
+        default,
+        explorer,
+        quickfix,
+    },
+})
+
 --nvimtree
 g.nvim_tree_side = "left"
 g.nvim_tree_width = 25
@@ -603,226 +813,8 @@ fn.sign_define(
     {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"}
 )
 
--- lualine
-local lualine = require'lualine'
--- Color table for highlights
-local colors = {
-  bg       = '#1d2133',
-  fg       = '#e4f3fa',
-  yellow   = '#ffc777',
-  cyan     = '#04d1f9',
-  darkblue = '#a1abe0',
-  green    = '#2df4c0',
-  orange   = '#f67f81',
-  violet   = '#ecb2f0',
-  magenta  = '#b4a4f4',
-  blue     = '#04d1f9';
-  red      = '#ff757f';
-}
-
-local conditions = {
-  buffer_not_empty = function()
-    return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
-  end,
-  hide_in_width = function()
-    return vim.fn.winwidth(0) > 80
-  end,
-  check_git_workspace = function()
-    local filepath = vim.fn.expand('%:p:h')
-    local gitdir = vim.fn.finddir('.git', filepath .. ';')
-    return gitdir and #gitdir > 0 and #gitdir < #filepath
-  end
-}
-
--- Config
-local lualine_config = {
-  options = {
-    -- Disable sections and component separators
-    component_separators = "",
-    section_separators = "",
-    theme = 'moonlight'
-    -- theme = {
-    --   -- We are going to use lualine_c and lualine_x as left and
-    --   -- right section. Both are highlighted by c theme .  So we
-    --   -- are just setting default looks o statusline
-    --   normal = { c = {fg = colors.fg, bg = colors.bg}},
-    --   inactive = { c = {fg = colors.fg, bg = colors.bg}}
-    -- },
-  },
-  sections = {
-    -- these are to remove the defaults
-    lualine_a = {},
-    lualine_b = {},
-    lualine_y = {},
-    lualine_z = {},
-    -- These will be filled later
-    lualine_c = {},
-    lualine_x = {},
-  },
-  inactive_sections = {
-    -- these are to remove the defaults
-    lualine_a = {},
-    lualine_v = {},
-    lualine_y = {},
-    lualine_z = {},
-    lualine_c = {},
-    lualine_x = {},
-  }
-}
-
--- Inserts a component in lualine_c at left section
-local function ins_left(component)
-  table.insert(lualine_config.sections.lualine_c, component)
-end
-
--- Inserts a component in lualine_x ot right section
-local function ins_right(component)
-  table.insert(lualine_config.sections.lualine_x, component)
-end
-
-ins_left {
- function() return '▊' end,
- color = {fg = colors.blue}, -- Sets highlighting of component
- left_padding = 0 -- We don't need space before this
-}
-
-ins_left {
-  -- mode component
-  function()
-    -- auto change color according to neovims mode
-    local mode_color = {
-      n      = colors.red,
-      i      = colors.green,
-      v      = colors.blue,
-      [''] = colors.blue,
-      V      = colors.blue,
-      c      = colors.magenta,
-      no     = colors.red,
-      s      = colors.orange,
-      S      = colors.orange,
-      [''] = colors.orange,
-      ic     = colors.yellow,
-      R      = colors.violet,
-      Rv     = colors.violet,
-      cv     = colors.red,
-      ce     = colors.red,
-      r      = colors.cyan,
-      rm     = colors.cyan,
-      ['r?'] = colors.cyan,
-      ['!']  = colors.red,
-      t      = colors.red
-    }
-    vim.api.nvim_command('hi! LualineMode guifg='..mode_color[vim.fn.mode()] .. " guibg="..colors.bg)
-    return '〒'  end,
-  color = "LualineMode",
-  left_padding = 0,
-}
-
-ins_left {
-  -- filesize component
-  function()
-    local function format_file_size(file)
-      local size = vim.fn.getfsize(file)
-      if size <= 0 then return '' end
-      local sufixes = {'b', 'k', 'm', 'g'}
-      local i = 1
-      while size > 1024 do
-        size = size / 1024
-        i = i + 1
-      end
-      return string.format('%.1f%s', size, sufixes[i])
-    end
-    local file = vim.fn.expand('%:p')
-    if string.len(file) == 0 then return '' end
-    return format_file_size(file)
-  end,
-  condition = conditions.buffer_not_empty,
-}
-
-ins_left {
-  'filename',
-  condition = conditions.buffer_not_empty,
-  color = {fg = colors.blue, gui = 'bold'},
-}
-
-ins_left {
-  'location',
-  color = {fg = colors.darkblue, gui = 'bold'}
-}
-
-ins_left {
-  'progress',
-  color = {fg = colors.darkblue, gui = 'bold'},
-}
-
-ins_left {
-  'diagnostics',
-  sources = {'nvim_lsp'},
-  symbols = {error = ' ', warn = ' ', info= ' '},
-  color_error = colors.red,
-  color_warn = colors.yellow,
-  color_info = colors.cyan,
-}
-
-
-
--- Add components to right sections
-ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  condition = conditions.hide_in_width,
-  color = {fg = colors.darkblue, gui = 'bold'}
-}
-
-ins_right {
-  'fileformat',
-  icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
-  color = {fg = colors.darkblue, gui='bold'},
-}
-
-ins_right {
-  'branch',
-  icon = '',
-  condition = conditions.check_git_workspace,
-  color = {fg = colors.green, gui = 'bold'},
-}
-
-ins_right {
-  'diff',
-  -- Is it me or the symbol for modified us really weird
-  symbols = {added= ' ', modified= ' ', removed= ' '},
-  color_added = colors.green,
-  color_modified = colors.orange,
-  color_removed = colors.red,
-  condition = conditions.hide_in_width
-}
-
-ins_right {
-  -- Lsp server name .
-  function ()
-    local msg = 'none'
-    local buf_ft = vim.api.nvim_buf_get_option(0,'filetype')
-    local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then return msg end
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
-      end
-    end
-    return msg
-  end,
-  color = {fg = colors.cyan, gui = 'bold'}
-}
-
-ins_right {
-  function() return '▊' end,
-  color = {fg = colors.blue},
-  right_padding = 0,
-}
-lualine.setup(lualine_config)
-
+-- true-zen
 local true_zen = require("true-zen")
-
 true_zen.setup(
     {
         true_false_commands = false,
@@ -876,6 +868,7 @@ cmd("let packages = len(globpath('~/AppData/Local/nvim-dat/site/pack/packer/star
 nvim_exec([[
     let g:dashboard_custom_footer = ['LuaJIT loaded '..packages..' packages']
 ]], false)
+
 g.dashboard_custom_section = {
     a = {description = {'  Reload Last Session            SPC q l'}, command = 'SessionLoad'},
     b = {description = {'  Recently Opened Files          SPC f r'}, command = 'Telescope oldfiles'},
@@ -884,27 +877,4 @@ g.dashboard_custom_section = {
     e = {description = {'  Find File                      SPC f  '}, command = 'Telescope find_files'},
     f = {description = {'  Find Word                      SPC g  '}, command = 'Telescope live_grep'},
     g = {description = {'  Open Neovim Configuration      SPC f e'}, command = ':e ~/AppData/Local/nvim/init.lua'},
-}
-
-g.dashboard_custom_header = {
-                 "=================     ===============     ===============   ========  ========",
-                 "\\\\ . . . . . . .\\\\   //. . . . . . .\\\\   //. . . . . . .\\\\  \\\\. . .\\\\// . . //",
-                 "||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\\/ . . .||",
-                 "|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||",
-                 "||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||",
-                 "|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\\ . . . . ||",
-                 "||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\\_ . .|. .||",
-                 "|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\\ `-_/| . ||",
-                 "||_-' ||  .|/    || ||    \\|.  || `-_|| ||_-' ||  .|/    || ||   | \\  / |-_.||",
-                 "||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \\  / |  `||",
-                 "||    `'         || ||         `'    || ||    `'         || ||   | \\  / |   ||",
-                 "||            .===' `===.         .==='.`===.         .===' /==. |  \\/  |   ||",
-                 "||         .=='   \\_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \\/  |   ||",
-                 "||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \\/  |   ||",
-                 "||   .=='    _-'          `-__\\._-'         `-_./__-'         `' |. /|  |   ||",
-                 "||.=='    _-'                                                     `' |  /==.||",
-                 "=='    _-'                        N E O V I M                         \\/   `==",
-                 "\\   _-'                                                                `-_   /",
-                 " `''                                                                      ``'  ",
-                 "                                                                               ",
 }
