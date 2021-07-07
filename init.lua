@@ -275,8 +275,9 @@ cmd 'colorscheme nightfly'
 require('kommentary.config').use_extended_mappings()
 
 --nvim treesitter
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"vue", "html", "javascript", "typescript", "css", "json", "rust", "lua"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+require('nvim-treesitter.install').compilers = { "clang" }
+require('nvim-treesitter.configs').setup {
+  -- ensure_installed = {"vue", "html", "javascript", "typescript", "css", "json", "rust", "lua"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true,
   },
