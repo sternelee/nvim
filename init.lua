@@ -59,12 +59,17 @@ require('packer').startup(function()
   -- 语法建议
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
+  use {'tzachar/compe-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-compe'}
   -- 语法提示
   use 'folke/lsp-trouble.nvim'
   use 'onsails/lspkind-nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'ray-x/lsp_signature.nvim'
-  use 'ray-x/navigator.lua'
+  use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'},
+    config = function()
+      require'navigator'.setup()
+    end
+  }
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'jose-elias-alvarez/null-ls.nvim'
   -- snippet相关
@@ -378,6 +383,7 @@ require'compe'.setup {
     vsnip = true;
     omni = true;
     nvim_treesitter = true;
+    tabnine = true;
   };
 }
 
