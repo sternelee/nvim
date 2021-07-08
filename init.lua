@@ -275,9 +275,8 @@ cmd 'colorscheme nightfly'
 require('kommentary.config').use_extended_mappings()
 
 --nvim treesitter
-require('nvim-treesitter.install').compilers = { "clang" }
 require('nvim-treesitter.configs').setup {
-  -- ensure_installed = {"vue", "html", "javascript", "typescript", "css", "json", "rust", "lua"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {"vue", "html", "javascript", "typescript", "css", "json", "rust", "lua"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true,
   },
@@ -870,7 +869,7 @@ true_zen.setup(
 
 g.dashboard_session_directory = '/.sessions'
 g.dashboard_default_executive = 'telescope'
-cmd("let packages = len(globpath('~/AppData/Local/nvim-dat/site/pack/packer/start', '*', 0, 1))")
+cmd("let packages = len(globpath('~/.local/share/nvim/site/pack/packer/start', '*', 0, 1))")
 
 nvim_exec([[
     let g:dashboard_custom_footer = ['LuaJIT loaded '..packages..' packages']
