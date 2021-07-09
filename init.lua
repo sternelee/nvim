@@ -33,6 +33,7 @@ require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use  'nvim-treesitter/nvim-treesitter-textobjects'
   use 'nvim-treesitter/nvim-treesitter-refactor'
+  use 'windwp/nvim-ts-autotag'
   use 'nvim-treesitter/playground'
   use 'junegunn/limelight.vim'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
@@ -112,6 +113,13 @@ require('packer').startup(function()
     'mhartington/formatter.nvim',
     config = function()
       require('formatter').setup{}
+    end
+  }
+  use {
+    'NTBBloodbath/rest.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+        require('rest-nvim').setup()
     end
   }
 end)
@@ -284,6 +292,9 @@ require('nvim-treesitter.configs').setup {
   rainbow = {
     enable = true,
     extended_mode = true,
+  },
+  autotag = {
+    enable = true,
   }
 }
 
@@ -384,6 +395,7 @@ require'compe'.setup {
     vsnip = true;
     omni = true;
     nvim_treesitter = true;
+    emoji = true;
     tabnine = true;
   };
 }
