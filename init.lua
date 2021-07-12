@@ -37,13 +37,15 @@ require('packer').startup(function()
   use 'nvim-treesitter/playground'
   use 'junegunn/limelight.vim'
   use 'norcalli/nvim-colorizer.lua' -- 色值高亮
-  use 'shaunsingh/moonlight.nvim' -- theme
+  -- use 'shaunsingh/moonlight.nvim' -- theme
   use 'bluz71/vim-nightfly-guicolors'
   use 'sunjon/shade.nvim' -- 高亮当前tab窗口
   -- 导航finder操作
   use 'mg979/vim-visual-multi'
   use 'phaazon/hop.nvim'
+  use 'ggandor/lightspeed.nvim'
   use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
+  -- use { 'camspiers/snap', rocks = {'fzy'}}
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
   use {
     'nvim-telescope/telescope-project.nvim',
@@ -51,13 +53,13 @@ require('packer').startup(function()
       require"telescope".load_extension("project")
     end
   }
-  use {
+  --[[ use {
     'ahmedkhalf/lsp-rooter.nvim',
     config = function()
       require('lsp-rooter').setup {
       }
     end
-  }
+  } ]]
   -- 语法建议
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
@@ -79,7 +81,7 @@ require('packer').startup(function()
   use 'hrsh7th/vim-vsnip-integ'
   use 'rafamadriz/friendly-snippets'
   -- 方便操作
-  use 'glepnir/indent-guides.nvim'
+  -- use "lukas-reineke/indent-blankline.nvim" -- 对齐线，太多了
   use 'kevinhwang91/nvim-hlslens'
   use 'tpope/vim-eunuch'
   use 'gennaro-tedesco/nvim-peekup' -- 查看历史的复制和删除的寄存器,快捷键 ""
@@ -137,7 +139,7 @@ opt('b', 'expandtab', true)                           -- Use spaces instead of t
 opt('b', 'shiftwidth', indent)                        -- Size of an indent
 opt('b', 'smartindent', true)                         -- Insert indents automatically
 opt('b', 'tabstop', indent)                           -- Number of spaces tabs count for
-opt('o', 'completeopt', 'menuone,noinsert')           -- Completion options (for compe)
+opt('o', 'completeopt', 'menuone,noselect')           -- Completion options (for compe)
 opt('o', 'hidden', true)                              -- Enable modified buffers in background
 opt('o', 'scrolloff', 3 )                             -- Lines of context
 opt('o', 'shiftround', true)                          -- Round indent
@@ -203,6 +205,7 @@ map('n', 'q', '<cmd>q<CR>')
 map('n', '<leader>w', '<cmd>HopWord<CR>')                              --easymotion/hop
 map('n', '<leader>l', '<cmd>HopLine<CR>')
 map('n', '<leader>/', '<cmd>HopPattern<CR>')
+map('n', '<leader>P', '<cmd>Clap<CR>')                   --fuzzy
 map('n', '<leader>p', '<cmd>Telescope<CR>')                   --fuzzy
 map('n', '<leader>fr', '<cmd>Telescope oldfiles<CR>')                   --fuzzy
 map('n', '<leader>f', '<cmd>Telescope find_files<CR>')
@@ -250,6 +253,9 @@ let g:VM_maps = {}
 let g:VM_default_mappings = 0
 let g:VM_maps["Add Cursor Down"] = '<A-j>'
 let g:VM_maps["Add Cursor Up"] = '<A-k>'
+let g:indent_blankline_char_highlight_list = ['|', '¦', '┆', '┊']
+let g:indent_blankline_filetype_exclude = ['help', 'dashboard', 'NvimTree', 'telescope']
+
 ]], false)
 
 -- fastfold
@@ -282,6 +288,23 @@ let bufferline.icons = 'both'
 cmd 'colorscheme nightfly'
 
 require('kommentary.config').use_extended_mappings()
+
+require'lightspeed'.setup {
+  jump_to_first_match = true,
+  jump_on_partial_input_safety_timeout = 400,
+  -- This can get _really_ slow if the window has a lot of content,
+  -- turn it on only if your machine can always cope with it.
+  highlight_unique_chars = false,
+  grey_out_search_area = true,
+  match_only_the_start_of_same_char_seqs = true,
+  limit_ft_matches = 5,
+  full_inclusive_prefix_key = '<c-x>',
+  -- By default, the values of these will be decided at runtime,
+  -- based on `jump_to_first_match`.
+  labels = nil,
+  cycle_group_fwd_key = nil,
+  cycle_group_bwd_key = nil,
+}
 
 --nvim treesitter
 require('nvim-treesitter.configs').setup {
@@ -396,7 +419,14 @@ require'compe'.setup {
     omni = true;
     nvim_treesitter = true;
     emoji = true;
-    tabnine = true;
+    tabnine = {
+       max_line = 5000;
+       max_num_results = 6;
+       priority = 500;
+       sort = false;
+       show_prediction_strength = true;
+       ignore_pattern = '';
+    }
   };
 }
 
@@ -487,9 +517,6 @@ require'shade'.setup({
     brightness_down  = '<C-Down>',
     toggle           = '<Leader>s',
   }
-})
-
-require('indent_guides').setup({
 })
 
 local windline = require('windline')
